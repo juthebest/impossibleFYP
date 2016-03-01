@@ -9,7 +9,7 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-
+<!--   -->
 <sql:query var="status" dataSource="${dataSource}">
     SELECT * FROM `status` 
 
