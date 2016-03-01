@@ -185,8 +185,8 @@ public class loginServlet extends HttpServlet {
 			}
 
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp?" + x);
-
-			out.println("<font color=red>Either user name or password is wrong.</font>");
+			response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
+			/*out.println("<font color=red>Either user name or password is wrong.</font>");*/
 			rd.include(request, response);
 
 			// Clean-up environment

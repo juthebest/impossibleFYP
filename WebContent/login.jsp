@@ -48,7 +48,7 @@
 		window.onload = function() {
 			
 			if (window.params.IsSuccess == "false") {
-				document.getElementById("result").innerHTML = "<b>Invalid Login Info.</b><br>";
+				document.getElementById("result").innerHTML = "<b>Invalid Login Info. Please try again</b><br>";
 	
 				document.getElementById("result").style.color  = "red";
 				
