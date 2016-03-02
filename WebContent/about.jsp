@@ -67,7 +67,7 @@ SELECT about_description FROM control where control_id =2;
 				</c:forEach>
 			</div>
 		</div>
-		<!-- Border -->
+		<!-- Border XeniaKoh -->
 	</div>
 	<!-- End of Body  -->
 
