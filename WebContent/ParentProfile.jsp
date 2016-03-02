@@ -127,7 +127,6 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			<hr />
 			<div class="col-sm-4">
 
-
 				<c:forEach var="parentprofile" items="${parentdetails.rows}">
 					<b>User Role:</b> Parent
 				<p>
@@ -149,7 +148,6 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 						<c:out value="${parentprofile.address}" />
 					</p>
 				</c:forEach>
-
 
 
 			</div>
@@ -209,7 +207,6 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 									<a href="viewCourseDetails.html"> <c:out
 											value="${programsforstudents.program_name}" /></a>
 								</p>
-
 							</c:forEach>
 
 							<c:forEach var="coursesforstudents" items="${studentcourse.rows}">
@@ -217,7 +214,6 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 									<a href="viewCourseDetails.html"> <c:out
 											value="${coursesforstudents.item_name}" /></a>
 								</p>
-
 							</c:forEach>
 
 

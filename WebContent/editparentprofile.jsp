@@ -90,70 +90,113 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 <link href="css/home.css" rel="stylesheet">
 
 <body>
-	<div class="container">
-		<div class="row">
-			<h4>
-				<b>User Information</b>
-			</h4>
-			<hr />
 
-			<div class="col-sm-4">
-				<c:forEach var="parentprofile" items="${parentdetails.rows}">
+	<div class="container-fluid">
 
-					<p>
-						<b>Parent Name:</b>
-						<c:out
-							value="${parentprofile.surname} ${parentprofile.given_name}" />
-					</p>
-					<p>
-						<b>E-Mail: </b>
-						<c:out value="${parentprofile.email}" />
-					</p>
+		<div class="container">
+			<div class="row">
+				<h4>
+					<b>User Information</b>
+				</h4>
+				<hr />
+				<div class="panel panel-default">
+					<div class="panel-body">
 
-					<p>
-						<b>Mobile: </b>
-						<c:out value="${parentprofile.mobile}" />
-					</p>
-					<p>
-						<b>Address: </b>
-						<c:out value="${parentprofile.address}" />
-					</p>
-				</c:forEach>
+						<c:forEach var="parentprofile" items="${parentdetails.rows}">
+							<form action="editParentProfile" method="post"
+								class="form-horizontal" data-toggle="validator" role="form">
+								<input type="hidden" name="parentid" value="${parentprofile.parent_id}" />
 
-			</div>
-		</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="editcategory">Given
+										Name</label>
+									<div class="col-sm-10">
+										<input type="text" name="parentgivenname" class="form-control"
+											value="${parentprofile.given_name}" required />
+									</div>
+								</div>
 
-		<p style="text-align: right">
-			<a class="btn btn-default" href="#myModal" role="button"
-				data-toggle="modal">Back</a> <a class="btn btn-default"
-				href="editparentprofile.jsp" role="button">Submit</a>
-		</p>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="editcategory">Surname</label>
+									<div class="col-sm-10">
+										<input type="text" name="parentsurname" class="form-control"
+											value="${parentprofile.surname}" required />
+									</div>
+								</div>
 
-		<!-- Modal HTML -->
-		<div id="myModal" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Leave this page?</h4>
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="editcategory">E-Mail:
+									</label>
+									<div class="col-sm-10">
+										<input type="text" name="parentemail" class="form-control"
+											value="${parentprofile.email}" required />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="editcategory">Mobile:
+									</label>
+									<div class="col-sm-10">
+										<input type="text" name="parentmobile" class="form-control"
+											value="${parentprofile.mobile}" required />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="editcategory">Address:
+									</label>
+									<div class="col-sm-10">
+										<input type="text" name="parentaddress" class="form-control"
+											value="${parentprofile.address}" required />
+									</div>
+								</div>
+
+
+								<!-- <p style="text-align: right">
+									<a class="btn btn-default" href="#myModal" role="button"
+										data-toggle="modal">Back</a> <a class="btn btn-default"
+										href="editparentprofile.jsp" role="button" type = "submit">Submit</a>
+								</p> -->
+								
+								<div class="form-actions">
+										<button type="submit" class="btn btn-primary">Submit</button>
+										<a href="manageCategory.jsp"><button type="button"
+												class="btn btn-danger">Cancel</button></a>
+
+									</div>
+								
+							</form>
+						</c:forEach>
+
 					</div>
-					<div class="modal-body">
-						<p>Do you want to leave without saving your changes?</p>
-						<p class="text-warning">
-							<small>If you leave this page, your changes will be lost.</small>
-						</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Stay
-							on this Page</button>
-						<button type="button" class="btn btn-primary"
-							href="ParentProfile.jsp">Leave this Page</button>
+				</div>
+				<!-- Modal HTML -->
+				<div id="myModal" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Leave this page?</h4>
+							</div>
+							<div class="modal-body">
+								<p>Do you want to leave without saving your changes?</p>
+								<p class="text-warning">
+									<small>If you leave this page, your changes will be
+										lost.</small>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Stay on this Page</button>
+								<a href="ParentProfile.jsp"><button type="button"
+										class="btn btn-primary">Leave this Page</button></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 	<!-- Start of <Fixed footer> -->

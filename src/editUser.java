@@ -100,15 +100,6 @@ public class editUser extends HttpServlet {
 			int i= stmt.executeUpdate("UPDATE `user` SET`email`='"+email+"',`password`='"+pw+"',`surname`='"+sname+"',`given_name`='"+gname+"',`mobile`='"+mobile+"',`role`='"+role+"',`create_update_datetime`='"+currentTime+"',`salutation`='"+saluation+"',`address`='"+address+"',`userStatus_id`='"+uStatus+"' WHERE user_id='"+id+"'");
 
 
-
-
-
-
-
-
-
-
-
 			if(i==1 ){
 				response.sendRedirect("manageUser.jsp");
 
