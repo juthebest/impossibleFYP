@@ -1,8 +1,8 @@
 package dto;
 
 public class Account {
-	public String username;
-	public String password;
+	private String username;
+	private String password;
 	
 	public Account(String username, String password) {
 		super();
@@ -17,13 +17,13 @@ public class Account {
 	public String getUsername() {
 		return username;
 	}
-	public void setUsername(String username) {
+	public  void setUsername(String username) {
 		this.username = username;
 	}
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public  void setPassword(String password) {
 		this.password = password;
 	}
 	

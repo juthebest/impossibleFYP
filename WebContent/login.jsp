@@ -72,9 +72,9 @@
 							</h3>
 						</div>
 						<div class="panel-body">
-							<form action="loginServlet" method="post" class="form-horizontal"
+							<form action="AccountController" method="post" class="form-horizontal"
 								role="form ">
-								${error }
+							
 								<div class="form-group">
 									<label for="inputEmail"
 										class="col-sm-2 col-sm-offset-1 control-label">Email</label>
@@ -93,6 +93,7 @@
 											data-error="Please enter your password" required>
 									</div>
 								</div>
+									${error }
 								<p id="result"></p>
 								<hr />
 
