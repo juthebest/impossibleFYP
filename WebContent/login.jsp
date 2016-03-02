@@ -72,7 +72,7 @@
 							</h3>
 						</div>
 						<div class="panel-body">
-							<form action="AccountController" method="post" class="form-horizontal"
+							<form action="loginServlet" method="post" class="form-horizontal"
 								role="form ">
 							
 								<div class="form-group">
