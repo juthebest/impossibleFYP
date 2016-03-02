@@ -57,23 +57,23 @@ public class loginServlet extends HttpServlet {
 
 			// Open a connection
 			Connection conn = database.Get_Connection();
-			
+
 			final String email = request.getParameter("inputEmail");
 			String password = request.getParameter("inputPassword");
 			out.print("email:" + email);
 			out.print("password:" +  password);
 
-/*	MessageDigest md = null;
+			/*	MessageDigest md = null;
 
 			try {
 				md = MessageDigest.getInstance("SHA-256");
-			
+
 			} catch (NoSuchAlgorithmException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			md.update(password.getBytes());
-	
+
 
 			byte byteData[] = md.digest();
 
@@ -84,12 +84,12 @@ public class loginServlet extends HttpServlet {
 			}
 
 			password = sb.toString();
-		
+
 			System.out.println(password);
 
-			*/
-			
-			
+			 */
+
+
 			// Execute SQL query
 			final Statement stmt = conn.createStatement();
 			String sql;
