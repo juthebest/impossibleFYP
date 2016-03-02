@@ -37,7 +37,7 @@
 <link href="css/home.css" rel="stylesheet">
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
-<%
+<%-- <%
 	
 	
 	
@@ -72,7 +72,7 @@
 
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 	%>
-
+ --%>
 </head>
 
 <script src="ckeditor/ckeditor.js"></script>

@@ -55,7 +55,7 @@
 
 <link href="css/fileinput.min.css" media="all" rel="stylesheet"
 	type="text/css" />
-<%
+<%-- <%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -80,7 +80,7 @@
 		}
 
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	%> --%>
 	
 </head>
 
@@ -147,8 +147,7 @@
 								</div>
 
 								<div class="form-group required">
-									<label class="col-sm-2 control-label" for="input-name1">Related
-										Programs:</label>
+									<label class="col-sm-2 control-label" ></label> 
 									<div class="col-sm-10">
 										<!-- whether it is edit/selected depends on sql query already -->
 										<div class="panel panel-default">
@@ -300,8 +299,7 @@
 								</div>
 								<div class="form-group">
 									<div class="form-actions">
-										<button type="submit" class="btn btn-primary">Edit
-											Workshop</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
 										<a href="workshopAdmin.jsp"><button type="button"
 												class="btn btn-danger">Cancel</button></a>
 									</div>

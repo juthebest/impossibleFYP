@@ -54,7 +54,7 @@ SELECT * FROM item_type
 <link href="css/fileinput.min.css" media="all" rel="stylesheet"
 	type="text/css" />
 
-<%
+<%-- <%
 	//allow access only if session exists
 	String user = null;
 
@@ -81,7 +81,7 @@ SELECT * FROM item_type
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%>
+%> --%>
 	
 </head>
 
@@ -267,8 +267,7 @@ SELECT * FROM item_type
 
 							<div class="form-group">
 								<div class="form-actions">
-									<button type="submit" class="btn btn-primary">Add
-										Program</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
 									<a href="programAdmin.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
 								</div>

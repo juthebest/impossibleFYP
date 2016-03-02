@@ -215,7 +215,7 @@ SELECT * FROM item_type
 
 							<div class="form-group">
 								<div class="form-actions">
-									<button type="submit" class="btn btn-primary">Add Workshop</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
 									<a href="workshopAdmin.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
 

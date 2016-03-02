@@ -41,7 +41,7 @@
 <![endif]-->
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
-<%
+<%-- <%
 	//allow access only if session exists
 	String user = null;
 
@@ -68,7 +68,7 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%>
+%> --%>
 
 </head>
 
@@ -117,9 +117,7 @@
 								class="table table-bordered table-hover tablesorter">
 								<thead>
 									<tr>
-										<td style="width: 1px;" class="text-center"
-											data-sorter="false"><input type="checkbox"
-											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+										<td /></td>
 
 										<td class="text-left"><a href="#" class="asc">Coaching
 												Session Name</a></td>

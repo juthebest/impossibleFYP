@@ -55,7 +55,7 @@
 
 <link href="css/fileinput.min.css" media="all" rel="stylesheet"
 	type="text/css" />
-<%
+<%-- <%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -80,7 +80,7 @@
 		}
 
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	%> --%>
 	
 </head>
 
@@ -312,8 +312,7 @@
 
 								<div class="form-group">
 									<div class="form-actions">
-										<button type="submit" class="btn btn-primary">Edit
-											Program</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
 										<a href="programAdmin.jsp"><button type="button"
 												class="btn btn-danger">Cancel</button></a>
 									</div>
