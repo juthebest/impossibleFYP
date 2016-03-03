@@ -129,7 +129,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 
 				<c:forEach var="parentprofile" items="${parentdetails.rows}">
 
-				<p>
+					<p>
 						<b>Name:</b>
 						<c:out
 							value="${parentprofile.surname} ${parentprofile.given_name}" />
@@ -154,7 +154,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			<div class="col-sm-4">
 				<c:forEach var="profilechild" items="${chilid2.rows}">
 
-				<p>
+					<p>
 						<b>Child's Name:</b>
 						<c:out value="${profilechild.surname} ${profilechild.given_name}" />
 					</p>
@@ -219,9 +219,10 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			</div>
 		</div>
 		<p style="text-align: right">
-			<a class="btn btn-default" href="parenthomepage.jsp" role="button">Back</a>
 			<a class="btn btn-default" href="editparentprofile.jsp" role="button"><i
-				class="glyphicon glyphicon-edit"></i>Edit</a>
+				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-default"
+				href="parenthomepage.jsp" role="button">Back</a>
+
 		</p>
 	</div>
 
