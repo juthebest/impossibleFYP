@@ -138,10 +138,10 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 									<i>Commented on <c:out
 											value="${client.coach_comment_datetime}" />
 								</div>
-								<!-- <ul class="pager">
+<!-- 				<ul class="pager">
 											<li class="previous"><a href="#">&larr; Previous</a></li>
-											<li class="next"><a href="#">Next &rarr;</a></li>
-										</ul> -->
+											<li class="next"><a href="#">Next &rarr;</a></li> -->
+								
 							</div>
 						</c:forEach>
 					</div>
@@ -152,7 +152,6 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 	</div>
 
 	<footer id="footerMenu"></footer>
-
 	<script src="js/footer.js"></script>
 
 
