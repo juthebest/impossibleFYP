@@ -119,7 +119,7 @@ AND user.user_id = <%=uid%>;
 
 			<div class="col-sm-4">
 				<c:forEach var="profile" items="${userprofile.rows}">
-					<b>User Role:</b> Child
+
 				<p>
 						<b>Name:</b>
 						<c:out value="${profile.surname} ${profile.given_name}" />
@@ -152,21 +152,21 @@ AND user.user_id = <%=uid%>;
 			<div class="col-sm-4">
 
 				<c:forEach var="parentname" items="${parentid.rows}">
-					<b>User Role:</b> Parent
+	
 				<p>
-						<b>Parent:</b>
+						<b>Parent's Name:</b>
 						<c:out value="${parentname.surname} ${parentname.given_name}" />
 					</p>
 					<p>
-						<b>E-Mail: </b>
+						<b>Parent's E-Mail: </b>
 						<c:out value="${parentname.email}" />
 					</p>
 					<p>
-						<b>Mobile: </b>
+						<b>Parent's Mobile: </b>
 						<c:out value="${parentname.mobile}" />
 					</p>
 					<p>
-						<b>Address: </b>
+						<b>Parent's Address: </b>
 						<c:out value="${parentname.address}" />
 					</p>
 				</c:forEach>
@@ -180,6 +180,7 @@ AND user.user_id = <%=uid%>;
 				</h4>
 				<hr>
 				<p>The Student have the following Item Structure:</p>
+				
 				<div class="panel-group">
 
 					<div class="panel panel-default">
@@ -187,7 +188,6 @@ AND user.user_id = <%=uid%>;
 							<h5>Item Names</h5>
 						</div>
 						<div class="panel-body">
-
 
 							<c:forEach var="programsforstudents"
 								items="${studentprograms.rows}">
@@ -214,7 +214,12 @@ AND user.user_id = <%=uid%>;
 		</div>
 		<p style="text-align: right">
 			<a class="btn btn-default" href="user.jsp" role="button">Back</a>
+			<a class="btn btn-default" href="#" role="button"><i
+				class="glyphicon glyphicon-edit"></i>Edit</a>
 		</p>
+		
+
+		
 	</div>
 
 	<!-- Start of <Fixed footer> -->

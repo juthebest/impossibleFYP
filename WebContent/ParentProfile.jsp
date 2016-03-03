@@ -128,9 +128,9 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			<div class="col-sm-4">
 
 				<c:forEach var="parentprofile" items="${parentdetails.rows}">
-					<b>User Role:</b> Parent
+
 				<p>
-						<b>Parent Name:</b>
+						<b>Name:</b>
 						<c:out
 							value="${parentprofile.surname} ${parentprofile.given_name}" />
 					</p>
@@ -153,38 +153,35 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			</div>
 			<div class="col-sm-4">
 				<c:forEach var="profilechild" items="${chilid2.rows}">
-					<b>User Role:</b> Child
+
 				<p>
-						<b>Name:</b>
+						<b>Child's Name:</b>
 						<c:out value="${profilechild.surname} ${profilechild.given_name}" />
 					</p>
 					<p>
-						<b>Date of Birth: </b>
+						<b>Child's Date of Birth: </b>
 						<c:out value="${profilechild.client_dob}" />
 					</p>
 					<p>
-						<b>E-Mail: </b>
+						<b>Child's E-Mail: </b>
 						<c:out value="${profilechild.email}" />
 					</p>
 
 					<p>
-						<b>Mobile: </b>
+						<b>Child's Mobile: </b>
 						<c:out value="${profilechild.mobile}" />
 					</p>
 					<p>
-						<b>Address: </b>
+						<b>Child's Address: </b>
 						<c:out value="${profilechild.address}" />
 					</p>
 					<p>
-						<b>School: </b>
+						<b>Child's School: </b>
 						<c:out value="${profilechild.client_school}" />
 					</p>
 				</c:forEach>
 			</div>
-
 		</div>
-
-
 
 		<div class="row">
 			<div class="col-sm-8">
@@ -201,7 +198,6 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 						</div>
 						<div class="panel-body">
 
-
 							<c:forEach var="programsforstudents" items="${chilid.rows}">
 								<p>
 									<a href="viewProgramDetails.jsp"> <c:out
@@ -215,8 +211,6 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 											value="${coursesforstudents.item_name}" /></a>
 								</p>
 							</c:forEach>
-
-
 						</div>
 					</div>
 				</div>
