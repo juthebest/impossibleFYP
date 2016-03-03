@@ -192,7 +192,7 @@ AND user.user_id = <%=uid%>;
 							<c:forEach var="programsforstudents"
 								items="${studentprograms.rows}">
 								<p>
-									<a href="viewCourseDetails.html"> <c:out
+									<a href="viewProgramDetails.jsp"> <c:out
 											value="${programsforstudents.program_name}" /></a>
 								</p>
 
@@ -200,7 +200,7 @@ AND user.user_id = <%=uid%>;
 
 							<c:forEach var="coursesforstudents" items="${studentcourse.rows}">
 								<p>
-									<a href="viewCourseDetails.html"> <c:out
+									<a href="viewCoachingSession.jsp"> <c:out
 											value="${coursesforstudents.item_name}" /></a>
 								</p>
 							</c:forEach>
