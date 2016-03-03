@@ -204,14 +204,14 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 
 							<c:forEach var="programsforstudents" items="${chilid.rows}">
 								<p>
-									<a href="viewProgramDetails.html"> <c:out
+									<a href="viewProgramDetails.jsp"> <c:out
 											value="${programsforstudents.program_name}" /></a>
 								</p>
 							</c:forEach>
 
 							<c:forEach var="coursesforstudents" items="${studentcourse.rows}">
 								<p>
-									<a href="viewCourseDetails.html"> <c:out
+									<a href="viewCoachingSession.jsp"> <c:out
 											value="${coursesforstudents.item_name}" /></a>
 								</p>
 							</c:forEach>
