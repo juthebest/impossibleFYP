@@ -217,7 +217,6 @@ AND user.user_id = <%=uid%>;
 			<a class="btn btn-default" href="#" role="button"><i
 				class="glyphicon glyphicon-edit"></i>Edit</a>
 		</p>
-		
 	</div>
 
 	<!-- Start of <Fixed footer> -->
