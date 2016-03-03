@@ -109,6 +109,18 @@ SELECT * FROM `control` WHERE control_id = 1;
     <![endif]-->
 
 <body>
+
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="user.jsp">Home</a></li>
+				<li class="active">Reflection Journal</li>
+			</ol>
+		</div>
+	</div>
+
+	<br />
+
 	<nav id="navMenu"></nav>
 	<form name="form1" method="post" action="userreflectionjournaluser">
 		<div class="container">
@@ -121,8 +133,7 @@ SELECT * FROM `control` WHERE control_id = 1;
 					<div class="panel-body">
 						<c:forEach var="client" items="${clientid.rows}">
 							<input type="hidden"
-								value="<c:out value="${client.client_id}" />"
-								name="xenia" />
+								value="<c:out value="${client.client_id}" />" name="xenia" />
 
 						</c:forEach>
 						<c:forEach var="coachid" items="${coach_id.rows}">
@@ -143,42 +154,42 @@ SELECT * FROM `control` WHERE control_id = 1;
 						<script>
 							CKEDITOR.replace('editor1');
 						</script>
-					
-					<br />
-					<div class="row">
-						<label> Today's Emotion Rating: </label> <br />
-						<div class="col-sm-2" style="margin-left: -20px">
-							<select class="form-control" id="status" name="emotionrating">
-								<option value="Elated">Elated</option>
-								<option value="Happy">Happy</option>
-								<option value="Sad">Sad</option>
-							</select>
-						</div>
-					</div>
-					
-					<br />
-					<div class="row">
-						<label>Privacy Indicator:</label> <br />
-						<div class="col-sm-4" style="margin-left: -20px">
-							<select class="form-control" id="status" name="privacyin">
-								<option value="Allow">Allow All</option>
-								<option value="Onlycounsellor">Only Counsellor</option>
-							</select>
-						</div>
-					</div>
 
-					<div class="row">
-						<div class="form-group">
-							<div class="form-actions" style="text-align: right">
-								<button type="submit" class="btn btn-primary" id="UpdateButton">Submit</button>
-								<a class="btn btn-danger" href="user.jsp">Cancel</a>
+						<br />
+						<div class="row">
+							<label> Today's Emotion Rating: </label> <br />
+							<div class="col-sm-2" style="margin-left: -20px">
+								<select class="form-control" id="status" name="emotionrating">
+									<option value="Elated">Elated</option>
+									<option value="Happy">Happy</option>
+									<option value="Sad">Sad</option>
+								</select>
 							</div>
 						</div>
-					</div>
 
+						<br />
+						<div class="row">
+							<label>Privacy Indicator:</label> <br />
+							<div class="col-sm-4" style="margin-left: -20px">
+								<select class="form-control" id="status" name="privacyin">
+									<option value="Allow">Allow All</option>
+									<option value="Onlycounsellor">Only Counsellor</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="form-actions" style="text-align: right">
+									<button type="submit" class="btn btn-primary" id="UpdateButton">Submit</button>
+									<a class="btn btn-danger" href="user.jsp">Cancel</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</form>
 

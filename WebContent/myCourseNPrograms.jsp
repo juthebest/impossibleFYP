@@ -11,37 +11,39 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 <%
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String role=(String) session.getAttribute("role");
-		String uid = null;
-		 if(session.getAttribute("name") == null || session.getAttribute("role") == null || !role.equalsIgnoreCase("child")){
+	String role = (String) session.getAttribute("role");
+	String uid = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") == null
+			|| !role.equalsIgnoreCase("child")) {
 		response.sendRedirect("login.jsp");
-		}else user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	} else
+		user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%><%-- 
 <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
@@ -55,7 +57,7 @@
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
+</form> --%>
 
 <%-- <sql:query var="userprofile" dataSource="${dataSource}">
 SELECT * FROM user, client, program_has_client
@@ -109,6 +111,17 @@ AND user.user_id = <%=uid%>;</sql:query>
     <![endif]-->
 
 <body>
+
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="user.jsp">Home</a></li>
+				<li class="active">My Courses & Programs</li>
+			</ol>
+		</div>
+	</div>
+
+	<br />
 
 	<div class="container">
 		<div class="container-fluid">
