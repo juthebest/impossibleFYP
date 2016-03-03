@@ -138,10 +138,10 @@ WHERE user.coach_id = coach.coach_id
 							class="table table-bordered table-hover tablesorter">
 							<thead>
 								<tr>
-									<td style="width: 1px;" class="text-center" data-sorter="false"><input
+									<!-- <td style="width: 1px;" class="text-center" data-sorter="false"><input
 										type="checkbox"
 										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-
+ -->
 
 									<td class="text-left"><a href="#">Coach Name</a></td>
 									<td class="text-left"><a href="#">Coach Email</a></td>

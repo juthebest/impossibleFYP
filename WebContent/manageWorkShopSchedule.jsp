@@ -137,10 +137,10 @@ AND coach.coach_id= user.coach_id
 								class="table table-bordered table-hover tablesorter">
 								<thead>
 									<tr>
-										<td style="width: 1px;" class="text-center"
+										<!-- <td style="width: 1px;" class="text-center"
 											data-sorter="false"><input type="checkbox"
 											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-
+ -->
 										<td class="text-left"><a href="#" class="asc">Course
 												Title</a></td>
 

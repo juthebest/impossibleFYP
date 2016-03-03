@@ -140,9 +140,9 @@ OR role =  'parent'
 								class="table table-bordered table-hover tablesorter">
 								<thead>
 									<tr>
-										<td style="width: 1px;" class="text-center"
+										<!-- <td style="width: 1px;" class="text-center"
 											data-sorter="false"><input type="checkbox"
-											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td> -->
 										<td class="text-left"><a href="#" class="asc">User
 												Salutation</a></td>
 
