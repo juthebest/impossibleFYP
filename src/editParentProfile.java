@@ -2,6 +2,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
@@ -29,27 +30,36 @@ public class editParentProfile extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
+
+		// Database credentials
+		final String USER = "root";
+		final String PASS = "";
 
 		// Set response content type
 		response.setContentType("text/html");
 
 		PrintWriter out = response.getWriter();
+		// Open a connection
+
+		String id = null;
+		String givenname = null;
+		String surname = null;
+		String email = null;
+		String mobile = null;
+		String address = null;
+
+		id = request.getParameter("parentid");
+		givenname = request.getParameter("parentgivenname");
+		surname = request.getParameter("parentsurname");
+		email = request.getParameter("parentemail");
+		mobile = request.getParameter("parentmobile");
+		address = request.getParameter("parentaddress");
 
 		try {
 
@@ -61,31 +71,15 @@ public class editParentProfile extends HttpServlet {
 
 			// Open a connection
 			Connection conn = database.Get_Connection();
-
-			String id = null;
-			String givenname = null;
-			String surname = null;
-			String email = null;
-			
-			
-			String mobile = null;
-			String address = null;
-
-			id = request.getParameter("parentid");
-			givenname = request.getParameter("parentgivenname");
-			surname = request.getParameter("parentsurname");
-			email = request.getParameter("parentemail");
-			mobile = request.getParameter("parentmobile");
-			address = request.getParameter("parentaddress");
+			Statement stmt = null;
+			stmt = conn.createStatement();
 
 			// create the java mysql update preparedstatement
-			// Execute SQL query
-			Statement stmt = null;
-
-			stmt = conn.createStatement();
 			int i = stmt.executeUpdate(
-					"UPDATE `user` SET`given_name`='" + givenname + "',`surname`='" + surname + "',`surname`='" + email
+					"UPDATE `user` SET `given_name`='" + givenname + "',`surname`='" + surname + "',`surname`='" + email
 							+ "',`mobile`='" + mobile + "',`mobile`='" + address + "' WHERE parent_id='" + id + "'");
+
+			conn.close();
 
 			if (i == 1) {
 				response.sendRedirect("ParentProfile.jsp");
@@ -96,16 +90,13 @@ public class editParentProfile extends HttpServlet {
 
 			}
 
-			conn.close();
-
 		}
 
-		catch (Exception e) {
-			System.err.println("Got an exception! ");
+		catch (Exception e)
+		{
+			System.err.println("Got an exception!");
 			System.err.println(e.getMessage());
 		}
-
-		doGet(request, response);
 	}
 
 }

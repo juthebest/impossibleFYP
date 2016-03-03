@@ -92,7 +92,6 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 <body>
 
 	<div class="container-fluid">
-
 		<div class="container">
 			<div class="row">
 				<h4>
@@ -103,12 +102,12 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 					<div class="panel-body">
 
 						<c:forEach var="parentprofile" items="${parentdetails.rows}">
-							<form action="editParentProfile" method="post"
-								class="form-horizontal" data-toggle="validator" role="form">
+							<form action="editParentProfile" method="post" class="form-horizontal">
+								
 								<input type="hidden" name="parentid" value="${parentprofile.parent_id}" />
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="editcategory">Given
+									<label class="col-sm-2 control-label" for="parentgivenname">Given
 										Name</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentgivenname" class="form-control"
@@ -117,7 +116,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="editcategory">Surname</label>
+									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentsurname" class="form-control"
 											value="${parentprofile.surname}" required />
@@ -125,7 +124,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="editcategory">E-Mail:
+									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
 									</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentemail" class="form-control"
@@ -134,7 +133,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="editcategory">Mobile:
+									<label class="col-sm-2 control-label" for="parentmobile">Mobile:
 									</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentmobile" class="form-control"
@@ -143,7 +142,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="editcategory">Address:
+									<label class="col-sm-2 control-label" for="parentaddress">Address:
 									</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentaddress" class="form-control"
@@ -160,7 +159,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								
 								<div class="form-actions">
 										<button type="submit" class="btn btn-primary">Submit</button>
-										<a href="manageCategory.jsp"><button type="button"
+										<a href="ParentProfile.jsp"><button type="button"
 												class="btn btn-danger">Cancel</button></a>
 
 									</div>
@@ -171,7 +170,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 					</div>
 				</div>
 				<!-- Modal HTML -->
-				<div id="myModal" class="modal fade">
+				<!-- <div id="myModal" class="modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -194,7 +193,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

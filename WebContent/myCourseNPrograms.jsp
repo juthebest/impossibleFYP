@@ -113,15 +113,6 @@ AND user.user_id = <%=uid%>;</sql:query>
 	<div class="container">
 		<div class="container-fluid">
 			<div class="panel panel-default">
-				<div class="panel-heading">
-					<c:forEach var="programsforstudents" items="${userprofile.rows}">
-						<h3 class="panel-title">
-							<c:out
-								value="${programsforstudents.surname} ${programsforstudents.given_name}" />
-						</h3>
-					</c:forEach>
-
-				</div>
 				<div class="panel-body">
 					<div class="row">
 						<h4>Program Registered</h4>

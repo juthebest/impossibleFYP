@@ -75,12 +75,10 @@ AND user.user_id = <%=uid%>;
 SELECT * FROM `program_has_client`, `program`, `client`
 WHERE `program`.`program_id` = `program_has_client`.`program_id`
 AND `program_has_client`.`client_id` = `client`.`client_id`
-AND `program_has_client`.`enrollment_status_id` = 1
+AND `program_has_client`.`enrollment_status_id` = 2
 AND client.client_id = <c:out value="${studentprograms.client_id}" />;
 	</sql:query>
 </c:forEach>
-
-
 
 <c:forEach var="courses" items="${studentname.rows}">
 	<sql:query var="studentcourse" dataSource="${dataSource}">
@@ -91,7 +89,6 @@ AND itemrun_has_client.client_id = client.client_id
 AND client.client_id = <c:out value="${courses.client_id}" />;
 	</sql:query>
 </c:forEach>
-
 
 
 <meta charset="utf-8">
@@ -113,20 +110,9 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
     <![endif]-->
 
 <body>
-
 	<div class="container">
 		<div class="container-fluid">
 			<div class="panel panel-default">
-				<div class="panel-heading">
-
-					<c:forEach var="name" items="${studentname.rows}">
-						<h3 class="panel-title">
-							<c:out value="${name.given_name} ${name.surname}" />
-							<br />
-						</h3>
-					</c:forEach>
-
-				</div>
 				<div class="panel-body">
 					<div class="row">
 						<h4>Program Registered</h4>

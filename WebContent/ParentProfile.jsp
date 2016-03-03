@@ -88,7 +88,7 @@ AND user.user_id = <%=uid%>;
 SELECT * FROM `program_has_client`, `program`, `client`
 WHERE `program`.`program_id` = `program_has_client`.`program_id`
 AND `program_has_client`.`client_id` = `client`.`client_id`
-AND `program_has_client`.`enrollment_status_id` = 1
+AND `program_has_client`.`enrollment_status_id` = 2
 AND client.client_id = <c:out value="${studentprograms.client_id}" />;
 	</sql:query>
 </c:forEach>
@@ -204,7 +204,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 
 							<c:forEach var="programsforstudents" items="${chilid.rows}">
 								<p>
-									<a href="viewCourseDetails.html"> <c:out
+									<a href="viewProgramDetails.html"> <c:out
 											value="${programsforstudents.program_name}" /></a>
 								</p>
 							</c:forEach>
