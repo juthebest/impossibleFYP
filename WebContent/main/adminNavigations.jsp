@@ -76,7 +76,7 @@ role=<%=role%>
 					class="dropdown-toggle" data-toggle="dropdown">Home <b
 						class=caret></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="index.jsp">Public homepage</a></li>
+						<li><a href="index.jsp">I'M POSSIBLE</a></li>
 						<li><a href="adminIndex.jsp">Admin homepage</a></li>
 					</ul></li>
 
@@ -101,10 +101,8 @@ role=<%=role%>
 					</ul></li>
 
 
-
-
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><i class="fa fa-user"></i> Hi <%=user%>,Role:<%=role%>
+					data-toggle="dropdown"><i class="fa fa-user"></i> Hi <%=user%>
 						<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 				

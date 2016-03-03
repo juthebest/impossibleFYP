@@ -57,7 +57,6 @@
 			</button>
 			<a class="navbar-brand" href="counsellor.jsp"> <img
 				id="brand-image" alt="Website logo" src="image/brandimage.PNG" />
-
 			</a>
 		</div>
 
@@ -66,9 +65,9 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Home <b class=caret></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="counsellor.jsp">User\s Home</a></li>
+						<li><a href="counsellor.jsp">User's Home</a></li>
 						<li class="active">
-						<li><a href="index.jsp">I\M Counselling</a></li>
+						<li><a href="index.jsp">I'M POSSIBLE</a></li>
 					</ul></li>
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -91,8 +90,8 @@
 						</div>
 					</form></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><i class="fa fa-user"></i> Hi <%=user%> role:<%=userrole%> <b
-						class="caret"></b></a>
+					data-toggle="dropdown"><i class="fa fa-user"></i> Hi <%=user%>
+						<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="LogoutServlet.java"><i
 								class="fa fa-fw fa-power-off"></i> Log Out</a></li>

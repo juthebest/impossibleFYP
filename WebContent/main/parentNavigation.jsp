@@ -65,10 +65,9 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Home <b class=caret></b></a>
 					<ul class="dropdown-menu">
-
-						<li><a href="parenthomepage.jsp">User\s Home</a></li>
+						<li><a href="parenthomepage.jsp">User's Home</a></li>
 						<li class="active">
-						<li><a href="index.jsp">I\M Counselling</a></li>
+						<li><a href="index.jsp">I'M POSSIBLE</a></li>
 					</ul></li>
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -84,14 +83,14 @@
 				<li><a href="contactUs.jsp">Contact Us</a></li>
 
 
-
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><i class="fa fa-user"></i> Hi, <%=user%> role:<%=role%>  <b
-						class="caret"></b></a>
+					data-toggle="dropdown"><i class="fa fa-user"></i> Hi, <%=user%>
+						<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="ParentProfile.jsp"><i
 								class="fa fa-fw fa-user"></i> Profile</a></li>
-								<li><a href="LogoutServlet"><i class="fa fa-fw fa-power-off"></i>Logout</a></li>
+						<li><a href="LogoutServlet"><i
+								class="fa fa-fw fa-power-off"></i>Logout</a></li>
 					</ul></li>
 			</ul>
 		</div>
