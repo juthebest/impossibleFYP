@@ -212,6 +212,7 @@ AND user.user_id = <%=uid%>;
 
 			</div>
 		</div>
+		
 		<p style="text-align: right">
 			<a class="btn btn-default" href="user.jsp" role="button">Back</a>
 			<a class="btn btn-default" href="#" role="button"><i
