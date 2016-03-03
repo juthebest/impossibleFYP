@@ -102,6 +102,7 @@
 						<li><a href="shoppingcart.jsp"><i
 								class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart</a></li>
 
+
 						<li class="divider"></li>
 						<li><a href="LogoutServlet"><i
 								class="fa fa-fw fa-power-off"></i>Logout</a></li>
