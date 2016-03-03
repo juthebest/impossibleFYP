@@ -53,9 +53,9 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Home <b class=caret></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="user.jsp">User\s Home</a></li>
+						<li><a href="user.jsp">User's Home</a></li>
 						<li class="active">
-						<li><a href="index.jsp">I\M Counselling</a></li>
+						<li><a href="index.jsp">I'M Counselling</a></li>
 					</ul></li>
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -78,9 +78,7 @@
 						</div>
 					</form></li>
 
-				<li><a href="#"><i class="fa fa-user"></i> Hi, <%=user%> role:<%=role%> </a></li>
-
-
+				<li><a href="#"><i class="fa fa-user"></i> Hi, <%=user%> </a></li>
 				<li class="dropdown"><a href="shoppingcart.jsp"
 					class="dropdown-toggle" data-toggle="dropdown"> <span
 						class="glyphicon glyphicon-shopping-cart"></span> <span

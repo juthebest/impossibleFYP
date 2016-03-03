@@ -13,12 +13,11 @@
 				<span class="icon-bar"></span>
 			</button>
 
-
 			<a class="navbar-brand" href="index.jsp"> <img id="brand-image"
 				alt="Website logo" src="image/brandimage.PNG" />
 			</a>
-
 		</div>
+		
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="index.jsp">Home</a></li>

@@ -60,19 +60,16 @@ role=<%=role%>
 					class="icon-bar"></span>
 				<!-- for the responsive icon bar when page shrink -->
 				<span class="icon-bar"></span>
-				<!-- for the responsive icon bar when page shrink -->
-				<span class="icon-bar"></span>
-				<!-- for the responsive icon bar when page shrink -->
 			</button>
 
-			<a class="navbar-brand" href="index.html"> <img id="brand-image"
+			<a class="navbar-brand" href="#"> <img id="brand-image"
 				alt="Website logo" src="image/brandimage.PNG" />
 			</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="index.html"
+				<li class="dropdown"><a href="index.jsp"
 					class="dropdown-toggle" data-toggle="dropdown">Home <b
 						class=caret></b></a>
 					<ul class="dropdown-menu">
@@ -89,7 +86,7 @@ role=<%=role%>
 						<li><a href="manageContactUs.jsp">Manage ContactUs</a></li>
 						<li><a href="manageCategory.jsp"> Manage Category</a></li>
 						<li class="active">
-							<li><a href="coachingAdmin.jsp"> Manage Coaching</a></li>
+						<li><a href="coachingAdmin.jsp"> Manage Coaching</a></li>
 						<li><a href="workshopAdmin.jsp"> Manage WorkShop</a></li>
 						<li><a href="programAdmin.jsp"> Manage Program</a></li>
 						<li><a href="manageWorkShopSchedule.jsp"> Manage WorkShop
@@ -105,8 +102,9 @@ role=<%=role%>
 					data-toggle="dropdown"><i class="fa fa-user"></i> Hi <%=user%>
 						<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-				
-						<li><a href="LogoutServlet"><i class="fa fa-fw fa-power-off"></i>Logout</a></li>
+
+						<li><a href="LogoutServlet"><i
+								class="fa fa-fw fa-power-off"></i>Logout</a></li>
 					</ul></li>
 			</ul>
 		</div>

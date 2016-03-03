@@ -79,7 +79,6 @@
 						<li><a href="viewProgramsNcourses.jsp">All Courses &
 								Programs</a></li>
 					</ul></li>
-
 				<li><a href="contactUs.jsp">Contact Us</a></li>
 
 
@@ -88,7 +87,7 @@
 						<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="ParentProfile.jsp"><i
-								class="fa fa-fw fa-user"></i> Profile</a></li>
+								class="fa fa-fw fa-user"></i>Profile</a></li>
 						<li><a href="LogoutServlet"><i
 								class="fa fa-fw fa-power-off"></i>Logout</a></li>
 					</ul></li>
