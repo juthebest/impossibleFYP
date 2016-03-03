@@ -130,7 +130,7 @@
 								<!-- 	<td style="width: 1px;" class="text-center" data-sorter="false"><input
 										type="checkbox"
 										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td> -->
-
+<td></td>
 									<td class="text-left"><a href="#" class="asc">Category
 											Name</a></td>
 									<td class="text-left"><a href="#" class="asc">Category

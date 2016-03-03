@@ -49,7 +49,7 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 </head>
 <body>
 
-<%
+	<%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -134,14 +134,13 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 
 
 					<div class="table-responsive">
-						<table id="myTable"
-							class="table table-bordered table-hover tablesorter">
+						<table id="myTable" class="table table-bordered table-hover tablesorter">
 							<thead>
 								<tr>
-									<td style="width: 1px;" class="text-center" data-sorter="false"><input
+									<!-- <td style="width: 1px;" class="text-center" data-sorter="false"><input
 										type="checkbox"
-										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-
+										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td> -->
+									<td data-sorter="false"></td>
 
 									<td class="text-left">Administrator Name</td>
 
@@ -251,14 +250,15 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 	<!-- tablesorter widgets (optional) -->
 	<script type="text/javascript" src="js/jquery.tablesorter.widgets.js"></script>
 	<script>
-	<!-- 	Start by telling tablesorter to sort your table when the document is loaded: -->
 		$(function() {
+		
 			$("#myTable").tablesorter();
 		});
 
 		// pass in configuration options when you initialize the table. This tells tablesorter to sort on the first and second column in ascending order.  -->
 		$(function() {
 			$("#myTable").tablesorter({
+				 headers : { 0: { sorter: false} },
 				sortList : [ [ 1, 0 ], [ 2, 0 ], ]
 			});
 		});
@@ -285,7 +285,7 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 
 				url = url.substr(1);
 
-				alert( "confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
+				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
 				window.location.href = 'deleteAdminUser?' + url;
 			} else {

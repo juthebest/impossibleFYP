@@ -62,7 +62,7 @@ role=<%=role%>
 				<span class="icon-bar"></span>
 			</button>
 
-			<a class="navbar-brand" href="#"> <img id="brand-image"
+			<a class="navbar-brand" href="index.jsp"> <img id="brand-image"
 				alt="Website logo" src="image/brandimage.PNG" />
 			</a>
 		</div>

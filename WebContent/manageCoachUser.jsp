@@ -142,7 +142,12 @@ WHERE user.coach_id = coach.coach_id
 										type="checkbox"
 										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
  -->
-
+ 
+ 
+ 
+ 
+ 
+<td></td>
 									<td class="text-left"><a href="#">Coach Name</a></td>
 									<td class="text-left"><a href="#">Coach Email</a></td>
 									<td class="text-left"><a href="#">Salutation</a></td>

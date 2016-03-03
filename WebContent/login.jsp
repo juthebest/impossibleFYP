@@ -93,7 +93,7 @@
 											data-error="Please enter your password" required>
 									</div>
 								</div>
-									${error }
+									<%-- ${error } --%>
 								<p id="result"></p>
 								<hr />
 

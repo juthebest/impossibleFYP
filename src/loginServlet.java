@@ -174,18 +174,19 @@ public class loginServlet extends HttpServlet {
 					x=role;
 					System.out.println(x);
 
-				}else{
+				}
 
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp?" + x);
-				response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
-				rd.include(request, response);
+				
 				/*
 				 * }else{ response.sendRedirect("login.html" + "?IsSuccess=" +
 				 * row); }
 				 */
-				}
+				
+				
 			}
-
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp?" + x);
+			response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
+			rd.include(request, response);
 
 			/*out.println("<font color=red>Either user name or password is wrong.</font>");*/
 	

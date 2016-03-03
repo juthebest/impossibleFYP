@@ -140,6 +140,8 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 									<!-- 	<td style="width: 1px;" class="text-center"
 											data-sorter="false"><input type="checkbox"
 											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td> -->
+											
+											<td></td>
 
 										<td class="text-left"><a href="#" class="asc">Enrollment
 												Status Name</a></td>
