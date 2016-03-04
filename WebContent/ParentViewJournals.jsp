@@ -82,6 +82,8 @@ AND user.user_id = <%=uid%>;
 	</sql:query>
 </c:forEach>
 
+
+
 <!-- //var - ownself name -->
 <%-- <sql:query var="studentrecentjournals" dataSource="${dataSource}">
 SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.client_id ORDER BY client_journal.`create_update_datetime` ASC
@@ -157,7 +159,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 							<c:out value="${studentjournals.emotion_rating}" />
 						</p>
 						<a
-							href="passedRJandcomments.jsp?idjournalid=${studentjournals.client_journal_id}"
+							href="passedRJandcommentsParent.jsp?idjournalid=${studentjournals.client_journal_id}"
 							class="btn btn-danger">View More</a>
 					</div>
 				</div>
