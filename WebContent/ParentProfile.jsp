@@ -125,7 +125,8 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			</ol>
 		</div>
 	</div>
-
+	
+	
 	<br />
 	<div class="container">
 
