@@ -113,7 +113,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 	<div class="container">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-				<li><a href="user.jsp">Home</a></li>
+				<li><a href="parenthomepage.jsp">Home</a></li>
 				<li class="active">My Courses & Programs</li>
 			</ol>
 		</div>

@@ -92,7 +92,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 	<div class="container">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-				<li><a href="user.jsp">Home</a></li>
+				<li><a href="parenthomepage.jsp">Home</a></li>
 				<li><a href="ParentProfile.jsp">Profile</a></li>
 				<li class="active">Edit User Profile</li>
 			</ol>
@@ -180,31 +180,6 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 
 					</div>
 				</div>
-				<!-- Modal HTML -->
-				<!-- <div id="myModal" class="modal fade">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;</button>
-								<h4 class="modal-title">Leave this page?</h4>
-							</div>
-							<div class="modal-body">
-								<p>Do you want to leave without saving your changes?</p>
-								<p class="text-warning">
-									<small>If you leave this page, your changes will be
-										lost.</small>
-								</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Stay on this Page</button>
-								<a href="ParentProfile.jsp"><button type="button"
-										class="btn btn-primary">Leave this Page</button></a>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>

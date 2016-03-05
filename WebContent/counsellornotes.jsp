@@ -98,11 +98,6 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
 
-<style>
-th {
-	text-align: center;
-}
-</style>
 
 <body>
 

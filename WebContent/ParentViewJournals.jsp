@@ -116,12 +116,11 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 	<div class="container">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-				<li><a href="user.jsp">Home</a></li>
+				<li><a href="parenthomepage.jsp">Home</a></li>
 				<li class="active">Passed Journal</li>
 			</ol>
 		</div>
 	</div>
-
 
 	<!-- start of body container -->
 	<div class="container">
