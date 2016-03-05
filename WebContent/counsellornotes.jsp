@@ -20,7 +20,7 @@ s
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
 			|| !role.equalsIgnoreCase("coach")) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
