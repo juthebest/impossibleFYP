@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,52 +54,66 @@ public class editStudentProfile extends HttpServlet {
 			Database database= new Database();
 
 			// Open a connection
-			Connection connection = database.Get_Connection();
+			Connection conn = database.Get_Connection();
 
 			String id =null;
-			String studentname =null;
+			String gname =null;
 
-
-			studentname =request.getParameter("studentgivenname");
-
-
+			String sname =null;
+			String semail =null;
+			String smobile=null;
+			String sadd=null;
+			String	uStatus =null;
+			String	role =null;
+			String saluation =null;
+			String	pw =null;
+			gname =request.getParameter("gname");
+			sname =request.getParameter("studentsname");
+			semail =request.getParameter("semail");
+			smobile =request.getParameter("smobile");
+			sadd =request.getParameter("saddress");
 			id=request.getParameter("userid");
+			uStatus= request.getParameter("userStatus");
+			role= request.getParameter("role");
+			saluation= request.getParameter("salutation");
+			pw= request.getParameter("uPassword");
+out.println(uStatus);
+		
+			String currentTime = request.getParameter("rdate");
 
-			out.println(id);
+			// Execute SQL query
+						Statement stmt = null;
 
-			out.println(studentname);
+						stmt = conn.createStatement();
+						// create the java mysql update preparedstatement
+
+						int i= stmt.executeUpdate("UPDATE `user` SET`email`='"+semail+"',`password`='"+pw+"',`surname`='"+sname+"',`given_name`='"+gname+"',`mobile`='"+smobile+"',`role`='"+role+"',`create_update_datetime`='"+currentTime+"',`salutation`='"+saluation+"',`address`='"+sadd+"',`userStatus_id`='"+uStatus+"' WHERE user_id='"+id+"'");
 
 
-			// create the java mysql update preparedstatement
-			String query = "UPDATE `user` SET `given_name`= ? WHERE `control_id`=?";
+						if(i==1 ){
+							response.sendRedirect("user.jsp");
 
-			PreparedStatement preparedStmt = connection.prepareStatement(query);
-			preparedStmt.setString  (1, studentname);
+						}else{
+							out.println("There is an error");
 
-			preparedStmt.setString(2, id);
-			// execute the java preparedstatement
-			int i = preparedStmt.executeUpdate();
+						}
+						conn.close();
+					}
 
-			connection.close();
-			if(i==1){
-				response.sendRedirect("user.jsp");
-			}else{
-				out.println("There is an error");
-	
+					catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						out.println("Error: " + e.getMessage());
+					}
+					finally
+					{
+						out.close();
+					}
+
+
+				}
+
 			}
 
 
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			out.println("Error: " + e.getMessage());
-		}
-		finally
-		{
-			out.close();
-		}
-		
-	}
-
-}

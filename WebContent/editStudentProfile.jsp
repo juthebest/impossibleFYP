@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<jsp:include page="main/adminNavigations.jsp"></jsp:include>
+<jsp:include page="main/userNavigation.jsp"></jsp:include>
 
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
@@ -63,10 +63,12 @@ FROM  user where user_id= <%=uid%>;
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- Ionicons -->
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/jquery-ui.min.css" rel="stylesheet">
@@ -103,21 +105,45 @@ FROM  user where user_id= <%=uid%>;
 								class="form-horizontal">
 
 								<input type="hidden" name="userid"
-									value="${studentdetails.user_id}" />
+									value="${studentdetails.user_id}" /> <input type="hidden"
+									name="role" value="${studentdetails.role}" /> <input
+									type="hidden" name="rdate"
+									value="${studentdetails.create_update_datetime}" />
+ <input
+									type="hidden" name="userStatus" value="${studentdetails.userStatus_id}" />
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="coach">Salutation:</label>
+									<div class="col-sm-9">
+
+										<select class="form-control" id="salutation_input"
+											name="salutation">
+											<option value="${studentdetails.salutation}">${studentdetails.salutation}</option>
+											<option value="Mr">Mr</option>
+											<option value="Mrs">Mrs</option>
+											<option value="Ms">Ms</option>
+											<option value="Mdm">Mdm</option>
+
+										</select>
+									</div>
+								</div>
+
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentgivenname">Given
 										Name</label>
 									<div class="col-sm-10">
-										<input type="text" name="studentgivenname" class="form-control"
-											value="${studentdetails.given_name}" required />
+										<input type="text" name="gname"
+											class="form-control" value="${studentdetails.given_name}"
+											required />
 									</div>
 								</div>
+
+
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentsurname" class="form-control"
+										<input type="text" name="studentsname" class="form-control"
 											value="${studentdetails.surname}" required />
 									</div>
 								</div>
@@ -126,7 +152,7 @@ FROM  user where user_id= <%=uid%>;
 									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
 									</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentemail" class="form-control"
+										<input type="text" name="semail" class="form-control"
 											value="${studentdetails.email}" required />
 									</div>
 								</div>
@@ -135,7 +161,7 @@ FROM  user where user_id= <%=uid%>;
 									<label class="col-sm-2 control-label" for="parentmobile">Mobile:
 									</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentmobile" class="form-control"
+										<input type="text" name="smobile" class="form-control"
 											value="${studentdetails.mobile}" required />
 									</div>
 								</div>
@@ -144,8 +170,16 @@ FROM  user where user_id= <%=uid%>;
 									<label class="col-sm-2 control-label" for="parentaddress">Address:
 									</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentaddress" class="form-control"
+										<input type="text" name="saddress" class="form-control"
 											value="${studentdetails.address}" required />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="uPassword">Password:</label>
+									<div class="col-sm-9">
+										<input class="form-control" type="password" name="uPassword"
+											value="${studentdetails.password}">
 									</div>
 								</div>
 
@@ -155,6 +189,8 @@ FROM  user where user_id= <%=uid%>;
 											class="btn btn-danger">Cancel</button></a>
 
 								</div>
+
+
 
 							</form>
 						</c:forEach>

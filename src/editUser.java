@@ -89,7 +89,7 @@ public class editUser extends HttpServlet {
 			out.println(role);
 
 			String currentTime = request.getParameter("rdate");
-			// Execute SQL query
+			
 
 			// Execute SQL query
 			Statement stmt = null;

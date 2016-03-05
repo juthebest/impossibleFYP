@@ -256,7 +256,7 @@ AND coach.coach_id= user.coach_id
 			$('table').tablesorter({
 			    headers: {
 			        2: {
-			            sorter: "sdate"
+			            sorter: "sdatej"
 			        }
 			    },
 				usNumberFormat : false,
