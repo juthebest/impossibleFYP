@@ -224,7 +224,7 @@ AND user.user_id = <%=uid%>;
 		</div>
 
 		<p style="text-align: right">
-			<a class="btn btn-default" href="#" role="button"><i
+			<a class="btn btn-default" href="editStudentProfile.jsp" role="button"><i
 				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-default"
 				href="user.jsp" role="button">Back</a>
 

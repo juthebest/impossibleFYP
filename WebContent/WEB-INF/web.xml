@@ -57,13 +57,21 @@
     <servlet-name>addStatusServlet</servlet-name>
     <url-pattern>/addStatusServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>editParentProfile</servlet-name>
     <servlet-class>editParentProfile</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>editParentProfile</servlet-name>
     <url-pattern>/editParentProfile</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>editStudentProfile</servlet-name>
+    <servlet-class>editStudentProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editStudentProfile</servlet-name>
+    <url-pattern>/editStudentProfile</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>addEnrollmentStatus</servlet-name>
