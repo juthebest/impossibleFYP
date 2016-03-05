@@ -111,7 +111,6 @@ public class editStudentProfile extends HttpServlet {
 		} finally {
 			out.close();
 		}
-
 	}
 
 }
