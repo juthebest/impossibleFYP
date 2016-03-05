@@ -35,34 +35,11 @@ public class editParentProfile extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
-
-		// Database credentials
-		final String USER = "root";
-		final String PASS = "";
-
-		// Set response content type
-		response.setContentType("text/html");
-
+		
+		
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		// Open a connection
-
-		String id = null;
-		String givenname = null;
-		String surname = null;
-		String email = null;
-		String mobile = null;
-		String address = null;
-
-		id = request.getParameter("parentid");
-		givenname = request.getParameter("parentgivenname");
-		surname = request.getParameter("parentsurname");
-		email = request.getParameter("parentemail");
-		mobile = request.getParameter("parentmobile");
-		address = request.getParameter("parentaddress");
-
 		try {
-
 			// Register JDBC driver
 			// JDBC driver name and database URL
 			// Database credentials
@@ -71,32 +48,53 @@ public class editParentProfile extends HttpServlet {
 
 			// Open a connection
 			Connection conn = database.Get_Connection();
+
+			String id = null;
+			String givenname = null;
+			String surname = null;
+			String email = null;
+			String mobile = null;
+			String address = null;
+
+			
+			id = request.getParameter("parentid");
+			givenname = request.getParameter("parentgivenname");
+			surname = request.getParameter("parentsurname");
+			email = request.getParameter("parentemail");
+			mobile = request.getParameter("parentmobile");
+			address = request.getParameter("parentaddress");
+
+
+
+
+			// Execute SQL query
 			Statement stmt = null;
+
 			stmt = conn.createStatement();
-
 			// create the java mysql update preparedstatement
-			int i = stmt.executeUpdate(
-					"UPDATE `user` SET `given_name`='" + givenname + "',`surname`='" + surname + "',`surname`='" + email
-							+ "',`mobile`='" + mobile + "',`mobile`='" + address + "' WHERE parent_id='" + id + "'");
 
-			conn.close();
-
+			int i = stmt.executeUpdate("UPDATE `user` SET`surname`='"
+					+ surname + "',`given_name`='" + givenname + "',`mobile`='" + mobile + "',`address`='"
+					+ address + "' WHERE user_id='" + id + "'");
+			
 			if (i == 1) {
-				response.sendRedirect("ParentProfile.jsp");
+				response.sendRedirect("parenthomepage.jsp");
 
 			} else {
 				out.println("There is an error");
-				response.sendRedirect("editParentProfile.jsp");
 
 			}
-
+			conn.close();
 		}
 
-		catch (Exception e)
-		{
-			System.err.println("Got an exception!");
-			System.err.println(e.getMessage());
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			out.println("Error: " + e.getMessage());
+		} finally {
+			out.close();
 		}
+		
 	}
 
 }
