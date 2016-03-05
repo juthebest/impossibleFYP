@@ -81,8 +81,10 @@ WHERE  `control_id` =2
 					<h1>Manage About</h1>
 
 					<ul class="breadcrumb">
-						<li><a href="adminIndex.jsp">Home Page</a></li>
-						<li><a href="manageAbout.jsp">Manage About</a></li>
+						<li><a href="adminIndex.jsp">Home</a></li>
+						<li><a href="manageIndex.jsp">Manage Index</a></li>
+						<li><a href="manageContactUs.jsp">Manage Contact Us</a></li>
+							<li><a href="manageAbout.jsp">Manage About</a></li>
 					</ul>
 				</div>
 			</div>

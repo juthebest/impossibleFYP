@@ -40,37 +40,37 @@ AND coach.coach_id= user.coach_id
 	rel="stylesheet"></link>
 <link href="css/home.css" rel="stylesheet">
 
-<!-- tablesorter theme file-->
-<link rel="stylesheet" href="css/theme.default.css">
+<!-- Pick a theme, load the plugin & initialize plugin -->
+<link href="dist/css/theme.default.min.css" rel="stylesheet">
 <%
-		//allow access only if session exists
-		String user = null;
-		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
-			response.sendRedirect("login.jsp");
-		} else
-			user = (String) session.getAttribute("name");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	//allow access only if session exists
+	String user = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
+		response.sendRedirect("login.jsp");
+	} else
+		user = (String) session.getAttribute("name");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 </head>
 <body>
-	
+
 	<div class="container">
 
 		<div class="jumbotron text-center">
@@ -80,7 +80,8 @@ AND coach.coach_id= user.coach_id
 					<h1>WorkShop Schedule</h1>
 					<ul class="breadcrumb">
 						<li><a href="adminIndex.jsp">Home</a></li>
-						<li class="active"><a href="workshopAdmin.jsp">Manage WorkShop</a></li>
+						<li class="active"><a href="workshopAdmin.jsp">Manage
+								WorkShop</a></li>
 						<li><a href="manageWorkShopSchedule.jsp">Manage Workshop
 								Schedule</a></li>
 					</ul>
@@ -108,7 +109,7 @@ AND coach.coach_id= user.coach_id
 				</div>
 				<div class="panel-body">
 
-			
+
 
 					<div class="row">
 						<div class="pull-right">
@@ -130,33 +131,28 @@ AND coach.coach_id= user.coach_id
 						</div>
 					</div>
 
-					<form action="delete" method="post" enctype="multipart/form-data"
-						id="form-product">
+
 						<div class="table-responsive">
 							<table id="myTable"
 								class="table table-bordered table-hover tablesorter">
 								<thead>
 									<tr>
-										<!-- <td style="width: 1px;" class="text-center"
-											data-sorter="false"><input type="checkbox"
-											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-											
-											
- -->
- 
- <td></td>
-										<td class="text-left"><a href="#" class="asc">Course
+
+
+
+										<td class="sorter-false"></td>
+										<td data-field="name" data-sortable="true" class="text-left"><a href="#" class="asc">Course
 												Title</a></td>
 
-										<td class="text-left"><a href="#">Start datetime</a></td>
-										<td class="text-left"><a href="#">End datetime</a></td>
+										<td data-field="sdate " data-sortable="true" class="text-left"><a href="#">Start datetime</a></td>
+										<td  data-field="edate" data-sortable="true" class="text-left"><a href="#">End datetime</a></td>
 
 
-										<td class="text-left"><a href="#">Trainer</a></td>
-										<td class="text-left"><a href="#">Venue</a></td>
+										<td data-field="trainer" data-sortable="true" class="text-left"><a href="#">Trainer</a></td>
+										<td data-field="venue" data-sortable="true" class="text-left" class="sorter-mmddyy"><a href="#">Venue</a></td>
 
-										<td class="text-left"><a href="#">Status</a></td>
-										<td class="text-left"><a href="#" class="asc">Edit</a></td>
+										<td data-field="status" data-sortable="true" class="text-left"><a href="#">Status</a></td>
+										<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
 									</tr>
 								</thead>
 								<tbody>
@@ -218,16 +214,11 @@ AND coach.coach_id= user.coach_id
 	<!-- end of footer -->
 
 
-	<!-- Start of <Fixed footer> -->
-	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
 
 
 	<script src="js/footer.js"></script>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -236,8 +227,46 @@ AND coach.coach_id= user.coach_id
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
+
+	<!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
+	<script src="docs/js/jquery-1.2.6.min.js"></script>
+
+
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
+	<script>
+	$.tablesorter.addParser({
+	    id: "sdate",
+	    is: function(s) {
+	        return false;
+	    },
+	    format: function(s, table, cell, cellIndex) {
+	        s = s
+	            // replace separators
+	            .replace(/\s+/g," ").replace(/[\-.,]/g, "/")
+	            // reformat dd/mm/yyyy to yyyy/mm/dd
+	            .replace(/(\d{1,2})[\/\s](\d{1,2})[\/\s](\d{4})/, "$3/$2/$1");
+
+	       return s ? $.tablesorter.formatFloat( (new Date(s).getTime() || ''), table) : s;
+	    },
+	    type: "numeric"
+	});
+		$(function() {
+
+			$('table').tablesorter({
+			    headers: {
+			        2: {
+			            sorter: "sdate"
+			        }
+			    },
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+				
+
+			});
+		});
+	</script>
 	<script>
 		YUI().use('aui-scheduler', function(Y) {
 			var events = [ {
@@ -277,40 +306,18 @@ AND coach.coach_id= user.coach_id
 		});
 	</script>
 
-	<!-- load jQuery and tablesorter scripts -->
-	<script type="text/javascript" src="js/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
 
-	<!-- tablesorter widgets (optional) -->
-	<script type="text/javascript" src="js/jquery.tablesorter.widgets.js"></script>
-	<script>
-	<!-- 	Start by telling tablesorter to sort your table when the document is loaded: -->
-		$(function() {
-			$("#myTable").tablesorter();
-		});
-
-		//pass in configuration options when you initialize the table. This tells tablesorter to sort on the first and second column in ascending order.  -->
-		$(function() {
-			$("#myTable").tablesorter({
-				sortList : [ [ 1, 0 ], [ 2, 0 ], ]
-			});
-		});
-	</script>
 	<script type="text/javascript">
-
 		function checkbox_test() {
 
-			var counter = 0, 
-			i = 0, 
-			url = '', 
-		
+			var counter = 0, i = 0, url = '',
+
 			input_obj = document.getElementsByTagName('input');
-			
+
 			for (i = 0; i < input_obj.length; i++) {
-		
+
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
-				
 
 					url = url + '&wseID=' + input_obj[i].value;
 					counter++;
@@ -319,25 +326,24 @@ AND coach.coach_id= user.coach_id
 
 			}
 
-
 			if (counter > 0) {
-			
+
 				url = url.substr(1);
 
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
-			
+
 				window.location.href = 'deleteWorkShopScheduleServlet?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
 			var table = document.getElementById('myTable');
-			var rowCount = table.rows.length;   
-			for (var i = 0; i < rowCount; i++) {            
-				var row = table.rows[i];             
-				var chkbox = row.cells[0].childNodes[0];              
-				if (null != chkbox && true == chkbox.checked) {        
-					table.deleteRow(i);                  
-					rowCount--;                  
+			var rowCount = table.rows.length;
+			for (var i = 0; i < rowCount; i++) {
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if (null != chkbox && true == chkbox.checked) {
+					table.deleteRow(i);
+					rowCount--;
 					i--;
 				}
 
