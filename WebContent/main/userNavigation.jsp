@@ -78,7 +78,8 @@
 						</div>
 					</form></li>
 
-				<li><a href="#"><i class="fa fa-user"></i> Hi, <%=user%> </a></li>
+
+				<%-- <li><a href="#"><i class="fa fa-user"></i> Hi, <%=user%> </a></li>
 				<li class="dropdown"><a href="shoppingcart.jsp"
 					class="dropdown-toggle" data-toggle="dropdown"> <span
 						class="glyphicon glyphicon-shopping-cart"></span> <span
@@ -88,6 +89,23 @@
 						<li><a href="userProfile.jsp"><i class="fa fa-fw fa-user"></i> Profile</a></li>
 						<li class="divider"></li>
 						<li><a href="LogoutServlet"><i class="fa fa-fw fa-power-off"></i>Logout</a></li>
+					</ul></li>
+					 --%>
+
+				<li class="dropdown"><a href="shoppingcart.jsp"
+					class="dropdown-toggle" data-toggle="dropdown"> <span
+						class="fa fa-user"></span> Hi, <%=user%><b class="caret"></b>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="userProfile.jsp"><i class="fa fa-fw fa-user"></i>
+								Profile</a></li>
+						<li><a href="shoppingcart.jsp"><i
+								class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart</a></li>
+
+
+						<li class="divider"></li>
+						<li><a href="LogoutServlet"><i
+								class="fa fa-fw fa-power-off"></i>Logout</a></li>
 					</ul></li>
 
 			</ul>

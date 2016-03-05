@@ -46,21 +46,21 @@
 
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 	%>
-	<h3>
-		Hi
-		<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-		role=<%=userrole%></h3>
-	<br> User=<%=user%>
-	
-		<br> UserIDSession=<%=uid%>
-			<br> UserIDCookie=<%=userID%>
-	<br>role=<%=role%>
-	<!-- need to encode all the URLs where we want session information to be passed -->
-	<a href="CheckoutPage.jsp">Checkout Page</a>
-	<form action="LogoutServlet" method="get">
-		<input type="submit" value="Logout">
-	</form>
-	
+<h3>
+	Hi
+	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
+	role=<%=userrole%></h3>
+<br> User=<%=user%>
+
+<br> UserIDSession=<%=uid%>
+<br> UserIDCookie=<%=userID%>
+<br>role=<%=role%>
+<!-- need to encode all the URLs where we want session information to be passed -->
+<a href="CheckoutPage.jsp">Checkout Page</a>
+<form action="LogoutServlet" method="get">
+	<input type="submit" value="Logout">
+</form>
+
 <body>
 	<div style="padding-top: 100px; text-align: center">
 		<div class="container marketing">
@@ -104,24 +104,24 @@
 				</div>
 				<div class="col-lg-4">
 					<p>
-						<a class="btn btn-default" href="ParentProfile.jsp" role="button">View My
-							Information &raquo;</a>
+						<a class="btn btn-default" href="ParentProfile.jsp" role="button">View
+							My Information &raquo;</a>
 					</p>
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
 
-		<!-- <Fixed footer> -->
-		<footer id="footerMenu"></footer>
-		<!-- End <Fixed footer> -->
+	<!-- <Fixed footer> -->
+	<footer id="footerMenu"></footer>
+	<!-- End <Fixed footer> -->
 
-		<script src="js/footer.js"></script>
+	<script src="js/footer.js"></script>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

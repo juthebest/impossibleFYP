@@ -112,6 +112,17 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 <body>
 	<div class="container">
 		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="parenthomepage.jsp">Home</a></li>
+				<li class="active">My Courses & Programs</li>
+			</ol>
+		</div>
+	</div>
+
+	<br />
+	
+	<div class="container">
+		<div class="container-fluid">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="row">

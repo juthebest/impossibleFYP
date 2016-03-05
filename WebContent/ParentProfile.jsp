@@ -45,7 +45,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
+<%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -58,13 +58,12 @@
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
+</form> --%>
 
 <sql:query var="parentdetails" dataSource="${dataSource}">
 SELECT * FROM user, client
 WHERE user.parent_id = client.parent_id
 AND user.user_id = <%=uid%>;</sql:query>
-
 
 
 <c:forEach var="userprofile2" items="${parentdetails.rows}">
@@ -118,8 +117,19 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 <link href="css/home.css" rel="stylesheet">
 
 <body>
-
 	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="parenthomepage.jsp">Home</a></li>
+				<li class="active">Profile</li>
+			</ol>
+		</div>
+	</div>
+
+
+	<br />
+	<div class="container">
+
 		<div class="row">
 			<h4>
 				<b>User Information</b>
@@ -129,7 +139,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 
 				<c:forEach var="parentprofile" items="${parentdetails.rows}">
 
-				<p>
+					<p>
 						<b>Name:</b>
 						<c:out
 							value="${parentprofile.surname} ${parentprofile.given_name}" />
@@ -154,7 +164,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			<div class="col-sm-4">
 				<c:forEach var="profilechild" items="${chilid2.rows}">
 
-				<p>
+					<p>
 						<b>Child's Name:</b>
 						<c:out value="${profilechild.surname} ${profilechild.given_name}" />
 					</p>
@@ -219,9 +229,10 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 			</div>
 		</div>
 		<p style="text-align: right">
-			<a class="btn btn-default" href="parenthomepage.jsp" role="button">Back</a>
 			<a class="btn btn-default" href="editparentprofile.jsp" role="button"><i
-				class="glyphicon glyphicon-edit"></i>Edit</a>
+				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-default"
+				href="parenthomepage.jsp" role="button">Back</a>
+
 		</p>
 	</div>
 

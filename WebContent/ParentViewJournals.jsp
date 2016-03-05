@@ -13,37 +13,39 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <%
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String role=(String) session.getAttribute("role");
-		String uid = null;
-		 if(session.getAttribute("name") == null || session.getAttribute("role") == null || !role.equalsIgnoreCase("parent")){
+	String role = (String) session.getAttribute("role");
+	String uid = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") == null
+			|| !role.equalsIgnoreCase("parent")) {
 		response.sendRedirect("login.jsp");
-		}else user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	} else
+		user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
@@ -80,6 +82,8 @@ AND user.user_id = <%=uid%>;
 	</sql:query>
 </c:forEach>
 
+
+
 <!-- //var - ownself name -->
 <%-- <sql:query var="studentrecentjournals" dataSource="${dataSource}">
 SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.client_id ORDER BY client_journal.`create_update_datetime` ASC
@@ -108,11 +112,18 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <body id="index">
-	<!-- style="height:2500px" -->
+
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="parenthomepage.jsp">Home</a></li>
+				<li class="active">Passed Journal</li>
+			</ol>
+		</div>
+	</div>
 
 	<!-- start of body container -->
 	<div class="container">
-
 		<div class="page-header">
 			<h2>My Journals</h2>
 			<div class="title">
@@ -131,8 +142,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 			<b>November 2015</b>
 		</h3>
 		<div class="row">
-			<c:forEach var="studentjournals"
-				items="${parentid.rows}">
+			<c:forEach var="studentjournals" items="${parentid.rows}">
 
 				<div class="col-sm-4">
 					<div class="thumbnail home-thumb">
@@ -147,7 +157,8 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 							Emotion Indicator:
 							<c:out value="${studentjournals.emotion_rating}" />
 						</p>
-						<a href="passedRJandcomments.jsp?idjournalid=${studentjournals.client_journal_id}"
+						<a
+							href="passedRJandcommentsParent.jsp?idjournalid=${studentjournals.client_journal_id}"
 							class="btn btn-danger">View More</a>
 					</div>
 				</div>
@@ -161,7 +172,6 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 
 	<script src="js/footer.js"></script>
 
-	</div>
 	<!-- end of the popout signin -->
 
 	<script

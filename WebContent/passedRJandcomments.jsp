@@ -95,63 +95,64 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 <script src="ckeditor/ckeditor.js"></script>
 
 <body>
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="user.jsp">Home</a></li>
+				<li class="active">Passed Journal</li>
+			</ol>
+		</div>
+	</div>
 
-	<!-- start of body container -->
+	<br />
 
-	<!-- Wrapper for slides -->
+	<div class="item active">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Passed Journals & Comments</h3>
 
-		<div class="item active">
-			<div class="container">
-				<div class="container-fluid">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Passed Journals & Comments</h3>
+						<c:forEach var="client" items="${clientjournal.rows}">
 
-							<c:forEach var="client" items="${clientjournal.rows}">
+							<td><c:out value="${client.create_update_datetime}" /></td>
 
-								<td><c:out value="${client.create_update_datetime}" /></td>
-
-								<div class="panel-body">
-									<div class="row">
-										<label>Reflection Journal:</label>
-										<textarea name="editor1" id="editor1" rows="10" cols="80">
+							<div class="panel-body">
+								<div class="row">
+									<label>Reflection Journal:</label>
+									<textarea name="editor1" id="editor1" rows="10" cols="80">
 					<c:out value="${client.journal_reflection}" />     	
 						</textarea>
-										<script>
+									<script>
 												// Replace the <textarea id="editor1"> with a CKEditor
 												// instance, using default configuration.
 												CKEDITOR.replace('editor1');
 											</script>
-									</div>
-									<br />
-									<div class="row">
-										<label>Counsellor's Comment:</label> <br />
-										<h5>
-											<c:out value="${client.coach_comment}" />
-										</h5>
-										<i>Commented on <c:out
-												value="${client.coach_comment_datetime}" />
-									</div>
-									<!-- <ul class="pager">
-											<li class="previous"><a href="#">&larr; Previous</a></li>
-											<li class="next"><a href="#">Next &rarr;</a></li>
-										</ul> -->
 								</div>
-							</c:forEach>
-						</div>
-
+								<br />
+								<div class="row">
+									<label>Counsellor's Comment:</label> <br />
+									<h5>
+										<c:out value="${client.coach_comment}" />
+									</h5>
+									<i>Commented on <c:out
+											value="${client.coach_comment_datetime}" />
+								</div>
+<!-- 				<ul class="pager">
+											<li class="previous"><a href="#">&larr; Previous</a></li>
+											<li class="next"><a href="#">Next &rarr;</a></li> -->
+								
+							</div>
+						</c:forEach>
 					</div>
+
 				</div>
 			</div>
 		</div>
+	</div>
 
-
-	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
-
 	<script src="js/footer.js"></script>
-
 
 
 	<script

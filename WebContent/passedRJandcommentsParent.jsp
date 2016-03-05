@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="main/userNavigation.jsp"></jsp:include>
+<jsp:include page="main/counsellorNavigation.jsp"></jsp:include>
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
 
@@ -11,6 +11,11 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
+
+<!-- //var - ownself name -->
+<sql:query var="studentrecentjournals" dataSource="${dataSource}">
+SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal` ORDER BY `create_update_datetime` ASC;
+</sql:query>
 <%
 	//allow access only if session exists
 	String user = null;
@@ -18,8 +23,8 @@
 	String role = (String) session.getAttribute("role");
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
-			|| !role.equalsIgnoreCase("child")) {
-		response.sendRedirect("login.html");
+			|| !role.equalsIgnoreCase("parent")) {
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
@@ -46,22 +51,12 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 
-<!-- //var - ownself name -->
-<sql:query var="studentrecentjournals" dataSource="${dataSource}">
-SELECT * FROM `client_journal`, `client`,`user`
-WHERE `client_journal`.`client_id` = `client`.`client_id`
-AND `client`.`client_id` = `user`.`client_id`
-AND `user_id` = <%=uid%> 
-ORDER BY `user`.`create_update_datetime` ASC
-</sql:query>
-
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Student Recent Journals</title>
-
+<title>I'MPOSSIBLE - Manage Course</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -78,80 +73,63 @@ ORDER BY `user`.`create_update_datetime` ASC
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<body id="index">
 
-	<div class="container">
-		<div class="page-header">
+<body>
+
+		<div class="container">
 			<div class="container-fluid">
-				<ol class="breadcrumb">
-					<li><a href="user.jsp">Home</a></li>
-					<li class="active">Reflection Journal</li>
-				</ol>
-			</div>
+				<ul class="nav nav-tabs">
+					<li><a href="studentdetails.jsp">Programs Registered</a></li>
+					<li><a href="counsellorrecentjournals.jsp">Recent Journals</a></li>
+					<li class="active"><a href="pastjournals.jsp">Past
+							Journals</a></li>
+					<li><a href="studentaddress.jsp">Address</a></li>
+				</ul>
 
-			<br />
-			<h2>My Journals</h2>
+				<div class="panel panel-default">
 
-			<div class="title">
-				<a href=""> 2015 </a>
-			</div>
-			<div class="mymonths">
-				<a href=""> January </a>. <a href=""> February </a>. <a href="">
-					March </a>. <a href=""> April </a>. <a href=""> May </a>. <a href="">
-					June </a>. <a href=""> July </a>. <a href=""> August </a>. <a href="">
-					September </a>. <a href=""> October </a>. <a href=""> November </a>. <a
-					href=""> December </a>.
-			</div>
-		</div>
+					<div class="panel-heading">
+						<h3 class="panel-title">Student Details: Judith</h3>
+					</div>
 
-		<h3>
-			<b>November 2015</b>
-		</h3>
-		<div class="row">
-			<c:forEach var="studentjournals"
-				items="${studentrecentjournals.rows}">
+					<div class="panel-body">
 
-				<div class="col-sm-4">
-					<div class="thumbnail home-thumb">
-						<c:out value="${studentjournals.create_update_datetime}" />
-						<img src="image/cat-food-hearts-icon.png"
-							style="width: 280px; height: 228px;" alt="New Courses" /> <br />
-						<p>
-							<c:out value="${studentjournals.journal_reflection}" />
-						</p>
-						<p>
+						<div class="row">
+							<h4>Past Journal and Comments By Other Counsellor</h4>
 
-							Emotion Indicator:
-							<c:out value="${studentjournals.emotion_rating}" />
-						</p>
-						<a
-							href="passedRJandcomments.jsp?journalid=${studentjournals.client_journal_id}"
-							class="btn btn-danger">View More</a>
+							<h4>Mary Seah :</h4>
+							<textarea class="form-control" id="message" name="message"
+								placeholder="Counsellor's comment is entered here." rows="7"></textarea>
+
+							<h4>Christine Ong :</h4>
+							<textarea class="form-control" id="message" name="message"
+								placeholder="Counsellor's comment is entered here." rows="7"></textarea>
+						</div>
+
+						<ul class="pagination pagination-sm" style="float: right;">
+							<li class="disabled"><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
 					</div>
 				</div>
-			</c:forEach>
+			</div>
 		</div>
 
-	</div>
-
-	<!-- Start of <Fixed footer> -->
-	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
+	<!-- <Fixed footer> -->
+	<nav id="footerMenu"></nav>
+	<!-- End <Fixed footer> -->
 
 	<script src="js/footer.js"></script>
-	<script src="js/navlink-user.js"></script>
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
 </body>
 </html>

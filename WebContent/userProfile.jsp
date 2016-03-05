@@ -22,7 +22,7 @@
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
 			|| !role.equalsIgnoreCase("child")) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
@@ -48,7 +48,6 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-
 
 
 <!-- child details -->
@@ -110,6 +109,18 @@ AND user.user_id = <%=uid%>;
 <link href="css/home.css" rel="stylesheet">
 
 <body>
+
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="user.jsp">Home</a></li>
+				<li class="active">Profile</li>
+			</ol>
+		</div>
+	</div>
+
+	<br />
+
 	<div class="container">
 		<div class="row">
 			<h4>
@@ -120,7 +131,7 @@ AND user.user_id = <%=uid%>;
 			<div class="col-sm-4">
 				<c:forEach var="profile" items="${userprofile.rows}">
 
-				<p>
+					<p>
 						<b>Name:</b>
 						<c:out value="${profile.surname} ${profile.given_name}" />
 					</p>
@@ -150,10 +161,9 @@ AND user.user_id = <%=uid%>;
 			</div>
 
 			<div class="col-sm-4">
-
 				<c:forEach var="parentname" items="${parentid.rows}">
-	
-				<p>
+
+					<p>
 						<b>Parent's Name:</b>
 						<c:out value="${parentname.surname} ${parentname.given_name}" />
 					</p>
@@ -173,6 +183,7 @@ AND user.user_id = <%=uid%>;
 			</div>
 		</div>
 		<hr />
+
 		<div class="row">
 			<div class="col-sm-8">
 				<h4>
@@ -180,7 +191,7 @@ AND user.user_id = <%=uid%>;
 				</h4>
 				<hr>
 				<p>The Student have the following Item Structure:</p>
-				
+
 				<div class="panel-group">
 
 					<div class="panel panel-default">
@@ -209,14 +220,14 @@ AND user.user_id = <%=uid%>;
 					</div>
 				</div>
 
-
 			</div>
 		</div>
-		
+
 		<p style="text-align: right">
-			<a class="btn btn-default" href="user.jsp" role="button">Back</a>
-			<a class="btn btn-default" href="#" role="button"><i
-				class="glyphicon glyphicon-edit"></i>Edit</a>
+			<a class="btn btn-default" href="editStudentProfile.jsp" role="button"><i
+				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-default"
+				href="user.jsp" role="button">Back</a>
+
 		</p>
 	</div>
 

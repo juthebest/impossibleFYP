@@ -75,12 +75,11 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 	</sql:query>
 </c:forEach>
 
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - View User Profile</title>
+<title>I'MPOSSIBLE - Edit User Profile</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -90,7 +89,17 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 <link href="css/home.css" rel="stylesheet">
 
 <body>
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="parenthomepage.jsp">Home</a></li>
+				<li><a href="ParentProfile.jsp">Profile</a></li>
+				<li class="active">Edit User Profile</li>
+			</ol>
+		</div>
+	</div>
 
+	<br />
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
@@ -102,9 +111,11 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 					<div class="panel-body">
 
 						<c:forEach var="parentprofile" items="${parentdetails.rows}">
-							<form action="editParentProfile" method="post" class="form-horizontal">
-								
-								<input type="hidden" name="parentid" value="${parentprofile.parent_id}" />
+							<form action="editParentProfile" method="post"
+								class="form-horizontal">
+
+								<input type="hidden" name="parentid"
+									value="${parentprofile.parent_id}" />
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentgivenname">Given
@@ -156,44 +167,19 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 										data-toggle="modal">Back</a> <a class="btn btn-default"
 										href="editparentprofile.jsp" role="button" type = "submit">Submit</a>
 								</p> -->
-								
-								<div class="form-actions">
-										<button type="submit" class="btn btn-primary">Submit</button>
-										<a href="ParentProfile.jsp"><button type="button"
-												class="btn btn-danger">Cancel</button></a>
 
-									</div>
-								
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<a href="ParentProfile.jsp"><button type="button"
+											class="btn btn-danger">Cancel</button></a>
+
+								</div>
+
 							</form>
 						</c:forEach>
 
 					</div>
 				</div>
-				<!-- Modal HTML -->
-				<!-- <div id="myModal" class="modal fade">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;</button>
-								<h4 class="modal-title">Leave this page?</h4>
-							</div>
-							<div class="modal-body">
-								<p>Do you want to leave without saving your changes?</p>
-								<p class="text-warning">
-									<small>If you leave this page, your changes will be
-										lost.</small>
-								</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Stay on this Page</button>
-								<a href="ParentProfile.jsp"><button type="button"
-										class="btn btn-primary">Leave this Page</button></a>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>

@@ -93,7 +93,7 @@
 					data-toggle="dropdown"><i class="fa fa-user"></i> Hi <%=user%>
 						<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="LogoutServlet.java"><i
+						<li><a href="LogoutServlet"><i
 								class="fa fa-fw fa-power-off"></i> Log Out</a></li>
 					</ul></li>
 			</ul>
