@@ -131,7 +131,8 @@ AND user.user_id = <%=uid%>;</sql:query>
 						<h4>Program Registered</h4>
 						<c:forEach var="programsforstudents"
 							items="${studentprograms.rows}">
-							<div class="col-sm-4">
+							<div class="col-sm-8">
+								<br />
 								<c:out value="${programsforstudents.program_name}" />
 								<br /> <i>Date Registered : <c:out
 										value="${programsforstudents.date_registered}" />
@@ -145,7 +146,8 @@ AND user.user_id = <%=uid%>;</sql:query>
 					<div class="row">
 						<h4>Course Registered</h4>
 						<c:forEach var="courseforstudents" items="${studentcourse.rows}">
-							<div class="col-sm-4">
+							<div class="col-sm-8">
+								<br />
 								<c:out value="${courseforstudents.item_name}" />
 								<br /> <i>Date Registered : <c:out
 										value="${courseforstudents.date_registered}" />
