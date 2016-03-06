@@ -108,12 +108,15 @@ ORDER BY `user`.`create_update_datetime` ASC
 			<b>November 2015</b>
 		</h3>
 		<div class="row">
+
+
 			<c:forEach var="studentjournals"
 				items="${studentrecentjournals.rows}">
 
 				<div class="col-sm-4">
 					<div class="thumbnail home-thumb">
 						<c:out value="${studentjournals.create_update_datetime}" />
+
 						<img src="image/cat-food-hearts-icon.png"
 							style="width: 280px; height: 228px;" alt="New Courses" /> <br />
 						<p>

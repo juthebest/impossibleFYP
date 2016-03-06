@@ -19,7 +19,7 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
 			|| !role.equalsIgnoreCase("parent")) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
@@ -120,7 +120,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 	</div>
 
 	<br />
-	
+
 	<div class="container">
 		<div class="container-fluid">
 			<div class="panel panel-default">
@@ -128,7 +128,8 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 					<div class="row">
 						<h4>Program Registered</h4>
 						<c:forEach var="programsforstudents" items="${chilid.rows}">
-							<div class="col-sm-4">
+							<div class="col-sm-8">
+								<br />
 								<c:out value="${programsforstudents.program_name}" />
 								<br /> <i>Date Registered : <c:out
 										value="${programsforstudents.date_registered}" />
@@ -142,7 +143,8 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 					<div class="row">
 						<h4>Course Registered</h4>
 						<c:forEach var="courseforstudents" items="${studentcourse.rows}">
-							<div class="col-sm-4">
+							<div class="col-sm-8">
+								<br />
 								<c:out value="${courseforstudents.item_name}" />
 								<br /> <i>Date Registered : <c:out
 										value="${courseforstudents.date_registered}" />
