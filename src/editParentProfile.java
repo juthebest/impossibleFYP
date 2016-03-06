@@ -48,7 +48,7 @@ public class editParentProfile extends HttpServlet {
 
 			// Open a connection
 			Connection conn = database.Get_Connection();
-
+			
 			String givenname = null;
 /*			String surname = null;
 			String email = null;
