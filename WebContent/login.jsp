@@ -79,7 +79,7 @@
 									<label for="inputEmail"
 										class="col-sm-2 col-sm-offset-1 control-label">Email</label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control" name="inputEmail"
+										<input type="email" class="form-control" name="inputEmail" id="username"
 											placeholder="Email" data-error="Please enter your email"
 											required>
 									</div>
@@ -89,7 +89,7 @@
 										class="col-sm-2 col-sm-offset-1 control-label">Password</label>
 									<div class="col-sm-8">
 										<input type="password" class="form-control"
-											name="inputPassword" placeholder="Password"
+											name="inputPassword" placeholder="Password" id ="pass"
 											data-error="Please enter your password" required>
 									</div>
 								</div>
@@ -106,7 +106,7 @@
 										</p>
 									</div>
 									<div class="col-sm-4">
-										<input type="checkbox" name="inputRemember"> Remember
+										<input type="checkbox" name="inputRemember" id="remember_me"> Remember
 										me
 									</div>
 								</div>
@@ -151,6 +151,36 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
+	
+	   <script>
+            $(function() {
+
+                if (localStorage.chkbx && localStorage.chkbx != '') {
+                    $('#remember_me').attr('checked', 'checked');
+                    $('#username').val(localStorage.usrname);
+                    $('#pass').val(localStorage.pass);
+                } else {
+                    $('#remember_me').removeAttr('checked');
+                    $('#username').val('');
+                    $('#pass').val('');
+                }
+
+                $('#remember_me').click(function() {
+
+                    if ($('#remember_me').is(':checked')) {
+                        // save username and password
+                        localStorage.usrname = $('#username').val();
+                        localStorage.pass = $('#pass').val();
+                        localStorage.chkbx = $('#remember_me').val();
+                    } else {
+                        localStorage.usrname = '';
+                        localStorage.pass = '';
+                        localStorage.chkbx = '';
+                    }
+                });
+            });
+
+        </script>
 	
 	
 </body>
