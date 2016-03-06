@@ -95,21 +95,6 @@ ORDER BY `user`.`create_update_datetime` ASC
 			<br />
 			<h2>My Journals</h2>
 
-<!-- 			<div class="title">
-				<a href=""> 2015 </a>
-			</div>
-			<div class="mymonths">
-				<a href=""> January </a>. <a href=""> February </a>. <a href="">
-					March </a>. <a href=""> April </a>. <a href=""> May </a>. <a href="">
-					June </a>. <a href=""> July </a>. <a href=""> August </a>. <a href="">
-					September </a>. <a href=""> October </a>. <a href=""> November </a>. <a
-					href=""> December </a>.
-			</div>
-		</div>
-
-		<h3>
-			<b>November 2015</b>
-		</h3> -->
 		<div class="row">
 
 			<c:forEach var="studentjournals"
