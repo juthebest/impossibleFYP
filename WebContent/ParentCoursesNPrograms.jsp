@@ -61,7 +61,6 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<input type="submit" value="Logout">
 </form>
 
-
 <!-- //var - find client id -->
 <sql:query var="studentname" dataSource="${dataSource}">
 SELECT * FROM user, client
