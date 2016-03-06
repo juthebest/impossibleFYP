@@ -65,7 +65,7 @@
     <servlet-name>editParentProfile</servlet-name>
     <url-pattern>/editParentProfile</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>editStudentProfile</servlet-name>
     <servlet-class>editStudentProfile</servlet-class>
   </servlet>

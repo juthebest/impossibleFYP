@@ -49,21 +49,20 @@ public class editParentProfile extends HttpServlet {
 			// Open a connection
 			Connection conn = database.Get_Connection();
 
-			String id = null;
 			String givenname = null;
-			String surname = null;
+/*			String surname = null;
 			String email = null;
 			String mobile = null;
-			String address = null;
+			String address = null;*/
+			String id = null;
 
 			
-			id = request.getParameter("parentid");
-			givenname = request.getParameter("parentgivenname");
-			surname = request.getParameter("parentsurname");
+			givenname = request.getParameter("parentname");
+/*			surname = request.getParameter("parentsurname");
 			email = request.getParameter("parentemail");
 			mobile = request.getParameter("parentmobile");
-			address = request.getParameter("parentaddress");
-
+			address = request.getParameter("parentaddress");*/
+			id = request.getParameter("parentid");
 
 
 
@@ -73,9 +72,13 @@ public class editParentProfile extends HttpServlet {
 			stmt = conn.createStatement();
 			// create the java mysql update preparedstatement
 
-			int i = stmt.executeUpdate("UPDATE `user` SET`surname`='"
-					+ surname + "',`given_name`='" + givenname + "',`mobile`='" + mobile + "',`address`='"
-					+ address + "' WHERE user_id='" + id + "'");
+			int i = stmt.executeUpdate("UPDATE `user` SET`given_name`='"
+					+ givenname + "' WHERE user_id='" + id + "'");
+			
+			
+/*			("UPDATE `user` SET`given_name`='"
+					+ givenname + "',`surname`='" + surname + "',`email`='" + email + "',`mobile`='"
+					+ mobile + "',`address`='" + address + "' WHERE user_id='" + id + "'");*/
 			
 			if (i == 1) {
 				response.sendRedirect("parenthomepage.jsp");

@@ -111,21 +111,26 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 					<div class="panel-body">
 
 						<c:forEach var="parentprofile" items="${parentdetails.rows}">
-							<form action="editParentProfile" method="post"
+							<form action="editParents" method="post"
 								class="form-horizontal">
 
-								<input type="hidden" name="parentid"
-									value="${parentprofile.parent_id}" />
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentgivenname">Given
+									<label class="col-sm-2 control-label" for="parentname">Given
 										Name</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentgivenname" class="form-control"
+										<input type="text" name="parentname" class="form-control"
 											value="${parentprofile.given_name}" required />
 									</div>
 								</div>
-
+								
+								
+								
+								<input type="hidden" name="parentid"
+									value="${parentprofile.parent_id}" />
+									
+									
+<%-- 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
 									<div class="col-sm-10">
@@ -159,20 +164,12 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 										<input type="text" name="parentaddress" class="form-control"
 											value="${parentprofile.address}" required />
 									</div>
-								</div>
-
-
-								<!-- <p style="text-align: right">
-									<a class="btn btn-default" href="#myModal" role="button"
-										data-toggle="modal">Back</a> <a class="btn btn-default"
-										href="editparentprofile.jsp" role="button" type = "submit">Submit</a>
-								</p> -->
+								</div> --%>
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<a href="ParentProfile.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
-
 								</div>
 
 							</form>
