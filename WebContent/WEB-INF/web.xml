@@ -74,6 +74,14 @@
     <url-pattern>/editStudentProfile</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>editParents</servlet-name>
+    <servlet-class>editParents</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editParents</servlet-name>
+    <url-pattern>/editParents</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>addEnrollmentStatus</servlet-name>
     <servlet-class>addEnrollmentStatus</servlet-class>
   </servlet>
