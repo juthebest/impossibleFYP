@@ -19,7 +19,7 @@
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
 			|| !role.equalsIgnoreCase("coach")) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
@@ -122,8 +122,8 @@ th {
 							<table id="myTable" class="table table-bordered table-hover">
 								<thead>
 									<tr>
-										<th class="text-left">Date Of Submission</th>
-										<th class="text-left">Time Of Submission</th>
+										<th class="text-left"></th>
+										<th class="text-left">Date and Time Of Submission</th>
 										<th class="text-left">Comments Given</th>
 										<th class="text-left">Written By</th>
 										<th class="text-left">Emotion Rating</th>
@@ -153,7 +153,7 @@ th {
 											<td class="text-center">
 												<button type="button" class="btn btn-default btn-sm"
 													onclick="location.href='editJournals.jsp?journalID=${journals.client_journal_id}'">
-													<span class="glyphicon glyphicon-edit"></span> Edit
+													<span class="glyphicon glyphicon-edit"></span> Add a Comment
 												</button>
 											</td>
 										</tr>

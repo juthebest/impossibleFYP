@@ -85,6 +85,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 			<div class="container-fluid">
 				<ol class="breadcrumb">
 					<li><a href="user.jsp">Home</a></li>
+					<li><a href="studentdraftjournals.jsp">Draft Journals</a></li>
 					<li class="active">Reflection Journal</li>
 				</ol>
 			</div>
