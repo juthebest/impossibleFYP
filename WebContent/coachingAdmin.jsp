@@ -41,7 +41,7 @@
 <![endif]-->
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
- <%
+<%-- <%
 	//allow access only if session exists
 	String user = null;
 
@@ -68,8 +68,25 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%> 
+%> --%>
+<script type="text/javascript">
+	$(function validate() {
+		var cBvalue = document.getElementsByID("selected");
 
+		var cBselected = 0;
+		//Loop through the checkbox elements, and tally the selected
+		for (var i = 0; i < cBvalue.length; i++) {
+			if (cBvalue[i].checked) {
+				cBselected++;
+			}
+		}
+		//If none are selected, then alert your error, and return false
+		if (cBselected == 0) {
+			alert("Please select checkbox");
+			return false;
+		}
+	});
+</script>
 </head>
 
 
@@ -111,7 +128,7 @@
 
 
 					<form action="servletDirectCoaching" method="get"
-						enctype="multipart/form-data" id="form-course">
+						enctype="multipart/form-data" id="form-course" onsubmit="return validate()">
 						<div class="table-responsive">
 							<table id="myTable"
 								class="table table-bordered table-hover tablesorter">
@@ -221,7 +238,7 @@
 		 */
 		$(function() {
 			$("#myTable").tablesorter({
-				sortList : [ [ 1, 0 ], [ 2, 0 ], ]
+				sortList : [ [ 1, 0 ], [ 2, 0 ] ]
 			});
 		});
 	</script>
