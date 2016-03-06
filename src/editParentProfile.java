@@ -55,7 +55,6 @@ public class editParentProfile extends HttpServlet {
 			String mobile = null;
 			String address = null;*/
 			String id = null;
-
 			
 			givenname = request.getParameter("parentname");
 /*			surname = request.getParameter("parentsurname");
