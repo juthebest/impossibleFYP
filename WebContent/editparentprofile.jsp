@@ -111,8 +111,11 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 					<div class="panel-body">
 
 						<c:forEach var="parentprofile" items="${parentdetails.rows}">
-							<form action="editParents" method="post"
+							<form action="editParentProfile" method="post"
 								class="form-horizontal">
+<%-- <c:out
+							value="${parentprofile.parent_id}" /> --%>
+
 
 
 								<div class="form-group">
@@ -129,7 +132,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 									value="${parentprofile.parent_id}" />
 									
 									
-<%-- 
+
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
 									<div class="col-sm-10">
@@ -151,7 +154,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 									<label class="col-sm-2 control-label" for="parentmobile">Mobile:
 									</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentmobile" class="form-control"
+										<input type="int" name="parentmobile" class="form-control"
 											value="${parentprofile.mobile}" required />
 									</div>
 								</div>
@@ -163,7 +166,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 										<input type="text" name="parentaddress" class="form-control"
 											value="${parentprofile.address}" required />
 									</div>
-								</div> --%>
+								</div>
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-primary">Submit</button>
