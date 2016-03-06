@@ -100,11 +100,6 @@ AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
     <![endif
 		<!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
-<style>
-th {
-	text-align: center;
-}
-</style>
 </head>
 
 <body>
@@ -122,20 +117,22 @@ th {
 							<table id="myTable" class="table table-bordered table-hover">
 								<thead>
 									<tr>
-										<th class="text-left"></th>
+										<th></th>
 										<th class="text-left">Date and Time Of Submission</th>
 										<th class="text-left">Comments Given</th>
 										<th class="text-left">Written By</th>
 										<th class="text-left">Emotion Rating</th>
 										<th class="text-left">Privacy</th>
+										<th class="text-left">Add a comment</th>
 									</tr>
 								</thead>
+
 
 								<tbody>
 									<c:forEach var="journals" items="${counsellorjournals.rows}">
 										<tr>
 											<td class="text-left"><input type="checkbox"
-												name="checkbox" value="${journals.counsellorjournals}"></td>
+												name="selected[]" value="${journals.client_journal_id}"></td>
 											<td class="text-left"><c:out
 													value="${journals.create_update_datetime}" /></td>
 
@@ -153,7 +150,8 @@ th {
 											<td class="text-center">
 												<button type="button" class="btn btn-default btn-sm"
 													onclick="location.href='editJournals.jsp?journalID=${journals.client_journal_id}'">
-													<span class="glyphicon glyphicon-edit"></span> Add a Comment
+													<span class="glyphicon glyphicon-edit"></span> Add a
+													Comment
 												</button>
 											</td>
 										</tr>
