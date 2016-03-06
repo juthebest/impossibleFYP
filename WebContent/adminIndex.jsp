@@ -44,11 +44,16 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
+<style>
+.container{
 
+padding-left:60px
+}
+</style>
 
 <body>
 
-	<div class="container">
+	<div class="container" >
 	<div class="container marketing">
 		<div class="row">
 			<div class="col-md-2">
@@ -133,6 +138,8 @@
 		</div>
 
 	</div>
+	</div>
+	
 	
 
 
