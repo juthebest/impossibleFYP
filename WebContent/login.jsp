@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <jsp:include page="main/publicNavigations.jsp"></jsp:include>
-    
+	pageEncoding="ISO-8859-1"%>
+<jsp:include page="main/publicNavigations.jsp"></jsp:include>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +46,12 @@
 			return params;
 		}();
 		window.onload = function() {
-			
+
 			if (window.params.IsSuccess == "false") {
 				document.getElementById("result").innerHTML = "<b>Invalid Login Info. Please try again</b><br>";
-	
-				document.getElementById("result").style.color  = "red";
-				
+
+				document.getElementById("result").style.color = "red";
+
 				//alert();
 
 			}
@@ -74,14 +74,14 @@
 						<div class="panel-body">
 							<form action="loginServlet" method="post" class="form-horizontal"
 								role="form ">
-							
+
 								<div class="form-group">
 									<label for="inputEmail"
 										class="col-sm-2 col-sm-offset-1 control-label">Email</label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control" name="inputEmail" id="username"
-											placeholder="Email" data-error="Please enter your email"
-											required>
+										<input type="email" class="form-control" name="inputEmail"
+											id="username" placeholder="Email"
+											data-error="Please enter your email" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -89,11 +89,11 @@
 										class="col-sm-2 col-sm-offset-1 control-label">Password</label>
 									<div class="col-sm-8">
 										<input type="password" class="form-control"
-											name="inputPassword" placeholder="Password" id ="pass"
+											name="inputPassword" placeholder="Password" id="pass"
 											data-error="Please enter your password" required>
 									</div>
 								</div>
-									 ${error } 
+								${error }
 								<p id="result"></p>
 								<hr />
 
@@ -106,8 +106,8 @@
 										</p>
 									</div>
 									<div class="col-sm-4">
-										<input type="checkbox" name="inputRemember" id="remember_me"> Remember
-										me
+										<input type="checkbox" name="inputRemember" id="remember_me">
+										Remember me
 									</div>
 								</div>
 
@@ -151,37 +151,36 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
-	
-	   <script>
-            $(function() {
 
-                if (localStorage.chkbx && localStorage.chkbx != '') {
-                    $('#remember_me').attr('checked', 'checked');
-                    $('#username').val(localStorage.usrname);
-                    $('#pass').val(localStorage.pass);
-                } else {
-                    $('#remember_me').removeAttr('checked');
-                    $('#username').val('');
-                    $('#pass').val('');
-                }
+	<script>
+		$(function() {
 
-                $('#remember_me').click(function() {
+			if (localStorage.chkbx && localStorage.chkbx != '') {
+				$('#remember_me').attr('checked', 'checked');
+				$('#username').val(localStorage.usrname);
+				$('#pass').val(localStorage.pass);
+			} else {
+				$('#remember_me').removeAttr('checked');
+				$('#username').val('');
+				$('#pass').val('');
+			}
 
-                    if ($('#remember_me').is(':checked')) {
-                        // save username and password
-                        localStorage.usrname = $('#username').val();
-                        localStorage.pass = $('#pass').val();
-                        localStorage.chkbx = $('#remember_me').val();
-                    } else {
-                        localStorage.usrname = '';
-                        localStorage.pass = '';
-                        localStorage.chkbx = '';
-                    }
-                });
-            });
+			$('#remember_me').click(function() {
 
-        </script>
-	
-	
+				if ($('#remember_me').is(':checked')) {
+					// save username and password
+					localStorage.usrname = $('#username').val();
+					localStorage.pass = $('#pass').val();
+					localStorage.chkbx = $('#remember_me').val();
+				} else {
+					localStorage.usrname = '';
+					localStorage.pass = '';
+					localStorage.chkbx = '';
+				}
+			});
+		});
+	</script>
+
+
 </body>
 </html>

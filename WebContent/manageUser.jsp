@@ -37,20 +37,9 @@ OR role =  'parent'
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-<script src="http://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-<link href="http://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css"
-	rel="stylesheet"></link>
 <link href="css/home.css" rel="stylesheet">
-<!-- tablesorter theme file-->
-<link rel="stylesheet" href="css/theme.default.css">
+<!-- Pick a theme, load the plugin & initialize plugin -->
+<link href="dist/css/theme.default.min.css" rel="stylesheet">
 </head>
 <body>
 	<%
@@ -125,74 +114,73 @@ OR role =  'parent'
 									class="btn btn-default btn-sm">
 									<span class="glyphicon glyphicon-plus"></span> Add
 								</button></a>
-				<button type="button" class="btn btn-default btn-sm"
-									onClick="checkbox_test()">
-									<span class="glyphicon glyphicon-trash"></span> Delete
-								</button>
-						
-						
+							<button type="button" class="btn btn-default btn-sm"
+								onClick="checkbox_test()">
+								<span class="glyphicon glyphicon-trash"></span> Delete
+							</button>
+
+
 						</p>
 					</div>
 
 
-						<div class="table-responsive">
-							<table id="myTable"
-								class="table table-bordered table-hover tablesorter">
-								<thead>
-									<tr>
-										<!-- <td style="width: 1px;" class="text-center"
+					<div class="table-responsive">
+						<table id="myTable"
+							class="table table-bordered table-hover tablesorter">
+							<thead>
+								<tr>
+									<!-- <td style="width: 1px;" class="text-center"
 											data-sorter="false"><input type="checkbox"
 											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td> -->
-											
-											
-											<td></td>
-										<td class="text-left"><a href="#" class="asc">User
-												Salutation</a></td>
 
 
-										<td class="text-left"><a href="#" class="asc">User
-												Name</a></td>
+										<td  class="sorter-false"></td>
+									<td class="text-left"><a href="#" class="asc">User
+											Salutation</a></td>
+
+
+									<td class="text-left"><a href="#" class="asc">User
+											Name</a></td>
+
+
+									<td class="text-left"><a href="#">User Mobile</a></td>
+									<td class="text-left"><a href="#">User Email</a></td>
+									<td class="text-left"><a href="#">User Address</a></td>
+
+									<td class="text-left"><a href="#">User Date Registered</a></td>
+
+
+									<td class="text-left"><a href="#">User Role</a></td>
 								
 
-										<td class="text-left"><a href="#">User Mobile</a></td>
-										<td class="text-left"><a href="#">User Email</a></td>
-										<td class="text-left"><a href="#">User Address</a></td>
+					<td  class="sorter-false"><a href="#" class="asc">Edit</a></td>
 
-										<td class="text-left"><a href="#">User Date
-												Registered</a></td>
+								</tr>
+							</thead>
+							<tbody>
+
+								<c:forEach var="userm" items="${userc.rows}">
+
+									<tr>
+										<td class="text-center"><input type="checkbox"
+											name="selected[]" value="${userm.user_id}" /></td>
+
+										<td class="text-left"><c:out value=" ${userm.salutation}" /></td>
+
+										<td class="text-left"><c:out
+												value="${userm.given_name} ${userm.surname}" /></td>
 
 
-										<td class="text-left"><a href="#">User Role</a></td>
-	<td class="text-left"><a href="#">Date</a></td>
 
 
-									</tr>
-								</thead>
-								<tbody>
-				
-									<c:forEach var="userm" items="${userc.rows}">
-						
-										<tr>
-											<td class="text-center"><input type="checkbox"
-												name="selected[]" value="${userm.user_id}" /></td>
+										<td class="text-left"><c:out value="${userm.mobile}" /></td>
+										<td class="text-left"><c:out value="${userm.email}" /></td>
+										<td class="text-left"><c:out value="${userm.address}" /></td>
+										<td class="text-left"><c:out
+												value="${userm.create_update_datetime}" /></td>
+										<td class="text-left"><c:out value="${userm.role}" /></td>
 
-											<td class="text-left"><c:out
-													value=" ${userm.salutation}" /></td>
-													
-											<td class="text-left"><c:out
-													value="${userm.given_name} ${userm.surname}" /></td>
-												
-											
-												
-										
-											<td class="text-left"><c:out value="${userm.mobile}" /></td>
-											<td class="text-left"><c:out value="${userm.email}" /></td>
-											<td class="text-left"><c:out value="${userm.address}" /></td>
-											<td class="text-left"><c:out
-													value="${userm.create_update_datetime}" /></td>
-											<td class="text-left"><c:out value="${userm.role}" /></td>
-											
-											<td class="text-center">
+										<td class="text-center">
 
 											<button type="button" class="btn btn-default btn-sm"
 												onclick="location.href='editUser.jsp?userID=${userm.user_id}'">
@@ -201,16 +189,16 @@ OR role =  'parent'
 										</td>
 
 
-										</tr>
-									</c:forEach>
+									</tr>
+								</c:forEach>
 
 
 
 
 
-								</tbody>
-							</table>
-						</div>
+							</tbody>
+						</table>
+					</div>
 					</form>
 
 					<div class="row">
@@ -246,12 +234,8 @@ OR role =  'parent'
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	<script src="js/navlinks-admin.js"></script>
-	<script src="js/footer.js"></script>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/footer.js"></script>
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -259,71 +243,61 @@ OR role =  'parent'
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
+	<script src="docs/js/jquery-1.2.6.min.js"></script>
 
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<!-- load jQuery and tablesorter scripts -->
-	<script type="text/javascript" src="js/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
 
-	<!-- tablesorter widgets (optional) -->
-	<script type="text/javascript" src="js/jquery.tablesorter.widgets.js"></script>
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 	<script>
-	<!-- 	Start by telling tablesorter to sort your table when the document is loaded: -->
 		$(function() {
-			$("#myTable").tablesorter();
-		});
 
-	
-		$(function() {
-			$("#myTable").tablesorter({
-				sortList : [ [ 1, 0 ], [ 2, 0 ], ]
+			$('table').tablesorter({
+
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+
 			});
 		});
 	</script>
-	
-		<script type="text/javascript">
-		
+	<script type="text/javascript">
 		function checkbox_test() {
 
-			var counter = 0,
-			i = 0, 
-			url = '', 
+			var counter = 0, i = 0, url = '',
 
 			input_obj = document.getElementsByTagName('input');
 
 			for (i = 0; i < input_obj.length; i++) {
-			
+
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
-				
 
-					url = url + '&userID=' + input_obj[i].value;
+					url = url + '&catID=' + input_obj[i].value;
 					counter++;
 
 				}
 
 			}
 
-
 			if (counter > 0) {
-			
-				url = url.substr(1);
-	
-				alert( "confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
-				window.location.href = 'deleteUser?' + url;
+				url = url.substr(1);
+
+				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
+
+				window.location.href = 'deleteCategoryServlet?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
 			var table = document.getElementById('myTable');
 			var rowCount = table.rows.length;
-			for (var i = 0; i < rowCount; i++) {              
-				var row = table.rows[i];       
-				var chkbox = row.cells[0].childNodes[0];        
-				if (null != chkbox && true == chkbox.checked) { 
-					table.deleteRow(i);                    
-					rowCount--;                
+			for (var i = 0; i < rowCount; i++) {
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if (null != chkbox && true == chkbox.checked) {
+					table.deleteRow(i);
+					rowCount--;
 					i--;
 				}
 

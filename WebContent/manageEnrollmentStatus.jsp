@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<jsp:include page="main/adminNavigations.jsp"></jsp:include>
+<jsp:include page="main/adminNavigations.jsp"></jsp:include>
 <%-- <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
 <%@ include file="doConnection.jsp"%> --%>
@@ -28,7 +28,6 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>I'MPOSSIBLE - Manage Enrollment Status</title>
-
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -36,19 +35,11 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <link href="css/home.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-<!-- tablesorter theme file-->
-<link rel="stylesheet" href="css/theme.default.css">
+<!-- Pick a theme, load the plugin & initialize plugin -->
+<link href="dist/css/theme.default.min.css" rel="stylesheet">
 </head>
 <body>
-<%
+	<%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -111,7 +102,7 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 				<div class="panel-body">
 
 
-				<div class="pull-right">
+					<div class="pull-right">
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
 							<a href="addEnrollmentStatus.jsp"><button type="button"
@@ -125,7 +116,7 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 
 
 
-						
+
 						</p>
 					</div>
 
@@ -137,17 +128,14 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 								class="table table-bordered table-hover tablesorter">
 								<thead>
 									<tr>
-									<!-- 	<td style="width: 1px;" class="text-center"
-											data-sorter="false"><input type="checkbox"
-											onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td> -->
-											
-											<td></td>
 
+
+										<td class="sorter-false"></td>
 										<td class="text-left"><a href="#" class="asc">Enrollment
 												Status Name</a></td>
 										<td class="text-left"><a href="#" class="asc">Enrollment
 												Status Description</a></td>
-												<td class="text-left"><a href="#" class="asc">Edit</a></td>
+										<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
 									</tr>
 								</thead>
 
@@ -161,17 +149,17 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 													value="${eStatus.enrollment_status_name}" /></td>
 											<td class="text-left"><c:out
 													value="${eStatus.enrollment_status_desc}" /></td>
-													
-													<td class="text-center">
+
+											<td class="text-center">
 
 
 
 
-											<button type="button" class="btn btn-default btn-sm"
-												onclick="location.href='editEnrollmentStatus.jsp?eStatusID=${eStatus.enrollment_status_id}'">
-												<span class="glyphicon glyphicon-edit"></span> Edit
-											</button>
-										</td>
+												<button type="button" class="btn btn-default btn-sm"
+													onclick="location.href='editEnrollmentStatus.jsp?eStatusID=${eStatus.enrollment_status_id}'">
+													<span class="glyphicon glyphicon-edit"></span> Edit
+												</button>
+											</td>
 
 										</tr>
 									</c:forEach>
@@ -207,11 +195,8 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	<script src="js/footer.js"></script>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/footer.js"></script>
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -219,79 +204,67 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
+	<script src="docs/js/jquery-1.2.6.min.js"></script>
 
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<!-- load jQuery and tablesorter scripts -->
-	<script type="text/javascript" src="js/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
 
-	<!-- tablesorter widgets (optional) -->
-	<script type="text/javascript" src="js/jquery.tablesorter.widgets.js"></script>
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 	<script>
-	<!-- 	Start by telling tablesorter to sort your table when the document is loaded: -->
 		$(function() {
-			$("#myTable").tablesorter();
-		});
 
-		$(function() {
-			$("#myTable").tablesorter({
-				sortList : [ [ 1, 0 ], [ 2, 0 ], ]
+			$('table').tablesorter({
+
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+
 			});
 		});
 	</script>
-
-
-
 	<script type="text/javascript">
-
 		function checkbox_test() {
 
-			var counter = 0, 
-			i = 0, 
-			url = '', 
-		
+			var counter = 0, i = 0, url = '',
+
 			input_obj = document.getElementsByTagName('input');
-		
+
 			for (i = 0; i < input_obj.length; i++) {
-			
+
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
-				
 
-					url = url + '&eStatus=' + input_obj[i].value;
+					url = url + '&catID=' + input_obj[i].value;
 					counter++;
 
 				}
 
 			}
 
-			
 			if (counter > 0) {
-			
+
 				url = url.substr(1);
-				
+
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
-				
-				 window.location.href = 'deleteEnrollmentStatus?' + url; 
+
+				window.location.href = 'deleteCategoryServlet?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
 			var table = document.getElementById('myTable');
-			var rowCount = table.rows.length; 
-			for (var i = 0; i < rowCount; i++) {           
-				var row = table.rows[i];         
-				var chkbox = row.cells[0].childNodes[0];             
-				if (null != chkbox && true == chkbox.checked) {          
-					table.deleteRow(i);                  
-					rowCount--;                
+			var rowCount = table.rows.length;
+			for (var i = 0; i < rowCount; i++) {
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if (null != chkbox && true == chkbox.checked) {
+					table.deleteRow(i);
+					rowCount--;
 					i--;
 				}
 
 			}
 		}
 	</script>
-
 
 
 </body>

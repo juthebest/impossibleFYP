@@ -11,14 +11,20 @@
 
 
 <sql:query var="wsSchedule" dataSource="${dataSource}">
-SELECT * FROM itemrun ,item,status,coach,user
-where itemrun.item_id = item.item_id
+SELECT DATE(  `itemrun_start_datetime` ) AS 
+START , DATE(  `item_end_datetime` ) AS 
+END ,TIME(  `item_end_datetime` ) AS 
+ETIME, TIME(  `itemrun_start_datetime` ) AS 
+STIME, item.item_name, user.surname, user.given_name, itemrun.itemrun_venue, status.status_name
+FROM itemrun, item, 
+STATUS , coach, user
+WHERE itemrun.item_id = item.item_id
 AND itemrun.status_id = status.status_id
-AND coach.coach_id=itemrun.coach_id
-AND coach.coach_id= user.coach_id
-				       
-				       
+AND coach.coach_id = itemrun.coach_id
+AND coach.coach_id = user.coach_id
 </sql:query>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +48,7 @@ AND coach.coach_id= user.coach_id
 
 <!-- Pick a theme, load the plugin & initialize plugin -->
 <link href="dist/css/theme.default.min.css" rel="stylesheet">
-<%
+<%-- <%
 	//allow access only if session exists
 	String user = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -67,7 +73,7 @@ AND coach.coach_id= user.coach_id
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%>
+%> --%>
 </head>
 <body>
 
@@ -132,77 +138,76 @@ AND coach.coach_id= user.coach_id
 					</div>
 
 
-						<div class="table-responsive">
-							<table id="myTable"
-								class="table table-bordered table-hover tablesorter">
-								<thead>
+					<div class="table-responsive">
+						<table id="myTable"
+							class="table table-bordered table-hover tablesorter">
+							<thead>
+								<tr>
+
+
+
+									<td class="sorter-false"></td>
+									<td data-field="name" data-sortable="true" class="text-left"><a
+										href="#" class="asc">Course Title</a></td>
+
+									<td data-field="sdate" data-sortable="true" class="text-left"><a
+										href="#">Start date </a></td>
+									<td data-field="edate" data-sortable="true" class="text-left"><a
+										href="#">End date</a></td>
+
+									<td data-field="time" data-sortable="true" class="text-left"><a
+										href="#">Time </a></td>
+
+
+									<td data-field="trainer" data-sortable="true" class="text-left"><a
+										href="#">Trainer</a></td>
+									<td data-field="venue" data-sortable="true" class="text-left"
+										class="sorter-mmddyy"><a href="#">Venue</a></td>
+
+									<td data-field="status" data-sortable="true" class="text-left"><a
+										href="#">Status</a></td>
+									<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="workshop" items="${wsSchedule.rows}">
+
 									<tr>
+										<td class="text-center"><input type="checkbox"
+											name="selected[]" value="${workshop.itemrun_id}" /></td>
+										<td class="text-left">${workshop.item_name}</td>
+
+										<td class="text-left">${workshop.START}</td>
 
 
 
-										<td class="sorter-false"></td>
-										<td data-field="name" data-sortable="true" class="text-left"><a href="#" class="asc">Course
-												Title</a></td>
-
-										<td data-field="sdate " data-sortable="true" class="text-left"><a href="#">Start datetime</a></td>
-										<td  data-field="edate" data-sortable="true" class="text-left"><a href="#">End datetime</a></td>
+										<td class="text-left">${workshop.END}</td>
+										<td class="text-left">${workshop.STIME}-
+											${workshop.ETIME}</td>
 
 
-										<td data-field="trainer" data-sortable="true" class="text-left"><a href="#">Trainer</a></td>
-										<td data-field="venue" data-sortable="true" class="text-left" class="sorter-mmddyy"><a href="#">Venue</a></td>
+										<td class="text-left">${workshop.given_name}${workshop.surname}</td>
+										<td class="text-left">${workshop.itemrun_venue}</td>
+										<td class="text-left">${workshop.status_name}</td>
+										<td class="text-center">
 
-										<td data-field="status" data-sortable="true" class="text-left"><a href="#">Status</a></td>
-										<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
+											<button type="button" class="btn btn-default btn-sm"
+												onclick="location.href='editWorkShopSchedule.jsp?wsID=${workshop.itemrun_id}'">
+												<span class="glyphicon glyphicon-edit"></span> Edit
+											</button>
+										</td>
+
 									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="workshop" items="${wsSchedule.rows}">
-
-										<tr>
-											<td class="text-center"><input type="checkbox"
-												name="selected[]" value="${workshop.itemrun_id}" /></td>
-											<td class="text-left">${workshop.item_name}</td>
-											<td class="text-left">${workshop.itemrun_start_datetime}</td>
-											<td class="text-left">${workshop.item_end_datetime}</td>
-											<td class="text-left">${workshop.given_name}${workshop.surname}</td>
-											<td class="text-left">${workshop.itemrun_venue}</td>
-											<td class="text-left">${workshop.status_name}</td>
-											<td class="text-center">
-
-												<button type="button" class="btn btn-default btn-sm"
-													onclick="location.href='editWorkShopSchedule.jsp?wsID=${workshop.itemrun_id}'">
-													<span class="glyphicon glyphicon-edit"></span> Edit
-												</button>
-											</td>
-
-										</tr>
-									</c:forEach>
+								</c:forEach>
 
 
 
-								</tbody>
-							</table>
-						</div>
-					</form>
-
-
-					<div class="row">
-						<div class="col-sm-6 text-left">
-
-							<ul class="pagination">
-								<li class="disabled"><a href="#">&laquo;</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-
-						</div>
-						<div class="col-sm-6 text-right">Showing 1 to 20 of 38 (2
-							Pages)</div>
+							</tbody>
+						</table>
 					</div>
+
+
+
 				</div>
 			</div>
 		</div>
@@ -235,34 +240,13 @@ AND coach.coach_id= user.coach_id
 	<script src="dist/js/jquery.tablesorter.min.js"></script>
 	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 	<script>
-	$.tablesorter.addParser({
-	    id: "sdate",
-	    is: function(s) {
-	        return false;
-	    },
-	    format: function(s, table, cell, cellIndex) {
-	        s = s
-	            // replace separators
-	            .replace(/\s+/g," ").replace(/[\-.,]/g, "/")
-	            // reformat dd/mm/yyyy to yyyy/mm/dd
-	            .replace(/(\d{1,2})[\/\s](\d{1,2})[\/\s](\d{4})/, "$3/$2/$1");
-
-	       return s ? $.tablesorter.formatFloat( (new Date(s).getTime() || ''), table) : s;
-	    },
-	    type: "numeric"
-	});
 		$(function() {
 
 			$('table').tablesorter({
-			    headers: {
-			        2: {
-			            sorter: "sdatej"
-			        }
-			    },
+
 				usNumberFormat : false,
 				sortReset : true,
 				sortRestart : true
-				
 
 			});
 		});
