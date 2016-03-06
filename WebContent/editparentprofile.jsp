@@ -125,7 +125,6 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								</div>
 								
 								
-								
 								<input type="hidden" name="parentid"
 									value="${parentprofile.parent_id}" />
 									
