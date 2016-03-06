@@ -22,7 +22,7 @@ public ArrayList<Account> AccountController(Connection connection,HttpServletReq
 				Account accObject = new Account();
 				accObject.setUsername(rs.getString("email"));
 				accObject.setPassword(rs.getString("password"));
-			
+				accObject.setRole(rs.getString("role"));
 				accData.add(accObject);
 			}
 			return accData;
