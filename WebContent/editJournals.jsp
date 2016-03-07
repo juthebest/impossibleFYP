@@ -87,7 +87,7 @@
 
 						<c:forEach var="journaldetails" items="${journal.rows}">
 							<form method="post" class="form-horizontal" name="myForm"
-								action="">
+								action="addJournalComment">
 
 								<input type="hidden"
 									value="${journaldetails.journal_reflection}" name="id"></input>
