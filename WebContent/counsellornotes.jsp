@@ -128,8 +128,8 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 									<tr>
 										<th style="text-align: left" data-sorter="false"><input
 											type="checkbox" name="checkbox" value="checkbox"></th>
-										<th class="text-left">Date of Counselling</th>
-										<th class="text-left">Time Submitted Journal</th>
+										<th class="text-left">Date and Time of Counselling</th>
+										<th class="text-left">Comment of Note</th>
 										<th class="text-left">Student Name</th>
 										<th class="text-left"><a href="#" class="asc">Edit</a></th>
 									</tr>
@@ -151,7 +151,7 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 													value="" />Mary</td>
 											<td class="text-center">
 												<button type="button" class="btn btn-default btn-sm"
-													onclick="location.href='editCategory.jsp?journalID=${notes.coach_id}'">
+													onclick="location.href='editCoachNote.jsp?journalID=${notes.coach_note_id}'">
 													<span class="glyphicon glyphicon-edit"></span> Edit
 												</button>
 											</td>
