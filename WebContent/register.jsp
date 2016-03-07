@@ -268,6 +268,8 @@
 									</div>
 								</div>
 							</div>
+							
+							
 							<c:forEach var="program" items="${programname.rows}">
 								<p>
 									<b>Program Registered:</b> <input type="text"
