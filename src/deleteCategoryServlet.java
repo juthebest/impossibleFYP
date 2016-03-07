@@ -20,14 +20,14 @@ import dao.Database;
 @WebServlet("/deleteCategoryServlet")
 public class deleteCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public deleteCategoryServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public deleteCategoryServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,9 +49,9 @@ public class deleteCategoryServlet extends HttpServlet {
 			Connection connection = database.Get_Connection();
 			Statement stmt = null;
 			stmt = connection.createStatement();
-		String[] catID= request.getParameterValues("catID");
-	
-/*		for(int i=0;i<catID.length;i++){
+			String[] catID= request.getParameterValues("catID");
+
+			/*		for(int i=0;i<catID.length;i++){
 			if(i==0) {
 				catString = catString + "'" +(String)catID[i] + "'"; 
 			}else{ 
@@ -60,34 +60,49 @@ public class deleteCategoryServlet extends HttpServlet {
 		}
 		out.println(catString);
 
-*/
-		String query;
-		int b=0;
-		for(String id: catID){
-	 query = "DELETE FROM `category` WHERE  category_id  IN ('"+id+"')";
+			 */
+			String query;
+			String queryCheck;
 
-	  b =  stmt.executeUpdate(query);
-	      // execute the preparedstatement
+			int b=0;
+			int bCheck =0;
+
+
+			for(String id: catID){
+
+				queryCheck = "SELECT * FROM category,category_has_item,item"
+						+ "WHERE item.item_id = category_has_item.item_id "
+						+ "AND category_has_item.category_id = '"+id+"' ";
+				bCheck = stmt.executeUpdate(queryCheck);
+				
+				if(bCheck == 0 ){
+					query = "DELETE FROM `category` WHERE  category_id  IN ('"+id+"')";
+					b =  stmt.executeUpdate(query);
+				} else {
+					request.setAttribute("error", " Invalid");
+					request.getRequestDispatcher("login.jsp").forward(request,response);
+				}
+				// execute the preparedstatement
+			}
+
+
+
+			if(b==1){
+				response.sendRedirect("manageCategory.jsp");
+
+			}
+			out.println("There is an error");
+
+
 		}
-	       
 
- 
-	    if(b==1){
-	    	  response.sendRedirect("manageCategory.jsp");
-	    	  
-	      }
-	  		out.println("There is an error");
-	      
-	      
-	    }
-		
-	    catch (Exception e)
-	    {
-	      System.err.println("Got an exception! ");
-	      System.err.println(e.getMessage());
-	    }
-		
+		catch (Exception e)
+		{
+			System.err.println("Got an exception! ");
+			System.err.println(e.getMessage());
 		}
 
 	}
+
+}
 
