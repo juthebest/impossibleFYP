@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 
 import java.io.PrintWriter;
@@ -25,7 +26,12 @@ public class deleteServletCoaching extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// JDBC driver name and database URL
 
+	
+
+		
 		// Set response content type
 		response.setContentType("text/html");
 
@@ -52,10 +58,9 @@ public class deleteServletCoaching extends HttpServlet {
 			String sql2;
 			String sql3;
 			int rs = 0;
-			
+
 			for(String id:itemID)
 			{
-				
 				sql2 = "delete from category_has_item where item_id='"+id+"'";
 				stmt.execute(sql2);
 				sql3 = "delete from program_has_item where item_id='"+id+"'";
@@ -63,7 +68,6 @@ public class deleteServletCoaching extends HttpServlet {
 				sql = "delete from item where item_id='"+id+"' ";
 				rs = stmt.executeUpdate(sql);
 				out.println("Successfully Deleted");
-				
 			}
 
 
