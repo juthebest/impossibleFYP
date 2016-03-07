@@ -152,49 +152,33 @@ public class loginServlet extends HttpServlet {
 						String coachencodedURL = response.encodeRedirectURL("counsellor.jsp");
 						response.sendRedirect(coachencodedURL);
 					}
-					if(role.equalsIgnoreCase("admin")){
+					else if(role.equalsIgnoreCase("admin")){
 						session.setAttribute("role", "admin");
 
 						String adminencodedURL = response.encodeRedirectURL("adminIndex.jsp");
 						response.sendRedirect(adminencodedURL);
 					}
 
-					if(role.equalsIgnoreCase("child")){
+					else if(role.equalsIgnoreCase("child")){
 						session.setAttribute("role", "child");
 						String clientencodedURL = response.encodeRedirectURL("user.jsp");
 						response.sendRedirect(clientencodedURL);
 					}
-					if(role.equalsIgnoreCase("parent")){
+					else if(role.equalsIgnoreCase("parent")){
 						session.setAttribute("role", "parent");
 						String parentencodedURL = response.encodeRedirectURL("parenthomepage.jsp");
 						response.sendRedirect(parentencodedURL);
 					}
+				
 
 
 					x=role;
 					System.out.println(x);
 
 				}
-
-				
-				/*
-				 * }else{ response.sendRedirect("login.html" + "?IsSuccess=" +
-				 * row); }
-				 */
-				
-				
 			}
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp?" + x);
+			
 			response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
-			rd.include(request, response);
-
-			/*out.println("<font color=red>Either user name or password is wrong.</font>");*/
-	
-
-			// Clean-up environment
-			rs.close();
-			stmt.close();
-			conn.close();
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();

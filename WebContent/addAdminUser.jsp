@@ -18,7 +18,7 @@
 
 <link href="css/home.css" rel="stylesheet">
 
-<%-- <%
+ <%
 	//allow access only if session exists
 	String user = null;
 
@@ -45,7 +45,7 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%> --%>
+%> 
 
 </head>
 <body>
@@ -109,7 +109,7 @@
 									Name:</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="text" name="gName"
-										placeholder="Name" pattern="[a-zA-Z]{5,}" title="Minimum 5 letters" required>
+										placeholder="Name" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required>
 								</div>
 							</div>
 
@@ -131,8 +131,8 @@
 									Password:</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="password" name="aPassword"
-										placeholder="Password" data-error="Please enter your password"
-										required>
+										placeholder="Password"  pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"  required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -146,8 +146,8 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="aAddress">Address</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="text" name="aAddress"
-										placeholder="Address" required>
+									<input class="form-control" type="text" name="aAddress" pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code" placeholder="Address" required>
 								</div>
 							</div>
 
