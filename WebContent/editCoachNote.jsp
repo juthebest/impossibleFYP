@@ -61,6 +61,10 @@
 	<input type="submit" value="Logout">
 </form>
 
+<!-- get coach id-->
+<sql:query var="coachidis" dataSource="${dataSource}">
+SELECT * FROM coach_note WHERE coach_note_id=<%=request.getParameter("journalID")%>;
+</sql:query>
 
 
 <%-- <c:forEach var="coachstudents" items="${coachidis.rows}">
@@ -71,13 +75,6 @@ WHERE client.client_id = user.client_id
 AND client.coach_id = <c:out value="${coachstudents.coach_id}" />
 	</sql:query>
 </c:forEach> --%>
-
-
-<!-- get coach id-->
-<sql:query var="coachidis" dataSource="${dataSource}">
-SELECT * FROM user WHERE user_id = <%=uid%>;
-</sql:query>
-
 
 <c:forEach var="profilestudents" items="${coachidis.rows}">
 	<!-- parent details -->
@@ -122,12 +119,12 @@ AND user.user_id = <%=uid%>;
 						<form name="form1" method="post" action="writecoachnotes">
 							<div class="content">
 								<div class="container">
+									<div class="panel-body">
 
-									<div class="row">
-										<div class="form-group form-group-md">
+										<div class="form-group">
 											<label class="col-sm-2 control-label" for="status">Student
 												Name:</label>
-											<div class="col-sm-4">
+											<div class="col-sm-10">
 												<select class="form-control" id="status" name="Student">
 
 													<c:forEach var="name" items="${coachstudents.rows}">
@@ -138,63 +135,44 @@ AND user.user_id = <%=uid%>;
 													</c:forEach>
 												</select>
 											</div>
-
 										</div>
-									</div>
-									
-									<!-- get the client id and put in the servlet -->
 
-									<%-- <c:forEach var="client" items="${coachstudents.rows}">
-										<input type="hidden"
-											value="<c:out value="${client.client_id}" />"
-											name="clientid" />
+<br/>
+										<c:forEach var="coachid" items="${coachidis.rows}">
+											<input type="hidden" value="${coachid.coach_note_id}"
+												name="id"></input>
 
-									</c:forEach> --%>
-
-									<!-- get the coach id and put in the servlet -->
-									<c:forEach var="coachid" items="${coachidis.rows}">
-										<input type="hidden"
-											value="<c:out value="${coachid.coach_id}" />"
-											name="thisisthecoachid" />
-
-									</c:forEach>
-
-
-									<br>
-
-									<div class="row">
-										<div class="form-group form-group-md">
-											<label class="col-sm-2 control-label" for="dp1">Date
-												Of Counselling:</label>
-											<div class="col-sm-3">
-												<input type="date" class="form-control" id="dp1"
-													value="11/11/2015" name="date">
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="datesubmitted">Date
+													Last Updated: </label>
+												<div class="col-sm-10">
+													<input type="text" name="datesubmitted"
+														placeholder="Submitted date" id="input-submitdate"
+														value="${coachid.create_update_datetime}"
+														class="form-control" required></input>
+												</div>
 											</div>
-										</div>
-									</div>
-									<br>
+<br/>
 
-									<div class="row">
-										<div class="form-group form-group-md">
-											<label class="col-sm-2 control-label" for="seo">Counsellor's
-												Comment:</label>
-											<div class="col-sm-9">
-												<textarea class="form-control" id="message" name="message"
-													placeholder="Counsellor's comment is entered here."
-													rows="7"></textarea>
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="seo">Counsellor's
+													Comment:</label>
+												<div class="col-sm-10">
+													<input class="form-control" id="message" name="message"
+														placeholder="Counsellor's comment is entered here."
+														value="${coachid.note_details}"></input>
+												</div>
 											</div>
-										</div>
-									</div>
-									<br />
-
-									<div class="row">
-										<div class="form-group">
-											<div class="form-actions" style="text-align: right">
+<br/>
+											<div class="form-actions">
 												<button type="submit" class="btn btn-primary"
 													id="UpdateButton">Submit</button>
 												<a class="btn btn-danger" href="counsellornotes.jsp">Cancel</a>
 											</div>
-										</div>
+
+
+										</c:forEach>
+
 									</div>
 								</div>
 							</div>
