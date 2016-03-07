@@ -57,15 +57,10 @@ public class deleteServletCoaching extends HttpServlet {
 			String sql2;
 			String sql3;
 			int rs = 0;
-			String queryCheck;
-			boolean checkC;
+			
 			for(String id:itemID)
 			{
-				queryCheck = "SELECT * FROM category_has_item,program_has_item,item"
-						+ "WHERE item.item_id = category_has_item.item_id "
-						+ "AND category_has_item.category_id = '"+id+"' ";
-				checkC = stmt.execute(queryCheck);
-				if (checkC == false){
+				
 				sql2 = "delete from category_has_item where item_id='"+id+"'";
 				stmt.execute(sql2);
 				sql3 = "delete from program_has_item where item_id='"+id+"'";
@@ -73,7 +68,7 @@ public class deleteServletCoaching extends HttpServlet {
 				sql = "delete from item where item_id='"+id+"' ";
 				rs = stmt.executeUpdate(sql);
 				out.println("Successfully Deleted");
-				}
+				
 			}
 
 

@@ -61,24 +61,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %> --%>
-<script type="text/javascript">
-	$(function validate() {
-		var cBvalue = document.getElementsByID("selected");
 
-		var cBselected = 0;
-		//Loop through the checkbox elements, and tally the selected
-		for (var i = 0; i < cBvalue.length; i++) {
-			if (cBvalue[i].checked) {
-				cBselected++;
-			}
-		}
-		//If none are selected, then alert your error, and return false
-		if (cBselected == 0) {
-			alert("Please select checkbox");
-			return false;
-		}
-	});
-</script>
 </head>
 
 
