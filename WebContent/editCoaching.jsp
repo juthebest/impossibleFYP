@@ -16,7 +16,7 @@
                 AND category_has_item.category_id=category.category_id 
                 AND item.item_type_id=item_type.item_type_id
 				AND item.status_id=status.status_id
-                AND item.item_id=<%=request.getParameter("selected")%>
+                AND item.item_id=<%=request.getParameter("catID")%>
 
 
 </sql:query>
@@ -294,8 +294,7 @@
 								</div>
 								<div class="form-group">
 									<div class="form-actions">
-										<button type="submit" class="btn btn-primary">Edit
-											Coaching</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
 										<a href="courseAdmin.html"><button type="button"
 												class="btn btn-danger">Cancel</button></a>
 									</div>
