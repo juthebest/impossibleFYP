@@ -58,7 +58,7 @@
 	<input type="submit" value="Logout">
 </form>
 
-<!-- //var - get the coach_id -->
+
 <sql:query var="coachid" dataSource="${dataSource}">
 SELECT *
 FROM coach, user
@@ -66,7 +66,6 @@ WHERE coach.coach_id = user.coach_id
 AND user.user_id = <%=uid%>;
 </sql:query>
 
-<!-- //var - ownself name -->
 <c:forEach var="counsellor" items="${coachid.rows}">
 	<sql:query var="counsellorjournals" dataSource="${dataSource}">
 SELECT *
@@ -77,7 +76,7 @@ AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
 </c:forEach>
 
-<c:forEach var="clientname" items="${coachid.rows}">
+<c:forEach var="clientname" items="${counsellor.rows}">
 	<sql:query var="clientnameis" dataSource="${dataSource}">
 SELECT * FROM user
 WHERE client_id = <c:out value="${clientname.client_id}" />;
@@ -89,7 +88,7 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Manage Course</title>
+<title>I'MPOSSIBLE - Counselor Journals</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -113,9 +112,15 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 	<div class="container">
 		<div class="container-fluid">
 			<div class="panel panel-default">
+
 				<div class="panel-heading">
 					<h3 class="panel-title">All Journals</h3>
 				</div>
+
+				<c:forEach var="nameofclient" items="${clientnameis.rows}">
+					<td class="text-left"><c:out
+							value="${nameofclient.given_name}" /></td>
+				</c:forEach>
 
 				<div class="panel-body">
 					<form action="#" method="post" enctype="multipart/form-data"
@@ -163,6 +168,9 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 											</td>
 										</tr>
 									</c:forEach>
+
+
+
 								</tbody>
 							</table>
 						</div>

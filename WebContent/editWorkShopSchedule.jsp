@@ -8,11 +8,6 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-
-
-
-
-
 <sql:query var="wsSchedule" dataSource="${dataSource}">
 SELECT * FROM itemrun ,item,status,coach,user
 where itemrun.item_id = item.item_id
@@ -25,13 +20,12 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 </sql:query>
 <sql:query var="coach" dataSource="${dataSource}">
     SELECT * FROM `coach` , user where coach.coach_id =user.coach_id
-
 </sql:query>
 
 <sql:query var="status" dataSource="${dataSource}">
-    SELECT * FROM `status` 
-
+    SELECT * FROM `status`
 </sql:query>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,30 +117,23 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 					<div class="panel-body">
 
 
-
-
 						<c:forEach var="workshop" items="${wsSchedule.rows}">
 							<form action="editWorkShopSchedule" method="post"
 								class="form-horizontal" data-toggle="validator" role="form">
 
-
 								<input type="hidden" name="id"
 									value="	<c:out value="${workshop.itemrun_id}"/>" />
-									
-									
 									
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="wsname">Select
 										Workshop Name</label>
+									
 									<div class="col-sm-9">
-
 										<select class="form-control" name="wsname">
 											<option value="${workshop.item_id}">${workshop.item_name}</option>
-
 										</select>
-
 									</div>
-
+									
 								</div>
 
 
@@ -159,9 +146,7 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 											value="${workshop.itemrun_start_datetime}" required>
 									</div>
 
-
 								</div>
-
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="edt">End
@@ -171,7 +156,6 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 											value="${workshop.item_end_datetime}" required>
 									</div>
 								</div>
-
 
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="coachInCharge">Coach
