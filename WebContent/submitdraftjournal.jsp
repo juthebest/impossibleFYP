@@ -14,6 +14,7 @@
 
 <!-- //var - ownself name, data source is take from line 9 -->
 
+
 <%
 	//allow access only if session exists
 	String user = null;
@@ -21,7 +22,7 @@
 	String role = (String) session.getAttribute("role");
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
-			|| !role.equalsIgnoreCase("parent")) {
+			|| !role.equalsIgnoreCase("child")) {
 		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
@@ -66,17 +67,16 @@
 
 <sql:query var="clientjournal" dataSource="${dataSource}">
 SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal`
-WHERE client_journal_id=<%=request.getParameter("idjournalid")%>
-AND client_journal_id.privacy_indicator = 'Allow'
-AND client_journal_id.journalstatus_id = '1';
+WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 </sql:query>
+
 
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Passed Journals</title>
+<title>I'MPOSSIBLE - Draft Journals</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -113,11 +113,10 @@ AND client_journal_id.journalstatus_id = '1';
 			<div class="container-fluid">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Passed Journals & Comments</h3>
+						<h3 class="panel-title">Edit Journal</h3>
 
 						<c:forEach var="client" items="${clientjournal.rows}">
 
-							<td><c:out value="${client.create_update_datetime}" /></td>
 
 							<div class="panel-body">
 								<div class="row">
@@ -132,19 +131,76 @@ AND client_journal_id.journalstatus_id = '1';
 									</script>
 								</div>
 								<br />
-								<div class="row">
-									<label>Counsellor's Comment:</label> <br />
-									<h5>
-										<c:out value="${client.coach_comment}" />
-									</h5>
-									<i>Commented on <c:out
-											value="${client.coach_comment_datetime}" />
-								</div>
 								<!-- 				<ul class="pager">
 											<li class="previous"><a href="#">&larr; Previous</a></li>
 											<li class="next"><a href="#">Next &rarr;</a></li> -->
 
 							</div>
+							
+							
+							
+							<c:forEach var="client" items="${clientid.rows}">
+							<input type="hidden"
+								value="<c:out value="${client.client_id}" />" name="xenia" />
+
+						</c:forEach>
+						<c:forEach var="coachid" items="${coach_id.rows}">
+							<input type="hidden"
+								value="<c:out value="${coachid.coach_id}" />"
+								name="thisisthecoachid" />
+
+						</c:forEach>
+						<c:forEach var="rjquestion" items="${reflectionjournal.rows}">
+							<p>
+								<c:out value="${rjquestion.rj_questions}" />
+							</p>
+						</c:forEach>
+
+						<textarea name="editor1" id="editor1" rows="10" cols="80">
+					<c:out value="${client.journal_reflection}" />     	
+						</textarea>
+						<script>
+							CKEDITOR.replace('editor1');
+						</script>
+
+						<br />
+						<div class="row">
+							<label> Today's Emotion Rating: </label> <br />
+							<div class="col-sm-2" style="margin-left: -20px">
+								<select class="form-control" id="status" name="emotionrating">
+									<option value="Elated">Elated</option>
+									<option value="Happy">Happy</option>
+									<option value="Sad">Sad</option>
+								</select>
+							</div>
+						</div>
+
+						<br />
+						<div class="row">
+							<label>Privacy Indicator:</label> <br />
+							<div class="col-sm-4" style="margin-left: -20px">
+								<select class="form-control" id="status" name="privacyin">
+									<option value="Allow">Allow All</option>
+									<option value="Onlycounsellor">Only Counsellor</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group">
+								<div class="form-actions" style="text-align: right">
+									<input type="submit" class="btn btn-primary" name="action" value="Save">
+										<input type="submit" class="btn btn-primary" name="action" value="Submit">
+
+<!-- 									<button type="submit" class="btn btn-primary" id="UpdateButton">Submit</button>
+ -->									<a class="btn btn-danger" href="user.jsp">Cancel</a>
+								</div>
+							</div>
+						</div>
+						
+						
+						
+						
 						</c:forEach>
 					</div>
 

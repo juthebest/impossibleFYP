@@ -72,6 +72,7 @@ SELECT *
 FROM client_journal, client, coach
 WHERE client_journal.client_id = client.client_id
 AND client_journal.coach_id = coach.coach_id
+AND client_journal.journalstatus_id = '1'
 AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
 </c:forEach>
