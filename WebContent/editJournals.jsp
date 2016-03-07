@@ -68,13 +68,13 @@
 
 	<div class="container">
 		<div id="content">
-		
+
 			<div class="page-header">
 				<div class="container-fluid">
-					<h1>Status</h1>
+					<h1>Comment</h1>
 				</div>
 			</div>
-			
+
 			<div class="container-fluid">
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -90,17 +90,50 @@
 								action="addJournalComment">
 
 								<input type="hidden"
-									value="${journaldetails.journal_reflection}" name="id"></input>
+									value="${journaldetails.client_journal_id}" name="id"></input>
 
 								<div class="form-group required">
 									<label class="col-sm-2 control-label" for="input-name1">Student
 										Journal</label>
 									<div class="col-sm-10">
-										<textfield>
-										<input type="text" name="status_name"
+										<textfield> <input type="text" name="status_name"
 											value="${journaldetails.journal_reflection}"
 											placeholder="Status Name" id="input-name1"
 											class="form-control" required /></textfield>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="emotionrating">Emotion
+										Rating: </label>
+									<div class="col-sm-10">
+										<input type="text" name="emotionrating" id="input-emotion"
+											value="${journaldetails.emotion_rating}" class="form-control"
+											required></input>
+
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="indicator">Privacy
+										Indicator: </label>
+									<div class="col-sm-10">
+										<input type="text" name="indicator" id="input-indicator"
+											value="${journaldetails.privacy_indicator}"
+											class="form-control" required></input>
+
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="datesubmitted">Submitted
+										Date: </label>
+									<div class="col-sm-10">
+										<input type="text" name="datesubmitted"
+											placeholder="Submitted date" id="input-submitdate"
+											value="${journaldetails.create_update_datetime}"
+											class="form-control" required></input>
+
 									</div>
 								</div>
 
@@ -109,8 +142,7 @@
 									</label>
 									<div class="col-sm-10">
 										<input type="text" name="coachcomment"
-											placeholder="Please enter comment here."
-											id="input-description1"
+											placeholder="Please enter comment here." id="input-comment"
 											value="${journaldetails.coach_comment}" class="form-control"
 											required></input>
 

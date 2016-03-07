@@ -67,9 +67,9 @@
 <sql:query var="clientjournal" dataSource="${dataSource}">
 SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal`
 WHERE client_journal_id=<%=request.getParameter("idjournalid")%>;
-
-
 </sql:query>
+
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,10 +124,10 @@ WHERE client_journal_id=<%=request.getParameter("idjournalid")%>;
 					<c:out value="${client.journal_reflection}" />     	
 						</textarea>
 									<script>
-												// Replace the <textarea id="editor1"> with a CKEditor
-												// instance, using default configuration.
-												CKEDITOR.replace('editor1');
-											</script>
+										// Replace the <textarea id="editor1"> with a CKEditor
+										// instance, using default configuration.
+										CKEDITOR.replace('editor1');
+									</script>
 								</div>
 								<br />
 								<div class="row">

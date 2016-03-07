@@ -72,7 +72,7 @@ public class editParentProfile extends HttpServlet {
 
 			int i = stmt.executeUpdate("UPDATE `user` SET`given_name`='"
 					+ givenname + "',`surname`='" + sname + "',`email`='" + email + "',`mobile`='"
-					+ mobile + "',`address`='" + address + "' WHERE parent_id='" + id + "'");;
+					+ mobile + "',`address`='" + address + "' WHERE parent_id='" + id + "'");
 
 			
 			if (i == 1) {
