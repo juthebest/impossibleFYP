@@ -1,9 +1,4 @@
 
-/*queryCheck = "SELECT * FROM category,category_has_item,item,itemrun,itemrun_has_client "
-						+ "WHERE item.item_id = itemrun.item_id "
-						+ "AND itemrun_has_client.itemrun_id = itemrun.itemrun_id "
-						+ "AND item.item_id = category_has_item.item_id "
-						+ "AND category.category_id = category_has_item.category_id ";*/
 import java.io.IOException;
 
 import java.io.PrintWriter;
