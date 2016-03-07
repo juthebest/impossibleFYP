@@ -18,7 +18,7 @@
 
 <link href="css/home.css" rel="stylesheet">
 
-<%
+<%-- <%
 	//allow access only if session exists
 	String user = null;
 
@@ -45,7 +45,7 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%>
+%> --%>
 
 </head>
 <body>
@@ -100,7 +100,7 @@
 								<label class="control-label col-sm-2" for="sName">Surname</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="text" name="sName"
-										placeholder="Name" required>
+										placeholder="Name" pattern="[a-zA-Z]{2,}" title="Minimum 2 letters" required>
 								</div>
 							</div>
 
@@ -109,7 +109,7 @@
 									Name:</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="text" name="gName"
-										placeholder="Name" required>
+										placeholder="Name" pattern="[a-zA-Z]{5,}" title="Minimum 5 letters" required>
 								</div>
 							</div>
 
@@ -119,7 +119,7 @@
 									Email:</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="email" name="aEmail"
-										placeholder="Email" data-error="This email address is invalid"
+										placeholder="Email" data-error="This email address is invalid" 
 										required>
 									<div class="help-block with-errors"></div>
 								</div>
@@ -174,6 +174,8 @@
 
 
 						</form>
+						
+						
 
 					
 
@@ -200,5 +202,27 @@
 
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script>
+	
+	var validations ={
+		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		};
+		$(document).ready(function(){
+		    // Check all the input fields of type email. This function will handle all the email addresses validations
+		    $("input[type=email]").change( function(){
+		        // Set the regular expression to validate the email 
+		        validation = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validation.test(this.value)){
+		            // If the validation fails then we show the custom error message
+		            this.setCustomValidity(validations['email'][1]);
+		            return false;
+		        } else {
+		            // This is really important. If the validation is successful you need to reset the custom error message
+		            this.setCustomValidity('');
+		        }
+		    });
+		})
+	</script>
 </body>
 </html>

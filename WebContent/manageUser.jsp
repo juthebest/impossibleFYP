@@ -273,7 +273,7 @@ OR role =  'parent'
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
 
-					url = url + '&catID=' + input_obj[i].value;
+					url = url + '&userID=' + input_obj[i].value;
 					counter++;
 
 				}
@@ -286,7 +286,7 @@ OR role =  'parent'
 
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
-				window.location.href = 'deleteCategoryServlet?' + url;
+				window.location.href = 'deleteUser?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
