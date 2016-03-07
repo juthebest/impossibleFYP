@@ -65,7 +65,6 @@ public class deleteServlet extends HttpServlet {
 				stmt.execute(sql3);
 				sql = "delete from item where item_id='"+id+"' ";
 				rs = stmt.executeUpdate(sql);
-				out.println("Successfully Deleted");
 			}
 
 

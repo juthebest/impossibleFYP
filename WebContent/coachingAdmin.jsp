@@ -220,28 +220,20 @@
 
 			var counter = 0, 
 			i = 0, 
-			url = '', 
-		
+			url = '', 	
 			input_obj = document.getElementsByTagName('input');
-		
 			for (i = 0; i < input_obj.length; i++) {
-			
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
 					url = url + '&catID=' + input_obj[i].value;
-
 					counter++;
-
 				}
-
 			}
-
-		
 			if (counter > 0) {
 				
 				url = url.substr(1);
 			
-				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
+				alert("Delete/Uninstall cannot be undone! Are you sure you want to do this?");
 			
 				 window.location.href = 'deleteServletCoaching?' + url; 
 			} else {

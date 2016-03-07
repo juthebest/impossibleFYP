@@ -25,12 +25,7 @@ public class deleteServletCoaching extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// JDBC driver name and database URL
 
-	
-
-		
 		// Set response content type
 		response.setContentType("text/html");
 
