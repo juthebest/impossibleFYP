@@ -77,6 +77,13 @@ AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
 </c:forEach>
 
+<c:forEach var="clientname" items="${coachid.rows}">
+	<sql:query var="clientnameis" dataSource="${dataSource}">
+SELECT * FROM user
+WHERE client_id = <c:out value="${clientname.client_id}" />;
+</sql:query>
+</c:forEach>
+
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

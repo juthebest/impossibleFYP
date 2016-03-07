@@ -7,11 +7,10 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-
 <sql:query var="itemStatus" dataSource="${dataSource}">
-     SELECT `status_id`, `status_name`, `status_desc` FROM `status`  WHERE status_id=<%=request.getParameter("itemStatusID")%>
-
-
+     SELECT `status_id`, `status_name`, `status_desc`
+     FROM `status`
+     WHERE status_id=<%=request.getParameter("itemStatusID")%>
 </sql:query>
 
 

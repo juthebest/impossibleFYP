@@ -16,37 +16,39 @@
 
 
 <%
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String role=(String) session.getAttribute("role");
-		String uid = null;
-		 if(session.getAttribute("name") == null || session.getAttribute("role") == null || !role.equalsIgnoreCase("child")){
+	String role = (String) session.getAttribute("role");
+	String uid = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") == null
+			|| !role.equalsIgnoreCase("child")) {
 		response.sendRedirect("login.jsp");
-		}else user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	} else
+		user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
@@ -66,9 +68,16 @@
 <sql:query var="clientjournal" dataSource="${dataSource}">
 SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal`
 WHERE client_journal_id=<%=request.getParameter("journalid")%>;
-
-
 </sql:query>
+
+
+<c:forEach var="counsellor" items="${clientjournal.rows}">
+	<sql:query var="counsellorname" dataSource="${dataSource}">
+SELECT * FROM user
+WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
+</sql:query>
+</c:forEach>
+
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -124,10 +133,10 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 					<c:out value="${client.journal_reflection}" />     	
 						</textarea>
 									<script>
-												// Replace the <textarea id="editor1"> with a CKEditor
-												// instance, using default configuration.
-												CKEDITOR.replace('editor1');
-											</script>
+										// Replace the <textarea id="editor1"> with a CKEditor
+										// instance, using default configuration.
+										CKEDITOR.replace('editor1');
+									</script>
 								</div>
 								<br />
 								<div class="row">
@@ -135,13 +144,16 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 									<h5>
 										<c:out value="${client.coach_comment}" />
 									</h5>
-									<i>Commented on <c:out
-											value="${client.coach_comment_datetime}" />
+									<i>Commented on: </i> <c:out
+											value="${client.coach_comment_datetime}" /> <i> , By</i><c:forEach
+											var="counsellornameis" items="${counsellorname.rows}">
+											<c:out value="${counsellornameis.given_name}" />
+										</c:forEach>
 								</div>
-<!-- 				<ul class="pager">
+								<!-- 				<ul class="pager">
 											<li class="previous"><a href="#">&larr; Previous</a></li>
 											<li class="next"><a href="#">Next &rarr;</a></li> -->
-								
+
 							</div>
 						</c:forEach>
 					</div>
