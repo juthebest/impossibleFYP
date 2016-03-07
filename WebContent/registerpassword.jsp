@@ -191,6 +191,7 @@ function ValidateEmail(mail) {
 									document.write('<input type="hidden" value="'+window.params.country1 +'" name="country1">');
 									document.write('<input type="hidden" value="'+window.params.contact_number1 +'" name="contact_number1">');
 									document.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
+									document.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
 									document.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">');
 								
 							</script>

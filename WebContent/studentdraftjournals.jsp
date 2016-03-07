@@ -131,7 +131,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 							<c:out value="${studentjournals.emotion_rating}" />
 						</p>
 						<a
-							href="passedRJandcomments.jsp?journalid=${studentjournals.client_journal_id}"
+							href="submitdraftjournal.jsp?journalid=${studentjournals.client_journal_id}"
 							class="btn btn-danger">View More</a>
 					</div>
 				</div>
