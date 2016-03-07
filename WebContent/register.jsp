@@ -60,8 +60,6 @@
 
 <body>
 
-
-
 	<form action="registerpassword.jsp" method="get" name="myForm"
 		id="login_form" class="form-horizontal" data-toggle="validator"
 		role="form" onsubmit="return validateForm()">
@@ -73,14 +71,7 @@
 							<h3 class="panel-title">Registration Page</h3>
 						</div>
 
-						<c:forEach var="program" items="${programname.rows}">
-							<p>
-								<b>Program Registered:</b>
-								<c:out value="${program.program_name}" />
-								<input type="text" class="form-control" placeholder="programname"
-									id="sname_input" name="programname" value="" required>
-							</p>
-						</c:forEach>
+
 
 						<p></p>
 						<fieldset style="padding-left: 10px">
@@ -277,6 +268,14 @@
 									</div>
 								</div>
 							</div>
+							<c:forEach var="program" items="${programname.rows}">
+								<p>
+									<b>Program Registered:</b> <input type="text"
+										class="form-control" placeholder="programname"
+										id="sname_input" name="programname"
+										value="${program.program_name}" required>
+								</p>
+							</c:forEach>
 
 
 							<div class="row">

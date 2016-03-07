@@ -49,6 +49,8 @@
 	rel="stylesheet"></link>
 <link rel="stylesheet" type="text/css" href="css/home.css" />
 
+
+
 <style>
 .filter-col {
 	padding-left: 10px;
@@ -63,10 +65,10 @@
 
 <!-- for validation of the form email address -->
 <script>
-function ValidateEmail(mail) {
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(mail);
-}
+	function ValidateEmail(mail) {
+		var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(mail);
+	}
 </script>
 <!-- end of validation for form -->
 
@@ -100,6 +102,9 @@ function ValidateEmail(mail) {
 									</div>
 								</div>
 							</div>
+
+
+
 
 							<div class="row">
 								<div class="form-group form-group-md">
@@ -150,6 +155,7 @@ function ValidateEmail(mail) {
 									</div>
 								</div>
 							</div>
+							<input value="programname" name="programname">;
 
 							<div class="row">
 								<div class="form-group form-group-md">
@@ -162,38 +168,57 @@ function ValidateEmail(mail) {
 								</div>
 							</div>
 							<script type="text/javascript">
-							window.params = function(){
-	   						 var params = {};
-	   						 var param_array = window.location.href.split('?')[1].split('&');
-	  						  for(var i in param_array){
-	        					x = param_array[i].split('=');
-	        					params[x[0]] = x[1];
-	   						  }
-	   							return params;
-							}();
-	
-					
-									document.write('<input type="hidden" value="'+window.params.salutation +'" name="salutation">');
-									document.write('<input type="hidden" value="'+window.params.sname +'" name="sname">');
-									document.write('<input type="hidden" value="'+window.params.gname +'" name="gname">');
-									document.write('<input type="hidden" value="'+window.params.gender +'" name="gender">');
-									document.write('<input type="hidden" value="'+window.params.country +'" name="country">');
-									document.write('<input type="hidden" value="'+window.params.contact_number +'" name="contact_number">');
-									document.write('<input type="hidden" value="'+window.params.sa +'" name="contact_number">');
-									document.write('<input type="hidden" value="'+window.params.address +'" name="address">');
-									document.write('<input type="hidden" value="'+window.params.postal_code +'" name="postal_code">');
-									document.write('<input type="hidden" value="'+window.params.salutation1 +'" name="salutation1">');
-									document.write('<input type="hidden" value="'+window.params.sname1 +'" name="sname1">');
-									document.write('<input type="hidden" value="'+window.params.gname1 +'" name="gname1">');
-									document.write('<input type="hidden" value="'+window.params.gender1 +'" name="gender1">');
-									document.write('<input type="hidden" value="'+window.params.dob +'" name="dob">');
-									document.write('<input type="hidden" value="'+window.params.relationship +'" name="relationship">');
-									document.write('<input type="hidden" value="'+window.params.country1 +'" name="country1">');
-									document.write('<input type="hidden" value="'+window.params.contact_number1 +'" name="contact_number1">');
-									document.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
-									document.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
-									document.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">');
-								
+								window.params = function() {
+									var params = {};
+									var param_array = window.location.href
+											.split('?')[1].split('&');
+									for ( var i in param_array) {
+										x = param_array[i].split('=');
+										params[x[0]] = x[1];
+									}
+									return params;
+								}();
+
+								document
+										.write('<input type="hidden" value="'+window.params.salutation +'" name="salutation">');
+								document
+										.write('<input type="hidden" value="'+window.params.sname +'" name="sname">');
+								document
+										.write('<input type="hidden" value="'+window.params.gname +'" name="gname">');
+								document
+										.write('<input type="hidden" value="'+window.params.gender +'" name="gender">');
+								document
+										.write('<input type="hidden" value="'+window.params.country +'" name="country">');
+								document
+										.write('<input type="hidden" value="'+window.params.contact_number +'" name="contact_number">');
+								document
+										.write('<input type="hidden" value="'+window.params.sa +'" name="contact_number">');
+								document
+										.write('<input type="hidden" value="'+window.params.address +'" name="address">');
+								document
+										.write('<input type="hidden" value="'+window.params.postal_code +'" name="postal_code">');
+								document
+										.write('<input type="hidden" value="'+window.params.salutation1 +'" name="salutation1">');
+								document
+										.write('<input type="hidden" value="'+window.params.sname1 +'" name="sname1">');
+								document
+										.write('<input type="hidden" value="'+window.params.gname1 +'" name="gname1">');
+								document
+										.write('<input type="hidden" value="'+window.params.gender1 +'" name="gender1">');
+								document
+										.write('<input type="hidden" value="'+window.params.dob +'" name="dob">');
+								document
+										.write('<input type="hidden" value="'+window.params.relationship +'" name="relationship">');
+								document
+										.write('<input type="hidden" value="'+window.params.country1 +'" name="country1">');
+								document
+										.write('<input type="hidden" value="'+window.params.contact_number1 +'" name="contact_number1">');
+								document
+										.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
+								document
+										.write('<input type="hidden" value="'+window.params.programname +'" name="programname">');
+								document
+										.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">');
 							</script>
 						</fieldset>
 					</div>
@@ -218,10 +243,12 @@ function ValidateEmail(mail) {
 
 	<script src="js/footer.js"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 </body>
