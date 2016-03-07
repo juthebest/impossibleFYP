@@ -115,93 +115,82 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 	<br />
 
 	<div class="item active">
-		<form name="form1" method="post" action="userreflectionjournaluser">
-		<div class="container">
-			<div class="container-fluid">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Edit Journal</h3>
+		<form name="form1" method="post" action="userreflectiondraft">
+			<div class="container">
+				<div class="container-fluid">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Edit Journal</h3>
 
-						<div class="panel-body">
-							<c:forEach var="client" items="${clientjournal.rows}">
-								<%-- 
-								<c:forEach var="client" items="${clientid.rows}">
-									<input type="hidden"
-										value="<c:out value="${client.client_id}" />" name="xenia" />
+							<div class="panel-body">
+								<c:forEach var="client" items="${clientjournal.rows}">
 
-								</c:forEach>
-								<c:forEach var="coachid" items="${coach_id.rows}">
-									<input type="hidden"
-										value="<c:out value="${coachid.coach_id}" />"
-										name="thisisthecoachid" />
+									<input type="hidden" value="9" name="clientjournalid" />
 
-								</c:forEach> --%>
-								<c:forEach var="rjquestion" items="${reflectionjournal.rows}">
-									<p>
-										<c:out value="${rjquestion.rj_questions}" />
-									</p>
-								</c:forEach>
+									<c:forEach var="rjquestion" items="${reflectionjournal.rows}">
+										<p>
+											<c:out value="${rjquestion.rj_questions}" />
+										</p>
+									</c:forEach>
 
-								<textarea name="editor1" id="journal_editor" rows="10" cols="80"
-									required>					<%-- <c:out
-										value="${client.journal_reflection}" />     	
-									 --%>
+									<textarea name="editor1" id="journal_editor" rows="10"
+										cols="80" required>					<c:out
+											value="${client.journal_reflection}" />
 						</textarea>
-								<script>
-									CKEDITOR.replace('editor1');
-								</script>
+									<script>
+										CKEDITOR.replace('editor1');
+									</script>
 
-								<br />
-								<div class="row">
-									<label> Today's Emotion Rating: </label> <br />
-									<div class="col-sm-2" style="margin-left: -20px">
-										<select class="form-control" id="status" name="emotionrating">
-											<option value="<c:out value="${client.emotion_rating}" />"><c:out
-													value="${client.emotion_rating}" /></option>
-											<option value="Elated">Elated</option>
-											<option value="Happy">Happy</option>
-											<option value="Sad">Sad</option>
-										</select>
+									<br />
 
-									</div>
-								</div>
-
-								<br />
-								<div class="row">
-									<label>Privacy Indicator:</label> <br />
-									<div class="col-sm-4" style="margin-left: -20px">
-										<select class="form-control" id="status" name="privacyin">
-											<option
-												value="<c:out
-													value="${client.privacy_indicator}" />"><c:out
-													value="${client.privacy_indicator}" /></option>
-											<option value="Allow">Allow All</option>
-											<option value="Onlycounsellor">Only Counsellor</option>
-										</select>
-
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="form-group">
-										<div class="form-actions" style="text-align: right">
-											<input type="submit" class="btn btn-primary" name="action"
-												value="Save"> <input type="submit"
-												class="btn btn-primary" name="action" value="Submit">
-											<a class="btn btn-danger" href="user.jsp">Cancel</a>
+									<div class="row">
+										<label>Emotion Indicator:</label> <br />
+										<div class="col-sm-4" style="margin-left: -20px">
+											<select class="form-control" id="status" name="emotionrating">
+												<option value="${client.emotion_rating}">${client.emotion_rating}</option>
+												<option value="Elated">Elated</option>
+												<option value="Happy">Happy</option>
+												<option value="Sad">Sad</option>
+											</select>
 										</div>
 									</div>
-								</div>
-							</c:forEach>
+
+
+									<br />
+
+									<div class="row">
+										<label>Privacy Indicator:</label> <br />
+										<div class="col-sm-4" style="margin-left: -20px">
+											<select class="form-control" id="status" name="privacyin">
+												<option value="${client.privacy_indicator}">${client.privacy_indicator}
+												</option>
+												<option value="Allow">Allow All</option>
+												<option value="Onlycounsellor">Only Counsellor</option>
+											</select>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="form-group">
+											<div class="form-actions" style="text-align: right">
+												<input type="submit" class="btn btn-primary" name="action"
+													value="Save"> <input type="submit"
+													class="btn btn-primary" name="action" value="Submit">
+												<a class="btn btn-danger" href="user.jsp">Cancel</a>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+
+							</div>
+
 
 						</div>
 
-
 					</div>
-
 				</div>
 			</div>
-		</div>
 		</form>
 	</div>
 
