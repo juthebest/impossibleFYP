@@ -181,8 +181,11 @@ SELECT * FROM `control` WHERE control_id = 1;
 						<div class="row">
 							<div class="form-group">
 								<div class="form-actions" style="text-align: right">
-									<button type="submit" class="btn btn-primary" id="UpdateButton">Submit</button>
-									<a class="btn btn-danger" href="user.jsp">Cancel</a>
+									<input type="submit" class="btn btn-primary" name="action" value="Save">
+										<input type="submit" class="btn btn-primary" name="action" value="Submit">
+
+<!-- 									<button type="submit" class="btn btn-primary" id="UpdateButton">Submit</button>
+ -->									<a class="btn btn-danger" href="user.jsp">Cancel</a>
 								</div>
 							</div>
 						</div>

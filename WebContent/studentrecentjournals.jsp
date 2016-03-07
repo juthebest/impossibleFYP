@@ -51,7 +51,8 @@
 SELECT * FROM `client_journal`, `client`,`user`
 WHERE `client_journal`.`client_id` = `client`.`client_id`
 AND `client`.`client_id` = `user`.`client_id`
-AND `user_id` = <%=uid%> 
+AND `user_id` = <%=uid%>
+AND  `client_journal`.`journalstatus_id` = '1'
 ORDER BY `user`.`create_update_datetime` ASC
 </sql:query>
 
@@ -92,7 +93,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 
 			<br />
 			<h2>My Journals</h2>
-
+<!-- 
 			<div class="title">
 				<a href=""> 2015 </a>
 			</div>
@@ -107,10 +108,9 @@ ORDER BY `user`.`create_update_datetime` ASC
 
 		<h3>
 			<b>November 2015</b>
-		</h3>
+		</h3> -->
+		
 		<div class="row">
-
-
 			<c:forEach var="studentjournals"
 				items="${studentrecentjournals.rows}">
 

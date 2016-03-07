@@ -51,7 +51,8 @@
 SELECT * FROM `client_journal`, `client`,`user`
 WHERE `client_journal`.`client_id` = `client`.`client_id`
 AND `client`.`client_id` = `user`.`client_id`
-AND `user_id` = <%=uid%> 
+AND `user_id` = <%=uid%>
+AND  `client_journal`.`journalstatus_id` = '2'
 ORDER BY `user`.`create_update_datetime` ASC
 </sql:query>
 
