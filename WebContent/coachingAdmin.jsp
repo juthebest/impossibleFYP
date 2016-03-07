@@ -175,22 +175,12 @@
 						<div class="pull-right">
 							<!--  Icons for delete, edit and copy -->
 							<p class="icons">
-
 								<a href="addCoaching.jsp"><button type="button"
 										class="btn btn-default btn-sm">Add</button></a>
-
-								<!-- <button type="button" class="btn btn-default btn-sm"
-								onclick="confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ? $('#form-product').submit() : false;">
-								<span class="glyphicon glyphicon-trash"></span> Delete
-							</button> -->
+																	
 								<input type="submit" value="Delete" name="direct"
-									class="btn btn-default btn-sm" />
-
-								<!-- <a
-								href="editWorkshop.jsp?selectedId="><button
-									type="button" class="btn btn-default btn-sm">
-									<span class="glyphicon glyphicon-edit"></span> Edit
-								</button></a> -->
+									class="btn btn-default btn-sm" />			
+												
 								<input type="submit" value="Edit" name="direct"
 									class="btn btn-default btn-sm" />
 							</p>
