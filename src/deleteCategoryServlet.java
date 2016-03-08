@@ -53,9 +53,7 @@ public class deleteCategoryServlet extends HttpServlet {
 			Connection connection = database.Get_Connection();
 			Statement stmt = null;
 			Statement stmt1 = null;
-			Statement stmt2 = null;
-			Statement stmt3 = null;
-			Statement stmt4 = null;
+
 			stmt = connection.createStatement();
 			stmt1 = connection.createStatement();
 			String[] catID= request.getParameterValues("catID");
