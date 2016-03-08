@@ -15,7 +15,7 @@ SELECT DATE(  `itemrun_start_datetime` ) AS
 START , DATE(  `item_end_datetime` ) AS 
 END ,TIME(  `item_end_datetime` ) AS 
 ETIME, TIME(  `itemrun_start_datetime` ) AS 
-STIME, item.item_name, user.surname, user.given_name, itemrun.itemrun_venue, status.status_name
+STIME, item.item_name, user.surname, user.given_name, itemrun.itemrun_venue, status.status_name,itemrun_id
 FROM itemrun, item, 
 STATUS , coach, user
 WHERE itemrun.item_id = item.item_id

@@ -9,7 +9,7 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-<!--   -->
+
 <sql:query var="status" dataSource="${dataSource}">
     SELECT * FROM `status` 
 
@@ -51,44 +51,40 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>I'MPOSSIBLE - Admin Add Course Schedule</title>
-
-<link rel="stylesheet" type="text/css" href="css/flaticon.css">
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
-
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Bootstrap CSS and bootstrap datepicker CSS used for styling the demo pages-->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/datepicker.css">
 
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/jquery-ui.min.css" rel="stylesheet">
-<script src="http://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-<link href="http://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css"
-	rel="stylesheet"></link>
+<link rel="stylesheet" type="text/css"
+	href="dist/jquery-clockpicker.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/github.min.css">
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"
+	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
+
 </head>
-
 <body>
-
-
-
 	<div class="container">
-
 		<div id="content">
 			<div class="page-header">
 				<div class="container-fluid">
@@ -97,8 +93,10 @@
 
 					<ul class="breadcrumb">
 						<li><a href="adminIndex.jsp">Home</a></li>
-						<li><a href="manageWorkShopSchedule.jsp">Workshop Schedule</a></li>
-						<li><a href="addWorkshopSchedule.jsp">Add Workshop Schedule</a></li>
+						<li><a href="manageWorkShopSchedule.jsp">Workshop
+								Schedule</a></li>
+						<li><a href="addWorkshopSchedule.jsp">Add Workshop
+								Schedule</a></li>
 					</ul>
 				</div>
 			</div>
@@ -114,7 +112,7 @@
 
 
 						<form action="addWorkShopSchedule" method="post"
-							class="form-horizontal" data-toggle="validator"  role="form">
+							class="form-horizontal" data-toggle="validator" role="form">
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="wsname">Select
@@ -133,26 +131,79 @@
 
 
 
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="sdt">Start
-									DateTime:</label>
-								<div class="col-sm-9">
-									<input type="datetime" class="form-control" name="sdt"
-										value="2014-02-06 9:00" required>
-								</div>
 
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="sdt">Start
+									Date :</label>
+								<div class="col-sm-9">
+								<div class='input-group date' id='datetimepicker1'>
+									<input class="form-control" type="text" name="sdt"
+										id="example1" required>       <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+								</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="edt">End Date
+									:</label>
+								
+									<div class="col-sm-9">
+									<div class='input-group date' id='datetimepicker1'>
+										<input class="form-control" type="text" name="edt"
+											id="example2" required>  <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								
+</div>
+							</div>
 							
-							</div>
 
-						
 							<div class="form-group">
-									<label class="col-sm-2 control-label" for="edt">End
-									Datetime:</label>
-								<div class="col-sm-9">
-									<input type="datetime" class="form-control" name="edt"
-										value="2014-02-06 9:00" required>
+								<label class="control-label col-sm-2" for="st">Start
+									Time :</label>
+
+								<div class="clearfix">
+									<div class="col-sm-9">
+										<div class="input-group clockpicker pull-center"
+											data-placement="bottom" data-align="top"
+											data-autoclose="true">
+
+											<input type="text" class="form-control" value="13:14"
+												name="st"> <span class="input-group-addon"> <span
+												class="glyphicon glyphicon-time"></span>
+											</span>
+										</div>
+									</div>
+
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="et">End Time
+									:</label>
+
+								<div class="clearfix">
+									<div class="col-sm-9">
+										<div class="input-group clockpicker pull-center"
+											data-placement="bottom" data-align="top" data-autoclose="true">
+
+											<input type="text" class="form-control" value="13:14"
+												name="ed"> <span class="input-group-addon"> <span
+												class="glyphicon glyphicon-time"></span>
+											</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+
+
+
+
 
 
 							<div class="form-group">
@@ -170,7 +221,6 @@
 								</div>
 
 							</div>
-
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="venue">Venue
@@ -217,35 +267,91 @@
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
+
+
 	<script src="js/footer.js"></script>
+
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script>
-		$("#dp1").datepicker({
-		//changeMonth: true,
-		//changeYear: true
-		});
-		$("#dp2").datepicker({
-		//changeMonth: true,
-		//changeYear: true
+	<!-- Load jQuery and bootstrap datepicker scripts -->
+	<script src="js/jquery-1.12.1.min.js"></script>
+
+	<script type="text/javascript">
+		// When the document is ready
+		$(document).ready(function() {
+
+			$('#example1').datepicker({
+				format : "dd/mm/yyyy",
+				autoclose : true,
+				todayHighlight : true
+			}).datepicker('update', new Date());
+			;
+
+			$('#example2').datepicker({
+				format : "dd/mm/yyyy",
+				autoclose : true,
+				todayHighlight : true
+			}).datepicker('update', new Date());
+			;
+
 		});
 	</script>
 
-	<script>
-		YUI().use('aui-timepicker', function(Y) {
-			new Y.TimePicker({
-				trigger : '#time',
-				popover : {
-					zIndex : 1
-				},
-				on : {
-					selectionChange : function(event) {
-						console.log(event.newSelection)
-					}
-				}
-			});
+
+	<script type="text/javascript" src="dist/jquery-clockpicker.min.js"></script>
+	<script type="text/javascript">
+		$('.clockpicker').clockpicker().find('input').change(function() {
+			console.log(this.value);
 		});
+		$('#single-input').clockpicker({
+			placement : 'bottom',
+			align : 'right',
+			autoclose : true,
+			'default' : '20:48'
+		});
+		$('.clockpicker-with-callbacks').clockpicker({
+			donetext : 'Done',
+			init : function() {
+				console.log("colorpicker initiated");
+			},
+			beforeShow : function() {
+				console.log("before show");
+			},
+			afterShow : function() {
+				console.log("after show");
+			},
+			beforeHide : function() {
+				console.log("before hide");
+			},
+			afterHide : function() {
+				console.log("after hide");
+			},
+			beforeHourSelect : function() {
+				console.log("before hour selected");
+			},
+			afterHourSelect : function() {
+				console.log("after hour selected");
+			},
+			beforeDone : function() {
+				console.log("before done");
+			},
+			afterDone : function() {
+				console.log("after done");
+			}
+		}).find('input').change(function() {
+			console.log(this.value);
+		});
+		if (/Mobile/.test(navigator.userAgent)) {
+			$('input').prop('readOnly', true);
+		}
 	</script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+
 </body>
 </html>
