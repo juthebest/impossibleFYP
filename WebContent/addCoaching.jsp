@@ -217,7 +217,7 @@ SELECT * FROM item_type
 
 							<div class="form-group">
 								<div class="form-actions">
-									<button type="submit" class="btn btn-primary">Add Coaching Session</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
 									<a href="coachingAdmin.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
 

@@ -26,7 +26,7 @@
 				FROM program, item, program_has_item
 				WHERE program.program_id = program_has_item.program_id
 				AND program_has_item.item_id = item.item_id
-				AND item.item_id=<%=request.getParameter("selected")%>
+				AND item.item_id=<%=request.getParameter("catID")%>
 </sql:query>
 
 
@@ -150,8 +150,7 @@
 								</div>
 
 								<div class="form-group required">
-									<label class="col-sm-2 control-label" for="input-name1">Related
-										Programs:</label>
+									<label class="col-sm-2 control-label" for="input-name1"></label>
 									<div class="col-sm-10">
 										<!-- whether it is edit/selected depends on sql query already -->
 										<div class="panel panel-default">
@@ -295,7 +294,7 @@
 								<div class="form-group">
 									<div class="form-actions">
 										<button type="submit" class="btn btn-primary">Submit</button>
-										<a href="courseAdmin.html"><button type="button"
+										<a href="coachingAdmin.jsp"><button type="button"
 												class="btn btn-danger">Cancel</button></a>
 									</div>
 								</div>
