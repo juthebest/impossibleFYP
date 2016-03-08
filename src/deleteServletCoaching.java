@@ -4,8 +4,7 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
-
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -58,32 +57,43 @@ public class deleteServletCoaching extends HttpServlet {
 			String sql;
 			String sql2;
 			String sql3;
+			String sqlCheck;
+			ResultSet sqlCheckResults;
 			int rs = 0;
-
+			/*sqlCheck = "SELECT * FROM category_has_item,program_has_item,item"+ 
+					"WHERE item.item_id = category_has_item.item_id" 
+					+"AND program_has_item.item_id = item.item_id";*/
+			
+			
 			for(String id:itemID)
 			{
 				sql2 = "delete from category_has_item where item_id='"+id+"'";
-				stmt.execute(sql2);
 				sql3 = "delete from program_has_item where item_id='"+id+"'";
-				stmt.execute(sql3);
 				sql = "delete from item where item_id='"+id+"' ";
-				rs = stmt.executeUpdate(sql);
-				out.println("Successfully Deleted");
+				
+				sqlCheck = "SELECT * FROM itemrun,itemrun_has_client,item "
+						+ "WHERE '"+id+"' = itemrun.item_id "
+						+ "AND itemrun_has_client.itemrun_id = itemrun.itemrun_id";
+				sqlCheckResults = stmt.executeQuery(sqlCheck);
+				
+				if(sqlCheckResults.next()){
+					request.setAttribute("Error","Error occured: Cannot delete , client is tied to item!");
+				} else {
+					request.setAttribute("Error","Successfully Deleted");
+
+					stmt.execute(sql2);
+					stmt.execute(sql3);
+					rs = stmt.executeUpdate(sql);
+
+				}
+				
 			}
 
 
 			if(rs == 1){
-
-
-				/*out.println("success");
-				out.print(courseName);
-				out.print(courseDesc);
-				out.print(courseIMG);
-				out.print(courseStatus);*/
 				response.sendRedirect("coachingAdmin.jsp");
 
 			} else {
-				out.println("failed");
 				response.sendRedirect("coachingAdmin.jsp");
 			}
 
