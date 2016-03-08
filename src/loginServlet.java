@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -17,8 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Database;
-
-import javax.servlet.RequestDispatcher;
 
 /**
  * Servlet implementation class loginServlet
@@ -40,6 +36,7 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -149,25 +146,28 @@ public class loginServlet extends HttpServlet {
 
 					if( role.equalsIgnoreCase("coach")){
 						session.setAttribute("role", "coach");
-						String coachencodedURL = response.encodeRedirectURL("counsellor.jsp");
-						response.sendRedirect(coachencodedURL);
+				
+						request.getRequestDispatcher("counsellor.jsp").forward(request,response);
 					}
 					else if(role.equalsIgnoreCase("admin")){
 						session.setAttribute("role", "admin");
 
-						String adminencodedURL = response.encodeRedirectURL("adminIndex.jsp");
-						response.sendRedirect(adminencodedURL);
+			
+						request.getRequestDispatcher("adminIndex.jsp").forward(request,response);
 					}
 
 					else if(role.equalsIgnoreCase("child")){
 						session.setAttribute("role", "child");
-						String clientencodedURL = response.encodeRedirectURL("user.jsp");
-						response.sendRedirect(clientencodedURL);
+					
+
+						request.getRequestDispatcher("user.jsp").forward(request,response);
+						
 					}
 					else if(role.equalsIgnoreCase("parent")){
 						session.setAttribute("role", "parent");
-						String parentencodedURL = response.encodeRedirectURL("parenthomepage.jsp");
-						response.sendRedirect(parentencodedURL);
+						
+						request.getRequestDispatcher("parenthomepage.jsp").forward(request,response);
+						
 					}
 				
 
@@ -176,9 +176,13 @@ public class loginServlet extends HttpServlet {
 					System.out.println(x);
 
 				}
+				else{
+					request.setAttribute("error", "Account's Invalid");
+					request.getRequestDispatcher("login.jsp").forward(request,response);
+				}
 			}
 			
-			response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
+			/*response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());*/
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();

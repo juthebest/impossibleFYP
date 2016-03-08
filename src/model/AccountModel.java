@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.accProject;
-import dao.catProject;
 import dto.*;
 public class AccountModel {
 
