@@ -1,10 +1,9 @@
 
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 import java.sql.Connection;
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import dao.Database;
 /**
@@ -47,7 +45,7 @@ public class deleteServlet extends HttpServlet {
 			Connection conn = database.Get_Connection();
 
 
-			String[] itemID = request.getParameterValues("selected");
+			String[] itemID = request.getParameterValues("itemID");
 
 
 
@@ -57,33 +55,37 @@ public class deleteServlet extends HttpServlet {
 			String sql2;
 			String sql3;
 			int rs = 0;
+			String sqlCheck;
+			ResultSet sqlCheckResults;
 
 			for(String id:itemID)
 			{
 				sql2 = "delete from category_has_item where item_id='"+id+"'";
-				stmt.execute(sql2);
 				sql3 = "delete from program_has_item where item_id='"+id+"'";
-				stmt.execute(sql3);
 				sql = "delete from item where item_id='"+id+"' ";
-				rs = stmt.executeUpdate(sql);
+				
+				sqlCheck = "SELECT * FROM itemrun,itemrun_has_client,item "
+						+ "WHERE '"+id+"' = itemrun.item_id "
+						+ "AND itemrun_has_client.itemrun_id = itemrun.itemrun_id";
+				sqlCheckResults = stmt.executeQuery(sqlCheck);
+				if(sqlCheckResults.next()){
+					request.setAttribute("Error","Error occured: Cannot delete , client is tied to workshop!");
+				} else {
+					request.setAttribute("Error","Successfully Deleted");
+
+					stmt.execute(sql2);
+					stmt.execute(sql3);
+					rs = stmt.executeUpdate(sql);
+
+				}
 			}
 
 
 			if(rs == 1){
-
-
-				/*out.println("success");servletDirect.java
-				out.print(courseName);
-				out.print(courseDesc);
-				out.print(courseIMG);
-				out.print(courseStatus);*/
-				response.sendRedirect("workshopAdmin.jsp");
-
+				 request.getRequestDispatcher("/workshopAdmin.jsp").forward(request, response);
 			}
 			else{
-				out.println("failed");
-				response.sendRedirect("workshopAdmin.jsp");
-
+				 request.getRequestDispatcher("/workshopAdmin.jsp").forward(request, response);
 			}
 
 			stmt.close();
