@@ -61,16 +61,17 @@ public class editCoachNote extends HttpServlet {
 			// Open a connection
 			Connection conn = database.Get_Connection();
 			String id = null;
-			String saluation = null;
-			String sname = null;
-			String gname = null;
-			String email = null;
-
-			id = request.getParameter("Coachid");
-			saluation = request.getParameter("salutation");
-			sname = request.getParameter("csName");
-			gname = request.getParameter("cgName");
-			email = request.getParameter("cEmail");
+			String counsellornote = null;
+			
+			
+			id = request.getParameter("id");
+			counsellornote = request.getParameter("message");
+			
+			java.util.Date dt = new java.util.Date();
+			java.text.SimpleDateFormat sdf =  new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String currentTime = sdf.format(dt);
+			
+			
 
 			/*
 			 * out.println(id); out.println(email);
@@ -80,16 +81,13 @@ public class editCoachNote extends HttpServlet {
 			 */
 
 			// Execute SQL query
-
-			// Execute SQL query
 			Statement stmt = null;
-			Statement ustmt = null;
 			stmt = conn.createStatement();
-			ustmt = conn.createStatement();
+			
 			// create the java mysql update preparedstatement
 
-			int c = ustmt.executeUpdate("UPDATE `coach` SET`coach_hourly_rate`='" + saluation + "',`coach_profile`='" + profile
-					+ "' WHERE coach_id='" + id + "'");
+			int c = stmt.executeUpdate("UPDATE `coach_note` SET `note_details`='" + counsellornote + "',`create_update_datetime`='"
+					+ currentTime + "' WHERE coach_note_id='" + id + "'");
 
 			conn.close();
 

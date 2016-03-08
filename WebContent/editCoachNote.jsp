@@ -20,7 +20,7 @@
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
 			|| !role.equalsIgnoreCase("coach")) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
@@ -116,7 +116,7 @@ AND user.user_id = <%=uid%>;
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form name="form1" method="post" action="editcoachnote">
+						<form name="form1" method="post" action="editCoachNote">
 							<div class="content">
 								<div class="container">
 									<div class="panel-body">
@@ -137,7 +137,7 @@ AND user.user_id = <%=uid%>;
 											</div>
 										</div>
 
-<br/>
+										<br />
 										<c:forEach var="coachid" items="${coachidis.rows}">
 											<input type="hidden" value="${coachid.coach_note_id}"
 												name="id"></input>
@@ -152,7 +152,7 @@ AND user.user_id = <%=uid%>;
 														class="form-control" required></input>
 												</div>
 											</div>
-<br/>
+											<br />
 
 											<div class="form-group">
 												<label class="col-sm-2 control-label" for="seo">Counsellor's
@@ -163,7 +163,7 @@ AND user.user_id = <%=uid%>;
 														value="${coachid.note_details}"></input>
 												</div>
 											</div>
-<br/>
+											<br />
 											<div class="form-actions">
 												<button type="submit" class="btn btn-primary"
 													id="UpdateButton">Submit</button>
