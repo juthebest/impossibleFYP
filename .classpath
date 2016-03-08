@@ -9,9 +9,8 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/13025162/Desktop/apache-tomcat-7.0.67/lib/gson-2.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/13025162/Desktop/apache-tomcat-7.0.67/lib/jstl-1.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/13025162/Desktop/apache-tomcat-7.0.67/lib/mysql-connector-java-5.1.38-bin.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/13025162/Desktop/apache-tomcat-7.0.67/lib/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-7.0.67/lib/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-7.0.67/lib/jstl-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-7.0.67/lib/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
