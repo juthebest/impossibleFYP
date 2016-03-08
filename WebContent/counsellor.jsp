@@ -140,7 +140,9 @@ ORDER BY `client`.client_id ASC
 										<th class="text-left">Student's Name</th>
 										<th class="text-left">Student's Parent</th>
 										<th class="text-left">Join Date</th>
-										<th class="text-left">Issues Facing</th>
+										<th class="text-left">Programs Registered</th>
+										<th class="text-left">Address</th>
+
 									</tr>
 								</thead>
 
@@ -155,22 +157,12 @@ ORDER BY `client`.client_id ASC
 											<td class="text-left"></td>
 											<td class="text-left"><c:out
 													value="${child.create_update_datetime}" />
-											<td class="text-left">Time Management</td>
+											<td class="text-left"><a href="studentdetails.jsp?userid=${child.user_id}">View Registered Programs</a></td>
+											<td class="text-left"><a href="">View Address</a></td>
+
 										</tr>
 									</c:forEach>
 
-
-									<c:forEach var="client" items="${parentname.rows}">
-										<tr>
-											<td class="text-left"><a
-												href="studentdetails.jsp?userid=${client.user_id}"></a></td>
-											<td class="text-left"><c:out
-													value="${client.surname} ${client.given_name}" /></td>
-											<td class="text-left"><c:out
-													value="${client.create_update_datetime}" />
-											<td class="text-left">Time Management</td>
-										</tr>
-									</c:forEach>
 								</tbody>
 							</table>
 						</div>
