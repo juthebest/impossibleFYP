@@ -116,7 +116,7 @@ AND user.user_id = <%=uid%>;
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form name="form1" method="post" action="writecoachnotes">
+						<form name="form1" method="post" action="editcoachnote">
 							<div class="content">
 								<div class="container">
 									<div class="panel-body">
