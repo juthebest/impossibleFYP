@@ -40,7 +40,7 @@
 
 </head>
 <body>
-<%
+<%-- <%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -65,7 +65,7 @@
 		}
 
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	%> --%>
 
 
 	<div class="container">
@@ -229,7 +229,7 @@
 				
 				url = url.substr(1);
 			
-				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
+				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') "+url);
 			
 				 window.location.href = 'deleteCategoryServlet?' + url; 
 			} else {
