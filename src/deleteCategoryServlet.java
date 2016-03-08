@@ -20,14 +20,14 @@ import dao.Database;
 @WebServlet("/deleteCategoryServlet")
 public class deleteCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public deleteCategoryServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public deleteCategoryServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,25 +52,35 @@ public class deleteCategoryServlet extends HttpServlet {
 			String[] catID= request.getParameterValues("catID");
 			String query1;
 			String query2;
+			String query4;
+			String query5;
 			String query;
 
 			int rs =0;
 
 			for(String id: catID){
-				query1="DELETE FROM `category_has_item` WHERE `category_id` IN ('"+id+"')";
-				stmt.executeUpdate(query1);
+				query4="SELECT * FROM  `category_has_item` , item, category WHERE category.category_id = category_has_item.category_idAND item.item_id = category_has_item.item_id";
+				boolean i=	stmt.execute(query4);
 				
-				query2="DELETE FROM `category_has_program` WHERE  `category_id` IN ('"+id+"')";
-				stmt.executeUpdate(query2);
-				query="DELETE FROM `category` WHERE `category_id` IN ('"+id+"')";
+				query5="SELECT *  FROM  `category_has_program` , category, program  WHERE program.program_id = category_has_program.category_has_program_id  AND category.category_id = category_has_program.category_id";
+				boolean j=stmt.execute(query5);
+				if(i&j ==false){
+
+					query1="DELETE FROM `category_has_item` WHERE `category_id` IN ('"+id+"')";
+					stmt.executeUpdate(query1);
+
+					query2="DELETE FROM `category_has_program` WHERE  `category_id` IN ('"+id+"')";
+					stmt.executeUpdate(query2);
+					query="DELETE FROM `category` WHERE `category_id` IN ('"+id+"')";
+					rs =  stmt.executeUpdate(query);
+				}else{
+					out.print("Category is tied to item or program");
+				}
 
 
-
-		
-				rs =  stmt.executeUpdate(query);
 			}
-			
-			
+
+
 			if(rs==1){
 				response.sendRedirect("manageCategory.jsp");
 
@@ -92,7 +102,7 @@ public class deleteCategoryServlet extends HttpServlet {
 		}
 
 	}
-	}
+}
 
 
 
