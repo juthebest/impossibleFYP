@@ -171,6 +171,8 @@ public class loginServlet extends HttpServlet {
 						
 					}else{
 						response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
+						k="yyyz";
+						System.out.println(k);
 					}
 				
 
@@ -179,6 +181,9 @@ public class loginServlet extends HttpServlet {
 					System.out.println(x);
 			
 				}else{
+					
+					k="yyy";
+					System.out.println(k);
 					response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
 				}
 				
