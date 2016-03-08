@@ -128,7 +128,7 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 									<tr>
 										<th style="text-align: left" data-sorter="false"><input
 											type="checkbox" name="checkbox" value="checkbox"></th>
-										<th class="text-left">Date and Time of Counselling</th>
+										<th class="text-left">Date and Time Last Updated</th>
 										<th class="text-left">Comment of Note</th>
 										<th class="text-left">Student Name</th>
 										<th class="text-left"><a href="#" class="asc">Edit</a></th>

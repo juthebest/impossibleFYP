@@ -96,7 +96,7 @@ AND user.user_id = <%=uid%>;
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Coach Notes</title>
+<title>I'MPOSSIBLE - Edit Coach Notes</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -111,11 +111,11 @@ AND user.user_id = <%=uid%>;
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">
-							<i class="fa fa-pencil"></i> Add New Note
+							<i class="fa fa-pencil"></i> Edit Coach Note
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form name="form1" method="post" action="editCoachNote">
+						<form name="form1" method="post" action="editCoachNote" class="form-horizontal">
 							<div class="content">
 								<div class="container">
 									<div class="panel-body">
@@ -125,12 +125,10 @@ AND user.user_id = <%=uid%>;
 												Name:</label>
 											<div class="col-sm-10">
 												<select class="form-control" id="status" name="Student">
-
 													<c:forEach var="name" items="${coachstudents.rows}">
 
 														<option value="<c:out value="${name.client_id}"/>"><c:out
 																value="${name.given_name}" /></option>
-
 													</c:forEach>
 												</select>
 											</div>
@@ -151,18 +149,18 @@ AND user.user_id = <%=uid%>;
 														class="form-control" required></input>
 												</div>
 											</div>
-											<br />
 
 											<div class="form-group">
 												<label class="col-sm-2 control-label" for="seo">Counsellor's
 													Comment:</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="message" name="message"
-														placeholder="Counsellor's comment is entered here."
-														value="${coachid.note_details}"></input>
+													<input type="text" name="message" id="message"
+														value="${coachid.note_details}" class="form-control"
+														required></input>
 												</div>
 											</div>
-											<br />
+
+
 											<div class="form-actions">
 												<button type="submit" class="btn btn-primary"
 													id="UpdateButton">Submit</button>
