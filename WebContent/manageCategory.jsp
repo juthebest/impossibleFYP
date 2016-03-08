@@ -104,7 +104,7 @@
 							if (request.getAttribute("Error") != null) {
 						%>
 						<p style="color: red">
-							Error:
+							
 							<%=(String) request.getAttribute("Error")%></p>
 						<%
 							}

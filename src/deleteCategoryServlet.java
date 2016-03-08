@@ -87,7 +87,7 @@ public class deleteCategoryServlet extends HttpServlet {
 					System.out.println("Cannot delete , Category is tied to item");
 
 					
-					request.setAttribute("Error","Cannot delete , Category is tied to item!");
+					request.setAttribute("Error","Error occured: Cannot delete , Category is tied to item!");
 
 			
 
@@ -96,7 +96,7 @@ public class deleteCategoryServlet extends HttpServlet {
 				else if(j.next()){
 					System.out.println("Cannot delete , Category is tied to program!");
 
-					request.setAttribute("Error","Cannot delete , Category is tied to program");
+					request.setAttribute("Error","Error occured: Cannot delete , Category is tied to program");
 				
 				
 				
@@ -104,7 +104,7 @@ public class deleteCategoryServlet extends HttpServlet {
 				}	else{
 					System.out.println("nodata");
 			
-					
+					request.setAttribute("Error","Successfully Deleted");
 					stmt.executeUpdate(query1);
 
 
