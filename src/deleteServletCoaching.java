@@ -49,7 +49,7 @@ public class deleteServletCoaching extends HttpServlet {
 			Connection conn = database.Get_Connection();
 
 
-			String[] itemID = request.getParameterValues("catID");
+			String[] itemID = request.getParameterValues("itemID");
 
 
 

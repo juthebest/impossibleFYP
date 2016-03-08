@@ -16,7 +16,7 @@
                 AND category_has_item.category_id=category.category_id 
                 AND item.item_type_id=item_type.item_type_id
 				AND item.status_id=status.status_id
-                AND item.item_id=<%=request.getParameter("catID")%>
+                AND item.item_id=<%=request.getParameter("itemID")%>
 
 
 </sql:query>
@@ -26,7 +26,7 @@
 				FROM program, item, program_has_item
 				WHERE program.program_id = program_has_item.program_id
 				AND program_has_item.item_id = item.item_id
-				AND item.item_id=<%=request.getParameter("catID")%>
+				AND item.item_id=<%=request.getParameter("itemID")%>
 </sql:query>
 
 

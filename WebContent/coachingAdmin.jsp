@@ -102,106 +102,105 @@
 				<div class="panel-body">
 
 
-					<!-- <form action="servletDirectCoaching" method="get"
-					enctype="multipart/form-data" id="form-course" onsubmit="return validate()"> -->
-						
-			<div class="pull-right">
-							<!--  Icons for delete, edit and copy -->
-							<p class="icons">
-								<a href="addCoaching.jsp"><button type="button"
-										class="btn btn-default btn-sm">Add</button></a>
-																	
-								<button type="button" class="btn btn-default btn-sm"
+					
+
+					<div class="pull-right">
+						<!--  Icons for delete, edit and copy -->
+						<p class="icons">
+							<a href="addCoaching.jsp"><button type="button"
+									class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-plus"></span>Add
+								</button></a>
+
+							<button type="button" class="btn btn-default btn-sm"
 								onClick="checkbox_test()">
 								<span class="glyphicon glyphicon-trash"></span> Delete
 							</button>
-												
-								
-							</p>
 
 
-						</div>
-						
-						<div class="table-responsive">
-							<table id="myTable"
-								class="table table-bordered table-hover tablesorter">
-								<thead>
+						</p>
+
+
+					</div>
+
+					<div class="table-responsive">
+						<table id="myTable"
+							class="table table-bordered table-hover tablesorter">
+							<thead>
+								<tr>
+									<td class="sorter-false"></td>
+
+									<td class="text-left"><a href="#" class="asc">Coaching
+											Session Name</a></td>
+									<td class="text-left"><a href="#" class="asc">Coaching
+											Session Type</a></td>
+									<td class="text-left"><a href="#" class="asc">Duration(days)</a></td>
+
+									<td class="text-left"><a href="#" class="asc">Cost</a></td>
+
+									<td class="text-left"><a href="#" class="asc">Status </a></td>
+									<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
+
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="category" items="${coachingCategory.rows}">
+
 									<tr>
-										<td  class="sorter-false"></td>
-
-										<td class="text-left"><a href="#" class="asc">Coaching
-												Session Name</a></td>
-										<td class="text-left"><a href="#" class="asc">Coaching
-												Session Type</a></td>
-										<td class="text-left"><a href="#" class="asc">Duration(days)</a></td>
-
-										<td class="text-left"><a href="#" class="asc">Cost</a></td>
-
-										<td class="text-left"><a href="#" class="asc">Status
-										</a></td>
-										<td  class="sorter-false"><a href="#" class="asc">Edit</a></td>
-
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="category" items="${coachingCategory.rows}">
-
-										<tr>
-											<td class="text-center"><input type="checkbox"
-												name="selected"
-												value="<c:out
+										<td class="text-center"><input type="checkbox"
+											name="selected"
+											value="<c:out
 													value="${category.item_id}" />" />
-											<td class="text-left"><c:out
-													value="${category.item_name}" /></td>
-											<td class="text-left"><c:out
-													value="${category.item_type_name}" /></td>
-											<td class="text-left"><c:out
-													value="${category.item_duration}" /></td>
-											<td class="text-left"><c:out
-													value="${category.unit_cost}" /></td>
-											<td class="text-left"><c:out
-													value="${category.status_name}" /></td>
-										
-										
-											<td class="text-center">
+										<td class="text-left"><c:out
+												value="${category.item_name}" /></td>
+										<td class="text-left"><c:out
+												value="${category.item_type_name}" /></td>
+										<td class="text-left"><c:out
+												value="${category.item_duration}" /></td>
+										<td class="text-left"><c:out
+												value="${category.unit_cost}" /></td>
+										<td class="text-left"><c:out
+												value="${category.status_name}" /></td>
+
+
+										<td class="text-center">
 
 											<button type="button" class="btn btn-default btn-sm"
-												onclick="location.href='editCoaching.jsp?catID=${category.item_id}'">
+												onclick="location.href='editCoaching.jsp?itemID=${category.item_id}'">
 												<span class="glyphicon glyphicon-edit"></span> Edit
 											</button>
 										</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-			
-		<!-- 		</form> -->
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-<!-- Start of <Fixed footer> -->
+	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
 
 	<script src="js/footer.js"></script>
-	
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
-<script src="docs/js/jquery-1.2.6.min.js"></script>
+	<script src="docs/js/jquery-1.2.6.min.js"></script>
 
 
-<script src="dist/js/jquery.tablesorter.min.js"></script>
-<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
-<script>
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
+	<script>
 	$(function() {
 		
 		$('table').tablesorter({
@@ -213,7 +212,7 @@
 		});
 	});
 </script>
-	
+
 	<script type="text/javascript">
 	
 		function checkbox_test() {
@@ -225,7 +224,7 @@
 			for (i = 0; i < input_obj.length; i++) {
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
-					url = url + '&catID=' + input_obj[i].value;
+					url = url + '&itemID=' + input_obj[i].value;
 					counter++;
 				}
 			}
