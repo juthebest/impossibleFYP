@@ -126,9 +126,9 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 	<div class="container">
 		<div class="page-header">
 			<h2>My Journals</h2>
-			<div class="title">
+<!-- 			<div class="title">
 				<a href=""> &raquo; 2015 </a>
-			</div>
+			</div> -->
 			<!-- 			<div class="mymonths">
 				<a href=""> January </a>. <a href=""> February </a>. <a href="">
 					March </a>. <a href=""> April </a>. <a href=""> May </a>. <a href="">
