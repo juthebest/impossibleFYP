@@ -138,7 +138,6 @@ AND user.user_id = <%=uid%>;
 													</c:forEach>
 												</select>
 											</div>
-
 										</div>
 									</div>
 
