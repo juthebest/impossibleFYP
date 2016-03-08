@@ -94,23 +94,17 @@ WHERE user_id = <%=request.getParameter("userid")%>;
 	<div class="container">
 		<div class="container-fluid">
 
-			<ul class="nav nav-tabs">
-				<li class="active"><a
-					href="studentdetails.jsp?childid=${child.user_id}">Programs
-						Registered</a></li>
-				<li><a href="studentaddress.jsp?userid=${child.user_id}">Address</a></li>
-			</ul>
+			<c:forEach var="page" items="${userprofile.rows}">
+				<ul class="nav nav-tabs">
+					<li class="active"><a
+						href="studentdetails.jsp?userid=${page.user_id}">Programs
+							Registered</a></li>
+					<li><a href="studentaddress.jsp?userid=${page.user_id}">Address</a></li>
+				</ul>
+			</c:forEach>
 
 			<div class="panel panel-default">
 
-				<div class="panel-heading">
-					<c:forEach var="profile" items="${userprofile.rows}">
-						<h3 class="panel-title">
-							Student Details:
-							<c:out value="${profile.surname} ${profile.given_name}" />
-						</h3>
-					</c:forEach>
-				</div>
 
 				<div class="panel-body">
 					<p class="icons">

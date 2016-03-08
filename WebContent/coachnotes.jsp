@@ -141,17 +141,7 @@ AND user.user_id = <%=uid%>;
 
 										</div>
 									</div>
-									
-									<!-- get the client id and put in the servlet -->
 
-									<%-- <c:forEach var="client" items="${coachstudents.rows}">
-										<input type="hidden"
-											value="<c:out value="${client.client_id}" />"
-											name="clientid" />
-
-									</c:forEach> --%>
-
-									<!-- get the coach id and put in the servlet -->
 									<c:forEach var="coachid" items="${coachidis.rows}">
 										<input type="hidden"
 											value="<c:out value="${coachid.coach_id}" />"
@@ -159,20 +149,8 @@ AND user.user_id = <%=uid%>;
 
 									</c:forEach>
 
-
 									<br>
 
-									<div class="row">
-										<div class="form-group form-group-md">
-											<label class="col-sm-2 control-label" for="dp1">Date
-												Of Counselling:</label>
-											<div class="col-sm-3">
-												<input type="date" class="form-control" id="dp1"
-													value="11/11/2015" name="date">
-											</div>
-										</div>
-									</div>
-									<br>
 
 									<div class="row">
 										<div class="form-group form-group-md">

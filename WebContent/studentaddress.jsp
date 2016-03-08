@@ -81,23 +81,22 @@ AND client.client_id = <c:out value="${profileparentis.client_id}" />;</sql:quer
 <body>
 	<div class="container">
 
-		<div class="panel panel-default">
-			<ul class="nav nav-tabs">
-					<li><a href="studentdetails.jsp">Programs Registered</a></li>
-					<!-- 
-				<li><a href="counsellorrecentjournals.jsp">Recent Journals</a></li> -->
-					<li class="active"><a href="studentaddress.jsp">Address</a></li>
+
+		<div class="container-fluid">
+			<c:forEach var="page" items="${userprofile.rows}">
+				<ul class="nav nav-tabs">
+					<li><a href="studentdetails.jsp?userid=${page.user_id}">Programs
+							Registered</a></li>
+					<li class="active"><a
+						href="studentaddress.jsp?userid=${page.user_id}">Address</a></li>
 				</ul>
-			<div class="container-fluid">
-	
+			</c:forEach>
+			
+			<div class="panel panel-default">
 
 				<c:forEach var="profile" items="${userprofile.rows}">
 
-
-
-
 					<div class="panel-body">
-
 						<div class="row">
 							<h5>
 								<c:out value="${profile.given_name}" />
