@@ -113,9 +113,6 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 						<c:forEach var="parentprofile" items="${parentdetails.rows}">
 							<form action="editParentProfile" method="post"
 								class="form-horizontal">
-<%-- <c:out
-							value="${parentprofile.parent_id}" /> --%>
-
 
 
 								<div class="form-group">
@@ -167,6 +164,15 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 											value="${parentprofile.address}" required />
 									</div>
 								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="password">Password:</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="password" name="password"
+											value="${parentprofile.password}">
+									</div>
+								</div>
+								
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-primary">Submit</button>

@@ -54,6 +54,8 @@ public class editParentProfile extends HttpServlet {
 			String mobile = null;
 			String address = null;
 			String id = null;
+			String pwd = null;
+
 			
 			givenname = request.getParameter("parentname");
 			sname = request.getParameter("parentsurname");
@@ -61,6 +63,7 @@ public class editParentProfile extends HttpServlet {
 			mobile = request.getParameter("parentmobile");
 			address = request.getParameter("parentaddress");
 			id = request.getParameter("parentid");
+			pwd = request.getParameter("password");
 
 
 			// Execute SQL query
@@ -71,9 +74,8 @@ public class editParentProfile extends HttpServlet {
 
 			int i = stmt.executeUpdate("UPDATE `user` SET`given_name`='"
 					+ givenname + "',`surname`='" + sname + "',`email`='" + email + "',`mobile`='"
-					+ mobile + "',`address`='" + address + "' WHERE parent_id='" + id + "'");
+					+ mobile + "',`address`='" + address + "',`password`='" + pwd + "' WHERE parent_id='" + id + "'");
 
-			
 			if (i == 1) {
 				response.sendRedirect("parenthomepage.jsp");
 
