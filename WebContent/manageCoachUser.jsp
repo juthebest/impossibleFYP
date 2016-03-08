@@ -42,7 +42,7 @@ WHERE user.coach_id = coach.coach_id
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
-			response.sendRedirect("login.html");
+			response.sendRedirect("login.jsp");
 		} else
 			user = (String) session.getAttribute("name");
 		String userName = null;

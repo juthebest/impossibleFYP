@@ -13,7 +13,7 @@
 				where program.program_id=category_has_program.program_id
 				AND category_has_program.category_id=category.category_id 
 				AND program.status_id=status.status_id
-				AND program.program_id=<%=request.getParameter("selected")%>
+				AND program.program_id=<%=request.getParameter("programID")%>
 </sql:query>
 
 
@@ -23,7 +23,7 @@
 				WHERE program.program_id = program_has_item.program_id
 				AND program_has_item.item_id = item.item_id
 				AND item.item_type_id=item_type.item_type_id
-				AND program.program_id=<%=request.getParameter("selected")%>
+				AND program.program_id=<%=request.getParameter("programID")%>
 </sql:query>
 
 

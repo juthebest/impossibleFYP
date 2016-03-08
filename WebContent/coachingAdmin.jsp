@@ -33,7 +33,7 @@
 <link href="css/home.css" rel="stylesheet">
 <!-- Pick a theme, load the plugin & initialize plugin -->
 <link href="dist/css/theme.default.min.css" rel="stylesheet">
-<%-- <%
+<%
 	//allow access only if session exists
 	String user = null;
 
@@ -60,7 +60,7 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%> --%>
+%>
 
 </head>
 

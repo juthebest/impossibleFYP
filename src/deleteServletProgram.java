@@ -47,7 +47,7 @@ public class deleteServletProgram extends HttpServlet {
 			Connection conn = database.Get_Connection();
 
 
-			String[] programID = request.getParameterValues("selected");
+			String[] programID = request.getParameterValues("programID");
 
 
 

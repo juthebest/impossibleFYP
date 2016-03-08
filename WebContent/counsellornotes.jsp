@@ -69,7 +69,7 @@ SELECT * FROM user WHERE user_id = <%=uid%>;
 <c:forEach var="coach" items="${coachidis.rows}">
 	<!-- parent details -->
 	<sql:query var="counsellornotes" dataSource="${dataSource}">
-SELECT * FROM coach_note,user
+SELECT coach_note.coach_id, coach_note.coach_note_id, coach_note.note_details, coach_note.create_update_datetime, user.coach_id FROM coach_note,user
 WHERE coach_note.coach_id = user.coach_id
 AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 	</sql:query>
@@ -128,7 +128,7 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 									<tr>
 										<th style="text-align: left" data-sorter="false"><input
 											type="checkbox" name="checkbox" value="checkbox"></th>
-										<th class="text-left">Date and Time of Counselling</th>
+										<th class="text-left">Date and Time Last Updated</th>
 										<th class="text-left">Comment of Note</th>
 										<th class="text-left">Student Name</th>
 										<th class="text-left"><a href="#" class="asc">Edit</a></th>
