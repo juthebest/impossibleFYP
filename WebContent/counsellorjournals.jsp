@@ -60,22 +60,31 @@
 
 
 <sql:query var="coachid" dataSource="${dataSource}">
-SELECT *
-FROM coach, user
-WHERE coach.coach_id = user.coach_id
-AND user.user_id = <%=uid%>;
+SELECT * FROM user
+WHERE user_id = <%=uid%>;
 </sql:query>
 
-<c:forEach var="counsellor" items="${coachid.rows}">
+<%-- <c:forEach var="counsellor" items="${coachid.rows}">
 	<sql:query var="counsellorjournals" dataSource="${dataSource}">
-SELECT *
-FROM client_journal, client, coach
+SELECT * FROM client_journal, client, coach
 WHERE client_journal.client_id = client.client_id
 AND client_journal.coach_id = coach.coach_id
 AND client_journal.journalstatus_id = '1'
 AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
+</c:forEach> --%>
+
+
+<c:forEach var="counsellor" items="${coachid.rows}">
+	<sql:query var="counsellorjournals" dataSource="${dataSource}">
+SELECT * FROM client_journal, client, user
+WHERE client_journal.client_id = client.client_id
+AND client.client_id = user.client_id
+AND client_journal.journalstatus_id = '1'
+AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
+</sql:query>
 </c:forEach>
+
 
 <c:forEach var="clientname" items="${counsellor.rows}">
 	<sql:query var="clientnameis" dataSource="${dataSource}">
@@ -152,7 +161,7 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 													value="${journals.coach_comment}" /></td>
 
 											<td class="text-left"><c:out
-													value="${journals.client_id}" /></td>
+													value="${journals.given_name}" /></td>
 
 											<td class="text-left"><c:out
 													value="${journals.emotion_rating}" /></td>
@@ -168,70 +177,16 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 											</td>
 										</tr>
 									</c:forEach>
-
-
-
 								</tbody>
 							</table>
 						</div>
 					</form>
-
-
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- <Fixed footer> -->
 	<nav id="footerMenu"></nav>
-	<!-- End <Fixed footer> -->
-
-
-	<script type="text/javascript">
-		function checkbox_test() {
-
-			var counter = 0, i = 0, url = '',
-
-			input_obj = document.getElementsByTagName('input');
-
-			for (i = 0; i < input_obj.length; i++) {
-
-				if (input_obj[i].type === 'checkbox'
-						&& input_obj[i].checked === true) {
-
-					url = url + '&journalID=' + input_obj[i].value;
-					counter++;
-
-				}
-
-			}
-
-			if (counter > 0) {
-
-				url = url.substr(1);
-
-				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
-
-				window.location.href = 'DeleteCounsellorComment?' + url;
-			} else {
-				alert('There is no checked checkbox');
-			}
-			var table = document.getElementById('myTable');
-			var rowCount = table.rows.length;
-			for (var i = 0; i < rowCount; i++) {
-				var row = table.rows[i];
-				var chkbox = row.cells[0].childNodes[0];
-				if (null != chkbox && true == chkbox.checked) {
-					table.deleteRow(i);
-					rowCount--;
-					i--;
-				}
-
-			}
-		}
-	</script>
-
-
 
 	<script src="js/footer.js"></script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

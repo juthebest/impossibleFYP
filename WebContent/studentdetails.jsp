@@ -18,7 +18,7 @@ FROM `program_has_client`, `program`, `client`, user
 WHERE `program`.`program_id` = `program_has_client`.`program_id`
 AND `program_has_client`.`client_id` = `client`.`client_id`
 AND client.client_id = user.client_id
-AND `program_has_client`.`enrollment_status_id` = 1
+AND `program_has_client`.`enrollment_status_id` = 2
 AND user.user_id = <%=request.getParameter("userid")%>;
 </sql:query>
 
@@ -26,7 +26,7 @@ AND user.user_id = <%=request.getParameter("userid")%>;
 <sql:query var="studentcourse" dataSource="${dataSource}">
 SELECT * 
 FROM itemrun_has_client, itemrun, client, item, user
-WHERE itemrun_has_client.enrollment_status_id = 1
+WHERE itemrun_has_client.enrollment_status_id = 2
 AND item.item_id = itemrun.item_id
 AND itemrun.itemrun_id = itemrun_has_client.itemrun_id
 AND itemrun_has_client.client_id = client.client_id
@@ -93,32 +93,25 @@ WHERE user_id = <%=request.getParameter("userid")%>;
 <body>
 	<div class="container">
 		<div class="container-fluid">
-		
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="studentdetails.jsp?childid=${child.user_id}">Programs
-						Registered</a></li>
-				<li><a href="counsellorrecentjournals.jsp?userid=${child.user_id}">Recent Journals</a></li>
-				<li><a href="studentaddress.jsp?userid=${child.user_id}">Address</a></li>
-			</ul>
+
+			<c:forEach var="page" items="${userprofile.rows}">
+				<ul class="nav nav-tabs">
+					<li class="active"><a
+						href="studentdetails.jsp?userid=${page.user_id}">Programs
+							Registered</a></li>
+					<li><a href="studentaddress.jsp?userid=${page.user_id}">Address</a></li>
+				</ul>
+			</c:forEach>
 
 			<div class="panel panel-default">
 
-				<div class="panel-heading">
-					<c:forEach var="profile" items="${userprofile.rows}">
-						<h3 class="panel-title">
-							Student Details:
-							<c:out value="${profile.surname} ${profile.given_name}" />
-						</h3>
-					</c:forEach>
-				</div>
 
 				<div class="panel-body">
 					<p class="icons">
 						<a href="coachnotes.jsp"><button type="button"
 								class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-plus"></span> Write a new note
-							</button></a> <a href="counsellorassignstudent.html"><button type="button"
-								class="btn btn-default btn-sm">Add a timeslot</button></a>
+							</button></a>
 					</p>
 
 					<div class="row">

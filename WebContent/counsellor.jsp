@@ -13,37 +13,39 @@
 
 
 <%
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String role=(String) session.getAttribute("role");
-		String uid = null;
-		 if(session.getAttribute("name") == null || session.getAttribute("role") == null || !role.equalsIgnoreCase("coach")){
+	String role = (String) session.getAttribute("role");
+	String uid = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") == null
+			|| !role.equalsIgnoreCase("coach")) {
 		response.sendRedirect("login.html");
-		}else user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	} else
+		user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
@@ -111,8 +113,8 @@ ORDER BY `client`.client_id ASC
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
 
-
 <body>
+
 	<div class="container">
 
 		<div class="container-fluid">
@@ -138,58 +140,35 @@ ORDER BY `client`.client_id ASC
 								<thead>
 									<tr>
 										<th class="text-left">Student's Name</th>
-										<th class="text-left">Student's Parent</th>
 										<th class="text-left">Join Date</th>
-										<th class="text-left">Issues Facing</th>
+										<th class="text-left">Programs Registered</th>
+										<th class="text-left">Address</th>
+
 									</tr>
 								</thead>
 
 								<tbody>
 
-
 									<c:forEach var="child" items="${childname.rows}">
 										<tr>
-											<td class="text-left"><a
-												href="studentdetails.jsp?userid=${child.user_id}"><c:out
-														value="${child.surname} ${child.given_name}" /></a></td>
-											<td class="text-left"></td>
+											<td class="text-left"><c:out
+													value="${child.surname} ${child.given_name}" /></td>
 											<td class="text-left"><c:out
 													value="${child.create_update_datetime}" />
-											<td class="text-left">Time Management</td>
-										</tr>
-									</c:forEach>
-
-
-									<c:forEach var="client" items="${parentname.rows}">
-										<tr>
 											<td class="text-left"><a
-												href="studentdetails.jsp?userid=${client.user_id}"></a></td>
-											<td class="text-left"><c:out
-													value="${client.surname} ${client.given_name}" /></td>
-											<td class="text-left"><c:out
-													value="${client.create_update_datetime}" />
-											<td class="text-left">Time Management</td>
+												href="studentdetails.jsp?userid=${child.user_id}">View
+													Registered Programs</a></td>
+											<td class="text-left"><a
+												href="studentaddress.jsp?userid=${child.user_id}">View
+													Address</a></td>
+
 										</tr>
 									</c:forEach>
+
 								</tbody>
 							</table>
 						</div>
 					</form>
-					<!-- <div class="row">
-						<div class="col-sm-6 text-left">
-							<ul class="pagination">
-								<li class="disabled"><a href="#">&laquo;</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-						</div>
-						<div class="col-sm-6 text-right">Showing 1 to 20 of 38 (2
-							Pages)</div>
-					</div> -->
 				</div>
 			</div>
 		</div>
