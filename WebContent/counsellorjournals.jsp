@@ -84,7 +84,6 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 </sql:query>
 </c:forEach>
 
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
