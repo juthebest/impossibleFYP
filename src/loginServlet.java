@@ -58,9 +58,9 @@ public class loginServlet extends HttpServlet {
 
 			final String email = request.getParameter("inputEmail");
 			String password = request.getParameter("inputPassword");
-			out.print("email:" + email);
+	/*		out.print("email:" + email);
 			out.print("password:" +  password);
-
+*/
 			/*	MessageDigest md = null;
 
 			try {
@@ -104,7 +104,7 @@ public class loginServlet extends HttpServlet {
 
 			String x = "";
 			String k="";
-			String page = "";
+			String page;
 
 			while (rs.next()) {
 				String dbemail = rs.getString("email");
@@ -147,16 +147,13 @@ public class loginServlet extends HttpServlet {
 
 
 
-				
-					
-					
 					if(role.equalsIgnoreCase("admin")){
 						session.setAttribute("role", "admin");
 
 						String adminencodedURL = response.encodeRedirectURL("adminIndex.jsp");
 						response.sendRedirect(adminencodedURL);
 					}
-					
+
 					else if(role.equalsIgnoreCase("client")){
 						session.setAttribute("role", "client");
 						String clientencodedURL = response.encodeRedirectURL("user.jsp");
@@ -173,8 +170,8 @@ public class loginServlet extends HttpServlet {
 					}
 
 
-x=role;
-System.out.println(role);
+					x=role;
+					System.out.println(role);
 
 				}
 
@@ -185,12 +182,10 @@ System.out.println(role);
 				 */
 
 			}
-			
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp" +"?IsSuccess=" + rs.next());
 
-			out.println("<font color=red>Either user name or password is wrong.</font>");
-			response.sendRedirect("login.jsp" + "?IsSuccess=" +
-					rs.next());
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp?" + x);
+			request.setAttribute("Error", "Invalid Login Info. Please try again");
+
 			rd.include(request, response);
 
 			// Clean-up environment
@@ -208,4 +203,3 @@ System.out.println(role);
 	}
 
 }
-

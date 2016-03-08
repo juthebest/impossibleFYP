@@ -35,7 +35,7 @@ public class deleteCategoryServlet extends HttpServlet {
 	 */
 
 
-	@SuppressWarnings("null")
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -53,9 +53,10 @@ public class deleteCategoryServlet extends HttpServlet {
 			Connection connection = database.Get_Connection();
 			Statement stmt = null;
 			Statement stmt1 = null;
-
+			Statement stmt2 = null;
 			stmt = connection.createStatement();
 			stmt1 = connection.createStatement();
+			stmt2 = connection.createStatement();
 			String[] catID= request.getParameterValues("catID");
 			String query1;
 			String query2;
@@ -65,8 +66,7 @@ public class deleteCategoryServlet extends HttpServlet {
 
 			int rs =0;
 
-
-
+	
 			ResultSet resultSet;
 
 			for(String id: catID){
@@ -82,28 +82,38 @@ public class deleteCategoryServlet extends HttpServlet {
 
 				resultSet= stmt.executeQuery(query4);
 
+				ResultSet j= stmt1.executeQuery(query5);
 				if (resultSet.next()) {
-					System.out.println("got data");
-					
-					
-					ResultSet j= stmt1.executeQuery(query5);
-					if(j.next()){
-						System.out.println("got data");
-					
-				
-					}
-					
-				}	else{
-					System.out.println("nodata");
-					stmt.executeUpdate(query1);
+					System.out.println("Cannot delete , Category is tied to item");
 
 					
-					stmt1.executeUpdate(query2);
+					request.setAttribute("Error","Cannot delete , Category is tied to item!");
+
 			
-					rs =  stmt1.executeUpdate(query);
-				
+
+
 				}
+				else if(j.next()){
+					System.out.println("Cannot delete , Category is tied to program!");
+
+					request.setAttribute("Error","Cannot delete , Category is tied to program");
+				
+				
+				
+
+				}	else{
+					System.out.println("nodata");
 			
+					
+					stmt.executeUpdate(query1);
+
+
+					stmt1.executeUpdate(query2);
+
+					rs =  stmt2.executeUpdate(query);
+
+				}
+
 
 			}
 
@@ -111,11 +121,11 @@ public class deleteCategoryServlet extends HttpServlet {
 
 			if(rs==1){
 				response.sendRedirect("manageCategory.jsp");
+				
 
 			}else{
-				out.println("There is an error");
-				response.sendRedirect("index.jsp");
-
+				
+				    request.getRequestDispatcher("/manageCategory.jsp").forward(request, response);
 
 			}
 

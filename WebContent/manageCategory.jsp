@@ -40,7 +40,7 @@
 
 </head>
 <body>
-<%-- <%
+	<%-- <%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -98,6 +98,20 @@
 
 
 					<div class="pull-right">
+
+
+						<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+							Error:
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
+						
+						
+			
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
 							<a href="addCat.jsp"><button type="button"
@@ -118,17 +132,17 @@
 					<div class="table-responsive">
 
 
-						<table  class="table table-bordered table-hover tablesorter">
+						<table class="table table-bordered table-hover tablesorter">
 							<thead>
 								<tr>
 
-									<td  class="sorter-false"></td>
+									<td class="sorter-false"></td>
 									<td data-field="name" data-sortable="true" class="text-left"><a
 										href="#" class="asc">Category Name</a></td>
 									<td data-field="description" data-sortable="true"
 										class="text-left"><a href="#" class="asc">Category
 											Description</a></td>
-									<td  class="sorter-false"><a href="#" class="asc">Edit</a></td>
+									<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
 								</tr>
 							</thead>
 
@@ -171,51 +185,48 @@
 			</div>
 		</div>
 	</div>
-<!-- Start of <Fixed footer> -->
+	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
 
 	<script src="js/footer.js"></script>
-	
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
-<script src="docs/js/jquery-1.2.6.min.js"></script>
+	<script src="docs/js/jquery-1.2.6.min.js"></script>
 
 
-<script src="dist/js/jquery.tablesorter.min.js"></script>
-<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
-<script>
-	$(function() {
-		
-		$('table').tablesorter({
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
+	<script>
+		$(function() {
 
-			usNumberFormat : false,
-			sortReset : true,
-			sortRestart : true
-			
+			$('table').tablesorter({
+
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+
+			});
 		});
-	});
-</script>
-<script type="text/javascript">
-	
+	</script>
+	<script type="text/javascript">
 		function checkbox_test() {
 
-			var counter = 0, 
-			i = 0, 
-			url = '', 
-		
+			var counter = 0, i = 0, url = '',
+
 			input_obj = document.getElementsByTagName('input');
-		
+
 			for (i = 0; i < input_obj.length; i++) {
-			
+
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
-				
 
 					url = url + '&catID=' + input_obj[i].value;
 					counter++;
@@ -224,31 +235,31 @@
 
 			}
 
-		
 			if (counter > 0) {
-				
+
 				url = url.substr(1);
-			
-				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') "+url);
-			
-				 window.location.href = 'deleteCategoryServlet?' + url; 
+
+				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') "
+						+ url);
+
+				window.location.href = 'deleteCategoryServlet?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
 			var table = document.getElementById('myTable');
 			var rowCount = table.rows.length;
-			for (var i = 0; i < rowCount; i++) {         
-				var row = table.rows[i];            
-				var chkbox = row.cells[0].childNodes[0];               
-				if (null != chkbox && true == chkbox.checked) {                   
-					table.deleteRow(i);          
-					rowCount--;          
+			for (var i = 0; i < rowCount; i++) {
+				var row = table.rows[i];
+				var chkbox = row.cells[0].childNodes[0];
+				if (null != chkbox && true == chkbox.checked) {
+					table.deleteRow(i);
+					rowCount--;
 					i--;
 				}
 
 			}
 		}
 	</script>
-	
+
 </body>
 </html>

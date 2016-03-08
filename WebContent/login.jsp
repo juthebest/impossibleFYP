@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:include page="main/publicNavigations.jsp"></jsp:include>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +74,7 @@
 						</div>
 						<div class="panel-body">
 							<form action="loginServlet" method="post" class="form-horizontal"
-								role="form ">
+								role="form" onsubmit="return validLogin();">
 
 								<div class="form-group">
 									<label for="inputEmail"
@@ -93,9 +94,19 @@
 											data-error="Please enter your password" required>
 									</div>
 								</div>
-								<p  style="color:red;"><b>${error }</b><p>
-								<p id="result"></p>
-								<hr />
+								<%-- 			<p  style="color:red;"><b>${error }</b><p>
+								<p id="result"></p> --%>
+
+							<%
+							if (request.getAttribute("Error") != null) {
+						%>
+					<p style="color: red">
+							<b>
+							<%=(String) request.getAttribute("Error")%></b></p>
+						<%
+							}
+						%>
+						
 
 
 								<div class="form-group">
@@ -179,6 +190,21 @@
 				}
 			});
 		});
+
+		function validLogin() {
+			if (document.form.inputEmail.value == "") {
+				alert("Please enter Login Name.");
+				document.loginform.inputEmail.focus();
+				return false;
+			}
+			if (document.form.inputPassword.value == "") {
+				alert("Please enter password.");
+				document.userform.inputPassword.focus();
+				return false;
+			}
+			alert("Welcome User");
+			return true;
+		}
 	</script>
 
 
