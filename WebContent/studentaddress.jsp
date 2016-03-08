@@ -18,6 +18,15 @@
 SELECT * FROM user
 WHERE user_id = <%=request.getParameter("userid")%>;</sql:query>
 
+<!-- parent details -->
+<c:forEach var="profileparentis" items="${userprofile.rows}">
+	<sql:query var="parentprofile" dataSource="${dataSource}">
+SELECT * FROM client, user
+WHERE client.parent_id = user.parent_id
+AND client.client_id = <c:out value="${profileparentis.client_id}" />;</sql:query>
+</c:forEach>
+
+
 <%
 	//allow access only if session exists
 	String user = null;
@@ -72,62 +81,84 @@ WHERE user_id = <%=request.getParameter("userid")%>;</sql:query>
 <body>
 	<div class="container">
 
-
-		<div class="container-fluid">
+		<div class="panel panel-default">
 			<ul class="nav nav-tabs">
-				<li><a href="studentdetails.jsp">Programs Registered</a></li>
-				<li><a href="counsellorrecentjournals.jsp">Recent Journals</a></li>
-				<li class="active"><a href="studentaddress.jsp">Address</a></li>
-			</ul>
+					<li><a href="studentdetails.jsp">Programs Registered</a></li>
+					<!-- 
+				<li><a href="counsellorrecentjournals.jsp">Recent Journals</a></li> -->
+					<li class="active"><a href="studentaddress.jsp">Address</a></li>
+				</ul>
+			<div class="container-fluid">
+	
 
-			<div class="panel panel-default">
+				<c:forEach var="profile" items="${userprofile.rows}">
 
-				<div class="panel-heading">
-					<c:forEach var="profile" items="${userprofile.rows}">
-						<h3 class="panel-title">
-							Student Details:
-							<c:out value="${profile.surname} ${profile.given_name}" />
-						</h3>
-					</c:forEach>
-				</div>
 
-				<div class="panel-body">
 
-					<div class="row">
-						<c:forEach var="profile" items="${userprofile.rows}">
-							<p>
-								<b>Date of Birth: </b>
-								<c:out value="${profile.client_dob}" />
-							</p>
+
+					<div class="panel-body">
+
+						<div class="row">
+							<h5>
+								<c:out value="${profile.given_name}" />
+								's Information
+							</h5>
+
 							<p>
 								<b>Mobile: </b>
 								<c:out value="${profile.mobile}" />
 							</p>
 							<p>
-								<b>Address: </b>
-								<c:out value="${profile.address}" />
-							</p>
-							<p>
-								<b>Postal Code:</b>52391
-							</p>
-
-							<p>
 								<b>E-Mail: </b>
 								<c:out value="${profile.email}" />
 							</p>
 							<p>
-								<b>School: </b>
-								<c:out value="${profile.client_school}" />
+								<b>Address: </b>
+								<c:out value="${profile.address}" />
+							</p>
+						</div>
+
+					</div>
+				</c:forEach>
+
+				<c:forEach var="parentdetails" items="${parentprofile.rows}">
+
+					<div class="panel-body">
+
+						<div class="row">
+							<h5>Next Kin's Information</h5>
+							<p>
+								<b>Name: </b>
+								<c:out
+									value="${parentdetails.salutation} ${parentdetails.given_name} ${parentdetails.surname}" />
+							</p>
+
+							<p>
+								<b>Relationship to child: </b>
+								<c:out value="${parentdetails.relationship_to_child}" />
 							</p>
 							<p>
-								<b>Gender: </b>
-								<c:out value="${profile.salutation}" />
+								<b>Mobile: </b>
+								<c:out value="${parentdetails.mobile}" />
 							</p>
-						</c:forEach>
+							<p>
+								<b>E-Mail: </b>
+								<c:out value="${parentdetails.email}" />
+							</p>
+							<p>
+								<b>Address: </b>
+								<c:out value="${parentdetails.address}" />
+							</p>
+
+						</div>
+
 					</div>
 
-				</div>
+				</c:forEach>
+
 			</div>
+
+
 		</div>
 	</div>
 	<!-- <Fixed footer> -->

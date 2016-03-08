@@ -98,9 +98,6 @@ WHERE user_id = <%=request.getParameter("userid")%>;
 				<li class="active"><a
 					href="studentdetails.jsp?childid=${child.user_id}">Programs
 						Registered</a></li>
-				<li><a
-					href="counsellorrecentjournals.jsp?userid=${child.user_id}">Recent
-						Journals</a></li>
 				<li><a href="studentaddress.jsp?userid=${child.user_id}">Address</a></li>
 			</ul>
 

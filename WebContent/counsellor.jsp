@@ -13,37 +13,39 @@
 
 
 <%
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String role=(String) session.getAttribute("role");
-		String uid = null;
-		 if(session.getAttribute("name") == null || session.getAttribute("role") == null || !role.equalsIgnoreCase("coach")){
+	String role = (String) session.getAttribute("role");
+	String uid = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") == null
+			|| !role.equalsIgnoreCase("coach")) {
 		response.sendRedirect("login.html");
-		}else user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	} else
+		user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
@@ -151,14 +153,17 @@ ORDER BY `client`.client_id ASC
 
 									<c:forEach var="child" items="${childname.rows}">
 										<tr>
-											<td class="text-left"><a
-												href="studentdetails.jsp?userid=${child.user_id}"><c:out
-														value="${child.surname} ${child.given_name}" /></a></td>
+											<td class="text-left"><c:out
+													value="${child.surname} ${child.given_name}" /></td>
 											<td class="text-left"></td>
 											<td class="text-left"><c:out
 													value="${child.create_update_datetime}" />
-											<td class="text-left"><a href="studentdetails.jsp?userid=${child.user_id}">View Registered Programs</a></td>
-											<td class="text-left"><a href="">View Address</a></td>
+											<td class="text-left"><a
+												href="studentdetails.jsp?userid=${child.user_id}">View
+													Registered Programs</a></td>
+											<td class="text-left"><a
+												href="studentaddress.jsp?userid=${child.user_id}">View
+													Address</a></td>
 
 										</tr>
 									</c:forEach>
