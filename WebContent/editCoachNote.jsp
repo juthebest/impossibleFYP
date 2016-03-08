@@ -102,7 +102,6 @@ AND user.user_id = <%=uid%>;
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
 <link href="css/home.css" rel="stylesheet">
 
 <body>

@@ -92,10 +92,10 @@ public class editCoachNote extends HttpServlet {
 			conn.close();
 
 			if (c == 1) {
-				response.sendRedirect("manageCoachUser.jsp");
+				response.sendRedirect("counsellornotes.jsp");
 
 			} else {
-				out.println("There is an error");
+				response.sendRedirect("editCoachNote.jsp");
 
 			}
 		}
