@@ -46,8 +46,10 @@ public class editWorkShopSchedule extends HttpServlet {
 
 		String id =null;
 		String ws =null;
-		String 	sdt=null;
-		String	edt =null;
+		String sdt=null;
+		String edt=null;
+		String st=null;
+		String et=null;
 		String	cIc =null;
 
 		String	venue =null;
@@ -57,6 +59,8 @@ public class editWorkShopSchedule extends HttpServlet {
 		ws= request.getParameter("wsname");
 		sdt= request.getParameter("sdt");
 		edt= request.getParameter("edt");
+		st=request.getParameter("st");
+		et=request.getParameter("et");
 		cIc= request.getParameter("coachInCharge");
 		venue= request.getParameter("venue");
 		status= request.getParameter("status");
@@ -72,6 +76,8 @@ public class editWorkShopSchedule extends HttpServlet {
 
 	out.println(venue);
 	out.println(status);
+	String start = sdt +" "+ st;
+	String end =edt +" "+ et;
 
 		try{
 
@@ -89,7 +95,7 @@ public class editWorkShopSchedule extends HttpServlet {
 			stmt = conn.createStatement();
 
 			// create the java mysql update preparedstatement
-			int i= stmt.executeUpdate("UPDATE `itemrun` SET `item_id`='"+ws+"',`status_id`='"+status+"',`coach_id`='"+cIc+"',`itemrun_start_datetime`='"+sdt+"',`item_end_datetime`='"+edt+"',`itemrun_venue`='"+venue+"' WHERE `itemrun_id`='"+id+"'");			
+			int i= stmt.executeUpdate("UPDATE `itemrun` SET `item_id`='"+ws+"',`status_id`='"+status+"',`coach_id`='"+cIc+"',`itemrun_start_datetime`='"+start+"',`item_end_datetime`='"+end+"',`itemrun_venue`='"+venue+"' WHERE `itemrun_id`='"+id+"'");			
 
 
 
