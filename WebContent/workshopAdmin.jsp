@@ -138,9 +138,7 @@
 
 							<thead>
 								<tr>
-									<td style="width: 1px;" class="text-center" data-sorter="false"><input
-										type="checkbox"
-										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+									<td class="sorter-false"></td>
 
 									<td class="text-left"><a href="#" class="asc">Course
 											Name</a></td>
@@ -151,7 +149,8 @@
 									<td class="text-left"><a href="#" class="asc">Cost</a></td>
 
 									<td class="text-left"><a href="#" class="asc">Status </a></td>
-
+									
+									<td class="sorter-false"><a href="#" class="asc">Edit</a></td>
 								</tr>
 							</thead>
 							<tbody>
