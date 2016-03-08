@@ -102,6 +102,7 @@ public class loginServlet extends HttpServlet {
 			// Extract data from result set
 
 			String x = "";
+			String k="";
 
 			while (rs.next()) {
 				String dbemail = rs.getString("email");
@@ -168,21 +169,24 @@ public class loginServlet extends HttpServlet {
 						
 						request.getRequestDispatcher("parenthomepage.jsp").forward(request,response);
 						
+					}else{
+						response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
 					}
 				
 
 
 					x=role;
 					System.out.println(x);
-
-				}
-				else{
-					request.setAttribute("error", "Account's Invalid");
-					request.getRequestDispatcher("login.jsp").forward(request,response);
-				}
-			}
 			
-			/*response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());*/
+				}else{
+					response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
+				}
+				
+			
+			}
+	
+
+
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
