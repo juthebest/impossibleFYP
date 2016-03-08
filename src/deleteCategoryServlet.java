@@ -59,12 +59,12 @@ public class deleteCategoryServlet extends HttpServlet {
 			int rs =0;
 
 			for(String id: catID){
-				query4="SELECT * FROM  `category_has_item` , item, category WHERE category.category_id = category_has_item.category_idAND item.item_id = category_has_item.item_id";
+				query4="SELECT category.category_id,  `category_has_item_id` , item.item_id FROM  `category_has_item` , item, category WHERE category.category_id IN ('"+id+"') AND category_has_item.item_id = item.item_id AND category_has_item.category_id = category.category_id";
 				boolean i=	stmt.execute(query4);
 				
-				query5="SELECT *  FROM  `category_has_program` , category, program  WHERE program.program_id = category_has_program.category_has_program_id  AND category.category_id = category_has_program.category_id";
+				query5="SELECT category.category_id, program.program_id,category_has_program_id  FROM  `category_has_program` , category, program  WHERE category.category_id IN ('"+id+"')  AND program.program_id = category_has_program.category_has_program_id  AND category.category_id = category_has_program.category_id";
 				boolean j=stmt.execute(query5);
-				if(i&j ==false){
+				if(i == false || j ==false){
 
 					query1="DELETE FROM `category_has_item` WHERE `category_id` IN ('"+id+"')";
 					stmt.executeUpdate(query1);
@@ -73,10 +73,7 @@ public class deleteCategoryServlet extends HttpServlet {
 					stmt.executeUpdate(query2);
 					query="DELETE FROM `category` WHERE `category_id` IN ('"+id+"')";
 					rs =  stmt.executeUpdate(query);
-				}else{
-					out.print("Category is tied to item or program");
 				}
-
 
 			}
 
