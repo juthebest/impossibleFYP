@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="main/counsellorNavigation.jsp"></jsp:include>
-s
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>z>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -66,11 +65,25 @@ s
 SELECT * FROM user WHERE user_id = <%=uid%>;
 </sql:query>
 
+<%-- 
+select * from coach_note, client, user
+WHERE coach_note.coach_id = client.coach_id
+AND client.client_id = user.client_id
+AND coach_note.coach_id = 3
+
+
+SELECT coach_note.coach_id, coach_note.coach_note_id, coach_note.note_details, coach_note.create_update_datetime, coach_note.client_id, user.coach_id FROM coach_note,user
+WHERE coach_note.coach_id = user.coach_id
+AND coach_note.coach_id=<c:out value="${coach.coach_id}" /> --%>
+
+
 <c:forEach var="coach" items="${coachidis.rows}">
 	<!-- parent details -->
 	<sql:query var="counsellornotes" dataSource="${dataSource}">
-SELECT coach_note.coach_id, coach_note.coach_note_id, coach_note.note_details, coach_note.create_update_datetime, user.coach_id FROM coach_note,user
-WHERE coach_note.coach_id = user.coach_id
+select coach_note.coach_id, coach_note.coach_note_id, coach_note.note_details, coach_note.create_update_datetime, coach_note.client_id,
+user.coach_id, user.given_name from coach_note, client, user
+WHERE coach_note.coach_id = client.coach_id
+AND client.client_id = user.client_id
 AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 	</sql:query>
 </c:forEach>
@@ -131,15 +144,14 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 										<th class="text-left">Date and Time Last Updated</th>
 										<th class="text-left">Comment of Note</th>
 										<th class="text-left">Student Name</th>
-										<th class="text-left"><a href="#" class="asc">Edit</a></th>
+										<th class="text-left">Edit</th>
 									</tr>
 								</thead>
 
 								<tbody>
 									<c:forEach var="notes" items="${counsellornotes.rows}">
+
 										<tr>
-
-
 											<td class="text-left"><input type="checkbox"
 												name="checkbox" value="${notes.coach_note_id}"></td>
 
@@ -147,8 +159,8 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 													value="${notes.create_update_datetime}" /></td>
 											<td class="text-left"><c:out
 													value="${notes.note_details}" /></td>
-													<td class="text-left"><c:out
-													value="" />Mary</td>
+											<td class="text-left"><c:out value="" />
+												<c:out value="${notes.given_name}" /></td>
 											<td class="text-center">
 												<button type="button" class="btn btn-default btn-sm"
 													onclick="location.href='editCoachNote.jsp?journalID=${notes.coach_note_id}'">

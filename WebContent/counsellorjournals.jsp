@@ -60,22 +60,31 @@
 
 
 <sql:query var="coachid" dataSource="${dataSource}">
-SELECT *
-FROM coach, user
-WHERE coach.coach_id = user.coach_id
-AND user.user_id = <%=uid%>;
+SELECT * FROM user
+WHERE user_id = <%=uid%>;
 </sql:query>
 
-<c:forEach var="counsellor" items="${coachid.rows}">
+<%-- <c:forEach var="counsellor" items="${coachid.rows}">
 	<sql:query var="counsellorjournals" dataSource="${dataSource}">
-SELECT *
-FROM client_journal, client, coach
+SELECT * FROM client_journal, client, coach
 WHERE client_journal.client_id = client.client_id
 AND client_journal.coach_id = coach.coach_id
 AND client_journal.journalstatus_id = '1'
 AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
+</c:forEach> --%>
+
+
+<c:forEach var="counsellor" items="${coachid.rows}">
+	<sql:query var="counsellorjournals" dataSource="${dataSource}">
+SELECT * FROM client_journal, client, user
+WHERE client_journal.client_id = client.client_id
+AND client.client_id = user.client_id
+AND client_journal.journalstatus_id = '1'
+AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
+</sql:query>
 </c:forEach>
+
 
 <c:forEach var="clientname" items="${counsellor.rows}">
 	<sql:query var="clientnameis" dataSource="${dataSource}">
@@ -152,7 +161,7 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 													value="${journals.coach_comment}" /></td>
 
 											<td class="text-left"><c:out
-													value="${journals.client_id}" /></td>
+													value="${journals.given_name}" /></td>
 
 											<td class="text-left"><c:out
 													value="${journals.emotion_rating}" /></td>
@@ -168,7 +177,6 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 											</td>
 										</tr>
 									</c:forEach>
-
 
 
 								</tbody>
