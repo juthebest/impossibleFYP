@@ -182,6 +182,7 @@ AND user.user_id = <%=uid%>;
 				</c:forEach>
 			</div>
 		</div>
+		
 		<hr />
 
 		<div class="row">
