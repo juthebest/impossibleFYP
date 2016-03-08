@@ -72,15 +72,21 @@
 						</div>
 
 
+						<c:forEach var="program" items="${programname.rows}">
+							<p>
+								<b>Program Registered:</b> <input type="text"
+									placeholder="programname" id="sname_input" name="programname"
+									value="${program.program_name}" required>
+							</p>
+						</c:forEach>
 
-						<p></p>
+						<!-- class="form-control" -->
 						<fieldset style="padding-left: 10px">
 							<h3>Personal Details Of Parent</h3>
 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Salutation:</label>
 									<div class="col-xs-3">
-
 										<select class="form-control" id="salutation_input"
 											name="salutation">
 											<option value="Mr">Mr</option>
@@ -132,10 +138,10 @@
 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Contact Number:</label>
-									<div class="col-xs-2">
+									<!-- 									<div class="col-xs-2">
 										<input type="text" class="form-control" id="country_code"
 											name="country" placeholder="+65" required>
-									</div>
+									</div> -->
 									<div class="col-xs-2">
 										<input type="text" class="form-control" id="number_input"
 											name="contact_number" placeholder="Contact Number" required>
@@ -145,10 +151,10 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-sm-2" for="category">Address Line:</label>
+									<label class="col-sm-2" for="category">Address:</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="address_input"
-											name="address" placeholder="Address Line 1" required>
+											name="address" placeholder="Address" required>
 									</div>
 								</div>
 							</div>
@@ -239,7 +245,7 @@
 							<h3>Contact Information Of Child</h3>
 							<div class="row">
 								<i>Please provide the contact details we should use in the
-									event for the latest updates of IM' Counselling.</i>
+									event for the latest updates of IM' POSSIBLE.</i>
 							</div>
 
 							<br />
@@ -247,11 +253,11 @@
 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Contact:</label>
-
+									<!-- 
 									<div class="col-xs-2">
 										<input type="text" class="form-control" id="country_code"
 											name="country1" placeholder="+65" required>
-									</div>
+									</div> -->
 									<div class="col-xs-2">
 										<input type="text" class="form-control" id="number_input"
 											name="contact_number1" placeholder="Contact Number" required>
@@ -261,23 +267,14 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-sm-2" for="category">Address Line:</label>
+									<label class="col-sm-2" for="category">Address:</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="address_input"
-											name="address1" placeholder="Address Line 1" required>
+											name="address1" placeholder="Address" required>
 									</div>
 								</div>
 							</div>
-							
-							
-							<c:forEach var="program" items="${programname.rows}">
-								<p>
-									<b>Program Registered:</b> <input type="text"
-										class="form-control" placeholder="programname"
-										id="sname_input" name="programname"
-										value="${program.program_name}" required>
-								</p>
-							</c:forEach>
+
 
 
 							<div class="row">

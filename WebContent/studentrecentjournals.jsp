@@ -48,7 +48,9 @@
 
 <!-- //var - ownself name -->
 <sql:query var="studentrecentjournals" dataSource="${dataSource}">
-SELECT * FROM `client_journal`, `client`,`user`
+SELECT client_journal.client_journal_id, client_journal.create_update_datetime,
+client_journal.journal_reflection, client_journal.emotion_rating
+ FROM `client_journal`, `client`,`user`
 WHERE `client_journal`.`client_id` = `client`.`client_id`
 AND `client`.`client_id` = `user`.`client_id`
 AND `user_id` = <%=uid%>

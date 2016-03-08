@@ -67,10 +67,18 @@
 <sql:query var="clientjournal" dataSource="${dataSource}">
 SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal`
 WHERE client_journal_id=<%=request.getParameter("idjournalid")%>
-AND client_journal_id.privacy_indicator = 'Allow'
-AND client_journal_id.journalstatus_id = '1';
+AND privacy_indicator = 'Allow'
+AND journalstatus_id = '1';
 </sql:query>
 
+
+
+<c:forEach var="counsellor" items="${clientjournal.rows}">
+	<sql:query var="counsellorname" dataSource="${dataSource}">
+SELECT * FROM user
+WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
+</sql:query>
+</c:forEach>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -132,13 +140,24 @@ AND client_journal_id.journalstatus_id = '1';
 									</script>
 								</div>
 								<br />
+								<p>
+									<label>Emotion Rating:</label>
+									<c:out value="${client.emotion_rating}" />
+								</p>
+								<p>
+									<br />
 								<div class="row">
 									<label>Counsellor's Comment:</label> <br />
 									<h5>
 										<c:out value="${client.coach_comment}" />
 									</h5>
-									<i>Commented on <c:out
-											value="${client.coach_comment_datetime}" />
+									<i>Commented on: </i>
+									<c:out value="${client.coach_comment_datetime}" />
+									<i> , By</i>
+									<c:forEach var="counsellornameis"
+										items="${counsellorname.rows}">
+										<c:out value="${counsellornameis.given_name}" />
+									</c:forEach>
 								</div>
 								<!-- 				<ul class="pager">
 											<li class="previous"><a href="#">&larr; Previous</a></li>

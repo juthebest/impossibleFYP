@@ -25,12 +25,7 @@ function validateForm() {
 		document.myForm.contact_number.focus();
 		return false;
 	}
-	//not needed
-	if (document.myForm.contact_number.value == "" || isNaN(document.myForm.Zip.value) || document.myForm.contact_number.value.length != 8) {
-		alert("Please provide a zip in the format #####.");
-		document.myForm.contact_number.focus();
-		return false;
-	}
+
 
 	if (document.myForm.address.value == "") {
 		alert("Please provide your address for parent!");
@@ -39,7 +34,7 @@ function validateForm() {
 	}
 
 	if (document.myForm.postal_code.value == ""
-			|| document.myForm.postal_code.value.length != 2) {
+			|| document.myForm.postal_code.value.length != 6) {
 		alert("Please provide your postal code for parent!");
 		document.myForm.postal_code.focus();
 		return false;

@@ -73,12 +73,12 @@ AND user.user_id = <%=uid%>;
 <c:forEach var="studentrecentjournals" items="${getchildid.rows}">
 	<!-- parent details -->
 	<sql:query var="parentid" dataSource="${dataSource}">
-	
 	SELECT * FROM `client_journal`,client
 	WHERE client_journal.client_id = client.client_id
 	AND client.parent_id=<c:out value="${studentrecentjournals.parent_id}" />
+	AND client_journal.privacy_indicator = 'Allow'
+	AND client_journal.journalstatus_id = 1
 	ORDER BY client_journal.`create_update_datetime` ASC
-
 	</sql:query>
 </c:forEach>
 
@@ -129,7 +129,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 			<div class="title">
 				<a href=""> &raquo; 2015 </a>
 			</div>
-<!-- 			<div class="mymonths">
+			<!-- 			<div class="mymonths">
 				<a href=""> January </a>. <a href=""> February </a>. <a href="">
 					March </a>. <a href=""> April </a>. <a href=""> May </a>. <a href="">
 					June </a>. <a href=""> July </a>. <a href=""> August </a>. <a href="">
@@ -137,14 +137,14 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 					href=""> December </a>.
 			</div> -->
 		</div>
-
+<!-- 
 		<h3>
 			<b>November 2015</b>
-		</h3>
+		</h3> -->
 		<div class="row">
 			<c:forEach var="studentjournals" items="${parentid.rows}">
 
-				<div class="col-sm-4">
+				<div class="col-sm-3">
 					<div class="thumbnail home-thumb">
 						<c:out value="${studentjournals.create_update_datetime}" />
 						<img src="image/cat-food-hearts-icon.png"
@@ -153,7 +153,6 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 							<c:out value="${studentjournals.journal_reflection}" />
 						</p>
 						<p>
-
 							Emotion Indicator:
 							<c:out value="${studentjournals.emotion_rating}" />
 						</p>
