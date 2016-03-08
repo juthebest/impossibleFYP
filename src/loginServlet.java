@@ -154,8 +154,8 @@ public class loginServlet extends HttpServlet {
 						response.sendRedirect(adminencodedURL);
 					}
 
-					else if(role.equalsIgnoreCase("client")){
-						session.setAttribute("role", "client");
+					else if(role.equalsIgnoreCase("child")){
+						session.setAttribute("role", "child");
 						String clientencodedURL = response.encodeRedirectURL("user.jsp");
 						response.sendRedirect(clientencodedURL);
 					}
