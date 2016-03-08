@@ -54,6 +54,8 @@ public class addWorkShopSchedule extends HttpServlet {
 
 			String sdt=null;
 			String edt=null;
+			String st=null;
+			String et=null;
 
 			String coach=null;
 			String venue=null;
@@ -61,14 +63,21 @@ public class addWorkShopSchedule extends HttpServlet {
 			wsname=request.getParameter("wsname");
 			sdt=request.getParameter("sdt");
 			edt=request.getParameter("edt");
-			
+			st=request.getParameter("st");
+			et=request.getParameter("et");
 
 			coach=	request.getParameter("coachInCharge");
 
 			status=	request.getParameter("status");
 			venue=	request.getParameter("venue");
 
+			out.println(sdt);
+			out.println(edt);
+out.println(st);
+out.println(et);
 
+String start = sdt +" "+ st;
+String end =edt +" "+ et;
 
 			// Execute SQL query
 			Statement stmt = null;
@@ -77,18 +86,18 @@ public class addWorkShopSchedule extends HttpServlet {
 			stmt = connection.createStatement();
 
 
-			int i= stmt.executeUpdate("INSERT INTO `itemrun`(`item_id`, `status_id`, `coach_id`, `itemrun_start_datetime`, `item_end_datetime`, `itemrun_venue`) VALUES ('"+wsname+"','"+status+"','"+coach+"','"+sdt+"','"+edt+"','"+venue+"')"); 
-			if(i==1){
+			int i= stmt.executeUpdate("INSERT INTO `itemrun`(`item_id`, `status_id`, `coach_id`, `itemrun_start_datetime`, `item_end_datetime`, `itemrun_venue`) VALUES ('"+wsname+"','"+status+"','"+coach+"','"+start+"','"+end+"','"+venue+"')"); 
+	if(i==1){
 
 
-				response.sendRedirect("manageWorkShopSchedule.jsp");
+	response.sendRedirect("manageWorkShopSchedule.jsp");
 
 
 			}
 			else{
 				out.print("failed");
 				response.sendRedirect("manageWorkShopSchedule.jsp");
-			}
+	}
 	
 
 

@@ -186,7 +186,7 @@ AND coach.coach_id = user.coach_id
 											${workshop.ETIME}</td>
 
 
-										<td class="text-left">${workshop.given_name}${workshop.surname}</td>
+										<td class="text-left">${workshop.surname} ${workshop.given_name}</td>
 										<td class="text-left">${workshop.itemrun_venue}</td>
 										<td class="text-left">${workshop.status_name}</td>
 										<td class="text-center">

@@ -191,7 +191,7 @@
 											data-placement="bottom" data-align="top" data-autoclose="true">
 
 											<input type="text" class="form-control" value="13:14"
-												name="ed"> <span class="input-group-addon"> <span
+												name="et"> <span class="input-group-addon"> <span
 												class="glyphicon glyphicon-time"></span>
 											</span>
 										</div>
@@ -213,7 +213,7 @@
 
 									<select class="form-control" name="coachInCharge">
 										<c:forEach var="coach" items="${coach.rows}">
-											<option value="${coach.coach_id}">${coach.surname}${coach.given_name}
+											<option value="${coach.coach_id}">${coach.surname} ${coach.given_name}
 											</option>
 										</c:forEach>
 									</select>
@@ -274,7 +274,7 @@
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
 	<!-- Load jQuery and bootstrap datepicker scripts -->
 	<script src="js/jquery-1.12.1.min.js"></script>
 
@@ -283,14 +283,14 @@
 		$(document).ready(function() {
 
 			$('#example1').datepicker({
-				format : "dd/mm/yyyy",
+				format : "yyyy-mm-dd",
 				autoclose : true,
 				todayHighlight : true
 			}).datepicker('update', new Date());
 			;
 
 			$('#example2').datepicker({
-				format : "dd/mm/yyyy",
+				format : "yyyy-mm-dd",
 				autoclose : true,
 				todayHighlight : true
 			}).datepicker('update', new Date());
