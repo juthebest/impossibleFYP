@@ -89,7 +89,7 @@
 									Name</label>
 								<div class="col-sm-10">
 									<input type="text" name="name" id="cat_name"
-										class="form-control" required />
+										class="form-control" pattern="[a-zA-Z]{2,}"  title="Minimum 3 characters" required />
 								</div>
 							</div>
 
