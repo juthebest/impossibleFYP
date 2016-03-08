@@ -17,7 +17,8 @@ function validateForm() {
 		document.myForm.country.focus();
 		return false;
 	}
-	var phoneno = /^\d{10}$/;
+/*	
+	var phoneno = /^\d{10}$/;*/
 	if (document.myForm.contact_number.value == "" || document.myForm.contact_number.value.length != 8) {
 		//if((inputtxt.value.match(phoneno)) 
 		alert("Please provide a valid phone number for parent!");
