@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="main/userNavigation.jsp"></jsp:include>
-
+<jsp:include page="main/parentNavigation.jsp"></jsp:include>
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@
+taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-<!-- //var - ownself name, data source is take from line 9 -->
 
 <%
 	//allow access only if session exists
@@ -57,12 +55,12 @@
 <br> UserIDSession=<%=uid%>
 <br> UserIDCookie=<%=userID%>
 <br>role=<%=role%>
-
 <!-- need to encode all the URLs where we want session information to be passed -->
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
 </form>
+
 
 <sql:query var="clientjournal" dataSource="${dataSource}">
 SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal`
@@ -108,7 +106,7 @@ WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
 	<div class="container">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
-				<li><a href="user.jsp">Home</a></li>
+				<li><a href="parenthomepage.jsp">Home</a></li>
 				<li class="active">Passed Journal</li>
 			</ol>
 		</div>
@@ -145,7 +143,7 @@ WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
 									<c:out value="${client.emotion_rating}" />
 								</p>
 								<p>
-									<br />
+								
 								<div class="row">
 									<label>Counsellor's Comment:</label> <br />
 									<h5>

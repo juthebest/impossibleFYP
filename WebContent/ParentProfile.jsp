@@ -210,15 +210,13 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 
 							<c:forEach var="programsforstudents" items="${chilid.rows}">
 								<p>
-									<a href="viewProgramDetails.jsp"> <c:out
-											value="${programsforstudents.program_name}" /></a>
+									<c:out value="${programsforstudents.program_name}" />
 								</p>
 							</c:forEach>
 
 							<c:forEach var="coursesforstudents" items="${studentcourse.rows}">
 								<p>
-									<a href="viewCoachingSession.jsp"> <c:out
-											value="${coursesforstudents.item_name}" /></a>
+									<c:out value="${coursesforstudents.item_name}" />
 								</p>
 							</c:forEach>
 						</div>

@@ -147,7 +147,6 @@ WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
 									<label>Privacy Indicator: </label>
 									<c:out value="${client.privacy_indicator}" />
 								</p>
-								<br />
 
 								<div class="row">
 									<label>Counsellor's Comment:</label> <br />

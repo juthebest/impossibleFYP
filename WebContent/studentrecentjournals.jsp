@@ -112,6 +112,8 @@ ORDER BY `user`.`create_update_datetime` ASC
 			<b>November 2015</b>
 		</h3> -->
 		
+		
+		
 		<div class="row">
 			<c:forEach var="studentjournals"
 				items="${studentrecentjournals.rows}">

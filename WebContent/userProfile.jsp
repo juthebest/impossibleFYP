@@ -193,30 +193,30 @@ AND user.user_id = <%=uid%>;
 				<p>The Student have the following Item Structure:</p>
 
 				<div class="panel-group">
-
 					<div class="panel panel-default">
+						
 						<div class="panel-heading">
 							<h5>Item Names</h5>
 						</div>
+						
 						<div class="panel-body">
 
 							<c:forEach var="programsforstudents"
 								items="${studentprograms.rows}">
 								<p>
-									<a href="viewProgramDetails.jsp"> <c:out
-											value="${programsforstudents.program_name}" /></a>
+									<c:out value="${programsforstudents.program_name}" />
 								</p>
 
 							</c:forEach>
 
 							<c:forEach var="coursesforstudents" items="${studentcourse.rows}">
 								<p>
-									<a href="viewCoachingSession.jsp"> <c:out
-											value="${coursesforstudents.item_name}" /></a>
+									<c:out value="${coursesforstudents.item_name}" />
 								</p>
 							</c:forEach>
 
 						</div>
+						
 					</div>
 				</div>
 
@@ -224,9 +224,9 @@ AND user.user_id = <%=uid%>;
 		</div>
 
 		<p style="text-align: right">
-			<a class="btn btn-default" href="editStudentProfile.jsp" role="button"><i
-				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-default"
-				href="user.jsp" role="button">Back</a>
+			<a class="btn btn-default" href="editStudentProfile.jsp"
+				role="button"><i class="glyphicon glyphicon-edit"></i>Edit</a> <a
+				class="btn btn-default" href="user.jsp" role="button">Back</a>
 
 		</p>
 	</div>
