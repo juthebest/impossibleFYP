@@ -138,7 +138,6 @@ AND user.user_id = <%=uid%>;
 													</c:forEach>
 												</select>
 											</div>
-
 										</div>
 									</div>
 
@@ -146,11 +145,9 @@ AND user.user_id = <%=uid%>;
 										<input type="hidden"
 											value="<c:out value="${coachid.coach_id}" />"
 											name="thisisthecoachid" />
-
 									</c:forEach>
 
 									<br>
-
 
 									<div class="row">
 										<div class="form-group form-group-md">
@@ -174,6 +171,7 @@ AND user.user_id = <%=uid%>;
 											</div>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 						</form>
