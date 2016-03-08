@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -103,6 +104,7 @@ public class loginServlet extends HttpServlet {
 
 			String x = "";
 			String k="";
+			String page = "";
 
 			while (rs.next()) {
 				String dbemail = rs.getString("email");
@@ -145,53 +147,56 @@ public class loginServlet extends HttpServlet {
 
 
 
-					if( role.equalsIgnoreCase("coach")){
-						session.setAttribute("role", "coach");
 				
-						request.getRequestDispatcher("counsellor.jsp").forward(request,response);
-					}
-					else if(role.equalsIgnoreCase("admin")){
+					
+					
+					if(role.equalsIgnoreCase("admin")){
 						session.setAttribute("role", "admin");
 
-			
-						request.getRequestDispatcher("adminIndex.jsp").forward(request,response);
+						String adminencodedURL = response.encodeRedirectURL("adminIndex.jsp");
+						response.sendRedirect(adminencodedURL);
 					}
-
-					else if(role.equalsIgnoreCase("child")){
-						session.setAttribute("role", "child");
 					
-
-						request.getRequestDispatcher("user.jsp").forward(request,response);
-						
+					else if(role.equalsIgnoreCase("client")){
+						session.setAttribute("role", "client");
+						String clientencodedURL = response.encodeRedirectURL("user.jsp");
+						response.sendRedirect(clientencodedURL);
 					}
 					else if(role.equalsIgnoreCase("parent")){
 						session.setAttribute("role", "parent");
-						
-						request.getRequestDispatcher("parenthomepage.jsp").forward(request,response);
-						
+						String parentencodedURL = response.encodeRedirectURL("parenthomepage.jsp");
+						response.sendRedirect(parentencodedURL);
 					}else{
-						response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
-						k="yyyz";
-						System.out.println(k);
+						session.setAttribute("role", "coach");
+						String coachencodedURL = response.encodeRedirectURL("counsellor.jsp");
+						response.sendRedirect(coachencodedURL);
 					}
-				
 
 
-					x=role;
-					System.out.println(x);
-			
-				}else{
-					
-					k="yyy";
-					System.out.println(k);
-					response.sendRedirect("login.jsp" + "?IsSuccess=" + rs.next());
+x=role;
+System.out.println(role);
+
 				}
-				
-			
+
+
+				/*
+				 * }else{ response.sendRedirect("login.html" + "?IsSuccess=" +
+				 * row); }
+				 */
+
 			}
-	
+			
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp" +"?IsSuccess=" + rs.next());
 
+			out.println("<font color=red>Either user name or password is wrong.</font>");
+			response.sendRedirect("login.jsp" + "?IsSuccess=" +
+					rs.next());
+			rd.include(request, response);
 
+			// Clean-up environment
+			rs.close();
+			stmt.close();
+			conn.close();
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -203,3 +208,4 @@ public class loginServlet extends HttpServlet {
 	}
 
 }
+
