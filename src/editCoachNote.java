@@ -88,7 +88,7 @@ public class editCoachNote extends HttpServlet {
 			ustmt = conn.createStatement();
 			// create the java mysql update preparedstatement
 
-			int c = ustmt.executeUpdate("UPDATE `coach` SET`coach_hourly_rate`='" + hr + "',`coach_profile`='" + profile
+			int c = ustmt.executeUpdate("UPDATE `coach` SET`coach_hourly_rate`='" + saluation + "',`coach_profile`='" + profile
 					+ "' WHERE coach_id='" + id + "'");
 
 			conn.close();
