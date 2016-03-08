@@ -166,7 +166,7 @@ AND user.user_id = <%=uid%>;
 										<div class="form-group">
 											<div class="form-actions" style="text-align: right">
 												<button type="submit" class="btn btn-primary"
-													id="UpdateButton">Submit</button>
+													id="UpdateButton">Save</button>
 												<a class="btn btn-danger" href="counsellornotes.jsp">Cancel</a>
 											</div>
 										</div>

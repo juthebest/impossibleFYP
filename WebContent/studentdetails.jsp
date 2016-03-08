@@ -107,27 +107,19 @@ WHERE user_id = <%=request.getParameter("userid")%>;
 
 
 				<div class="panel-body">
-					<p class="icons">
-						<a href="coachnotes.jsp"><button type="button"
-								class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-plus"></span> Write a new note
-							</button></a>
-					</p>
 
 					<div class="row">
 						<h4>Program / Courses Registered</h4>
 						<c:forEach var="programsforstudents"
 							items="${studentprograms.rows}">
 							<p>
-								<a href="ReflectionJournal.jsp"><c:out
-										value="${programsforstudents.program_name}" /></a>
+								<c:out value="${programsforstudents.program_name}" />
 							</p>
 						</c:forEach>
 
 						<c:forEach var="coursesforstudents" items="${studentcourse.rows}">
 							<p>
-								<a href="ReflectionJournal.jsp"><c:out
-										value="${coursesforstudents.item_name}" /></a>
+								<c:out value="${coursesforstudents.item_name}" />
 							</p>
 						</c:forEach>
 					</div>

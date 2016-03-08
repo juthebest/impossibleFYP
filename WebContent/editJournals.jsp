@@ -150,8 +150,7 @@
 								</div>
 
 								<div class="form-actions">
-									<button type="submit" class="btn btn-primary">Save
-										changes</button>
+									<button type="submit" class="btn btn-primary">Submit</button>
 									<a href="counsellorjournals.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
 								</div>
