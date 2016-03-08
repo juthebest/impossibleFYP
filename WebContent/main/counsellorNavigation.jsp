@@ -65,7 +65,7 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Home <b class=caret></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="counsellorstudents.jsp">User's Home</a></li>
+						<li><a href="counsellor.jsp">User's Home</a></li>
 						<li class="active">
 						<li><a href="index.jsp">I'M POSSIBLE</a></li>
 					</ul></li>
@@ -74,7 +74,7 @@
 					data-toggle="dropdown"> Counsellor <b class=caret></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="counsellornotes.jsp">All Notes</a></li>
-						<li><a href="counsellorstudents.jsp">All Students</a></li>
+						<li><a href="counsellor.jsp">All Students</a></li>
 						<li class="active">
 						<li><a href="counsellorjournals.jsp">All Journals</a></li>
 					</ul></li>
