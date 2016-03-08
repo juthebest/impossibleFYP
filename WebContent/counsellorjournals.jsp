@@ -177,8 +177,6 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 											</td>
 										</tr>
 									</c:forEach>
-
-
 								</tbody>
 							</table>
 						</div>
