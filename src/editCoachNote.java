@@ -71,8 +71,6 @@ public class editCoachNote extends HttpServlet {
 			java.text.SimpleDateFormat sdf =  new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String currentTime = sdf.format(dt);
 			
-			
-
 			/*
 			 * out.println(id); out.println(email);
 			 * 
@@ -84,7 +82,6 @@ public class editCoachNote extends HttpServlet {
 			Statement stmt = null;
 			stmt = conn.createStatement();
 			
-			// create the java mysql update preparedstatement
 
 			int c = stmt.executeUpdate("UPDATE `coach_note` SET `note_details`='" + counsellornote + "',`create_update_datetime`='"
 					+ currentTime + "' WHERE coach_note_id='" + id + "'");
