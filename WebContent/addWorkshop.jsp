@@ -115,7 +115,7 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" data-toggle="validator" role="form" action="InsertWorkshop">
+						<form action="a" class="form-horizontal" data-toggle="validator" role="form"  enctype="multipart/form-data" >
 
 
 
@@ -129,10 +129,10 @@ SELECT * FROM item_type
 								</div>
 							</div>
 							
-								<!-- <div class="form-group required">
+							<div class="form-group required">
 									<label class="col-sm-2 control-label" for="input-name1">Image:</label>
 									<div class="col-sm-10">
-										<input id="input-image-1" name="input-image" type="file"
+										<input id="input-image-1" name="photo" type="file"
 											class="file-loading" accept="image/*">
 										<div id="kv-success-modal" class="modal fade">
 											<div class="modal-dialog">
@@ -149,7 +149,7 @@ SELECT * FROM item_type
 											</div>
 										</div>
 									</div>
-								</div>  -->
+								</div>  
 								
 
 							<div class="form-group required"></div>
