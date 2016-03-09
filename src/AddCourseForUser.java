@@ -116,10 +116,14 @@ public class AddCourseForUser extends HttpServlet {
 
 				String programid = null;
 				String clientid = null;
-
+				String programid = null;
+				String clientid = null;
+				
 				programid = request.getParameter("programidis");
 				clientid = request.getParameter("clientidis");
-
+				programid = request.getParameter("programidis");
+				clientid = request.getParameter("clientidis");
+				
 				// Date format (USER table - parent)
 				java.util.Date dt = new java.util.Date();
 				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -129,8 +133,8 @@ public class AddCourseForUser extends HttpServlet {
 				final Statement stmt = conn.createStatement();
 				String sql;
 
-				sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
-						+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+				sql = "INSERT INTO `itemrun_has_client`(`enrollment_status_id`, `client_id`, `itemrun_id`, `program_has_client_id`, `date_registered`, `quantity`, `unit_cost`) VALUES ('"
+						+ programid + "','" + clientid + "','" + currentTime + "','1','20') ";
 
 				int rs = stmt.executeUpdate(sql);
 				// validate login to remember the row

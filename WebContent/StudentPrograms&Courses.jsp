@@ -121,7 +121,7 @@ FROM  user where user_id= <%=uid%>;
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
 						<input type="hidden" name="programidis"
-							value="${category.program_id}" />
+							value="${categoryp.program_id}" />
 
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
@@ -162,7 +162,7 @@ FROM  user where user_id= <%=uid%>;
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
 								<br> <input type="hidden" name="itemrunhasclientid"
-									value="${categoryw.}" />
+									value="${categoryw.itemrun_has_client_id}" />
 
 								<p>
 									<b>Title: </b>
