@@ -86,9 +86,8 @@
 </head>
 
 <body>
-
-
 	<div class="container">
+
 		<c:forEach var="program" items="${program.rows}">
 			<div class="page-header">
 				<h1>
@@ -136,9 +135,9 @@
 
 						</div>
 						<div class="modal-footer">
-							<a class="btn btn-danger" data-dismiss="modal"
-								href="viewProgramsNcourses.jsp">Close</a> <a type="submit"
-								class="btn btn-info" href="shoppingcart.html">Add To Cart</a>
+							<a type="submit" class="btn btn-info" href="shoppingcart.html">Add</a><a
+								class="btn btn-danger" data-dismiss="modal"
+								href="StudentPrograms@Courses">Back</a>
 						</div>
 					</div>
 				</div>
