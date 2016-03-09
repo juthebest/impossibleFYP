@@ -2,37 +2,39 @@
 <html lang="en">
 <jsp:include page="main/userNavigation.jsp"></jsp:include>
 <%
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String role=(String) session.getAttribute("role");
-		String uid = null;
-		 if(session.getAttribute("name") == null || session.getAttribute("role") == null || !role.equalsIgnoreCase("child")){
+	String role = (String) session.getAttribute("role");
+	String uid = null;
+	if (session.getAttribute("name") == null || session.getAttribute("role") == null
+			|| !role.equalsIgnoreCase("child")) {
 		response.sendRedirect("login.jsp");
-		}else user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	} else
+		user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 
 
 
@@ -50,7 +52,7 @@
 <link href="css/home.css" rel="stylesheet">
 
 <body>
-	<div style="padding-top: 100px; text-align: center; padding-left:120px">
+	<div style="padding-top: 100px; text-align: center; padding-left: 120px">
 
 		<div class="container marketing">
 			<div class="row">
@@ -75,22 +77,19 @@
 					<h2>My Courses</h2>
 					<p>View all Courses and Programs that I have registered.</p>
 				</div>
-
+				<div class="col-lg-2">
+					<img class="img-circle" src="image/basket-full-icon.png"
+						alt="Generic placeholder image" width="140" height="140">
+					<h2>New Course</h2>
+					<p>View courses that are available right now!</p>
+				</div>
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/profile-icon.png"
 						alt="Generic placeholder image" width="140" height="140">
 					<h2>My Information</h2>
 					<p>View my Information and edit my profile</p>
 				</div>
-				
-				<div class="col-lg-2">
-					<img class="img-circle" src="image/basket-full-icon.png"
-						alt="Generic placeholder image" width="140" height="140">
-					<h2>New Course</h2>
-					<p>View my Information and edit my profile</p>
-				</div>
 			</div>
-
 
 			<div class="row">
 				<div class="col-lg-2">
@@ -116,18 +115,19 @@
 				</div>
 				<div class="col-lg-2">
 					<p>
-						<a class="btn btn-default" href="userProfile.jsp" role="button">View
-							My Information &raquo;</a>
+						<a class="btn btn-default" href="StudentPrograms&Courses.jsp"
+							role="button">View New Programs &raquo;</a>
 					</p>
 				</div>
 				<div class="col-lg-2">
 					<p>
-						<a class="btn btn-default" href="StudentPrograms&Courses.jsp" role="button">View Available Programs &raquo;</a>
+						<a class="btn btn-default" href="userProfile.jsp" role="button">View
+							My Information &raquo;</a>
 					</p>
 				</div>
 			</div>
 		</div>
-
+</div>
 		<!-- Start of <Fixed footer> -->
 		<footer id="footerMenu"></footer>
 		<!-- End of <Fixed footer> -->
