@@ -116,6 +116,16 @@ AND coach.coach_id = user.coach_id
 				<div class="panel-body">
 
 
+						<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
+
 
 					<div class="row">
 						<div class="pull-right">

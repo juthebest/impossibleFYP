@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -34,7 +35,7 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out =  response.getWriter();
 		try
@@ -45,33 +46,76 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 			Connection connection = database.Get_Connection();
 			Statement stmt = null;
 			stmt = connection.createStatement();
+
+
+			Statement stmt1 = null;
+			stmt1 = connection.createStatement();
 			String[] wseID= request.getParameterValues("wseID");
 
 
 			String query;
 			String query1;
-
+			String query2;
 			int rs =0;
 
+
+
+
+
+
+
+
+
+			ResultSet resultSet;
+
+
+
+
+
+
+
+
 			for(String id: wseID){
+				query2="SELECT itemrun_has_client_id, enrollment_status.enrollment_status_id, client.client_id, itemrun.itemrun_id, program_has_client.program_has_client_id, itemrun_has_client.date_registered, quantity, "
+						+ "unit_cost +"
+						+ "FROM itemrun_has_client, enrollment_status, client, program_has_client, itemrun+"
+						+ "WHERE  `itemrun_id` IN ('"+id+"')+"
+						+ "AND enrollment_status.enrollment_status_id = itemrun_has_client.enrollment_status_id+"
+						+ "AND client.client_id = itemrun_has_client.client_id+"
+						+ "AND itemrun.itemrun_id = itemrun_has_client.itemrun_id+"
+						+ "AND program_has_client.program_has_client_id = itemrun_has_client.program_has_client_id+";
 
-				query1 = " DELETE FROM `itemrun_has_client` WHERE  `itemrun_id` IN ('"+id+"')";
-				stmt.executeUpdate(query1);
-				query = "	 DELETE FROM `itemrun` WHERE   `itemrun_id` IN ('"+id+"')";
-		
+
+				resultSet= stmt1.executeQuery(query2);
 
 
-				rs =  stmt.executeUpdate(query);
+
+				if (resultSet.next()) {
+					System.out.println("Cannot delete , Category is tied to item");
+
+
+					request.setAttribute("Error","Error occured: Cannot delete , Category is tied to item!");
+
+
+
+				}else{
+					query1 = " DELETE FROM `itemrun_has_client` WHERE  `itemrun_id` IN ('"+id+"')";
+					stmt.executeUpdate(query1);
+					query = "	 DELETE FROM `itemrun` WHERE   `itemrun_id` IN ('"+id+"')";
+
+
+
+					rs =  stmt.executeUpdate(query);
+				}
+
 			}
-
-
 
 			if(rs==1){
 				response.sendRedirect("manageWorkShopSchedule.jsp");
 
 			}else{
-				out.println("There is an error");
-				response.sendRedirect("manageWorkShopSchedule.jsp");
+				request.getRequestDispatcher("/manageWorkShopSchedule.jsp").forward(request, response);
+
 
 
 			}

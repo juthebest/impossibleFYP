@@ -119,8 +119,8 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 
 
 						<c:forEach var="workshop" items="${wsSchedule.rows}">
-							<form action="editWorkShopSchedule" method="post"
-								class="form-horizontal" data-toggle="validator" role="form">
+							<form action="editWorkShopSchedule" name="myForm" method="post"
+								class="form-horizontal" data-toggle="validator" role="form" onsubmit="return myFunction()">
 
 								<input type="hidden" name="id"
 									value="	<c:out value="${workshop.itemrun_id}"/>" />
@@ -237,7 +237,7 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 										:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="venue"
-											value="${workshop.itemrun_venue}" required>
+											value="${workshop.itemrun_venue}" pattern = "^([a-zA-Z0-9_-]{2,})$" title="Venue must be more than two letters" required>
 									</div>
 								</div>
 
@@ -303,7 +303,13 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 			}).datepicker('update', new Date());
 			;
 
-	
+			$('#example2').datepicker({
+				format : "yyyy-mm-dd",
+				autoclose : true,
+				todayHighlight : false
+			}).datepicker('update', new Date());
+			;
+			
 			
 
 			<c:forEach var="workshop" items="${wsSchedule.rows}">
@@ -319,33 +325,6 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 			$("#example2").datepicker("setDate",new Date(edatebirth));
 			
 
-			$('#example1').datepicker({
-				format : "yyyy-mm-dd",
-				autoclose : true,
-				todayHighlight : true,
-				startDate: date
-			}).on('changeDate', function (selected) {
-		        var minDate = new Date(selected.date.valueOf());
-		        $('#example2').datepicker('setStartDate', minDate);
-		      
-				;
-		    });
-			
-
-			$('#example2').datepicker({
-				format : "yyyy-mm-dd",
-				autoclose : true,
-				todayHighlight : true
-			}).datepicker('update', new Date());
-			;
-			
-			$('#example1').datepicker({
-			
-			}).datepicker('update', new Date());
-			;
-			
-		
-			
 			
 			
 		});
@@ -412,10 +391,14 @@ function myFunction() {
 		document.myForm.et.focus();
 		return (false);
 	}
+    if(document.myForm.edt.value < document.myForm.sdt.value){
     
   
-    	
-    
+    	alert("End date is before Start date");
+	document.myForm.edt.focus();
+	return (false);
+
+    }
 	
     
     
