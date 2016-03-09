@@ -124,8 +124,6 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 			</c:forEach>
 			<!-- workshop -->
 
-
-
 			<c:forEach var="workshopCategory" items="${workshopCategory.rows}">
 
 				<div class="page-header">
