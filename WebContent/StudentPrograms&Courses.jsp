@@ -86,6 +86,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 <!-- workshop -->
 
+<!-- coaching -->
 <sql:query var="coachingCategory" dataSource="${dataSource}">
                 select * from item,category_has_item,category 
                 where item.item_id=category_has_item.item_id 
@@ -103,6 +104,15 @@ AND item.item_id=<c:out value="${itemcoachrunid2.item_id}" />
 	</sql:query>
 </c:forEach>
 
+<c:forEach var="programcoachhasclient2" items="${userprofile.rows}">
+	<sql:query var="programcoachhasclientidis" dataSource="${dataSource}">
+SELECT * FROM program_has_client
+WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
+	</sql:query>
+</c:forEach>
+
+
+<!-- coaching -->
 
 <head>
 <meta charset="utf-8">
@@ -141,26 +151,49 @@ AND item.item_id=<c:out value="${itemcoachrunid2.item_id}" />
 					<h2>Programs</h2>
 					<hr>
 
+					<!-- workshop & coaching -->
 					<c:forEach var="gettheuserid" items="${userprofile.rows}">
 
 						<input type="hidden" name="clientidis"
 							value="${gettheuserid.client_id}" />
 					</c:forEach>
+					<!-- workshop & coaching -->
 
-
+					<!-- workshop -->
 					<c:forEach var="getitemrunid" items="${itemrunid.rows}">
 						<input type="hidden" name="itemrunidis"
 							value="${getitemrunid.itemrun_id}" />
 					</c:forEach>
+					<!-- workshop -->
 
+
+					<!-- coaching -->
+					<c:forEach var="getitemcoachrunid" items="${itemcoachrunid.rows}">
+						<input type="hidden" name="itemcoachrunidis"
+							value="${getitemcoachrunid.itemrun_id}" />
+					</c:forEach>
+					<!-- workshop -->
+
+
+					<!-- workshop -->
 					<c:forEach var="programhasclient"
 						items="${programhasclientidis.rows}">
 
 						<input type="hidden" name="programhasclientis"
 							value="${programhasclient.program_has_client_id}" />
 					</c:forEach>
+					<!-- workshop -->
 
+					<!-- coaching -->
+					<c:forEach var="programcoachhasclient"
+						items="${programhasclientidis.rows}">
 
+						<input type="hidden" name="programhasclientidis"
+							value="${programcoachhasclient.program_has_client_id}" />
+					</c:forEach>
+					<!-- coaching -->
+					
+					
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
 						<input type="hidden" name="programidis"
