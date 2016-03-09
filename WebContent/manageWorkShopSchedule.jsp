@@ -41,13 +41,10 @@ AND coach.coach_id = user.coach_id
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<script src="http://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-<link href="http://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css"
-	rel="stylesheet"></link>
+
 <link href="css/home.css" rel="stylesheet">
 
-<!-- Pick a theme, load the plugin & initialize plugin -->
-<link href="dist/css/theme.default.min.css" rel="stylesheet">
+
 <%-- <%
 	//allow access only if session exists
 	String user = null;
@@ -93,9 +90,7 @@ AND coach.coach_id = user.coach_id
 					</ul>
 
 
-					<div id="wrapper">
-						<div id="myScheduler"></div>
-					</div>
+
 
 
 				</div>
@@ -259,44 +254,6 @@ AND coach.coach_id = user.coach_id
 				sortReset : true,
 				sortRestart : true
 
-			});
-		});
-	</script>
-	<script>
-		YUI().use('aui-scheduler', function(Y) {
-			var events = [ {
-				content : 'Partial Lunar Eclipse',
-				endDate : new Date(2013, 3, 25, 5),
-				startDate : new Date(2013, 3, 25, 1)
-			}, {
-				color : "#8d8",
-				content : 'Earth Day Lunch',
-				disabled : true,
-				endDate : new Date(2013, 3, 22, 13),
-				meeting : true,
-				reminder : true,
-				startDate : new Date(2013, 3, 22, 12)
-			}, {
-				content : "Weeklong",
-				endDate : new Date(2013, 3, 27),
-				startDate : new Date(2013, 3, 21)
-			} ];
-
-			var agendaView = new Y.SchedulerAgendaView();
-			var dayView = new Y.SchedulerDayView();
-			var weekView = new Y.SchedulerWeekView();
-			var monthView = new Y.SchedulerMonthView();
-
-			var eventRecorder = new Y.SchedulerEventRecorder();
-
-			new Y.Scheduler({
-				activeView : weekView,
-				boundingBox : '#myScheduler',
-				date : new Date(2013, 3, 25),
-				eventRecorder : eventRecorder,
-				items : events,
-				render : true,
-				views : [ dayView, weekView, monthView, agendaView ]
 			});
 		});
 	</script>
