@@ -137,7 +137,6 @@
 	<footer id="footerMenu"></footer>
 	<!-- end of footer -->
 
-
 	<script src="js/footer.js"></script>
 	<script src="js/jquery.spinner.js"></script>
 
