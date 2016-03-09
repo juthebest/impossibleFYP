@@ -39,8 +39,6 @@ public class addCatServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-
 		// Set response content type
 		response.setContentType("text/html");
 
@@ -69,6 +67,7 @@ public class addCatServlet extends HttpServlet {
 			final  Statement stmt = conn.createStatement();
 			String sql;
 			sql = "INSERT INTO `category`(`category_desc`, `category_name`) VALUES ('"+textarea1+"','"+textarea+"') " ;
+			
 			int rs = stmt.executeUpdate(sql);
 			//validate login to remember the row
 
@@ -83,9 +82,6 @@ public class addCatServlet extends HttpServlet {
 				response.sendRedirect("addCategory.jsp");
 
 			}
-
-
-
 
 
 		}catch(SQLException se){
