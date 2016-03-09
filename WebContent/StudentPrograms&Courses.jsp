@@ -192,8 +192,8 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 							value="${programcoachhasclient.program_has_client_id}" />
 					</c:forEach>
 					<!-- coaching -->
-					
-					
+
+
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
 						<input type="hidden" name="programidis"
@@ -243,7 +243,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryw.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewWorkshops.jsp?workshop_id=${categoryw.item_id}">
+									href="StudentViewWorkshops.jsp?workshop_id=${categoryw.item_id}">
 									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
@@ -271,9 +271,9 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryc.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewCoachingSession.jsp?coaching_id=${categoryc.item_id}">
+									href="studentviewcoaching.jsp?coaching_id=${categoryc.item_id}">
 									View Details &raquo; </a>
-									
+
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitworkshop">Add</button>
 							</div>
