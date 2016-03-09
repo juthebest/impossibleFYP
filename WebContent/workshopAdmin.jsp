@@ -111,6 +111,16 @@
 				<div class="panel-body">
 
 					<div class="pull-right">
+					<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
+						
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
 							<a href="addWorkshop.jsp"><button type="button"

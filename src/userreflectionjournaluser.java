@@ -75,7 +75,7 @@ public class userreflectionjournaluser extends HttpServlet {
 				// Execute SQL query
 				final  Statement stmt = conn.createStatement();
 				String sql;
-				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`,`journalstatus_id`) VALUES ('"+userID+"','"+coachID+"','"+editor+"','"+emotionrating+"','"+currentTime+"','"+privacy+"', '1')";
+				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`,`journalstatus_id`) VALUES ('"+userID+"','"+coachID+"','"+editor+"','"+emotionrating+"','"+currentTime+"','"+privacy+"', '2')";
 				int rs = stmt.executeUpdate(sql);
 				//validate login to remember the row
 
@@ -133,7 +133,7 @@ public class userreflectionjournaluser extends HttpServlet {
 				// Execute SQL query
 				final  Statement stmt = conn.createStatement();
 				String sql;
-				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `journalstatus_id`) VALUES ('"+userID+"','"+coachID+"','"+editor+"','"+emotionrating+"','"+currentTime+"','"+privacy+"', '2')";
+				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `journalstatus_id`) VALUES ('"+userID+"','"+coachID+"','"+editor+"','"+emotionrating+"','"+currentTime+"','"+privacy+"', '1')";
 				int rs = stmt.executeUpdate(sql);
 				//validate login to remember the row
 

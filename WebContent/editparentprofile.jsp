@@ -65,8 +65,6 @@ SELECT * FROM user, client
 WHERE user.parent_id = client.parent_id
 AND user.user_id = <%=uid%>;</sql:query>
 
-
-
 <c:forEach var="userprofile2" items="${parentdetails.rows}">
 	<sql:query var="chilid2" dataSource="${dataSource}">
 SELECT * FROM user, client

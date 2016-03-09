@@ -40,7 +40,6 @@ public class addCatServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-
 		// Set response content type
 		response.setContentType("text/html");
 
@@ -67,6 +66,7 @@ public class addCatServlet extends HttpServlet {
 
 			// Execute SQL query
 			final  Statement stmt = conn.createStatement();
+
 			final  Statement statement = conn.createStatement();
 			ResultSet resultset =  statement.executeQuery("SELECT * FROM `category` WHERE `category_name` ='"+textarea+"'") ;
 
@@ -96,6 +96,7 @@ public class addCatServlet extends HttpServlet {
 
 
 			} 
+
 
 			if(rs == 1){
 

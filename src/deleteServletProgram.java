@@ -4,8 +4,7 @@ import java.io.IOException;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
-
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -30,7 +29,7 @@ public class deleteServletProgram extends HttpServlet {
 		// TODO Auto-generated method stub
 		// JDBC driver name and database URL
 
-	
+
 		// Set response content type
 		response.setContentType("text/html");
 
@@ -57,34 +56,38 @@ public class deleteServletProgram extends HttpServlet {
 			String sql2;
 			String sql3;
 			int rs = 0;
-
+			String sqlCheck;
+			ResultSet sqlCheckResults;
 			for(String id:programID)
 			{
 				sql2 = "delete from category_has_program where program_id='"+id+"'";
-				stmt.execute(sql2);
 				sql3 = "delete from program_has_item where program_id='"+id+"'";
-				stmt.execute(sql3);
 				sql = "delete from program where program_id='"+id+"' ";
-				rs = stmt.executeUpdate(sql);
-				out.println("Successfully Deleted");
+				
+				sqlCheck="SELECT * FROM program,program_has_client "
+						+ "WHERE program.program_id = program_has_client.program_id "
+						+ "AND program.program_id = '"+id+"'";
+				
+				sqlCheckResults = stmt.executeQuery(sqlCheck);
+				if(sqlCheckResults.next()){
+					request.setAttribute("Error","Error occured: Cannot delete , client is tied to program!");
+				} else {
+					request.setAttribute("Error","Successfully Deleted");
+
+					stmt.execute(sql2);
+					stmt.execute(sql3);
+					rs = stmt.executeUpdate(sql);
+
+				}
 			}
 
 
 			if(rs == 1){
-
-
-				/*out.println("success");
-				out.print(courseName);
-				out.print(courseDesc);
-				out.print(courseIMG);
-				out.print(courseStatus);*/
-				response.sendRedirect("programAdmin.jsp");
-
+				 request.getRequestDispatcher("/programAdmin.jsp").forward(request, response);
 			} else {
-				out.println("failes");
-				response.sendRedirect("programAdmin.jsp");
+				 request.getRequestDispatcher("/programAdmin.jsp").forward(request, response);
 			}
-			
+
 
 			stmt.close();
 			conn.close();
