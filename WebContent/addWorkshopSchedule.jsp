@@ -332,6 +332,8 @@
 			'default' : 'now'
 
 		});
+		
+		  document.getElementById("#single-input").value= now;
 
 		var input1 = $('#singleend-input').clockpicker({
 			placement : 'bottom',
@@ -339,7 +341,9 @@
 			autoclose : true,
 			'default' : 'now'
 		});
-
+		
+		
+		  document.getElementById("#singleend-input").value= getTime();
 		$('.clockpicker-with-callbacks').clockpicker({
 			donetext : 'Done',
 			init : function() {
@@ -390,6 +394,15 @@
 			}
 
 			return (true);
+			
+			 if(document.myForm.edt.value < document.myForm.sdt.value){
+				    
+				  
+			    	alert("End date is before Start date");
+				document.myForm.edt.focus();
+				return (false);
+
+			    }
 
 		}
 	</script>
