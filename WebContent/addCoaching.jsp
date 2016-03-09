@@ -105,7 +105,7 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form action="b" class="form-horizontal" method="post"  data-toggle="validator" role="form" enctype="multipart/form-data">
+						<form action="InsertCoaching"  method="post" class="form-horizontal" method="post"  data-toggle="validator" role="form" enctype="multipart/form-data">
 
 
 
