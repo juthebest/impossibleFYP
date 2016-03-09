@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<jsp:include page="main/userNavigation.jsp"></jsp:include>
+<jsp:include page="main/parentNavigation.jsp"></jsp:include>
 
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
@@ -14,7 +14,7 @@
 	String role = (String) session.getAttribute("role");
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
-			|| !role.equalsIgnoreCase("child")) {
+			|| !role.equalsIgnoreCase("parent")) {
 		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
@@ -41,11 +41,19 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
+<sql:query var="parentdetails" dataSource="${dataSource}">
+SELECT * FROM user, client
+WHERE user.parent_id = client.parent_id
+AND user.user_id = <%=uid%>;</sql:query>
 
-<sql:query var="userprofile" dataSource="${dataSource}">
-SELECT * 
-FROM  user where user_id= <%=uid%>;
-</sql:query>
+
+<c:forEach var="userprofile2" items="${parentdetails.rows}">
+	<sql:query var="userprofile" dataSource="${dataSource}">
+SELECT * FROM user, client
+WHERE client.client_id = user.client_id
+AND client.client_id=<c:out value="${userprofile2.client_id}" />
+	</sql:query>
+</c:forEach>
 
 
 <sql:query var="programCategory" dataSource="${dataSource}">
@@ -266,7 +274,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 					</c:forEach>
 				</div>
 			</form>
-
 		</div>
 	</div>
 

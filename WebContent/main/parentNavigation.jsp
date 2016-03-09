@@ -76,7 +76,7 @@
 						<li><a href="ParentCoursesNPrograms.jsp">My Courses &
 								Programs</a></li>
 						<li class="active">
-						<li><a href="StudentPrograms&Courses.jsp">All Courses &
+						<li><a href="ParentPrograms&Courses.jsp">All Courses &
 								Programs</a></li>
 					</ul></li>
 				<li><a href="contactUs.jsp">Contact Us</a></li>
