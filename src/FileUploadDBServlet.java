@@ -73,12 +73,14 @@ public class FileUploadDBServlet extends HttpServlet {
         	  // connects to the database
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
+String id = request.getParameter("id");
+System.out.println(id);
             // constructs SQL statement
-            String sql = "INSERT INTO `banner_image` ( `banner_image`, `banner_image_type`) values (?,?)";
+            String sql = "UPDATE `banner_image` SET `banner_image`=?,`banner_image_type`= ? WHERE `banner_image_id`= ?";
             PreparedStatement statement = conn.prepareStatement(sql);
        
             statement.setString(2, type);
+            statement.setString(3, id);
              
             if (inputStream != null) {
                 // fetches input stream of the upload file for the blob column
@@ -108,7 +110,7 @@ public class FileUploadDBServlet extends HttpServlet {
             request.setAttribute("Message", message);
              
             // forwards to the message page
-            getServletContext().getRequestDispatcher("/Message.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/manageIndex.jsp").forward(request, response);
         }
 
 }
