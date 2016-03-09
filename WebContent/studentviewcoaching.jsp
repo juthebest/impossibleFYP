@@ -139,7 +139,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 					</h2>
 				</div>
 
-
 				<div class="col-sm-8">
 					<div class="alingment">
 
@@ -196,7 +195,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	<script src="js/jquery.spinner.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
