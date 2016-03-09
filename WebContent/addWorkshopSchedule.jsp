@@ -111,8 +111,8 @@
 
 
 
-						<form action="addWorkShopSchedule" method="post"
-							class="form-horizontal" data-toggle="validator" onsubmit="return myFunction()"  role="form">
+						<form action="addWorkShopSchedule" method="post" name="myForm"
+							class="form-horizontal" data-toggle="validator"  role="form" onsubmit="return myFunction()">
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="wsname">Select
@@ -226,7 +226,7 @@
 								<label class="control-label col-sm-2" for="venue">Venue
 									:</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="text" name="venue" required>
+									<input class="form-control" type="text" name="venue"  pattern = "^([a-zA-Z0-9_-]{2,})$" title="Venue must be more than two letters" required>
 								</div>
 							</div>
 
@@ -386,15 +386,22 @@
 		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script>
 function myFunction() {
-    var x = document.getElementById("single-input").value;
-    var y = document.getElementById("singleend-input").value;
-    if (y<x) {
+ 
+    if (document.myForm.et.value < document.myForm.st.value  ) {
 		alert("End time is before Start time");
 		document.myForm.et.focus();
-		return false;
+		return (false);
 	}
+    
+  
+    	
+    
+	
+    
+    
     return (true);
 	
+
  
 }
 </script>

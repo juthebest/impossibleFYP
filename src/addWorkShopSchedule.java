@@ -76,17 +76,14 @@ public class addWorkShopSchedule extends HttpServlet {
 			out.println(st);
 			out.println(et);
 
-			String start = sdt +" "+ st;
-			String end =edt +" "+ et;
-			int net = Integer.parseInt(et);
-			int nst = Integer.parseInt(st);
-			if(net < nst){
-				request.setAttribute("Error","Error occured: Cannot delete , Category is tied to program");
-				request.getRequestDispatcher("/addWorkshopSchedule.jsp").forward(request, response);
-			}else{
+	
+	
+	
 				// Execute SQL query
 				Statement stmt = null;
 
+				String start = sdt +" "+ st;
+				String end =edt +" "+ et;
 
 				stmt = connection.createStatement();
 
@@ -106,7 +103,7 @@ public class addWorkShopSchedule extends HttpServlet {
 
 
 
-			} }catch (Exception e) {
+		}catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				out.println("Error: " + e.getMessage());
