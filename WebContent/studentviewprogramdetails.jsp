@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -134,10 +133,12 @@
 							</div>
 
 						</div>
+
 						<div class="modal-footer">
-							<a type="submit" class="btn btn-info" href="shoppingcart.html">Add</a><a
-								class="btn btn-danger" data-dismiss="modal"
-								href="StudentPrograms@Courses">Back</a>
+							<button type="submit" class="btn btn-primary" name="action"
+								value="Submitprogram">Add</button>
+							<a class="btn btn-danger" data-dismiss="modal"
+								href="StudentPrograms&Courses.jsp">Back</a>
 						</div>
 					</div>
 				</div>
