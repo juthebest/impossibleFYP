@@ -89,6 +89,16 @@
 			</div>
 
 			<form class="form-horizontal" role="form">
+			
+			<div class="row">
+			
+			<div class="col-sm-4">
+			<p>
+							<img
+							src="http://localhost:8080/impossibleWeb/readImageProgram?id=${program.program_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+							</p>
+			</div>
 				<div class="col-sm-8">
 					<div class="alingment">
 
@@ -126,7 +136,11 @@
 							</div>
 
 						</div>
-						<div class="modal-footer">
+			
+					</div>
+				</div>
+				</div>
+							<div class="modal-footer">
 							<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
 								class="btn btn-danger" data-dismiss="modal"
 								href="viewProgramsNcourses.jsp">Back</a>
@@ -134,8 +148,6 @@
 							<!-- 							<a type="submit" class="btn btn-info"
 								href="shoppingcart.html">Add To Cart</a> -->
 						</div>
-					</div>
-				</div>
 			</form>
 		</c:forEach>
 	</div>

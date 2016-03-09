@@ -136,6 +136,13 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 			<c:forEach var="coachingimages" items="${coaching.rows}">
 				<div class="col-sm-4">
 					
+					
+					<p>
+							<img
+							src="http://localhost:8080/impossibleWeb/readImageItem?id=${coachingimages.item_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+							</p>
+					
 					<h3>
 						<c:out value="${coachingimages.item_name}" />
 					</h3>
@@ -159,7 +166,11 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 			</div>
 			<c:forEach var="latestprogram" items="${program.rows}">
 				<div class="col-sm-4">
-					
+					<p>
+							<img
+							src="http://localhost:8080/impossibleWeb/readImageProgram?id=${latestprogram.program_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+							</p>
 					<h3>
 						<c:out value="${latestprogram.program_name}" />
 					</h3>
@@ -182,7 +193,11 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 			</div>
 			<c:forEach var="latestworkshops" items="${workshop.rows}">
 				<div class="col-sm-4">
-					
+							<p>
+							<img
+							src="http://localhost:8080/impossibleWeb/readImageItem?id=${latestworkshops.item_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+							</p>
 					<h3>
 						<c:out value="${latestworkshops.item_name}" />
 					</h3>

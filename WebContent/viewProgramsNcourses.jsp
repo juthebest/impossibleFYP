@@ -263,6 +263,13 @@
 					<div class="col-xs-6 col-lg-4">
 						<div class="alingment">
 							<br>
+							
+							<p>
+							<img
+							src="http://localhost:8080/impossibleWeb/readImageItem?id=${category.item_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+							</p>
+							
 
 							<p>
 								<b>Title: </b>

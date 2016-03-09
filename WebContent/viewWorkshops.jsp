@@ -101,10 +101,7 @@
 
 					<div class="alingment">
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 59557ef4dbbf84e354ae1687c75fefc648b473c6
 						<p>
 							<b>Workshop Description:</b>
 							<c:out value="${workshopCategory.item_desc}" />
@@ -116,23 +113,23 @@
 						</p>
 
 
-<<<<<<< HEAD
-				
+
+
 					</div>
 				</div>
 			</div>
-					<div class="modal-footer">
-							<a class="btn btn-danger" data-dismiss="modal"
-								href="viewProgramsNcourses.jsp">Close</a> <a type="submit"
-								class="btn btn-info" href="shoppingcart.html">Add To Cart</a>
-=======
-						<div class="modal-footer">
-							<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
-								class="btn btn-danger" data-dismiss="modal"
-								href="viewProgramsNcourses.jsp">Back</a>
->>>>>>> 59557ef4dbbf84e354ae1687c75fefc648b473c6
-						</div>
+			<div class="modal-footer">
+				<a class="btn btn-danger" data-dismiss="modal"
+					href="viewProgramsNcourses.jsp">Close</a> <a type="submit"
+					class="btn btn-info" href="shoppingcart.html">Add To Cart</a>
 
+				<div class="modal-footer">
+					<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
+						class="btn btn-danger" data-dismiss="modal"
+						href="viewProgramsNcourses.jsp">Back</a>
+
+				</div>
+			</div>
 		</c:forEach>
 	</div>
 	<!-- end of body container -->

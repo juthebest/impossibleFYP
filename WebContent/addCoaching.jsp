@@ -105,7 +105,7 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form action="InsertCoaching"  method="post" class="form-horizontal"  data-toggle="validator" role="form" >
+						<form action="InsertCoaching"  method="post" class="form-horizontal"  data-toggle="validator" role="form" enctype="multipart/form-data"  >
 
 
 
@@ -119,7 +119,7 @@ SELECT * FROM item_type
 								</div>
 							</div>
 							
-								<!-- IMAGE  -->
+<!-- IMAGE  -->
 							<div class="form-group required">
 								<label class="col-sm-2 control-label" for="input-name1">Image
 									Banner 1:</label>

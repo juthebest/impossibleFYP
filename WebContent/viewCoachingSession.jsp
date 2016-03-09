@@ -89,7 +89,17 @@
 			</div>
 
 
-			<form class="form-horizontal" role="form">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="container">
+
+						<img
+							src="http://localhost:8080/impossibleWeb/readImageItem?id=${coaching.item_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+					</div>
+
+
+				</div>
 				<div class="col-sm-8">
 					<div class="alingment">
 
@@ -121,14 +131,15 @@
 								</div>
 							</div>
 						</div>
-						<div class="modal-footer">
+			
+					</div>
+				</div>
+		</div>
+					<div class="modal-footer">
 							<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
 								class="btn btn-danger" data-dismiss="modal"
 								href="viewProgramsNcourses.jsp">Back</a>
 						</div>
-					</div>
-				</div>
-			</form>
 		</c:forEach>
 	</div>
 	<!-- end of body container -->
