@@ -5,8 +5,8 @@
 <jsp:include page="main/publicNavigations.jsp"></jsp:include>
 
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/mydb" scope="session"
-	user="root" password="" />
+	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
+	password="" />
 
 <sql:query var="programCategory" dataSource="${dataSource}">
                	select * from program,category_has_program,category
@@ -60,38 +60,35 @@
 }
 </style>
 <%
-	
-	
-	
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-		String uid = null;
-	 user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	String uid = null;
+	user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
-	
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
+
 
 </head>
 
@@ -100,7 +97,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="col-sm-3 col-md-2 sidebar">
-			
+
 			<!-- <form>
 		<b>Categories</b>
 		<div class="checkbox">
@@ -200,8 +197,8 @@
 					<div class="col-xs-6 col-lg-4">
 						<div class="alingment">
 							<br>
-							
-							
+
+
 							<p>
 								<b>Title: </b>
 								<c:out value="${category.program_name}" />
@@ -213,7 +210,8 @@
 							<a class="btn btn-success"
 								href="viewProgramDetails.jsp?program_id=${category.program_id}">
 								View Details &raquo; </a> <a class="btn btn-info"
-								href="register.jsp?program_id=${category.program_id}"> Register &raquo; </a>
+								href="register.jsp?program_id=${category.program_id}">
+								Register &raquo; </a>
 						</div>
 					</div>
 				</c:forEach>
@@ -230,7 +228,7 @@
 					<div class="col-xs-6 col-lg-4">
 						<div class="alingment">
 							<br>
-							
+
 							<p>
 								<b>Title: </b>
 								<c:out value="${category.item_name}" />
@@ -256,7 +254,7 @@
 					<div class="col-xs-6 col-lg-4">
 						<div class="alingment">
 							<br>
-							
+
 							<p>
 								<b>Title: </b>
 
@@ -310,10 +308,12 @@
 	<!-- End of <Fixed footer> -->
 
 	<script src="js/footer.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
