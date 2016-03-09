@@ -57,7 +57,7 @@ FROM  user where user_id= <%=uid%>;
                 AND category_has_item.category_id=category.category_id 
                 AND item.status_id = 2
                 AND item.item_type_id = 2
-                AND item.item_id=<%=request.getParameter("workshop_id")%>
+                AND item.item_id = <%=request.getParameter("workshop_id")%>
 </sql:query>
 
 
@@ -114,7 +114,6 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 					value="${getitemrunid.itemrun_id}" />
 			</c:forEach>
 			<!-- workshop -->
-
 
 			<!-- workshop -->
 			<c:forEach var="programhasclient"

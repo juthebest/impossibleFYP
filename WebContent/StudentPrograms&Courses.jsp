@@ -186,7 +186,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 					<!-- coaching -->
 					<c:forEach var="programcoachhasclient"
-						items="${programhasclientidis.rows}">
+						items="${programcoachhasclientidis.rows}">
 
 						<input type="hidden" name="programhasclientidis"
 							value="${programcoachhasclient.program_has_client_id}" />

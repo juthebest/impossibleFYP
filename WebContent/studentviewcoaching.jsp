@@ -44,6 +44,12 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 
+<!--  get client id so that you know which user register -->
+<sql:query var="userprofile" dataSource="${dataSource}">
+SELECT * 
+FROM  user where user_id= <%=uid%>;
+</sql:query>
+
 <sql:query var="coaching" dataSource="${dataSource}">
 	select * from item,category_has_item,category,item_type,status
                 where item.item_id=category_has_item.item_id 
@@ -52,6 +58,33 @@
 				AND item.status_id=status.status_id
                 AND item.item_id=<%=request.getParameter("coaching_id")%>
 </sql:query>
+
+<sql:query var="coachingCategory" dataSource="${dataSource}">
+                select * from item,category_has_item,category 
+                where item.item_id=category_has_item.item_id 
+                AND category_has_item.category_id=category.category_id 
+                AND item.status_id = 2
+                AND item.item_type_id = 1
+                AND item.item_id=<%=request.getParameter("coaching_id")%>
+
+</sql:query>
+
+<c:forEach var="itemcoachrunid2" items="${coachingCategory.rows}">
+	<sql:query var="itemcoachrunid" dataSource="${dataSource}">
+SELECT * FROM itemrun, item
+WHERE itemrun.item_id = item.item_id
+AND item.item_id=<c:out value="${itemcoachrunid2.item_id}" />
+	</sql:query>
+</c:forEach>
+
+<c:forEach var="programcoachhasclient2" items="${userprofile.rows}">
+	<sql:query var="programcoachhasclientidis" dataSource="${dataSource}">
+SELECT * FROM program_has_client
+WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
+	</sql:query>
+</c:forEach>
+<!-- coaching -->
+
 
 <head>
 <meta charset="utf-8">
@@ -75,6 +108,30 @@
 	<div class="container">
 		<form action="AddCourseForUser" method="post" class="form-horizontal">
 
+			<!-- workshop & coaching & program -->
+			<c:forEach var="gettheuserid" items="${userprofile.rows}">
+
+				<input type="hidden" name="clientidis"
+					value="${gettheuserid.client_id}" />
+			</c:forEach>
+			<!-- workshop & coaching & program -->
+
+			<!-- coaching -->
+			<c:forEach var="getitemcoachrunid" items="${itemcoachrunid.rows}">
+				<input type="hidden" name="itemcoachrunidis"
+					value="${getitemcoachrunid.itemrun_id}" />
+			</c:forEach>
+			<!-- coaching -->
+
+			<!-- coaching -->
+			<c:forEach var="programcoachhasclient"
+				items="${programcoachhasclientidis.rows}">
+
+				<input type="hidden" name="programhasclientidis"
+					value="${programcoachhasclient.program_has_client_id}" />
+			</c:forEach>
+			<!-- coaching -->
+
 			<c:forEach var="coaching" items="${coaching.rows}">
 
 				<div class="page-header">
@@ -97,7 +154,7 @@
 							<b>Cost:</b>
 							<c:out value="${coaching.unit_cost}" />
 						</p>
-
+						<!-- 
 						<div class="form-group">
 
 							<label class="control-label col-sm-1" for="quantity">Quantity:
@@ -115,7 +172,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary" name="action"
