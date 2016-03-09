@@ -71,8 +71,9 @@ FROM  user where user_id= <%=uid%>;
 
 <c:forEach var="itemrunid2" items="${workshopCategory.rows}">
 	<sql:query var="itemrunid" dataSource="${dataSource}">
-SELECT * FROM itemrun
-WHERE item_id=<c:out value="${itemrunid2.item_id}" />
+SELECT * FROM itemrun, item
+WHERE itemrun.item_id = item.item_id
+AND item.item_id=<c:out value="${itemrunid2.item_id}" />
 	</sql:query>
 </c:forEach>
 
@@ -85,6 +86,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 <!-- workshop -->
 
+<!-- coaching -->
 <sql:query var="coachingCategory" dataSource="${dataSource}">
                 select * from item,category_has_item,category 
                 where item.item_id=category_has_item.item_id 
@@ -93,6 +95,24 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
                 AND item.item_type_id=?
                                 <sql:param value="1" />
 </sql:query>
+
+<c:forEach var="itemcoachrunid2" items="${coachingCategory.rows}">
+	<sql:query var="itemcoachrunid" dataSource="${dataSource}">
+SELECT * FROM itemrun, item
+WHERE itemrun.item_id = item.item_id
+AND item.item_id=<c:out value="${itemcoachrunid2.item_id}" />
+	</sql:query>
+</c:forEach>
+
+<c:forEach var="programcoachhasclient2" items="${userprofile.rows}">
+	<sql:query var="programcoachhasclientidis" dataSource="${dataSource}">
+SELECT * FROM program_has_client
+WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
+	</sql:query>
+</c:forEach>
+
+
+<!-- coaching -->
 
 <head>
 <meta charset="utf-8">
@@ -131,24 +151,47 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 					<h2>Programs</h2>
 					<hr>
 
+					<!-- workshop & coaching -->
 					<c:forEach var="gettheuserid" items="${userprofile.rows}">
 
 						<input type="hidden" name="clientidis"
 							value="${gettheuserid.client_id}" />
 					</c:forEach>
+					<!-- workshop & coaching -->
 
-
+					<!-- workshop -->
 					<c:forEach var="getitemrunid" items="${itemrunid.rows}">
-
 						<input type="hidden" name="itemrunidis"
 							value="${getitemrunid.itemrun_id}" />
 					</c:forEach>
-					
-					<c:forEach var="programhasclient" items="${programhasclientidis.rows}">
+					<!-- workshop -->
+
+
+					<!-- coaching -->
+					<c:forEach var="getitemcoachrunid" items="${itemcoachrunid.rows}">
+						<input type="hidden" name="itemcoachrunidis"
+							value="${getitemcoachrunid.itemrun_id}" />
+					</c:forEach>
+					<!-- workshop -->
+
+
+					<!-- workshop -->
+					<c:forEach var="programhasclient"
+						items="${programhasclientidis.rows}">
 
 						<input type="hidden" name="programhasclientis"
-							value="${programhasclient.client_id}" />
+							value="${programhasclient.program_has_client_id}" />
 					</c:forEach>
+					<!-- workshop -->
+
+					<!-- coaching -->
+					<c:forEach var="programcoachhasclient"
+						items="${programhasclientidis.rows}">
+
+						<input type="hidden" name="programhasclientidis"
+							value="${programcoachhasclient.program_has_client_id}" />
+					</c:forEach>
+					<!-- coaching -->
 					
 					
 					<c:forEach var="categoryp" items="${programCategory.rows}">
@@ -206,7 +249,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 									<c:out value="${categoryw.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewWorkshops.jsp?workshop_id=${category.item_id}">
+									href="viewWorkshops.jsp?workshop_id=${categoryw.item_id}">
 									View Details &raquo; </a> <a class="btn btn-info"
 									href="shoppingcart.html"> Register &raquo; </a>
 
@@ -236,7 +279,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 									<c:out value="${categoryc.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewCoachingSession.jsp?coaching_id=${category.item_id}">
+									href="viewCoachingSession.jsp?coaching_id=${categoryc.item_id}">
 									View Details &raquo; </a> <a class="btn btn-info" href="#">
 									Register &raquo; </a>
 								<button type="submit" class="btn btn-primary" name="action"
