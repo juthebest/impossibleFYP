@@ -107,13 +107,11 @@ FROM  user where user_id= <%=uid%>;
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 		<div class="testing">
+			<form action="AddCourseForUser" method="post" class="form-horizontal">
+				<div class="row">
+					<h2>Programs</h2>
+					<hr>
 
-			<div class="row">
-				<h2>Programs</h2>
-				<hr>
-				<form action="AddCourseForUser" method="post"
-					class="form-horizontal">
-					
 					<c:forEach var="gettheuserid" items="${userprofile.rows}">
 
 						<input type="hidden" name="clientidis"
@@ -143,70 +141,80 @@ FROM  user where user_id= <%=uid%>;
 									Register &raquo; </a>
 
 
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary" name="action"
+									value="Submitprogram">Submit</button>
+
+								<!-- <input type="submit" class="btn btn-primary" name="action"
+										value="Save">  -->
+
 
 							</div>
 						</div>
 					</c:forEach>
-				</form>
-			</div>
+				</div>
 
 
-			<div class="row">
-				<h2>Workshops</h2>
-				<hr>
-				<c:forEach var="category" items="${workshopCategory.rows}">
+				<div class="row">
+					<h2>Workshops</h2>
+					<hr>
+					<c:forEach var="category" items="${workshopCategory.rows}">
 
-					<div class="col-xs-6 col-lg-4">
-						<div class="alingment">
-							<br>
+						<div class="col-xs-6 col-lg-4">
+							<div class="alingment">
+								<br>
 
-							<p>
-								<b>Title: </b>
-								<c:out value="${category.item_name}" />
-							</p>
-							<p>
-								<b>Categories: </b>
-								<c:out value="${category.category_name}" />
-							</p>
-							<a class="btn btn-success"
-								href="viewWorkshops.jsp?workshop_id=${category.item_id}">
-								View Details &raquo; </a> <a class="btn btn-info"
-								href="shoppingcart.html"> Register &raquo; </a>
+								<p>
+									<b>Title: </b>
+									<c:out value="${category.item_name}" />
+								</p>
+								<p>
+									<b>Categories: </b>
+									<c:out value="${category.category_name}" />
+								</p>
+								<a class="btn btn-success"
+									href="viewWorkshops.jsp?workshop_id=${category.item_id}">
+									View Details &raquo; </a> <a class="btn btn-info"
+									href="shoppingcart.html"> Register &raquo; </a>
+
+								<button type="submit" class="btn btn-primary" name="action"
+									value="Submitcourse">Submit</button>
+
+							</div>
 						</div>
-					</div>
-				</c:forEach>
-			</div>
+					</c:forEach>
+				</div>
 
 
-			<div class="row">
-				<h2>Coaching Sessions</h2>
-				<hr>
-				<c:forEach var="category" items="${coachingCategory.rows}">
-					<div class="col-xs-6 col-lg-4">
-						<div class="alingment">
-							<br>
+				<div class="row">
+					<h2>Coaching Sessions</h2>
+					<hr>
+					<c:forEach var="category" items="${coachingCategory.rows}">
+						<div class="col-xs-6 col-lg-4">
+							<div class="alingment">
+								<br>
 
-							<p>
-								<b>Title: </b>
+								<p>
+									<b>Title: </b>
 
-								<c:out value="${category.item_name}" />
-							</p>
-							<p>
-								<b>Categories: </b>
-								<c:out value="${category.category_name}" />
-							</p>
-							<a class="btn btn-success"
-								href="viewCoachingSession.jsp?coaching_id=${category.item_id}">
-								View Details &raquo; </a> <a class="btn btn-info" href="#">
-								Register &raquo; </a>
+									<c:out value="${category.item_name}" />
+								</p>
+								<p>
+									<b>Categories: </b>
+									<c:out value="${category.category_name}" />
+								</p>
+								<a class="btn btn-success"
+									href="viewCoachingSession.jsp?coaching_id=${category.item_id}">
+									View Details &raquo; </a> <a class="btn btn-info" href="#">
+									Register &raquo; </a>
+								<button type="submit" class="btn btn-primary" name="action"
+									value="Submitworkshop">Submit</button>
+							</div>
 						</div>
-					</div>
-				</c:forEach>
-			</div>
+					</c:forEach>
+				</div>
+			</form>
 
 		</div>
-
 	</div>
 
 	<!-- Start of <Fixed footer> -->
