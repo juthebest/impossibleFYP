@@ -50,10 +50,21 @@ SELECT *
 FROM  user where user_id= <%=uid%>;
 </sql:query>
 
+
+<sql:query var="workshop" dataSource="${dataSource}">
+	select * from item,category_has_item,category,item_type,status
+                where item.item_id=category_has_item.item_id 
+                AND category_has_item.category_id=category.category_id 
+                AND item.item_type_id=item_type.item_type_id
+				AND item.status_id=status.status_id
+                AND item.item_id=<%=request.getParameter("workshop_id")%>
+</sql:query>
+
+
 <!-- workshop -->
 <sql:query var="workshopCategory" dataSource="${dataSource}">
                 select * from item,category_has_item,category 
-                where item.item_id = category_has_item.item_id 
+                where item.item_id=category_has_item.item_id 
                 AND category_has_item.category_id=category.category_id 
                 AND item.status_id = 2
                 AND item.item_type_id = 2
@@ -124,11 +135,11 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 			</c:forEach>
 			<!-- workshop -->
 
-			<c:forEach var="workshopCategory" items="${workshopCategory.rows}">
+			<c:forEach var="workshopCat" items="${workshop.rows}">
 
 				<div class="page-header">
 					<h2>
-						<c:out value="${workshopCategory.item_name}" />
+						<c:out value="${workshopCat.item_name}" />
 						Workshop
 					</h2>
 				</div>
@@ -138,12 +149,12 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 						<p>
 							<b>Workshop Description:</b>
-							<c:out value="${workshopCategory.item_desc}" />
+							<c:out value="${workshopCat.item_desc}" />
 						</p>
 
 						<p>
 							<b>Cost:</b>
-							<c:out value="${workshopCategory.unit_cost}" />
+							<c:out value="${workshopCat.unit_cost}" />
 						</p>
 
 						<div class="modal-footer">

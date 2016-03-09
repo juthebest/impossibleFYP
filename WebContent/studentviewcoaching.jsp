@@ -73,7 +73,7 @@ FROM  user where user_id= <%=uid%>;
 	<sql:query var="itemcoachrunid" dataSource="${dataSource}">
 SELECT * FROM itemrun, item
 WHERE itemrun.item_id = item.item_id
-AND item.item_id=<c:out value="${itemcoachrunid2.item_id}" />
+AND item.item_id = <c:out value="${itemcoachrunid2.item_id}" />
 	</sql:query>
 </c:forEach>
 

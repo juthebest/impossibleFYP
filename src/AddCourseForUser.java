@@ -120,7 +120,7 @@ public class AddCourseForUser extends HttpServlet {
 				String programhasclient = null;
 
 				clientid = request.getParameter("clientidis");
-				itemrunid = request.getParameter("getitemrunid");
+				itemrunid = request.getParameter("itemrunidis");
 				programhasclient = request.getParameter("programhasclientis");
 
 				// Date format (USER table - parent)
