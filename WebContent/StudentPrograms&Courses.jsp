@@ -151,13 +151,13 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 					<h2>Programs</h2>
 					<hr>
 
-					<!-- workshop & coaching -->
+					<!-- workshop & coaching & program -->
 					<c:forEach var="gettheuserid" items="${userprofile.rows}">
 
 						<input type="hidden" name="clientidis"
 							value="${gettheuserid.client_id}" />
 					</c:forEach>
-					<!-- workshop & coaching -->
+					<!-- workshop & coaching & program -->
 
 					<!-- workshop -->
 					<c:forEach var="getitemrunid" items="${itemrunid.rows}">
@@ -172,7 +172,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 						<input type="hidden" name="itemcoachrunidis"
 							value="${getitemcoachrunid.itemrun_id}" />
 					</c:forEach>
-					<!-- workshop -->
+					<!-- coaching -->
 
 
 					<!-- workshop -->

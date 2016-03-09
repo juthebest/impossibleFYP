@@ -43,6 +43,27 @@
 %>
 
 
+
+
+
+
+
+
+<!--  get client id so that you know which user register -->
+<sql:query var="userprofile" dataSource="${dataSource}">
+SELECT * 
+FROM  user where user_id= <%=uid%>;
+</sql:query>
+
+<sql:query var="programCategory" dataSource="${dataSource}">
+               	select * from program,category_has_program,category
+				where program.program_id=category_has_program.program_id
+				AND category_has_program.category_id=category.category_id
+				AND program.status_id = 2   
+				AND program.program_id=<%=request.getParameter("program_id")%>
+</sql:query>
+
+
 <sql:query var="program" dataSource="${dataSource}">
                	select * from program,category_has_program,category,status
 				where program.program_id=category_has_program.program_id
@@ -86,16 +107,30 @@
 
 <body>
 	<div class="container">
+		<form action="AddCourseForUser" method="post" class="form-horizontal">
 
-		<c:forEach var="program" items="${program.rows}">
-			<div class="page-header">
-				<h1>
-					<c:out value="${program.program_name}" />
-					Program
-				</h1>
-			</div>
+			<!-- workshop & coaching & program is -->
+			<c:forEach var="gettheuserid" items="${userprofile.rows}">
 
-			<form class="form-horizontal" role="form">
+				<input type="hidden" name="clientidis"
+					value="${gettheuserid.client_id}" />
+			</c:forEach>
+			<!-- workshop & coaching & program -->
+
+
+			<c:forEach var="program" items="${program.rows}">
+
+				<input type="hidden" name="programidis"
+					value="${program.program_id}" />
+
+
+				<div class="page-header">
+					<h1>
+						<c:out value="${program.program_name}" />
+						Program
+					</h1>
+				</div>
+
 				<div class="col-sm-8">
 					<div class="alingment">
 
@@ -142,8 +177,9 @@
 						</div>
 					</div>
 				</div>
-			</form>
-		</c:forEach>
+			</c:forEach>
+		</form>
+
 	</div>
 
 	<!-- footer -->

@@ -44,15 +44,38 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 
-
-<sql:query var="workshopCategory" dataSource="${dataSource}">
-                select * from item,category_has_item,category 
-                where item.item_id=category_has_item.item_id 
-                AND category_has_item.category_id=category.category_id 
-                AND item.item_id=<%=request.getParameter("workshop_id")%>
-
+<!--  get client id so that you know which user register -->
+<sql:query var="userprofile" dataSource="${dataSource}">
+SELECT * 
+FROM  user where user_id= <%=uid%>;
 </sql:query>
 
+<!-- workshop -->
+<sql:query var="workshopCategory" dataSource="${dataSource}">
+                select * from item,category_has_item,category 
+                where item.item_id = category_has_item.item_id 
+                AND category_has_item.category_id=category.category_id 
+                AND item.status_id = 2
+                AND item.item_type_id = 2
+                AND item.item_id=<%=request.getParameter("workshop_id")%>
+</sql:query>
+
+
+<c:forEach var="itemrunid2" items="${workshopCategory.rows}">
+	<sql:query var="itemrunid" dataSource="${dataSource}">
+SELECT * FROM itemrun, item
+WHERE itemrun.item_id = item.item_id
+AND item.item_id = <c:out value="${itemrunid2.item_id}" />
+	</sql:query>
+</c:forEach>
+
+<c:forEach var="programhasclient" items="${userprofile.rows}">
+	<sql:query var="programhasclientidis" dataSource="${dataSource}">
+SELECT * FROM program_has_client
+WHERE client_id=<c:out value="${programhasclient.client_id}" />
+	</sql:query>
+</c:forEach>
+<!-- workshop -->
 
 <head>
 <meta charset="utf-8">
@@ -75,16 +98,44 @@
 	<!-- End of navigation bar  -->
 
 	<div class="container">
-		<c:forEach var="workshopCategory" items="${workshopCategory.rows}">
+		<form action="AddCourseForUser" method="post" class="form-horizontal">
 
-			<div class="page-header">
-				<h2>
-					<c:out value="${workshopCategory.item_name}" />
-					Workshop
-				</h2>
-			</div>
 
-			<form class="form-horizontal" role="form">
+			<!-- workshop & coaching & program -->
+			<c:forEach var="gettheuserid" items="${userprofile.rows}">
+				<input type="hidden" name="clientidis"
+					value="${gettheuserid.client_id}" />
+			</c:forEach>
+			<!-- workshop & coaching & program -->
+
+			<!-- workshop -->
+			<c:forEach var="getitemrunid" items="${itemrunid.rows}">
+				<input type="hidden" name="itemrunidis"
+					value="${getitemrunid.itemrun_id}" />
+			</c:forEach>
+			<!-- workshop -->
+
+
+			<!-- workshop -->
+			<c:forEach var="programhasclient"
+				items="${programhasclientidis.rows}">
+
+				<input type="hidden" name="programhasclientis"
+					value="${programhasclient.program_has_client_id}" />
+			</c:forEach>
+			<!-- workshop -->
+
+
+
+			<c:forEach var="workshopCategory" items="${workshopCategory.rows}">
+
+				<div class="page-header">
+					<h2>
+						<c:out value="${workshopCategory.item_name}" />
+						Workshop
+					</h2>
+				</div>
+
 				<div class="col-sm-8">
 					<div class="alingment">
 
@@ -104,11 +155,12 @@
 							<a class="btn btn-danger" data-dismiss="modal"
 								href="StudentPrograms&Courses.jsp">Back</a>
 						</div>
+
 					</div>
 				</div>
-			</form>
+			</c:forEach>
+		</form>
 
-		</c:forEach>
 	</div>
 	<!-- end of body container -->
 
