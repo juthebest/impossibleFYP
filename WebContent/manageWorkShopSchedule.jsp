@@ -45,6 +45,9 @@ AND coach.coach_id = user.coach_id
 <link href="css/home.css" rel="stylesheet">
 
 
+<!-- Pick a theme, load the plugin & initialize plugin -->
+<link href="dist/css/theme.default.min.css" rel="stylesheet">
+
 <%-- <%
 	//allow access only if session exists
 	String user = null;
@@ -220,16 +223,12 @@ AND coach.coach_id = user.coach_id
 	</div>
 
 
-	<!-- footer -->
+	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
-	<!-- end of footer -->
-
-
+	<!-- End of <Fixed footer> -->
 
 
 	<script src="js/footer.js"></script>
-
-
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -237,8 +236,6 @@ AND coach.coach_id = user.coach_id
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
-
-
 	<!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
 	<script src="docs/js/jquery-1.2.6.min.js"></script>
 
@@ -257,7 +254,6 @@ AND coach.coach_id = user.coach_id
 			});
 		});
 	</script>
-
 
 	<script type="text/javascript">
 		function checkbox_test() {
