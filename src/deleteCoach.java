@@ -1,4 +1,4 @@
-
+//check if coach is in any of the runs and client
 
 import java.io.IOException;
 import java.io.PrintWriter;

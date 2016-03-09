@@ -47,57 +47,165 @@ public class AddCourseForUser extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		// Set response content type
-		response.setContentType("text/html");
+		String action = request.getParameter("action");
 
-		PrintWriter out = response.getWriter();
+		if ("Submitprogram".equals(action)) {
+			// Set response content type
+			response.setContentType("text/html");
 
-		try {
+			PrintWriter out = response.getWriter();
 
-			Database database = new Database();
+			try {
 
-			// Open a connection
-			Connection conn = database.Get_Connection();
+				Database database = new Database();
 
-			String programid = null;
-			String clientid = null;
+				// Open a connection
+				Connection conn = database.Get_Connection();
 
-			programid = request.getParameter("programidis");
-			clientid = request.getParameter("clientidis");
+				String programid = null;
+				String clientid = null;
 
-			// Date format (USER table - parent)
-			java.util.Date dt = new java.util.Date();
-			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			String currentTime = sdf.format(dt);
+				programid = request.getParameter("programidis");
+				clientid = request.getParameter("clientidis");
 
-			// Execute SQL query
-			final Statement stmt = conn.createStatement();
-			String sql;
+				// Date format (USER table - parent)
+				java.util.Date dt = new java.util.Date();
+				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String currentTime = sdf.format(dt);
 
-			sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
-					+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+				// Execute SQL query
+				final Statement stmt = conn.createStatement();
+				String sql;
 
-			int rs = stmt.executeUpdate(sql);
-			// validate login to remember the row
+				sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
+						+ programid + "','" + clientid + "','" + currentTime + "','2') ";
 
-			if (rs == 1) {
-				out.println("success");
-				response.sendRedirect("myCourseNPrograms.jsp");
-			} else {
-				out.println("failed");
-				response.sendRedirect("AddCourseForUser.jsp");
+				int rs = stmt.executeUpdate(sql);
+				// validate login to remember the row
+
+				if (rs == 1) {
+					out.println("success");
+					response.sendRedirect("myCourseNPrograms.jsp");
+				} else {
+					out.println("failed");
+					response.sendRedirect("AddCourseForUser.jsp");
+				}
+
+			} catch (SQLException se) {
+				// Handle errors for JDBC
+				se.printStackTrace();
+			} catch (Exception e) {
+				// Handle errors for Class.forName
+				e.printStackTrace();
 			}
 
-		} catch (SQLException se) {
-			// Handle errors for JDBC
-			se.printStackTrace();
-		} catch (Exception e) {
-			// Handle errors for Class.forName
-			e.printStackTrace();
+			/* doGet(request, response); */
+
+		} else if ("Submitcourse".equals(action)) {
+			// Set response content type
+			response.setContentType("text/html");
+
+			PrintWriter out = response.getWriter();
+
+			try {
+
+				Database database = new Database();
+
+				// Open a connection
+				Connection conn = database.Get_Connection();
+
+				String programid = null;
+				String clientid = null;
+
+				programid = request.getParameter("programidis");
+				clientid = request.getParameter("clientidis");
+
+				// Date format (USER table - parent)
+				java.util.Date dt = new java.util.Date();
+				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String currentTime = sdf.format(dt);
+
+				// Execute SQL query
+				final Statement stmt = conn.createStatement();
+				String sql;
+
+				sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
+						+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+
+				int rs = stmt.executeUpdate(sql);
+				// validate login to remember the row
+
+				if (rs == 1) {
+					out.println("success");
+					response.sendRedirect("myCourseNPrograms.jsp");
+				} else {
+					out.println("failed");
+					response.sendRedirect("AddCourseForUser.jsp");
+				}
+
+			} catch (SQLException se) {
+				// Handle errors for JDBC
+				se.printStackTrace();
+			} catch (Exception e) {
+				// Handle errors for Class.forName
+				e.printStackTrace();
+			}
+
+			/* doGet(request, response); */
+
+		} else if ("Submitworkshop".equals(action)) {
+			// Set response content type
+			response.setContentType("text/html");
+
+			PrintWriter out = response.getWriter();
+
+			try {
+
+				Database database = new Database();
+
+				// Open a connection
+				Connection conn = database.Get_Connection();
+
+				String programid = null;
+				String clientid = null;
+
+				programid = request.getParameter("programidis");
+				clientid = request.getParameter("clientidis");
+
+				// Date format (USER table - parent)
+				java.util.Date dt = new java.util.Date();
+				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String currentTime = sdf.format(dt);
+
+				// Execute SQL query
+				final Statement stmt = conn.createStatement();
+				String sql;
+
+				sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
+						+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+
+				int rs = stmt.executeUpdate(sql);
+				// validate login to remember the row
+
+				if (rs == 1) {
+					out.println("success");
+					response.sendRedirect("myCourseNPrograms.jsp");
+				} else {
+					out.println("failed");
+					response.sendRedirect("AddCourseForUser.jsp");
+				}
+
+			} catch (SQLException se) {
+				// Handle errors for JDBC
+				se.printStackTrace();
+			} catch (Exception e) {
+				// Handle errors for Class.forName
+				e.printStackTrace();
+			}
+
+			/* doGet(request, response); */
+
 		}
-
-		/* doGet(request, response); */
-
 	}
 
 }
