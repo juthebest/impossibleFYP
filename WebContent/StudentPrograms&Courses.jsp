@@ -161,7 +161,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 					<!-- workshop -->
 					<c:forEach var="getitemrunid" items="${itemrunid.rows}">
-						<input type="hidden" name="itemrunidis"
+						<input type="hidden" name="itemrunidgetid"
 							value="${getitemrunid.itemrun_id}" />
 					</c:forEach>
 					<!-- workshop -->

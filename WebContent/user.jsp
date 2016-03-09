@@ -84,7 +84,7 @@
 				</div>
 				
 				<div class="col-lg-2">
-					<img class="img-circle" src="image/profile-icon.png"
+					<img class="img-circle" src="image/basket-full-icon.png"
 						alt="Generic placeholder image" width="140" height="140">
 					<h2>New Course</h2>
 					<p>View my Information and edit my profile</p>

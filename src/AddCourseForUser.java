@@ -2,6 +2,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -53,7 +54,7 @@ public class AddCourseForUser extends HttpServlet {
 		if ("Submitprogram".equals(action)) {
 			// Set response content type
 			response.setContentType("text/html");
-
+			int rs = 0;
 			PrintWriter out = response.getWriter();
 
 			try {
@@ -74,15 +75,32 @@ public class AddCourseForUser extends HttpServlet {
 				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String currentTime = sdf.format(dt);
 
-				// Execute SQL query
 				final Statement stmt = conn.createStatement();
-				String sql;
 
-				sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
-						+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+				final Statement statement = conn.createStatement();
+				ResultSet resultset = statement.executeQuery("SELECT * FROM `program_has_client` WHERE `program_id` ='"
+						+ programid + "' AND `client_id` ='" + clientid + "'");
 
-				int rs = stmt.executeUpdate(sql);
-				// validate login to remember the row
+				int ct = 0;
+				while (resultset.next()) {
+					ct++;
+				}
+				if (ct > 0) {
+					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + programid);
+					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
+
+				} else {
+
+					// Execute SQL query
+					String sql;
+
+					sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
+							+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+
+					rs = stmt.executeUpdate(sql);
+					// validate login to remember the row
+
+				}
 
 				if (rs == 1) {
 					out.println("success");
@@ -107,6 +125,7 @@ public class AddCourseForUser extends HttpServlet {
 			response.setContentType("text/html");
 
 			PrintWriter out = response.getWriter();
+			int rs = 0;
 
 			try {
 
@@ -128,15 +147,34 @@ public class AddCourseForUser extends HttpServlet {
 				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String currentTime = sdf.format(dt);
 
-				// Execute SQL query
 				final Statement stmt = conn.createStatement();
-				String sql;
 
-				sql = "INSERT INTO `itemrun_has_client`(`enrollment_status_id`, `client_id`, `itemrun_id`, `program_has_client_id`, `date_registered`, `quantity`, `unit_cost`) VALUES ('2','"
-						+ clientid + "','" + itemrunid + "','" + programhasclient + "','" + currentTime + "','1','20') ";
+				final Statement statement = conn.createStatement();
 
-				int rs = stmt.executeUpdate(sql);
-				// validate login to remember the row
+				ResultSet resultset = statement.executeQuery("SELECT * FROM `itemrun_has_client` WHERE `itemrun_id` ='"
+						+ itemrunid + "' AND `client_id` ='" + clientid + "'");
+
+				int ct = 0;
+				while (resultset.next()) {
+					ct++;
+				}
+				if (ct > 0) {
+					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + itemrunid);
+					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
+
+				} else {
+
+					// Execute SQL query
+					String sql;
+
+					sql = "INSERT INTO `itemrun_has_client`(`enrollment_status_id`, `client_id`, `itemrun_id`, `program_has_client_id`, `date_registered`, `quantity`, `unit_cost`) VALUES ('2','"
+							+ clientid + "','" + itemrunid + "','" + programhasclient + "','" + currentTime
+							+ "','1','20') ";
+
+					rs = stmt.executeUpdate(sql);
+					// validate login to remember the row
+
+				}
 
 				if (rs == 1) {
 					out.println("success");
@@ -159,6 +197,7 @@ public class AddCourseForUser extends HttpServlet {
 		} else if ("Submitworkshop".equals(action)) {
 			// Set response content type
 			response.setContentType("text/html");
+			int rs = 0;
 
 			PrintWriter out = response.getWriter();
 
@@ -182,15 +221,34 @@ public class AddCourseForUser extends HttpServlet {
 				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String currentTime = sdf.format(dt);
 
-				// Execute SQL query
 				final Statement stmt = conn.createStatement();
-				String sql;
 
-				sql = "INSERT INTO `itemrun_has_client`(`enrollment_status_id`, `client_id`, `itemrun_id`, `program_has_client_id`, `date_registered`, `quantity`, `unit_cost`) VALUES ('2','"
-						+ clientidws + "','" + itemrunidws + "','" + programhasclientcoachws + "','" + currentTime + "','1','20') ";
+				final Statement statement = conn.createStatement();
 
+				ResultSet resultset = statement.executeQuery("SELECT * FROM `itemrun_has_client` WHERE `itemrun_id` ='"
+						+ itemrunidws + "' AND `client_id` ='" + clientidws + "'");
 
-				int rs = stmt.executeUpdate(sql);
+				int ct = 0;
+				while (resultset.next()) {
+					ct++;
+				}
+				if (ct > 0) {
+					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + itemrunidws);
+					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
+
+				} else {
+
+					// Execute SQL query
+					String sql;
+
+					sql = "INSERT INTO `itemrun_has_client`(`enrollment_status_id`, `client_id`, `itemrun_id`, `program_has_client_id`, `date_registered`, `quantity`, `unit_cost`) VALUES ('2','"
+							+ clientidws + "','" + itemrunidws + "','" + programhasclientcoachws + "','" + currentTime
+							+ "','1','20') ";
+
+					rs = stmt.executeUpdate(sql);
+					// validate login to remember the row
+				}
+
 				// validate login to remember the row
 
 				if (rs == 1) {
