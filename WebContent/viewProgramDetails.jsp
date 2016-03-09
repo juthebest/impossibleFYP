@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <jsp:include page="main/publicNavigations.jsp"></jsp:include>
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/mydb" scope="session"
-	user="root" password="" />
+	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
+	password="" />
 
 <sql:query var="program" dataSource="${dataSource}">
                	select * from program,category_has_program,category,status
@@ -22,7 +22,6 @@
 				AND program.program_id=<%=request.getParameter("program_id")%>
 </sql:query>
 
-<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,38 +45,34 @@
 	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link href="css/home.css" rel="stylesheet">
 <%
-	
-	
-	
-		//allow access only if session exists
-		String user = null;
+	//allow access only if session exists
+	String user = null;
 
-
-		String uid = null;
- user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	String uid = null;
+	user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 
 </head>
 
@@ -88,10 +83,11 @@
 		<c:forEach var="program" items="${program.rows}">
 			<div class="page-header">
 				<h1>
-					<c:out value="${program.program_name}" /> Program
+					<c:out value="${program.program_name}" />
+					Program
 				</h1>
 			</div>
-			
+
 			<form class="form-horizontal" role="form">
 				<div class="col-sm-8">
 					<div class="alingment">
@@ -131,9 +127,12 @@
 
 						</div>
 						<div class="modal-footer">
-							<a class="btn btn-danger" data-dismiss="modal"  href="viewProgramsNcourses.jsp">Close</a>
-							<a type="submit" class="btn btn-info"
-								href="shoppingcart.html">Add To Cart</a>
+							<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
+								class="btn btn-danger" data-dismiss="modal"
+								href="viewProgramsNcourses.jsp">Back</a>
+
+							<!-- 							<a type="submit" class="btn btn-info"
+								href="shoppingcart.html">Add To Cart</a> -->
 						</div>
 					</div>
 				</div>

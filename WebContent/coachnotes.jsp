@@ -20,7 +20,7 @@
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
 			|| !role.equalsIgnoreCase("coach")) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
 	uid = (String) session.getAttribute("uid");
@@ -46,7 +46,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
+<%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -59,9 +59,7 @@
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
-
-
+</form> --%>
 
 <%-- <c:forEach var="coachstudents" items="${coachidis.rows}">
 	<!-- parent details -->
@@ -115,7 +113,7 @@ AND user.user_id = <%=uid%>;
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">
-							<i class="fa fa-pencil"></i> Add New Note
+							<i class="fa fa-pencil"></i> Add Coach Note
 						</h3>
 					</div>
 					<div class="panel-body">

@@ -8,13 +8,11 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-
 <sql:query var="workshopCategory" dataSource="${dataSource}">
                 select * from item,category_has_item,category 
                 where item.item_id=category_has_item.item_id 
                 AND category_has_item.category_id=category.category_id 
                 AND item.item_id=<%=request.getParameter("workshop_id")%>
-
 </sql:query>
 
 
@@ -94,9 +92,9 @@
 
 			<form class="form-horizontal" role="form">
 				<div class="col-sm-8">
-				
+
 					<div class="alingment">
-						
+
 						<p>
 							<b>Workshop Description:</b>
 							<c:out value="${workshopCategory.item_desc}" />
@@ -109,9 +107,9 @@
 
 
 						<div class="modal-footer">
-							<a class="btn btn-danger" data-dismiss="modal"
-								href="viewProgramsNcourses.jsp">Close</a> <a type="submit"
-								class="btn btn-info" href="shoppingcart.html">Add To Cart</a>
+							<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
+								class="btn btn-danger" data-dismiss="modal"
+								href="viewProgramsNcourses.jsp">Back</a>
 						</div>
 					</div>
 				</div>

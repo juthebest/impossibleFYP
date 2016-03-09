@@ -49,14 +49,13 @@
 	rel="stylesheet"></link>
 <link rel="stylesheet" type="text/css" href="css/home.css" />
 
-<sql:query var="programname" dataSource="${dataSource}">
+<%-- <sql:query var="programname" dataSource="${dataSource}">
                	select * from program,category_has_program,category,status
 				where program.program_id=category_has_program.program_id
 				AND category_has_program.category_id=category.category_id  
 				AND program.status_id=status.status_id
 				AND program.program_id=<%=request.getParameter("program_id")%>
-</sql:query>
-
+</sql:query> --%>
 
 <body>
 
@@ -71,7 +70,7 @@
 							<h3 class="panel-title">Registration Page</h3>
 						</div>
 
-
+<%-- 
 						<c:forEach var="program" items="${programname.rows}">
 							<p>
 								<b>Program Registered:</b> <input type="text"
@@ -79,7 +78,7 @@
 									value="${program.program_name}" required>
 							</p>
 						</c:forEach>
-
+ --%>
 						<!-- class="form-control" -->
 						<fieldset style="padding-left: 10px">
 							<h3>Personal Details Of Parent</h3>
@@ -291,7 +290,7 @@
 						<div class="form-actions">
 							<button type="submit" class="btn btn-primary"
 								onclick=validateForm()>Next</button>
-							<a href="viewProgramsNcourses.html"><button type="button"
+							<a href="viewProgramsNcourses.jsp"><button type="button"
 									class="btn btn-danger">Cancel</button></a>
 						</div>
 

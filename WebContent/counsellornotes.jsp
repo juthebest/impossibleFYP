@@ -2,7 +2,7 @@
 <html lang="en">
 <jsp:include page="main/counsellorNavigation.jsp"></jsp:include>
 <%@ page import="java.sql.*"%>
-<%@ page import="javax.sql.*"%>z>
+<%@ page import="javax.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
@@ -44,7 +44,7 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%>
+%><%-- 
 <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
@@ -58,7 +58,7 @@
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
+</form> --%>
 
 <!-- get coach id-->
 <sql:query var="coachidis" dataSource="${dataSource}">
@@ -127,10 +127,10 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 								class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-plus"></span> Write a new note
 							</button></a>
-						<button type="button" class="btn btn-default btn-sm"
+<!-- 						<button type="button" class="btn btn-default btn-sm"
 							onclick="confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ? $('#form-product').submit() : false;">
 							<span class="glyphicon glyphicon-trash"></span> Delete
-						</button>
+						</button> -->
 					</p>
 					<form action="#" method="post" enctype="multipart/form-data"
 						id="form-course">
