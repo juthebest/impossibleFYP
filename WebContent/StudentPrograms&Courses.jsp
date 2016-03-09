@@ -211,18 +211,12 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryp.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewProgramDetails.jsp?program_id=${category.program_id}">
-									View Details &raquo; </a> <a class="btn btn-info"
-									href="register.jsp?program_id=${category.program_id}">
-									Register &raquo; </a>
+									href="viewProgramDetails.jsp?program_id=${categoryp.program_id}">
+									View Details &raquo; </a>
 
 
 								<button type="submit" class="btn btn-primary" name="action"
-									value="Submitprogram">Submit</button>
-
-								<!-- <input type="submit" class="btn btn-primary" name="action"
-										value="Save">  -->
-
+									value="Submitprogram">Add</button>
 
 							</div>
 						</div>
@@ -250,11 +244,10 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								</p>
 								<a class="btn btn-success"
 									href="viewWorkshops.jsp?workshop_id=${categoryw.item_id}">
-									View Details &raquo; </a> <a class="btn btn-info"
-									href="shoppingcart.html"> Register &raquo; </a>
+									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
-									value="Submitcourse">Submit</button>
+									value="Submitcourse">Add</button>
 
 							</div>
 						</div>
@@ -269,7 +262,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
 								<br>
-
 								<p>
 									<b>Title: </b>
 									<c:out value="${categoryc.item_name}" />
@@ -280,10 +272,10 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								</p>
 								<a class="btn btn-success"
 									href="viewCoachingSession.jsp?coaching_id=${categoryc.item_id}">
-									View Details &raquo; </a> <a class="btn btn-info" href="#">
-									Register &raquo; </a>
+									View Details &raquo; </a>
+									
 								<button type="submit" class="btn btn-primary" name="action"
-									value="Submitworkshop">Submit</button>
+									value="Submitworkshop">Add</button>
 							</div>
 						</div>
 					</c:forEach>
@@ -301,7 +293,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
