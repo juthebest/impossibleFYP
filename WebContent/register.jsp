@@ -49,20 +49,19 @@
 	rel="stylesheet"></link>
 <link rel="stylesheet" type="text/css" href="css/home.css" />
 
-<sql:query var="programname" dataSource="${dataSource}">
+<%-- <sql:query var="programname" dataSource="${dataSource}">
                	select * from program,category_has_program,category,status
 				where program.program_id=category_has_program.program_id
 				AND category_has_program.category_id=category.category_id  
 				AND program.status_id=status.status_id
 				AND program.program_id=<%=request.getParameter("program_id")%>
-</sql:query>
-
+</sql:query> --%>
 
 <body>
 
 	<form action="registerpassword.jsp" method="get" name="myForm"
 		id="login_form" class="form-horizontal" data-toggle="validator"
-		role="form" onsubmit="return validateForm()">
+		role="form" onsubmit="return formValidation()">
 		<div class="container">
 			<div class="container-fluid">
 				<div class="registrationpanel">
@@ -71,7 +70,7 @@
 							<h3 class="panel-title">Registration Page</h3>
 						</div>
 
-
+						<%-- 
 						<c:forEach var="program" items="${programname.rows}">
 							<p>
 								<b>Program Registered:</b> <input type="text"
@@ -79,7 +78,7 @@
 									value="${program.program_name}" required>
 							</p>
 						</c:forEach>
-
+ --%>
 						<!-- class="form-control" -->
 						<fieldset style="padding-left: 10px">
 							<h3>Personal Details Of Parent</h3>
@@ -103,7 +102,9 @@
 									<label class="col-xs-2" for="category">Full Name:</label>
 									<div class="col-xs-2">
 										<input type="text" class="form-control" placeholder="Surname"
-											id="sname_input" name="sname" value="" required>
+											id="sname_input" name="sname" value="" required
+											pattern=".{3,}" required
+											title="Minimum 3 characters required">
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" id="gname_input"
@@ -290,8 +291,8 @@
 
 						<div class="form-actions">
 							<button type="submit" class="btn btn-primary"
-								onclick=validateForm()>Next</button>
-							<a href="viewProgramsNcourses.html"><button type="button"
+								onclick=formValidation()>Next</button>
+							<a href="viewProgramsNcourses.jsp"><button type="button"
 									class="btn btn-danger">Cancel</button></a>
 						</div>
 
@@ -300,6 +301,167 @@
 			</div>
 		</div>
 	</form>
+
+
+
+	<script>
+
+function formValidation()  
+{  
+/* 	parent
+ */	var sname = document.myForm.sname;  
+	var gname = document.myForm.gname;  
+	var contact_number = document.myForm.contact_number;  
+	var address = document.myForm.address;  
+	var postal_code = document.myForm.postal_code;
+	
+/* child	
+ */var sname1 = document.myForm.sname1;  
+var gname1 = document.myForm.gname1;  
+var contact_number1 = document.myForm.contact_number1;  
+var address1 = document.myForm.address1;
+var postal_code1 = document.myForm.postal_code1;
+
+
+if(allLetter(uname))  
+{  
+if(alphanumeric(uadd))  
+{   
+if(countryselect(ucountry))  
+{  
+	
+/* postalcode */
+if(allnumeric(postal_code))  
+{  
+if(ValidateEmail(uemail))  
+{  
+if(validsex(umsex,ufsex))  
+{  
+}  
+ 
+}   
+}  
+}  
+}  
+}  
+return false;  
+  
+} function sname_validation(sname)  
+{  
+var sname_len = sname.value.length;  
+if (sname_len == 0)  
+{  
+alert("User Id should not be empty");  
+uid.focus();  
+return false;  
+}  
+return true;  
+}  
+function passid_validation(passid,mx,my)  
+{  
+var passid_len = passid.value.length;  
+if (passid_len == 0 ||passid_len >= my || passid_len < mx)  
+{  
+alert("Password should not be empty / length be between "+mx+" to "+my);  
+passid.focus();  
+return false;  
+}  
+return true;  
+}  
+function allLetter(uname)  
+{   
+var letters = /^[A-Za-z]+$/;  
+if(uname.value.match(letters))  
+{  
+return true;  
+}  
+else  
+{  
+alert('Username must have alphabet characters only');  
+uname.focus();  
+return false;  
+}  
+}  
+function alphanumeric(uadd)  
+{   
+var letters = /^[0-9a-zA-Z]+$/;  
+if(uadd.value.match(letters))  
+{  
+return true;  
+}  
+else  
+{  
+alert('User address must have alphanumeric characters only');  
+uadd.focus();  
+return false;  
+}  
+}  
+function countryselect(ucountry)  
+{  
+if(ucountry.value == "Default")  
+{  
+alert('Select your country from the list');  
+ucountry.focus();  
+return false;  
+}  
+else  
+{  
+return true;  
+}  
+}  
+function allnumeric(postal_code)  
+{   
+var numbers = /^[0-9]+$/;  
+if(postal_code.value.match(numbers))  
+{  
+return true;  
+}  
+else  
+{  
+alert('ZIP code must have numeric characters only');  
+postal_code.focus();  
+return false;  
+}  
+}  
+function ValidateEmail(uemail)  
+{  
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+if(uemail.value.match(mailformat))  
+{  
+return true;  
+}  
+else  
+{  
+alert("You have entered an invalid email address!");  
+uemail.focus();  
+return false;  
+}  
+} function validsex(umsex,ufsex)  
+{  
+x=0;  
+  
+if(umsex.checked)   
+{  
+x++;  
+} if(ufsex.checked)  
+{  
+x++;   
+}  
+if(x==0)  
+{  
+alert('Select Male/Female');  
+umsex.focus();  
+return false;  
+}  
+else  
+{  
+alert('Form Succesfully Submitted');  
+window.location.reload()  
+return true;  
+}  
+} 
+
+</script>
 
 
 	<!-- Start of <Fixed footer> -->

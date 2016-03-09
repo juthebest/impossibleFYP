@@ -12,7 +12,7 @@ function validateForm() {
 		return false;
 	}
 
-	if (document.myForm.country.value == "" || document.myForm.country.value.length != 2) {
+	if ((document.myForm.country.value == "") || (document.myForm.country.value.length != 2)) {
 		alert("Please provide your country code for parent!");
 		document.myForm.country.focus();
 		return false;
@@ -33,8 +33,8 @@ function validateForm() {
 		return false;
 	}
 
-	if (document.myForm.postal_code.value == ""
-			|| document.myForm.postal_code.value.length != 6) {
+	if ((document.myForm.postal_code.value == "")
+			|| (document.myForm.postal_code.value.length != 6)) {
 		alert("Please provide your postal code for parent!");
 		document.myForm.postal_code.focus();
 		return false;

@@ -215,8 +215,7 @@
 							<a class="btn btn-success"
 								href="viewProgramDetails.jsp?program_id=${category.program_id}">
 								View Details &raquo; </a> <a class="btn btn-info"
-								href="register.jsp?program_id=${category.program_id}">
-								Register &raquo; </a>
+								href="register.jsp"> Register &raquo; </a>
 						</div>
 					</div>
 				</c:forEach>
@@ -250,7 +249,7 @@
 							<a class="btn btn-success"
 								href="viewWorkshops.jsp?workshop_id=${category.item_id}">
 								View Details &raquo; </a> <a class="btn btn-info"
-								href="shoppingcart.html"> Add To Cart &raquo; </a>
+								href="register.jsp"> Register &raquo; </a>
 						</div>
 					</div>
 				</c:forEach>
@@ -277,7 +276,7 @@
 							<a class="btn btn-success"
 								href="viewCoachingSession.jsp?coaching_id=${category.item_id}">
 								View Details &raquo; </a> <a class="btn btn-info"
-								href="shoppingcart.html"> Add To Cart &raquo; </a>
+								href="register.jsp"> Register &raquo; </a>
 						</div>
 					</div>
 				</c:forEach>

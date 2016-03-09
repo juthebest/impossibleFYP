@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <jsp:include page="main/publicNavigations.jsp"></jsp:include>
 <c:if test="${dataSource==null}">
 	<sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/mydb" scope="session"
-		user="root" password="" />
+		url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
+		password="" />
 </c:if>
 
 <%-- <c:when test="${param.target==null}">
@@ -39,9 +38,6 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="css/bootstrap-spinner.css" rel="stylesheet">
-
-
-
 
 <link href="css/home.css" rel="stylesheet">
 <%
@@ -91,7 +87,7 @@
 					Coaching Session
 				</h2>
 			</div>
-			
+
 
 			<form class="form-horizontal" role="form">
 				<div class="col-sm-8">
@@ -126,9 +122,9 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<a class="btn btn-danger" data-dismiss="modal"  href="viewProgramsNcourses.jsp">Close</a>
-							<a type="submit" class="btn btn-info"
-								href="shoppingcart.html">Add To Cart</a>
+							<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
+								class="btn btn-danger" data-dismiss="modal"
+								href="viewProgramsNcourses.jsp">Back</a>
 						</div>
 					</div>
 				</div>
@@ -139,7 +135,6 @@
 	<!-- footer -->
 	<footer id="footerMenu"></footer>
 	<!-- end of footer -->
-
 
 	<script src="js/footer.js"></script>
 	<script src="js/jquery.spinner.js"></script>

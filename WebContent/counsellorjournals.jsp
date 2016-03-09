@@ -43,7 +43,7 @@
 		sessionID = session.getId();
 	}
 %>
-<h3>
+<%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -56,7 +56,7 @@
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
+</form> --%>
 
 
 <sql:query var="coachid" dataSource="${dataSource}">
