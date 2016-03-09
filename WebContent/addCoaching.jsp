@@ -75,19 +75,7 @@ SELECT * FROM item_type
 </head>
 
 
-<style>
-#uploadImages .thumbnail {
-	width: 150px;
-	height: 150px;
-	float: left;
-	margin: 2px;
-}
 
-#uploadImages .thumbnail img {
-	width: 150px;
-	height: 150px;
-}
-</style>
 <body>
 
 
@@ -117,7 +105,7 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal"  method="post"  data-toggle="validator" role="form" action="InsertCoaching" enctype="multipart/form-data">
+						<form action="b" class="form-horizontal" method="post"  data-toggle="validator" role="form" enctype="multipart/form-data">
 
 
 
