@@ -117,7 +117,7 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" data-toggle="validator" role="form" action="InsertCoaching">
+						<form class="form-horizontal"  method="post"  data-toggle="validator" role="form" action="InsertCoaching" enctype="multipart/form-data">
 
 
 
@@ -131,27 +131,31 @@ SELECT * FROM item_type
 								</div>
 							</div>
 							
-								<!-- <div class="form-group required">
-									<label class="col-sm-2 control-label" for="input-name1">Image:</label>
-									<div class="col-sm-10">
-										<input id="input-image-1" name="input-image" type="file"
-											class="file-loading" accept="image/*">
-										<div id="kv-success-modal" class="modal fade">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-														<h4 class="modal-title">Yippee!</h4>
-													</div>
-													<div id="kv-success-box" class="modal-body"></div>
+								<!-- IMAGE  -->
+							<div class="form-group required">
+								<label class="col-sm-2 control-label" for="input-name1">Image
+									Banner 1:</label>
+								<div class="col-sm-10">
+									<input id="input-image-1" name="photo" type="file"
+										class="file-loading" accept="image/*">
+
+									<!-- an example modal dialog to display confirmation of the resized image -->
+									<div id="kv-success-modal" class="modal fade">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Yippee!</h4>
 												</div>
+												<div id="kv-success-box" class="modal-body"></div>
 											</div>
 										</div>
 									</div>
-								</div>  -->
+								</div>
+							</div>
 								
 
 							<div class="form-group required"></div>
@@ -206,9 +210,8 @@ SELECT * FROM item_type
 								<label class="col-sm-2 control-label" for="status">Status:</label>
 								<div class="col-sm-10">
 									<select class="form-control" id="status" name="status">
-										<c:forEach var="status" items="${status.rows}">
-											<option value="<c:out value="${status.status_id}" />"><c:out
-													value="${status.status_name}" /></option>
+										<c:forEach var="status1" items="${status.rows}">
+											<option value="${status1.status_id}">${status1.status_id}${status1.status_name}</option>
 										</c:forEach>
 
 									</select>

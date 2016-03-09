@@ -155,7 +155,6 @@
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	<script src="js/navlinks-admin.js"></script>
 	<script src="js/footer.js"></script>
 
 

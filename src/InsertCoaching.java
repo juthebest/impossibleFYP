@@ -1,5 +1,5 @@
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.Connection;
 
 import java.sql.SQLException;
@@ -28,13 +28,13 @@ public class InsertCoaching extends HttpServlet {
 	
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 
 		// Set response content type
 		response.setContentType("text/html");
 
-
+		PrintWriter out = response.getWriter();
 
 		try{
 
@@ -61,7 +61,18 @@ public class InsertCoaching extends HttpServlet {
              courseDuration = Integer.parseInt(request.getParameter("duration"));
              
              
+             out.println(courseName);
              
+             out.println(courseDesc);
+             
+             out.println(courseDesc);
+             
+             out.println(courseStatus);
+             
+             out.println(courseCat);
+             
+             
+             out.println(courseDuration);
 			// Execute SQL query
 			final  Statement stmt = conn.createStatement();
 

@@ -74,19 +74,7 @@ SELECT * FROM item_type
 </head>
 
 
-<style>
-#uploadImages .thumbnail {
-	width: 150px;
-	height: 150px;
-	float: left;
-	margin: 2px;
-}
 
-#uploadImages .thumbnail img {
-	width: 150px;
-	height: 150px;
-}
-</style>
 <body>
 
 
@@ -115,7 +103,7 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form action="a" class="form-horizontal" data-toggle="validator" role="form"  enctype="multipart/form-data" >
+						<form action="InsertWorkshop" class="form-horizontal" method="post" data-toggle="validator" role="form"  enctype="multipart/form-data" >
 
 
 
@@ -129,27 +117,31 @@ SELECT * FROM item_type
 								</div>
 							</div>
 							
+							<!-- IMAGE  -->
 							<div class="form-group required">
-									<label class="col-sm-2 control-label" for="input-name1">Image:</label>
-									<div class="col-sm-10">
-										<input id="input-image-1" name="photo" type="file"
-											class="file-loading" accept="image/*">
-										<div id="kv-success-modal" class="modal fade">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-														<h4 class="modal-title">Yippee!</h4>
-													</div>
-													<div id="kv-success-box" class="modal-body"></div>
+								<label class="col-sm-2 control-label" for="input-name1">Image
+									Banner 1:</label>
+								<div class="col-sm-10">
+									<input id="input-image-1" name="photo" type="file"
+										class="file-loading" accept="image/*">
+
+									<!-- an example modal dialog to display confirmation of the resized image -->
+									<div id="kv-success-modal" class="modal fade">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Yippee!</h4>
 												</div>
+												<div id="kv-success-box" class="modal-body"></div>
 											</div>
 										</div>
 									</div>
-								</div>  
+								</div>
+							</div>
 								
 
 							<div class="form-group required"></div>
@@ -239,7 +231,6 @@ SELECT * FROM item_type
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	<script src="js/navlinks-admin.js"></script>
 	<script src="js/footer.js"></script>
 
 
@@ -254,18 +245,18 @@ SELECT * FROM item_type
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<!-- canvas-to-blob.min.js is only needed if you wish to resize images before upload.
- This must be loaded before fileinput.min.js -->
+This must be loaded before fileinput.min.js -->
 	<script src="js/canvas-to-blob.min.js" type="text/javascript"></script>
 	<script src="js/fileinput.min.js" type="text/javascript"></script>
 	<!-- bootstrap.js below is only needed if you wish to use the feature of viewing details 
- of text file preview via modal dialog -->
+of text file preview via modal dialog -->
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
 		type="text/javascript"></script>
 	<!-- optionally if you need translation for your language then include 
 locale file as mentioned below -->
-	<script src="js/fileinput.js"></script>
 	<script src="js/fileinput_locale_<lang>.js"></script>
+	<script src="js/fileinput.js"></script>
 	<script>
 		$("#input-image-1").fileinput({
 			uploadUrl : "/site/image-upload",

@@ -130,7 +130,7 @@ SELECT * FROM item_type
 					</div>
 					<div class="panel-body">
 						<form class="form-horizontal" data-toggle="validator" role="form"
-							action="InsertProgram">
+							action="InsertProgram"  method="post"  enctype="multipart/form-data">
 							<div class="form-group required">
 								<label class="col-sm-2 control-label" for="program_name">Program
 									Name:</label>
@@ -178,11 +178,12 @@ SELECT * FROM item_type
 							</div>
 
 
-							<!-- IMAGE  -->
+						<!-- IMAGE  -->
 							<div class="form-group required">
-								<label class="col-sm-2 control-label" for="input-name1">Image:</label>
+								<label class="col-sm-2 control-label" for="input-name1">Image
+								:</label>
 								<div class="col-sm-10">
-									<input id="input-image-1" name="input-image" type="file"
+									<input id="input-image-1" name="photo" type="file"
 										class="file-loading" accept="image/*">
 
 									<!-- an example modal dialog to display confirmation of the resized image -->
@@ -202,6 +203,8 @@ SELECT * FROM item_type
 									</div>
 								</div>
 							</div>
+								
+
 
 							<div class="form-group required"></div>
 							<div class="form-group">

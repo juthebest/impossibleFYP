@@ -45,43 +45,38 @@
 }
 </style>
 <%
-	
-	
-	
-		//allow access only if session exists
-		String user = null;
-		String uid = null;
-		 user = (String) session.getAttribute("name");
-		 uid = (String) session.getAttribute("uid");
-		String userName = null;
-		String sessionID = null;
-		String userrole = null;
-		String userID = null;
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("name"))
-					userName = cookie.getValue();
-				if (cookie.getName().equals("JSESSIONID"))
-					sessionID = cookie.getValue();
-				if (cookie.getName().equals("role"))
-					userrole = cookie.getValue();
-				if (cookie.getName().equals("id"))
-					userID = cookie.getValue();
-			}
-		} else {
-			sessionID = session.getId();
+	//allow access only if session exists
+	String user = null;
+	String uid = null;
+	user = (String) session.getAttribute("name");
+	uid = (String) session.getAttribute("uid");
+	String userName = null;
+	String sessionID = null;
+	String userrole = null;
+	String userID = null;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("name"))
+				userName = cookie.getValue();
+			if (cookie.getName().equals("JSESSIONID"))
+				sessionID = cookie.getValue();
+			if (cookie.getName().equals("role"))
+				userrole = cookie.getValue();
+			if (cookie.getName().equals("id"))
+				userID = cookie.getValue();
 		}
+	} else {
+		sessionID = session.getId();
+	}
 
-		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%>
+	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+%>
 
 </head>
 
 <body>
-	<!-- start of navigation bar  -->
-	<nav id="navMenu"></nav>
-	<!-- End of navigation bar  -->
+
 	<div class="container">
 		<c:forEach var="workshopCategory" items="${workshopCategory.rows}">
 
@@ -92,11 +87,23 @@
 				</h2>
 			</div>
 
-			<form class="form-horizontal" role="form">
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="container">
+
+						<img
+							src="http://localhost:8080/impossibleWeb/readImageItem?id=${workshopCategory.item_id} class="
+							img-thumbnail" alt="Cinque Terre" width="304" height="236">
+					</div>
+
+
+				</div>
 				<div class="col-sm-8">
-				
+
 					<div class="alingment">
-						
+
+
 						<p>
 							<b>Workshop Description:</b>
 							<c:out value="${workshopCategory.item_desc}" />
@@ -108,14 +115,16 @@
 						</p>
 
 
-						<div class="modal-footer">
+				
+					</div>
+				</div>
+			</div>
+					<div class="modal-footer">
 							<a class="btn btn-danger" data-dismiss="modal"
 								href="viewProgramsNcourses.jsp">Close</a> <a type="submit"
 								class="btn btn-info" href="shoppingcart.html">Add To Cart</a>
 						</div>
-					</div>
-				</div>
-			</form>
+
 		</c:forEach>
 	</div>
 	<!-- end of body container -->

@@ -131,7 +131,7 @@
 
 						<div class="panel-body">
 
-							<form action="EditWorkshop" method="get"
+							<form action="EditWorkshop" method="post"
 								enctype="multipart/form-data" id="form-category"
 								class="form-horizontal">
 								<input type="hidden" name="itemID"
@@ -165,32 +165,36 @@
 										</div>
 									</div>
 								</div>
-								<!-- IMAGE
-								<div class="form-group required">
-									<label class="col-sm-2 control-label" for="input-name1">Image:</label>
-									<div class="col-sm-10">
-										<input id="input-image-1" name="input-image" type="file"
-											class="file-loading" accept="image/*">
+						
+											
+							<!-- IMAGE  -->
+							<div class="form-group required">
+								<label class="col-sm-2 control-label" for="input-name1">Image:</label>
+								<div class="col-sm-10">
+									<input id="input-image-1" name="photo" type="file"
+										class="file-loading" value="" accept="image/*">
+										
+										
+										
+										
 
-										an example modal dialog to display confirmation of the resized image
-										<div id="kv-success-modal" class="modal fade">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-														<h4 class="modal-title">Yippee!</h4>
-													</div>
-													<div id="kv-success-box" class="modal-body"></div>
+									<!-- an example modal dialog to display confirmation of the resized image -->
+									<div id="kv-success-modal" class="modal fade">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Yippee!</h4>
 												</div>
+												<div id="kv-success-box" class="modal-body"></div>
 											</div>
 										</div>
 									</div>
-								</div> 
-								-->
-
+								</div>
+							</div>
 								<div class="form-group required"></div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="input-description1">Description:</label>

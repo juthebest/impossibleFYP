@@ -129,7 +129,7 @@
 					</div>
 					<c:forEach var="program" items="${program.rows}">
 						<div class="panel-body">
-							<form class="form-horizontal" data-toggle="validator" role="form"
+							<form class="form-horizontal"  method="post" data-toggle="validator" role="form" enctype="multipart/form-data"
 								action="EditProgram">
 								<input type="hidden" name="programID"
 									value="<c:out value="${program.program_id}" />" />
@@ -207,30 +207,31 @@
 								</div>
 
 
-								<!-- IMAGE  -->
-								<div class="form-group required">
-									<label class="col-sm-2 control-label" for="input-name1">Image:</label>
-									<div class="col-sm-10">
-										<input id="input-image-1" name="input-image" type="file"
-											class="file-loading" accept="image/*">
+									<!-- IMAGE  -->
+							<div class="form-group required">
+								<label class="col-sm-2 control-label" for="input-name1">Image
+									Banner 1:</label>
+								<div class="col-sm-10">
+									<input id="input-image-1" name="photo" type="file"
+										class="file-loading" accept="image/*">
 
-										<!-- an example modal dialog to display confirmation of the resized image -->
-										<div id="kv-success-modal" class="modal fade">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-														<h4 class="modal-title">Yippee!</h4>
-													</div>
-													<div id="kv-success-box" class="modal-body"></div>
+									<!-- an example modal dialog to display confirmation of the resized image -->
+									<div id="kv-success-modal" class="modal fade">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Yippee!</h4>
 												</div>
+												<div id="kv-success-box" class="modal-body"></div>
 											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 
 								<div class="form-group required"></div>
 								<div class="form-group">
