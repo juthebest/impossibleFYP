@@ -102,7 +102,9 @@
 									<label class="col-xs-2" for="category">Full Name:</label>
 									<div class="col-xs-2">
 										<input type="text" class="form-control" placeholder="Surname"
-											id="sname_input" name="sname" value="" required>
+											id="sname_input" name="sname" value="" required
+											pattern=".{3,}" required
+											title="Minimum 3 characters required">
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" id="gname_input"
