@@ -211,7 +211,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryp.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewProgramDetails.jsp?program_id=${categoryp.program_id}">
+									href="studentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
 									View Details &raquo; </a>
 
 
