@@ -83,8 +83,6 @@ SELECT * FROM program_has_client
 WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	</sql:query>
 </c:forEach>
-<!-- coaching -->
-
 
 <head>
 <meta charset="utf-8">
