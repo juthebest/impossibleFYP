@@ -135,7 +135,8 @@ public class deleteCoach extends HttpServlet {
 
 
 			if(rs==1){
-				response.sendRedirect("manageCoachUser.jsp");
+				 request.getRequestDispatcher("/manageCoachUser.jsp").forward(request, response);
+
 
 			}else{
 			

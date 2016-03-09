@@ -102,7 +102,7 @@ public class deleteItemStatus extends HttpServlet {
 
 
 				if(rs==1){
-					response.sendRedirect("manageItemStatus.jsp");
+					 request.getRequestDispatcher("/manageItemStatus.jsp").forward(request, response);
 
 				}else{
 					 request.getRequestDispatcher("/manageItemStatus.jsp").forward(request, response);

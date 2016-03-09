@@ -82,7 +82,7 @@ public class deleteUserStatus extends HttpServlet {
 
 
 			if(rs==1){
-				response.sendRedirect("manageUserStatus.jsp");
+				request.getRequestDispatcher("/manageUserStatus.jsp").forward(request, response);
 
 			}else{
 				request.getRequestDispatcher("/manageUserStatus.jsp").forward(request, response);

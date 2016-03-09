@@ -102,7 +102,7 @@ public class deleteEnrollmentStatus extends HttpServlet {
 
 
 				if(rs==1){
-					response.sendRedirect("manageEnrollmentStatus.jsp");
+					request.getRequestDispatcher("/manageEnrollmentStatus.jsp").forward(request, response);
 
 				}else{
 					request.getRequestDispatcher("/manageEnrollmentStatus.jsp").forward(request, response);

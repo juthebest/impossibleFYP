@@ -120,7 +120,8 @@ public class deleteCategoryServlet extends HttpServlet {
 
 
 			if(rs==1){
-				response.sendRedirect("manageCategory.jsp");
+
+			    request.getRequestDispatcher("/manageCategory.jsp").forward(request, response);
 				
 
 			}else{

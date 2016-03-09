@@ -99,12 +99,14 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 
 
 					rs =  stmt.executeUpdate(query);
+					
+					request.setAttribute("Error","Successfully deleted!");
 				}
 
 			}
 
 			if(rs==1){
-				response.sendRedirect("manageWorkShopSchedule.jsp");
+				request.getRequestDispatcher("/manageWorkShopSchedule.jsp").forward(request, response);
 
 			}else{
 				request.getRequestDispatcher("/manageWorkShopSchedule.jsp").forward(request, response);
