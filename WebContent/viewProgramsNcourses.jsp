@@ -198,7 +198,6 @@
 						<div class="alingment">
 							<br>
 
-
 							<p>
 								<b>Title: </b>
 								<c:out value="${category.program_name}" />
