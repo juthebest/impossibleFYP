@@ -71,8 +71,9 @@ FROM  user where user_id= <%=uid%>;
 
 <c:forEach var="itemrunid2" items="${workshopCategory.rows}">
 	<sql:query var="itemrunid" dataSource="${dataSource}">
-SELECT * FROM itemrun
-WHERE item_id=<c:out value="${itemrunid2.item_id}" />
+SELECT * FROM itemrun, item
+WHERE itemrun.item_id = item.item_id
+AND item.item_id=<c:out value="${itemrunid2.item_id}" />
 	</sql:query>
 </c:forEach>
 
@@ -93,6 +94,15 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
                 AND item.item_type_id=?
                                 <sql:param value="1" />
 </sql:query>
+
+<c:forEach var="itemcoachrunid2" items="${coachingCategory.rows}">
+	<sql:query var="itemcoachrunid" dataSource="${dataSource}">
+SELECT * FROM itemrun, item
+WHERE itemrun.item_id = item.item_id
+AND item.item_id=<c:out value="${itemcoachrunid2.item_id}" />
+	</sql:query>
+</c:forEach>
+
 
 <head>
 <meta charset="utf-8">
@@ -139,18 +149,18 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 
 					<c:forEach var="getitemrunid" items="${itemrunid.rows}">
-
 						<input type="hidden" name="itemrunidis"
 							value="${getitemrunid.itemrun_id}" />
 					</c:forEach>
-					
-					<c:forEach var="programhasclient" items="${programhasclientidis.rows}">
+
+					<c:forEach var="programhasclient"
+						items="${programhasclientidis.rows}">
 
 						<input type="hidden" name="programhasclientis"
-							value="${programhasclient.client_id}" />
+							value="${programhasclient.program_has_client_id}" />
 					</c:forEach>
-					
-					
+
+
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
 						<input type="hidden" name="programidis"
@@ -206,7 +216,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 									<c:out value="${categoryw.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewWorkshops.jsp?workshop_id=${category.item_id}">
+									href="viewWorkshops.jsp?workshop_id=${categoryw.item_id}">
 									View Details &raquo; </a> <a class="btn btn-info"
 									href="shoppingcart.html"> Register &raquo; </a>
 
@@ -236,7 +246,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 									<c:out value="${categoryc.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="viewCoachingSession.jsp?coaching_id=${category.item_id}">
+									href="viewCoachingSession.jsp?coaching_id=${categoryc.item_id}">
 									View Details &raquo; </a> <a class="btn btn-info" href="#">
 									Register &raquo; </a>
 								<button type="submit" class="btn btn-primary" name="action"
