@@ -80,19 +80,7 @@ public class InsertCoaching extends HttpServlet {
       courseCost = request.getParameter("course_cost");
       courseDuration = Integer.parseInt(request.getParameter("duration"));
              
-             out.println(courseName);
-             
-             out.println(courseDesc);
-             
-             out.println(courseDesc);
-             
-             out.println(courseStatus);
-             
-             out.println(courseCat);
-             
-             
-             out.println(courseDuration);
-             
+    
          	java.util.Date dt = new java.util.Date();
 			java.text.SimpleDateFormat sdf = 
 					new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -118,7 +118,7 @@
 											Name</label>
 										<div class="col-sm-10">
 											<input type="text" name="editname" id="inputname"
-												class="form-control" value="${items.category_name}" required />
+												class="form-control" value="${items.category_name}"  pattern="^[A-Z].*"  title="Must start with uppercase"required />
 
 										</div>
 									</div>

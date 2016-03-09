@@ -115,7 +115,8 @@ WHERE  `control_id` =1
 									<label class="col-sm-2 control-label" for="input-address">Address:</label>
 									<div class="col-sm-10">
 										<input type="text" name="address"
-											value="${info.office_address}" id="cAddress"
+											value="${info.office_address}" id="cAddress" pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code"
 											class="form-control" required />
 									</div>
 								</div>
@@ -136,7 +137,7 @@ WHERE  `control_id` =1
 										Number:</label>
 									<div class="col-sm-10">
 										<input type="text" name="pn" id="cPN"
-											value="${info.office_tel_number}" class="form-control"
+											value="${info.office_tel_number}" pattern="^[69]\d{7}$" title="Phone number must start with 6/8/9/and 7 digits" class="form-control"
 											required />
 
 
@@ -158,7 +159,7 @@ WHERE  `control_id` =1
 										Direction:</label>
 									<div class="col-sm-10">
 										<input type="text" name="direction" id="cDirection"
-											class="form-control" value="${info.office_directions}"
+											class="form-control" pattern="([A-Z][a-zA-Z\-\']*\s*)*" title="Must be uppercase"  value="${info.office_directions}"
 											required />
 
 
@@ -213,6 +214,28 @@ WHERE  `control_id` =1
 	<script src="js/bootstrap.js"></script>
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		
+		<script>
+			var validations ={
+		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		};
+		$(document).ready(function(){
+		    // Check all the input fields of type email. This function will handle all the email addresses validations
+		    $("input[type=email]").change( function(){
+		        // Set the regular expression to validate the email 
+		        validation = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validation.test(this.value)){
+		            // If the validation fails then we show the custom error message
+		            this.setCustomValidity(validations['email'][1]);
+		            return false;
+		        } else {
+		            // This is really important. If the validation is successful you need to reset the custom error message
+		            this.setCustomValidity('');
+		        }
+		    });
+		})
+	</script>
 </body>
 </html>
 </html>

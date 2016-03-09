@@ -199,7 +199,7 @@ SELECT * FROM item_type
 								<div class="col-sm-10">
 									<select class="form-control" id="status" name="status">
 										<c:forEach var="status1" items="${status.rows}">
-											<option value="${status1.status_id}">${status1.status_id}${status1.status_name}</option>
+											<option value="${status1.status_id}">${status1.status_name}</option>
 										</c:forEach>
 
 									</select>

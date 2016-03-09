@@ -22,7 +22,7 @@ SELECT  * from banner_image
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Manage About</title>
+<title>I'MPOSSIBLE - Manage Index</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -76,13 +76,14 @@ SELECT  * from banner_image
 			<div class="page-header">
 				<div class="container-fluid">
 
-					<h1>Manage About</h1>
+					<h1>Manage Index</h1>
 
 					<ul class="breadcrumb">
 						<li><a href="adminIndex.jsp">Home</a></li>
-						<li><a href="manageIndex.jsp">Manage Index</a></li>
+						
 						<li><a href="manageContactUs.jsp">Manage Contact Us</a></li>
 							<li><a href="manageAbout.jsp">Manage About</a></li>
+							<li><a href="manageIndex.jsp">Manage Index</a></li>
 					</ul>
 				</div>
 			</div>
