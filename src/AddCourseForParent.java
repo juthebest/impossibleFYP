@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -21,37 +20,26 @@ import dao.Database;
 @WebServlet("/AddCourseForParent")
 public class AddCourseForParent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddCourseForParent() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public AddCourseForParent() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -95,7 +83,7 @@ public class AddCourseForParent extends HttpServlet {
 				}
 				if (ct > 0) {
 					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + programid);
-					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
+					request.getRequestDispatcher("/ParentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
 
@@ -112,10 +100,10 @@ public class AddCourseForParent extends HttpServlet {
 
 				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("myCourseNPrograms.jsp");
+					response.sendRedirect("ParentCoursesNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("ParentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
@@ -168,7 +156,7 @@ public class AddCourseForParent extends HttpServlet {
 				}
 				if (ct > 0) {
 					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + itemrunid);
-					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
+					request.getRequestDispatcher("/ParentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
 
@@ -186,10 +174,10 @@ public class AddCourseForParent extends HttpServlet {
 
 				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("myCourseNPrograms.jsp");
+					response.sendRedirect("ParentCoursesNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("ParentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
@@ -242,7 +230,7 @@ public class AddCourseForParent extends HttpServlet {
 				}
 				if (ct > 0) {
 					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + itemrunidws);
-					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
+					request.getRequestDispatcher("/ParentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
 
@@ -261,10 +249,10 @@ public class AddCourseForParent extends HttpServlet {
 
 				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("myCourseNPrograms.jsp");
+					response.sendRedirect("ParentCoursesNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("ParentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {

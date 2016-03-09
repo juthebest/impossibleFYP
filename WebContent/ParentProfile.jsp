@@ -228,9 +228,8 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 		</div>
 		<p style="text-align: right">
 			<a class="btn btn-default" href="editparentprofile.jsp" role="button"><i
-				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-default"
+				class="glyphicon glyphicon-edit"></i>Edit</a> <a class="btn btn-danger"
 				href="parenthomepage.jsp" role="button">Back</a>
-
 		</p>
 	</div>
 

@@ -41,6 +41,9 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
+
+
+
 <sql:query var="parentdetails" dataSource="${dataSource}">
 SELECT * FROM user, client
 WHERE user.parent_id = client.parent_id
@@ -139,7 +142,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 		<div class="testing">
-			<form action="AddCourseForUser" method="post" class="form-horizontal">
+			<form action="AddCourseForParent" method="post" class="form-horizontal">
 				<div class="row">
 					<h2>Programs</h2>
 					<hr>
