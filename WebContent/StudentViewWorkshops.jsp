@@ -104,9 +104,6 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 </head>
 
 <body>
-	<!-- start of navigation bar  -->
-	<nav id="navMenu"></nav>
-	<!-- End of navigation bar  -->
 
 	<div class="container">
 		<form action="AddCourseForUser" method="post" class="form-horizontal">
