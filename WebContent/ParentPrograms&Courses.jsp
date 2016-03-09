@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<jsp:include page="main/userNavigation.jsp"></jsp:include>
+<jsp:include page="main/parentNavigation.jsp"></jsp:include>
 
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
@@ -14,7 +14,7 @@
 	String role = (String) session.getAttribute("role");
 	String uid = null;
 	if (session.getAttribute("name") == null || session.getAttribute("role") == null
-			|| !role.equalsIgnoreCase("child")) {
+			|| !role.equalsIgnoreCase("parent")) {
 		response.sendRedirect("login.jsp");
 	} else
 		user = (String) session.getAttribute("name");
@@ -41,11 +41,19 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
+<sql:query var="parentdetails" dataSource="${dataSource}">
+SELECT * FROM user, client
+WHERE user.parent_id = client.parent_id
+AND user.user_id = <%=uid%>;</sql:query>
 
-<sql:query var="userprofile" dataSource="${dataSource}">
-SELECT * 
-FROM  user where user_id= <%=uid%>;
-</sql:query>
+
+<c:forEach var="userprofile2" items="${parentdetails.rows}">
+	<sql:query var="userprofile" dataSource="${dataSource}">
+SELECT * FROM user, client
+WHERE client.client_id = user.client_id
+AND client.client_id=<c:out value="${userprofile2.client_id}" />
+	</sql:query>
+</c:forEach>
 
 
 <sql:query var="programCategory" dataSource="${dataSource}">
@@ -195,10 +203,10 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<b>Categories: </b>
 									<c:out value="${categoryp.category_name}" />
 								</p>
-								<a class="btn btn-success"
-									href="studentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
-									View Details &raquo; </a>
 
+								<a class="btn btn-success"
+									href="parentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
+									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitprogram">Add</button>
@@ -228,7 +236,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryw.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="StudentViewWorkshops.jsp?workshop_id=${categoryw.item_id}">
+									href="parentviewworkshops.jsp?workshop_id=${categoryw.item_id}">
 									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
@@ -256,17 +264,18 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryc.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="studentviewcoaching.jsp?coaching_id=${categoryc.item_id}">
+									href="parentviewcoaching.jsp?coaching_id=${categoryc.item_id}">
 									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitworkshop">Add</button>
+									
+									<br/><br/><br/><br/><br/><br/>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
 			</form>
-
 		</div>
 	</div>
 

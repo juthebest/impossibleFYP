@@ -63,7 +63,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="myCourseNPrograms.jsp">My Courses & Programs</a></li>
 						<li class="active">
-						<li><a href="viewProgramsNcourses.jsp">All Courses &
+						<li><a href="StudentPrograms&Courses.jsp">All Courses &
 								Programs</a></li>
 					</ul></li>
 
@@ -99,9 +99,8 @@
 					<ul class="dropdown-menu">
 						<li><a href="userProfile.jsp"><i class="fa fa-fw fa-user"></i>
 								Profile</a></li>
-						<li><a href="shoppingcart.jsp"><i
-								class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart</a></li>
-
+<!-- 						<li><a href="shoppingcart.jsp"><i
+								class="glyphicon glyphicon-shopping-cart"></i> Shopping Cart</a></li> -->
 
 						<li class="divider"></li>
 						<li><a href="LogoutServlet"><i
