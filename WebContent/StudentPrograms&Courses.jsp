@@ -118,7 +118,7 @@ FROM  user where user_id= <%=uid%>;
 							value="${gettheuserid.client_id}" />
 					</c:forEach>
 
-					<c:forEach var="category" items="${programCategory.rows}">
+					<c:forEach var="categoryp" items="${programCategory.rows}">
 
 						<input type="hidden" name="programidis"
 							value="${category.program_id}" />
@@ -128,11 +128,11 @@ FROM  user where user_id= <%=uid%>;
 								<br>
 								<p>
 									<b>Title: </b>
-									<c:out value="${category.program_name}" />
+									<c:out value="${categoryp.program_name}" />
 								</p>
 								<p>
 									<b>Categories: </b>
-									<c:out value="${category.category_name}" />
+									<c:out value="${categoryp.category_name}" />
 								</p>
 								<a class="btn btn-success"
 									href="viewProgramDetails.jsp?program_id=${category.program_id}">
@@ -157,19 +157,20 @@ FROM  user where user_id= <%=uid%>;
 				<div class="row">
 					<h2>Workshops</h2>
 					<hr>
-					<c:forEach var="category" items="${workshopCategory.rows}">
+					<c:forEach var="categoryw" items="${workshopCategory.rows}">
 
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
-								<br>
+								<br> <input type="hidden" name="itemrunhasclientid"
+									value="${categoryw.}" />
 
 								<p>
 									<b>Title: </b>
-									<c:out value="${category.item_name}" />
+									<c:out value="${categoryw.item_name}" />
 								</p>
 								<p>
 									<b>Categories: </b>
-									<c:out value="${category.category_name}" />
+									<c:out value="${categoryw.category_name}" />
 								</p>
 								<a class="btn btn-success"
 									href="viewWorkshops.jsp?workshop_id=${category.item_id}">
@@ -188,19 +189,18 @@ FROM  user where user_id= <%=uid%>;
 				<div class="row">
 					<h2>Coaching Sessions</h2>
 					<hr>
-					<c:forEach var="category" items="${coachingCategory.rows}">
+					<c:forEach var="categoryc" items="${coachingCategory.rows}">
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
 								<br>
 
 								<p>
 									<b>Title: </b>
-
-									<c:out value="${category.item_name}" />
+									<c:out value="${categoryc.item_name}" />
 								</p>
 								<p>
 									<b>Categories: </b>
-									<c:out value="${category.category_name}" />
+									<c:out value="${categoryc.category_name}" />
 								</p>
 								<a class="btn btn-success"
 									href="viewCoachingSession.jsp?coaching_id=${category.item_id}">
