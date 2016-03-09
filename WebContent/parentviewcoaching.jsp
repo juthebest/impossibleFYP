@@ -125,7 +125,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 <body>
 
 	<div class="container">
-		<form action="AddCourseForUser" method="post" class="form-horizontal">
+		<form action="AddCourseForParent" method="post" class="form-horizontal">
 
 			<!-- workshop & coaching & program -->
 			<c:forEach var="gettheuserid" items="${userprofile.rows}">

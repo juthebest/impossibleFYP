@@ -43,11 +43,21 @@
 %>
 
 
-<!--  get client id so that you know which user register -->
-<sql:query var="userprofile" dataSource="${dataSource}">
-SELECT * 
-FROM  user where user_id= <%=uid%>;
-</sql:query>
+<sql:query var="parentdetails" dataSource="${dataSource}">
+SELECT * FROM user, client
+WHERE user.parent_id = client.parent_id
+AND user.user_id = <%=uid%>;</sql:query>
+
+
+<c:forEach var="userprofile2" items="${parentdetails.rows}">
+	<sql:query var="userprofile" dataSource="${dataSource}">
+SELECT * FROM user, client
+WHERE client.client_id = user.client_id
+AND client.client_id=<c:out value="${userprofile2.client_id}" />
+	</sql:query>
+</c:forEach>
+
+
 
 <sql:query var="programCategory" dataSource="${dataSource}">
                	select * from program,category_has_program,category
@@ -101,7 +111,7 @@ FROM  user where user_id= <%=uid%>;
 
 <body>
 	<div class="container">
-		<form action="AddCourseForUser" method="post" class="form-horizontal">
+		<form action="AddCourseForParent" method="post" class="form-horizontal">
 
 			<!-- workshop & coaching & program is -->
 			<c:forEach var="gettheuserid" items="${userprofile.rows}">
