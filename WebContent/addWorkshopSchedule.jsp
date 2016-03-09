@@ -112,7 +112,7 @@
 
 
 						<form action="addWorkShopSchedule" method="post"
-							class="form-horizontal" data-toggle="validator" role="form">
+							class="form-horizontal" data-toggle="validator" onsubmit="return myFunction()"  role="form">
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="wsname">Select
@@ -171,7 +171,7 @@
 											data-placement="bottom" data-align="top"
 											data-autoclose="true">
 
-											<input type="text" class="form-control" value="13:14"
+											<input type="text" class="form-control" id="single-input"
 												name="st"> <span class="input-group-addon"> <span
 												class="glyphicon glyphicon-time"></span>
 											</span>
@@ -190,7 +190,7 @@
 										<div class="input-group clockpicker pull-center"
 											data-placement="bottom" data-align="top" data-autoclose="true">
 
-											<input type="text" class="form-control" value="13:14"
+											<input type="text" class="form-control" id="singleend-input"
 												name="et"> <span class="input-group-addon"> <span
 												class="glyphicon glyphicon-time"></span>
 											</span>
@@ -247,8 +247,9 @@
 
 
 
+
 							<div class="form-actions">
-								<button type="submit" class="btn btn-primary">Save
+								<button type="submit"  class="btn btn-primary">Save
 									changes</button>
 								<a href="manageWorkShopSchedule.jsp"><button type="button"
 										class="btn btn-danger">Cancel</button></a>
@@ -319,12 +320,30 @@
 		$('.clockpicker').clockpicker().find('input').change(function() {
 			console.log(this.value);
 		});
-		$('#single-input').clockpicker({
-			placement : 'bottom',
-			align : 'right',
-			autoclose : true,
-			'default' : '20:48'
+		var input = $('#single-input').clockpicker({
+		    placement: 'bottom',
+		    align: 'left',
+		    autoclose: true,
+
+		    'default': 'now'
+		    
+				
 		});
+
+	
+		
+		var input1 = $('#singleend-input').clockpicker({
+		    placement: 'bottom',
+		    align: 'left',
+		    autoclose: true,
+		    'default': 'now'
+		});
+		
+		
+
+		
+		
+		
 		$('.clockpicker-with-callbacks').clockpicker({
 			donetext : 'Done',
 			init : function() {
@@ -365,7 +384,20 @@
 		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-
+<script>
+function myFunction() {
+    var x = document.getElementById("single-input").value;
+    var y = document.getElementById("singleend-input").value;
+    if (y<x) {
+		alert("End time is before Start time");
+		document.myForm.et.focus();
+		return false;
+	}
+    return (true);
+	
+ 
+}
+</script>
 
 </body>
 </html>

@@ -34,34 +34,20 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+	
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out =  response.getWriter();
 		try
 		{
-			// Register JDBC driver
-			// JDBC driver name and database URL
-			//  Database credentials
 
 			Database database= new Database();
 
-			// Open a connection
 			Connection connection = database.Get_Connection();
 			Statement stmt = null;
 			stmt = connection.createStatement();
 			String[] wseID= request.getParameterValues("wseID");
 
-			/*		for(int i=0;i<catID.length;i++){
-			if(i==0) {
-				catString = catString + "'" +(String)catID[i] + "'"; 
-			}else{ 
-					catString = catString + ",'" + (String)catID[i] + "'"; 
-				} 
-		}
-		out.println(catString);
 
-			 */
 			String query;
 			String query1;
 
@@ -72,8 +58,7 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 				query1 = " DELETE FROM `itemrun_has_client` WHERE  `itemrun_id` IN ('"+id+"')";
 				stmt.executeUpdate(query1);
 				query = "	 DELETE FROM `itemrun` WHERE   `itemrun_id` IN ('"+id+"')";
-				// execute the preparedstatement
-
+		
 
 
 				rs =  stmt.executeUpdate(query);

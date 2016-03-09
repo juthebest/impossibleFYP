@@ -323,6 +323,11 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 			var edatebirth="${workshop.ed}"; 
 			</c:forEach>
 			$("#example2").datepicker("setDate",new Date(edatebirth));
+			
+			
+			
+			
+			
 		});
 	</script>
 

@@ -73,39 +73,44 @@ public class addWorkShopSchedule extends HttpServlet {
 
 			out.println(sdt);
 			out.println(edt);
-out.println(st);
-out.println(et);
+			out.println(st);
+			out.println(et);
 
-String start = sdt +" "+ st;
-String end =edt +" "+ et;
-
-			// Execute SQL query
-			Statement stmt = null;
-
-		
-			stmt = connection.createStatement();
-
-
-			int i= stmt.executeUpdate("INSERT INTO `itemrun`(`item_id`, `status_id`, `coach_id`, `itemrun_start_datetime`, `item_end_datetime`, `itemrun_venue`) VALUES ('"+wsname+"','"+status+"','"+coach+"','"+start+"','"+end+"','"+venue+"')"); 
-	if(i==1){
+			String start = sdt +" "+ st;
+			String end =edt +" "+ et;
+			int net = Integer.parseInt(et);
+			int nst = Integer.parseInt(st);
+			if(net < nst){
+				request.setAttribute("Error","Error occured: Cannot delete , Category is tied to program");
+				request.getRequestDispatcher("/addWorkshopSchedule.jsp").forward(request, response);
+			}else{
+				// Execute SQL query
+				Statement stmt = null;
 
 
-	response.sendRedirect("manageWorkShopSchedule.jsp");
+				stmt = connection.createStatement();
 
 
+				int i= stmt.executeUpdate("INSERT INTO `itemrun`(`item_id`, `status_id`, `coach_id`, `itemrun_start_datetime`, `item_end_datetime`, `itemrun_venue`) VALUES ('"+wsname+"','"+status+"','"+coach+"','"+start+"','"+end+"','"+venue+"')"); 
+				if(i==1){
+
+
+					response.sendRedirect("manageWorkShopSchedule.jsp");
+
+
+				}
+				else{
+					out.print("failed");
+					response.sendRedirect("manageWorkShopSchedule.jsp");
+				}
+
+
+
+			} }catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				out.println("Error: " + e.getMessage());
 			}
-			else{
-				out.print("failed");
-				response.sendRedirect("manageWorkShopSchedule.jsp");
-	}
-	
-
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			out.println("Error: " + e.getMessage());
-		}
 		finally
 		{
 			out.close();
