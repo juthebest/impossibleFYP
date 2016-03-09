@@ -97,6 +97,17 @@ SELECT `userStatus_id`, `userstatus_name`, `userstatus_desc` FROM `userstatus`;
 
 
 					<div class="pull-right">
+					
+							<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
+					
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
 							<a href="addUserStatus.jsp"><button type="button"
@@ -223,7 +234,7 @@ SELECT `userStatus_id`, `userstatus_name`, `userstatus_desc` FROM `userstatus`;
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
 
-					url = url + '&catID=' + input_obj[i].value;
+					url = url + '&userStatusID=' + input_obj[i].value;
 					counter++;
 
 				}
@@ -236,7 +247,7 @@ SELECT `userStatus_id`, `userstatus_name`, `userstatus_desc` FROM `userstatus`;
 
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
-				window.location.href = 'deleteCategoryServlet?' + url;
+				window.location.href = 'deleteUserStatus?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
