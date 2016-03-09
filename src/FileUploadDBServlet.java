@@ -52,7 +52,7 @@ public class FileUploadDBServlet extends HttpServlet {
         String lastName = request.getParameter("lastName");*/
          
         InputStream inputStream = null; // input stream of the upload file
-         
+        String type = null;
         // obtains the upload file part in this multipart request
         Part filePart = request.getPart("photo");
         if (filePart != null) {
@@ -60,7 +60,7 @@ public class FileUploadDBServlet extends HttpServlet {
             System.out.println(filePart.getName());
             System.out.println(filePart.getSize());
             System.out.println(filePart.getContentType());
-             
+      type=  filePart.getContentType();
             // obtains input stream of the upload file
             inputStream = filePart.getInputStream();
         }
@@ -75,11 +75,11 @@ public class FileUploadDBServlet extends HttpServlet {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             // constructs SQL statement
-            String sql = "INSERT INTO `banner_image` ( `banner_image`) values (?)";
+            String sql = "INSERT INTO `banner_image` ( `banner_image`, `banner_image_type`) values (?,?)";
             PreparedStatement statement = conn.prepareStatement(sql);
-     /*       statement.setString(1, firstName);
-            statement.setString(2, lastName);
-             */
+       
+            statement.setString(2, type);
+             
             if (inputStream != null) {
                 // fetches input stream of the upload file for the blob column
                 statement.setBlob(1, inputStream);

@@ -17,7 +17,7 @@ SELECT * FROM `program` ORDER BY `date_last_updated` DESC LIMIT 3;
 
 
 <sql:query var="banner" dataSource="${dataSource}">
-SELECT * FROM `banner_image` WHERE banner_image_id = 1;
+SELECT * FROM `banner_image` ;
 </sql:query>
 
 <sql:query var="coaching" dataSource="${dataSource}">
@@ -109,8 +109,8 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 
 		<div class="carousel-inner">
 			<div class="item active">
-				<c:forEach var="bannerimage" items="${banner.rows}">
-					<img src="<c:out value="${bannerimage.banner_image}" />" alt="...">
+				<c:forEach var="b" items="${banner.rows}">
+				<img src="http://localhost:8080/impossibleWeb/JdbcReadFile?id=${b.banner_image_id}"/>
 				</c:forEach>
 			</div>
 		</div>
