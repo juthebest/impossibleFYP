@@ -103,6 +103,16 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 
 
 					<div class="pull-right">
+						<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
+					
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
 							<a href="addEnrollmentStatus.jsp"><button type="button"
@@ -167,23 +177,7 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 							</table>
 						</div>
 					</form>
-					<div class="row">
-						<div class="col-sm-6 text-left">
 
-							<ul class="pagination">
-								<li class="disabled"><a href="#">&laquo;</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-
-						</div>
-						<div class="col-sm-6 text-right">Showing 1 to 20 of 38 (2
-							Pages)</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -234,7 +228,7 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
 
-					url = url + '&catID=' + input_obj[i].value;
+					url = url + '&eStatusID=' + input_obj[i].value;
 					counter++;
 
 				}
@@ -247,7 +241,7 @@ SELECT `enrollment_status_id`, `enrollment_status_name`, `enrollment_status_desc
 
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
-				window.location.href = 'deleteCategoryServlet?' + url;
+				window.location.href = 'deleteEnrollmentStatus?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
