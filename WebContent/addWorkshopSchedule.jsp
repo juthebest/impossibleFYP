@@ -112,7 +112,8 @@
 
 
 						<form action="addWorkShopSchedule" method="post" name="myForm"
-							class="form-horizontal" data-toggle="validator"  role="form" onsubmit="return myFunction()">
+							class="form-horizontal" data-toggle="validator" role="form"
+							onsubmit="return myFunction()">
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="wsname">Select
@@ -136,30 +137,32 @@
 								<label class="control-label col-sm-2" for="sdt">Start
 									Date :</label>
 								<div class="col-sm-9">
-								<div class='input-group date' id='datetimepicker1'>
-									<input class="form-control" type="text" name="sdt"
-										id="example1" required>       <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-								</div>
+									<div class='input-group date' id='datetimepicker1'>
+										<input class="form-control" type="text" name="sdt"
+											id="example1" required> <span
+											class="input-group-addon"> <span
+											class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="edt">End Date
 									:</label>
-								
-									<div class="col-sm-9">
+
+								<div class="col-sm-9">
 									<div class='input-group date' id='datetimepicker1'>
 										<input class="form-control" type="text" name="edt"
-											id="example2" required>  <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+											id="example2" required> <span
+											class="input-group-addon"> <span
+											class="glyphicon glyphicon-calendar"></span>
 										</span>
 									</div>
-								
-</div>
+
+								</div>
 							</div>
-							
+
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="st">Start
@@ -188,7 +191,8 @@
 								<div class="clearfix">
 									<div class="col-sm-9">
 										<div class="input-group clockpicker pull-center"
-											data-placement="bottom" data-align="top" data-autoclose="true">
+											data-placement="bottom" data-align="top"
+											data-autoclose="true">
 
 											<input type="text" class="form-control" id="singleend-input"
 												name="et"> <span class="input-group-addon"> <span
@@ -213,8 +217,8 @@
 
 									<select class="form-control" name="coachInCharge">
 										<c:forEach var="coach" items="${coach.rows}">
-											<option value="${coach.coach_id}">${coach.surname} ${coach.given_name}
-											</option>
+											<option value="${coach.coach_id}">${coach.surname}
+												${coach.given_name}</option>
 										</c:forEach>
 									</select>
 
@@ -226,7 +230,9 @@
 								<label class="control-label col-sm-2" for="venue">Venue
 									:</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="text" name="venue"  pattern = "^([a-zA-Z0-9_-]{2,})$" title="Venue must be more than two letters" required>
+									<input class="form-control" type="text" name="venue"
+										pattern="^([a-zA-Z0-9_-]{2,})$"
+										title="Venue must be more than two letters" required>
 								</div>
 							</div>
 
@@ -249,7 +255,7 @@
 
 
 							<div class="form-actions">
-								<button type="submit"  class="btn btn-primary">Save
+								<button type="submit" class="btn btn-primary">Save
 									changes</button>
 								<a href="manageWorkShopSchedule.jsp"><button type="button"
 										class="btn btn-danger">Cancel</button></a>
@@ -285,19 +291,17 @@
 			var date = new Date();
 			date.setDate(date.getDate());
 
-		
 			$('#example1').datepicker({
 				format : "yyyy-mm-dd",
 				autoclose : true,
 				todayHighlight : true,
-				startDate: date
-			}).on('changeDate', function (selected) {
-		        var minDate = new Date(selected.date.valueOf());
-		        $('#example2').datepicker('setStartDate', minDate);
-		      
+				startDate : date
+			}).on('changeDate', function(selected) {
+				var minDate = new Date(selected.date.valueOf());
+				$('#example2').datepicker('setStartDate', minDate);
+
 				;
-		    });
-			
+			});
 
 			$('#example2').datepicker({
 				format : "yyyy-mm-dd",
@@ -305,12 +309,12 @@
 				todayHighlight : true
 			}).datepicker('update', new Date());
 			;
-			
+
 			$('#example1').datepicker({
-			
+
 			}).datepicker('update', new Date());
 			;
-			
+
 		});
 	</script>
 
@@ -321,29 +325,21 @@
 			console.log(this.value);
 		});
 		var input = $('#single-input').clockpicker({
-		    placement: 'bottom',
-		    align: 'left',
-		    autoclose: true,
+			placement : 'bottom',
+			align : 'left',
+			autoclose : true,
 
-		    'default': 'now'
-		    
-				
+			'default' : 'now'
+
 		});
 
-	
-		
 		var input1 = $('#singleend-input').clockpicker({
-		    placement: 'bottom',
-		    align: 'left',
-		    autoclose: true,
-		    'default': 'now'
+			placement : 'bottom',
+			align : 'left',
+			autoclose : true,
+			'default' : 'now'
 		});
-		
-		
 
-		
-		
-		
 		$('.clockpicker-with-callbacks').clockpicker({
 			donetext : 'Done',
 			init : function() {
@@ -384,27 +380,19 @@
 		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-<script>
-function myFunction() {
- 
-    if (document.myForm.et.value < document.myForm.st.value  ) {
-		alert("End time is before Start time");
-		document.myForm.et.focus();
-		return (false);
-	}
-    
-  
-    	
-    
-	
-    
-    
-    return (true);
-	
+	<script>
+		function myFunction() {
 
- 
-}
-</script>
+			if (document.myForm.et.value < document.myForm.st.value) {
+				alert("End time is before Start time");
+				document.myForm.et.focus();
+				return (false);
+			}
+
+			return (true);
+
+		}
+	</script>
 
 </body>
 </html>

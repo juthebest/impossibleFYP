@@ -116,19 +116,19 @@ AND coach.coach_id = user.coach_id
 				<div class="panel-body">
 
 
-						<%
-							if (request.getAttribute("Error") != null) {
-						%>
-						<p style="color: red">
-
-							<%=(String) request.getAttribute("Error")%></p>
-						<%
-							}
-						%>
 
 
 					<div class="row">
 						<div class="pull-right">
+							<%
+								if (request.getAttribute("Error") != null) {
+							%>
+							<p style="color: red">
+
+								<%=(String) request.getAttribute("Error")%></p>
+							<%
+								}
+							%>
 
 							<!--  Icons for delete, edit and copy -->
 							<p class="icons">
@@ -196,7 +196,8 @@ AND coach.coach_id = user.coach_id
 											${workshop.ETIME}</td>
 
 
-										<td class="text-left">${workshop.surname} ${workshop.given_name}</td>
+										<td class="text-left">${workshop.surname}
+											${workshop.given_name}</td>
 										<td class="text-left">${workshop.itemrun_venue}</td>
 										<td class="text-left">${workshop.status_name}</td>
 										<td class="text-center">

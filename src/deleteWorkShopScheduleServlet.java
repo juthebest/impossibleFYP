@@ -76,7 +76,7 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 
 
 			for(String id: wseID){
-				query2="SELECT itemrun_has_client_id, enrollment_status.enrollment_status_id, client.client_id, itemrun.itemrun_id, program_has_client.program_has_client_id, itemrun_has_client.date_registered, quantity, unit_cost FROM itemrun_has_client, enrollment_status, client, program_has_client, itemrun WHERE  `itemrun_id` IN ('"+id+"') AND enrollment_status.enrollment_status_id = itemrun_has_client.enrollment_status_id AND client.client_id = itemrun_has_client.client_id AND itemrun.itemrun_id = itemrun_has_client.itemrun_id AND program_has_client.program_has_client_id = itemrun_has_client.program_has_client_id";
+				query2="SELECT itemrun_has_client_id, enrollment_status.enrollment_status_id, client.client_id, itemrun.itemrun_id, program_has_client.program_has_client_id, itemrun_has_client.date_registered, quantity, unit_cost FROM itemrun_has_client, enrollment_status, client, program_has_client, itemrun WHERE  itemrun.itemrun_id IN ('"+id+"') AND enrollment_status.enrollment_status_id = itemrun_has_client.enrollment_status_id AND client.client_id = itemrun_has_client.client_id AND itemrun.itemrun_id = itemrun_has_client.itemrun_id AND program_has_client.program_has_client_id = itemrun_has_client.program_has_client_id";
 
 
 				resultSet= stmt1.executeQuery(query2);
@@ -84,10 +84,10 @@ public class deleteWorkShopScheduleServlet extends HttpServlet {
 
 
 				if (resultSet.next()) {
-					System.out.println("Cannot delete , Category is tied to item");
+					System.out.println("Cannot delete , Itemrun have client registered for it");
 
 
-					request.setAttribute("Error","Error occured: Cannot delete , Category is tied to item!");
+					request.setAttribute("Error","Error occured: Cannot delete, have client registered for this run!");
 
 
 
