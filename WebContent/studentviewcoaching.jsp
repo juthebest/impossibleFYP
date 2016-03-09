@@ -133,7 +133,6 @@
 	</div>
 	<!-- end of body container -->
 
-
 	<!-- footer -->
 	<footer id="footerMenu"></footer>
 	<!-- end of footer -->
