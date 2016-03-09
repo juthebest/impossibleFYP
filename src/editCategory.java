@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,31 +57,49 @@ public class editCategory extends HttpServlet {
 
 			// Open a connection
 			Connection conn = database.Get_Connection();
-
+			int i =0;
 			String name =null;
 			String 	desc=null;
 			String	id=null;
 			id= request.getParameter("catid");
 			name= request.getParameter("editname");
 			desc= request.getParameter("editcategory");
+			final  Statement statement = conn.createStatement();
+			ResultSet resultset =  statement.executeQuery("SELECT * FROM `category` WHERE `category_name` ='"+name+"'") ;
 
+			int ct = 0;
+			while(resultset.next())
+			{
+				ct++;	
+			}
+			if (ct > 0)
+			{
 
-			// create the java mysql update preparedstatement
-			String query = "UPDATE `category` SET `category_name`= ?,`category_desc`= ? WHERE category_id=?";
-			PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setString  (1, name);
-			preparedStmt.setString(2, desc);
-			preparedStmt.setString(3, id);
-			// execute the java preparedstatement
-			int i = preparedStmt.executeUpdate();
+				request.setAttribute("Error","Error occured: Duplicate info! Category Name: " + name);
+				request.getRequestDispatcher("/editCategory.jsp?catID="+id).forward(request, response);
 
-			conn.close();
+			}
+			else
+			{
+
+				// create the java mysql update preparedstatement
+				String query = "UPDATE `category` SET `category_name`= ?,`category_desc`= ? WHERE category_id=?";
+				PreparedStatement preparedStmt = conn.prepareStatement(query);
+				preparedStmt.setString  (1, name);
+				preparedStmt.setString(2, desc);
+				preparedStmt.setString(3, id);
+				// execute the java preparedstatement
+				i = preparedStmt.executeUpdate();
+			}
+
 			if(i==1){
 				response.sendRedirect("manageCategory.jsp");
 			}else{
-				out.println("There is an error");
-				response.sendRedirect("editCategory.jsp");
+
+				request.getRequestDispatcher("/editCategory.jsp?catID="+id).forward(request, response);
 			}
+
+			conn.close();
 
 
 		}

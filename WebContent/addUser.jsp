@@ -134,7 +134,7 @@
 															Surname</label>
 														<div class="col-sm-10">
 															<input type="text" name="csurname" placeholder="Surname"
-																id="input-surname" class="form-control" required />
+																id="input-surname" pattern="[a-zA-Z]{2,}" title="Minimum 2 letters" class="form-control" required />
 														</div>
 													</div>
 													<div class="form-group required">
@@ -143,7 +143,7 @@
 														<div class="col-sm-10">
 															<input type="text" name="cgivenname"
 																placeholder="Given Name" id="input-givenname"
-																class="form-control" required />
+																class="form-control" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required />
 														</div>
 													</div>
 
@@ -167,7 +167,7 @@
 														<label class="col-sm-2 control-label" for="input-school">School</label>
 														<div class="col-sm-10">
 															<input type="text" name="cschool" placeholder="School"
-																id="sch" class="form-control" required />
+																id="sch" class="form-control" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required />
 														</div>
 													</div>
 													<div class="form-group required">
@@ -181,7 +181,7 @@
 														<label class="col-sm-2 control-label" for="input-mobile">Mobile</label>
 														<div class="col-sm-10">
 															<input type="text" name="cmobile" placeholder="mobile"
-																id="input-mobile" class="form-control" required />
+																id="input-mobile" class="form-control" pattern='^[89]\d{7}$' required />
 														</div>
 													</div>
 
@@ -190,7 +190,8 @@
 														<div class="col-sm-10">
 															<input type="password" name="cpassword" value=""
 																placeholder="Password" id="input-password"
-																class="form-control" autocomplete="off" required />
+																class="form-control"  pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"  autocomplete="off" required />
 														</div>
 													</div>
 
@@ -202,7 +203,8 @@
 														<div class="col-sm-10">
 															<input type="text" name="caddress" value=""
 																placeholder="Address " id="input-address"
-																class="form-control" required />
+																class="form-control" attern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code"  required />
 														</div>
 													</div>
 
@@ -236,7 +238,7 @@
 															Surname</label>
 														<div class="col-sm-10">
 															<input type="text" name="psurname" placeholder="Surname"
-																id="input-surname" class="form-control" required />
+																id="input-surname"pattern="[a-zA-Z]{2,}" title="Minimum 2 letters" class="form-control" required />
 														</div>
 													</div>
 													<div class="form-group required">
@@ -245,7 +247,7 @@
 														<div class="col-sm-10">
 															<input type="text" name="pgivenname"
 																placeholder="Given Name" id="input-givenname"
-																class="form-control" required />
+																pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" class="form-control" required />
 														</div>
 													</div>
 
@@ -261,7 +263,7 @@
 														<label class="col-sm-2 control-label" for="input-mobile">Mobile</label>
 														<div class="col-sm-10">
 															<input type="text" name="pmobile" placeholder="mobile"
-																id="input-mobile" class="form-control" required />
+																id="input-mobile"pattern='^[89]\d{7}$' title="Minimum 8 digits, Starting with 8 or 9" class="form-control" required />
 														</div>
 													</div>
 
@@ -270,7 +272,8 @@
 														<div class="col-sm-10">
 															<input type="password" name="ppassword" value=""
 																placeholder="Password" id="input-password"
-																class="form-control" autocomplete="off" required />
+																class="form-control" pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:" autocomplete="off" required />
 														</div>
 													</div>
 
@@ -280,7 +283,8 @@
 														<div class="col-sm-10">
 															<input type="text" name="paddress" value=""
 																placeholder="Address " id="input-address"
-																class="form-control" required />
+																pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code" class="form-control" required />
 														</div>
 													</div>
 													<div class="form-group required">

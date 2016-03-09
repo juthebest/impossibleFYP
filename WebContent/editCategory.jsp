@@ -34,7 +34,7 @@
 <jsp:include page="main/adminNavigations.jsp"></jsp:include>
 </head>
 <body>
-<%
+	<%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -101,7 +101,15 @@
 
 								<form action="editCategory" method="post"
 									class="form-horizontal" data-toggle="validator" role="form">
+									<%
+										if (request.getAttribute("Error") != null) {
+									%>
+									<p style="color: red">
 
+										<%=(String) request.getAttribute("Error")%></p>
+									<%
+										}
+									%>
 									<input type="hidden" name="catid"
 										value="	<c:out value="${items.category_id}"/>" />
 
@@ -110,7 +118,7 @@
 											Name</label>
 										<div class="col-sm-10">
 											<input type="text" name="editname" id="inputname"
-												class="form-control"  value="${items.category_name}" required />
+												class="form-control" value="${items.category_name}" required />
 
 										</div>
 									</div>
@@ -125,20 +133,20 @@
 										</div>
 									</div>
 									<script type="text/javascript">
-									window.params = function() {
-										var params = {};
-										var param_array = window.location.href
-												.split('?')[1].split('&');
-										for ( var i in param_array) {
-											x = param_array[i].split('=');
-											params[x[0]] = x[1];
-										}
-										return params;
-									}();
+										window.params = function() {
+											var params = {};
+											var param_array = window.location.href
+													.split('?')[1].split('&');
+											for ( var i in param_array) {
+												x = param_array[i].split('=');
+												params[x[0]] = x[1];
+											}
+											return params;
+										}();
 
-									document
-											.write('<input type="hidden" value="'+window.params.catid +'" name="catid">');
-								</script>
+										document
+												.write('<input type="hidden" value="'+window.params.catid +'" name="catid">');
+									</script>
 
 
 
@@ -166,12 +174,7 @@
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	<script src="js/navlinks-admin.js"></script>
 	<script src="js/footer.js"></script>
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

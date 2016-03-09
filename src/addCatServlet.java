@@ -3,7 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -39,13 +39,13 @@ public class addCatServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+
 
 		// Set response content type
 		response.setContentType("text/html");
 
 		PrintWriter out = response.getWriter();
-
+		int rs =0;
 
 
 		try{
@@ -67,10 +67,35 @@ public class addCatServlet extends HttpServlet {
 
 			// Execute SQL query
 			final  Statement stmt = conn.createStatement();
-			String sql;
-			sql = "INSERT INTO `category`(`category_desc`, `category_name`) VALUES ('"+textarea1+"','"+textarea+"') " ;
-			int rs = stmt.executeUpdate(sql);
-			//validate login to remember the row
+			final  Statement statement = conn.createStatement();
+			ResultSet resultset =  statement.executeQuery("SELECT * FROM `category` WHERE `category_name` ='"+textarea+"'") ;
+
+			int ct = 0;
+			while(resultset.next())
+			{
+				ct++;	
+			}
+			if (ct > 0)
+			{
+
+				request.setAttribute("Error","Error occured: Duplicate info! Category Name: " + textarea);
+				request.getRequestDispatcher("/addCat.jsp").forward(request, response);
+
+			}
+			else
+			{
+
+
+
+				String sql;
+				sql = "INSERT INTO `category`(`category_desc`, `category_name`) VALUES ('"+textarea1+"','"+textarea+"') " ;
+				rs = stmt.executeUpdate(sql);
+				//validate login to remember the row
+
+
+
+
+			} 
 
 			if(rs == 1){
 
@@ -80,10 +105,9 @@ public class addCatServlet extends HttpServlet {
 			}
 			else{
 				out.println("failed");
-				response.sendRedirect("addCategory.jsp");
 
+				request.getRequestDispatcher("/addCat.jsp").forward(request, response);
 			}
-
 
 
 

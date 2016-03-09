@@ -65,7 +65,7 @@
 		}
 
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-	%> 
+	%>
 
 
 	<div class="container">
@@ -104,14 +104,14 @@
 							if (request.getAttribute("Error") != null) {
 						%>
 						<p style="color: red">
-							
+
 							<%=(String) request.getAttribute("Error")%></p>
 						<%
 							}
 						%>
-						
-						
-			
+
+
+
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
 							<a href="addCat.jsp"><button type="button"

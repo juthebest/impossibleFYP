@@ -281,13 +281,22 @@
 	<script type="text/javascript">
 		// When the document is ready
 		$(document).ready(function() {
+			var date = new Date();
+			date.setDate(date.getDate());
 
+		
 			$('#example1').datepicker({
 				format : "yyyy-mm-dd",
 				autoclose : true,
-				todayHighlight : true
-			}).datepicker('update', new Date());
-			;
+				todayHighlight : true,
+				startDate: date
+			}).on('changeDate', function (selected) {
+		        var minDate = new Date(selected.date.valueOf());
+		        $('#example2').datepicker('setStartDate', minDate);
+		      
+				;
+		    });
+			
 
 			$('#example2').datepicker({
 				format : "yyyy-mm-dd",
@@ -295,7 +304,12 @@
 				todayHighlight : true
 			}).datepicker('update', new Date());
 			;
-
+			
+			$('#example1').datepicker({
+			
+			}).datepicker('update', new Date());
+			;
+			
 		});
 	</script>
 
