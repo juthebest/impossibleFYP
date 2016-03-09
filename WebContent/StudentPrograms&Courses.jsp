@@ -262,7 +262,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
 								<br>
-
 								<p>
 									<b>Title: </b>
 									<c:out value="${categoryc.item_name}" />
@@ -294,7 +293,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
