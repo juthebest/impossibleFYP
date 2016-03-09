@@ -110,7 +110,7 @@ public class deleteCoach extends HttpServlet {
 
 				query3=	"DELETE FROM `coach_note` WHERE `coach_id`IN ('"+id+"')";
 				stmt.executeUpdate(query3);
-
+				request.setAttribute("Error","Successfully Deleted");
 
 
 

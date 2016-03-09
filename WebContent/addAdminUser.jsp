@@ -138,7 +138,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="aMobile">Mobile:</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="tel" pattern='^[89]\d{7}$'
+									<input class="form-control" type="tel" pattern='^[89]\d{7}$' title="Must start with 8/9 and 8 digits"
 										name="aMobile" placeholder="Mobile number" required>
 								</div>
 							</div>

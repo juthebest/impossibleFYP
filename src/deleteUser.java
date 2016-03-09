@@ -68,6 +68,7 @@ public class deleteUser extends HttpServlet {
 			
 		
 				 rs =  stmt.executeUpdate(query);
+					request.setAttribute("Error","Successfully Deleted");
 			}
 
 

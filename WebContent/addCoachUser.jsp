@@ -98,7 +98,7 @@
 								<label class="control-label col-sm-2" for="sName">Surname</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="text" name="sName"
-										placeholder="Name" required>
+										placeholder="Name" pattern="[a-zA-Z]{2,}" title="Minimum 2 letters"  required>
 								</div>
 							</div>
 
@@ -107,7 +107,7 @@
 									Name:</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="text" name="gName"
-										placeholder="Name" required>
+										placeholder="Name" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required>
 								</div>
 							</div>
 
@@ -134,7 +134,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="cMobile">Mobile:</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="tel" pattern='^[89]\d{7}$'
+									<input class="form-control" type="tel" pattern='^[89]\d{7}$' title="Must start with 8/9 and 8 digits"
 										name="cMobile" placeholder="Mobile number" required>
 								</div>
 							</div>
@@ -142,7 +142,8 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="cAddress">Address</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="text" name="cAddress"
+									<input class="form-control" type="text" name="cAddress" pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code"
 										placeholder="Address" required>
 								</div>
 							</div>
@@ -223,6 +224,27 @@
 
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
-
+<script>
+	
+	var validations ={
+		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		};
+		$(document).ready(function(){
+		    // Check all the input fields of type email. This function will handle all the email addresses validations
+		    $("input[type=email]").change( function(){
+		        // Set the regular expression to validate the email 
+		        validation = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validation.test(this.value)){
+		            // If the validation fails then we show the custom error message
+		            this.setCustomValidity(validations['email'][1]);
+		            return false;
+		        } else {
+		            // This is really important. If the validation is successful you need to reset the custom error message
+		            this.setCustomValidity('');
+		        }
+		    });
+		})
+	</script>
 </body>
 </html>

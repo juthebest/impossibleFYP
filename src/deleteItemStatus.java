@@ -95,7 +95,8 @@ public class deleteItemStatus extends HttpServlet {
 					query = "DELETE FROM `status`  WHERE `status_id` IN ('"+id+"')";
 
 
-					rs =  stmt.executeUpdate(query);
+					rs =  stmt.executeUpdate(query);	
+					request.setAttribute("Error","Successfully Deleted");
 				}
 
 

@@ -45,7 +45,7 @@
 <![endif]-->
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
-<%-- <%
+ <%
 		//allow access only if session exists
 		String user = null;
 		if (session.getAttribute("name") == null || session.getAttribute("role") != ("admin")) {
@@ -72,7 +72,6 @@
 		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 	%>
 
- --%>
 </head>
 
 

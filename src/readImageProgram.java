@@ -68,7 +68,7 @@ public class readImageProgram extends HttpServlet {
 					} else {
 						response.setContentType("text/html");
 						out.println("<html><head><title>Person Photo</title></head>");
-						out.println("<body><h1>No photo found for id= 001 </h1></body></html>");
+						out.println("<body><h1>No photo found  </h1></body></html>");
 						return;
 					}
 

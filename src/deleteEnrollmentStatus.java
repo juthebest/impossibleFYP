@@ -96,6 +96,7 @@ public class deleteEnrollmentStatus extends HttpServlet {
 			
 
 					rs =  stmt.executeUpdate(query);
+					request.setAttribute("Error","Successfully Deleted");
 				}
 
 
