@@ -57,6 +57,8 @@ FROM  user where user_id= <%=uid%>;
 				AND program.status_id = 2               
 </sql:query>
 
+
+<!-- workshop -->
 <sql:query var="workshopCategory" dataSource="${dataSource}">
                 select * from item,category_has_item,category 
                 where item.item_id = category_has_item.item_id 
@@ -65,6 +67,23 @@ FROM  user where user_id= <%=uid%>;
                 AND item.item_type_id=?
                                 <sql:param value="2" />
 </sql:query>
+
+
+<c:forEach var="itemrunid2" items="${workshopCategory.rows}">
+	<sql:query var="itemrunid" dataSource="${dataSource}">
+SELECT * FROM itemrun
+WHERE item_id=<c:out value="${itemrunid2.item_id}" />
+	</sql:query>
+</c:forEach>
+
+<c:forEach var="programhasclient" items="${userprofile.rows}">
+	<sql:query var="programhasclientidis" dataSource="${dataSource}">
+SELECT * FROM program_has_client
+WHERE client_id=<c:out value="${programhasclient.client_id}" />
+	</sql:query>
+</c:forEach>
+
+<!-- workshop -->
 
 <sql:query var="coachingCategory" dataSource="${dataSource}">
                 select * from item,category_has_item,category 
@@ -118,6 +137,20 @@ FROM  user where user_id= <%=uid%>;
 							value="${gettheuserid.client_id}" />
 					</c:forEach>
 
+
+					<c:forEach var="getitemrunid" items="${itemrunid.rows}">
+
+						<input type="hidden" name="itemrunidis"
+							value="${getitemrunid.itemrun_id}" />
+					</c:forEach>
+					
+					<c:forEach var="programhasclient" items="${programhasclientidis.rows}">
+
+						<input type="hidden" name="programhasclientis"
+							value="${programhasclient.client_id}" />
+					</c:forEach>
+					
+					
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
 						<input type="hidden" name="programidis"
