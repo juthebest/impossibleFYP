@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -20,14 +21,14 @@ import dao.Database;
 @WebServlet("/deleteItemStatus")
 public class deleteItemStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public deleteItemStatus() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public deleteItemStatus() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,70 +40,84 @@ public class deleteItemStatus extends HttpServlet {
 		PrintWriter out =  response.getWriter();
 		try
 		{
-			// Register JDBC driver
-			// JDBC driver name and database URL
-			//  Database credentials
+
 
 			Database database= new Database();
 
-			// Open a connection
 			Connection connection = database.Get_Connection();
 			Statement stmt = null;
 			stmt = connection.createStatement();
-			String[] iStatus= request.getParameterValues("iStatus");
+			Statement stmt1 = null;
+			stmt1 = connection.createStatement();
+			Statement stmt2 = null;
+			stmt2 = connection.createStatement();
+			Statement stmt3 = null;
+			stmt3 = connection.createStatement();
+			String[] iStatus= request.getParameterValues("itemStatusID");
 
-			/*		for(int i=0;i<catID.length;i++){
-			if(i==0) {
-				catString = catString + "'" +(String)catID[i] + "'"; 
-			}else{ 
-					catString = catString + ",'" + (String)catID[i] + "'"; 
-				} 
-		}
-		out.println(catString);
 
-			 */
 			String query;
 			String query1;
 			String query2;
 			String query3;
+			String query4;
+			String query5;
+			String query6;
 			int rs =0;
-		
+			ResultSet sqlCheck;
+			ResultSet sqlCheck1;
+			ResultSet sqlCheck2;
 			for(String id: iStatus){
-			
-				 query1= "DELETE FROM `itemrun`   WHERE `status_id` IN ('"+id+"')";
-				 stmt.executeUpdate(query1);
-				 query2 = "DELETE FROM `item`  WHERE  `status_id` IN ('"+id+"')";
-				 stmt.executeUpdate(query2);
-				 query3 = "DELETE FROM `program` WHERE   `status_id` IN ('"+id+"')";
-				 stmt.executeUpdate(query3);
-				 query = "DELETE FROM `status`  WHERE `status_id` IN ('"+id+"')";
-				// execute the preparedstatement
-			
-		
-				 rs =  stmt.executeUpdate(query);
+
+
+				query4="SELECT * FROM item, STATUS WHERE status.status_id IN ('"+id+"') AND item.status_id = status.status_id";
+				sqlCheck = stmt1.executeQuery(query4);
+
+				query5="SELECT * FROM STATUS , program WHERE  status.status_id IN ('"+id+"') AND status.status_id = program.status_id";
+				sqlCheck1 = stmt2.executeQuery(query5);
+				query6="SELECT * FROM STATUS , itemrun WHERE status.status_id IN ('"+id+"') AND status.status_id = itemrun.status_id";
+				sqlCheck2 = stmt3.executeQuery(query6);
+				
+				if(sqlCheck.next()){
+					request.setAttribute("Error","Error occured: Cannot delete , status is tied to item!");
+
+				} else if(sqlCheck1.next()){
+					request.setAttribute("Error","Error occured: Cannot delete , status is tied to program!");
+				}else if(sqlCheck2.next()){
+					request.setAttribute("Error","Error occured: Cannot delete , status is tied to itemrun!");
+				}else {
+					query1= "DELETE FROM `itemrun`   WHERE `status_id` IN ('"+id+"')";
+					stmt.executeUpdate(query1);
+					query2 = "DELETE FROM `item`  WHERE  `status_id` IN ('"+id+"')";
+					stmt.executeUpdate(query2);
+					query3 = "DELETE FROM `program` WHERE   `status_id` IN ('"+id+"')";
+					stmt.executeUpdate(query3);
+					query = "DELETE FROM `status`  WHERE `status_id` IN ('"+id+"')";
+
+
+					rs =  stmt.executeUpdate(query);
+				}
+
+
+
+				if(rs==1){
+					response.sendRedirect("manageItemStatus.jsp");
+
+				}else{
+					 request.getRequestDispatcher("/manageItemStatus.jsp").forward(request, response);
+
+
+				}
+				stmt.close();
+				connection.close();
+
+			}}catch(SQLException se){
+				//Handle errors for JDBC
+				se.printStackTrace();
+			}catch(Exception e){
+				//Handle errors for Class.forName
+				e.printStackTrace();
 			}
-
-
-
-			if(rs==1){
-				response.sendRedirect("manageItemStatus.jsp");
-
-			}else{
-			out.println("There is an error");
-			response.sendRedirect("manageItemStatus.jsp");
-
-
-		}
-			stmt.close();
-			connection.close();
-
-		}catch(SQLException se){
-			//Handle errors for JDBC
-			se.printStackTrace();
-		}catch(Exception e){
-			//Handle errors for Class.forName
-			e.printStackTrace();
-		}
 	}
 
 

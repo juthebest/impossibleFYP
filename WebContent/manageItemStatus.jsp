@@ -99,6 +99,17 @@
 
 					<div class="pull-right">
 						<!--  Icons for delete, edit and copy -->
+						
+							<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
+						
 						<p class="icons">
 							<a href="addItemStatus.jsp"><button type="button"
 									class="btn btn-default btn-sm">
@@ -227,7 +238,7 @@
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
 
-					url = url + '&catID=' + input_obj[i].value;
+					url = url + '&itemStatusID=' + input_obj[i].value;
 					counter++;
 
 				}
@@ -240,7 +251,7 @@
 
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
-				window.location.href = 'deleteCategoryServlet?' + url;
+				window.location.href = 'deleteItemStatus?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
