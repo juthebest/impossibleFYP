@@ -53,11 +53,11 @@ FROM  user where user_id= <%=uid%>;
 
 <sql:query var="workshop" dataSource="${dataSource}">
 	select * from item,category_has_item,category,item_type,status
-                where item.item_id=category_has_item.item_id 
-                AND category_has_item.category_id=category.category_id 
-                AND item.item_type_id=item_type.item_type_id
-				AND item.status_id=status.status_id
-                AND item.item_id=<%=request.getParameter("workshop_id")%>
+    where item.item_id=category_has_item.item_id 
+    AND category_has_item.category_id=category.category_id 
+    AND item.item_type_id=item_type.item_type_id
+	AND item.status_id=status.status_id
+   AND item.item_id=<%=request.getParameter("workshop_id")%>
 </sql:query>
 
 
@@ -121,7 +121,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 			<!-- workshop -->
 			<c:forEach var="getitemrunid" items="${itemrunid.rows}">
-				<input type="hidden" name="itemrunidis"
+				<input type="hidden" name="itemrunidgetid"
 					value="${getitemrunid.itemrun_id}" />
 			</c:forEach>
 			<!-- workshop -->
