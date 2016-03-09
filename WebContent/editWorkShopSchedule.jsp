@@ -303,13 +303,7 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 			}).datepicker('update', new Date());
 			;
 
-			$('#example2').datepicker({
-				format : "yyyy-mm-dd",
-				autoclose : true,
-				todayHighlight : false
-			}).datepicker('update', new Date());
-			;
-			
+	
 			
 
 			<c:forEach var="workshop" items="${wsSchedule.rows}">
@@ -324,7 +318,33 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 			</c:forEach>
 			$("#example2").datepicker("setDate",new Date(edatebirth));
 			
+
+			$('#example1').datepicker({
+				format : "yyyy-mm-dd",
+				autoclose : true,
+				todayHighlight : true,
+				startDate: date
+			}).on('changeDate', function (selected) {
+		        var minDate = new Date(selected.date.valueOf());
+		        $('#example2').datepicker('setStartDate', minDate);
+		      
+				;
+		    });
 			
+
+			$('#example2').datepicker({
+				format : "yyyy-mm-dd",
+				autoclose : true,
+				todayHighlight : true
+			}).datepicker('update', new Date());
+			;
+			
+			$('#example1').datepicker({
+			
+			}).datepicker('update', new Date());
+			;
+			
+		
 			
 			
 			
@@ -384,6 +404,26 @@ AND  itemrun_id=<%=request.getParameter("wsID")%>
 	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
+<script>
+function myFunction() {
+ 
+    if (document.myForm.et.value < document.myForm.st.value  ) {
+		alert("End time is before Start time");
+		document.myForm.et.focus();
+		return (false);
+	}
+    
+  
+    	
+    
+	
+    
+    
+    return (true);
+	
 
+ 
+}
+</script>
 </body>
 </html>
