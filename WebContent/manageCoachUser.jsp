@@ -104,6 +104,15 @@ WHERE user.coach_id = coach.coach_id
 
 
 					<div class="pull-right">
+	<%
+							if (request.getAttribute("Error") != null) {
+						%>
+						<p style="color: red">
+
+							<%=(String) request.getAttribute("Error")%></p>
+						<%
+							}
+						%>
 
 						<!--  Icons for delete, edit and copy -->
 						<p class="icons">
@@ -126,12 +135,7 @@ WHERE user.coach_id = coach.coach_id
 							class="table table-bordered table-hover tablesorter">
 							<thead>
 								<tr>
-									<!-- <td style="width: 1px;" class="text-center" data-sorter="false"><input
-										type="checkbox"
-										onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
- -->
-
-
+								
 
 
 
@@ -263,7 +267,7 @@ WHERE user.coach_id = coach.coach_id
 				if (input_obj[i].type === 'checkbox'
 						&& input_obj[i].checked === true) {
 
-					url = url + '&catID=' + input_obj[i].value;
+					url = url + '&coachID=' + input_obj[i].value;
 					counter++;
 
 				}
@@ -276,7 +280,7 @@ WHERE user.coach_id = coach.coach_id
 
 				alert("confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ");
 
-				window.location.href = 'deleteCategoryServlet?' + url;
+				window.location.href = 'deleteCoach?' + url;
 			} else {
 				alert('There is no checked checkbox');
 			}
