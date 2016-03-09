@@ -203,10 +203,10 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<b>Categories: </b>
 									<c:out value="${categoryp.category_name}" />
 								</p>
-								<a class="btn btn-success"
-									href="studentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
-									View Details &raquo; </a>
 
+								<a class="btn btn-success"
+									href="parentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
+									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitprogram">Add</button>
@@ -236,7 +236,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryw.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="StudentViewWorkshops.jsp?workshop_id=${categoryw.item_id}">
+									href="parentviewworkshops.jsp?workshop_id=${categoryw.item_id}">
 									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
@@ -264,11 +264,13 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									<c:out value="${categoryc.category_name}" />
 								</p>
 								<a class="btn btn-success"
-									href="studentviewcoaching.jsp?coaching_id=${categoryc.item_id}">
+									href="parentviewcoaching.jsp?coaching_id=${categoryc.item_id}">
 									View Details &raquo; </a>
 
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitworkshop">Add</button>
+									
+									<br/><br/><br/><br/><br/><br/>
 							</div>
 						</div>
 					</c:forEach>
