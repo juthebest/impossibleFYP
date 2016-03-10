@@ -100,7 +100,7 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 									<div class="col-sm-10">
 
 										<select class="form-control" id="salutation_input"
-											name="salutation">
+											name="salutation" >
 											<option value="${coachU.salutation}">${coachU.salutation}</option>
 											<option value="Mr">Mr</option>
 											<option value="Mrs">Mrs</option>
@@ -116,7 +116,7 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 										Surname:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="csName"
-											value="${coachU.surname}">
+											pattern="[a-zA-Z]{2,}" title="Minimum 2 letters"  value="${coachU.surname}" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -124,7 +124,7 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 										Given name:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="cgName"
-											value="${coachU.given_name}">
+										 pattern="[a-zA-Z]{5,}" title="Minimum 4 letters"	value="${coachU.given_name}" required>
 									</div>
 								</div>
 
@@ -134,15 +134,16 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 									<label class="control-label col-sm-2" for="cEmail">Coach
 										Email:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="text" name="cEmail"
-											value="${coachU.email}">
+										<input class="form-control" type="email" name="cEmail"
+											value="${coachU.email}" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="cPassword">Password:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="password" name="cPassword"
-											value="${coachU.password}">
+											pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:" value="${coachU.password}" required>
 									</div>
 								</div>
 
@@ -151,16 +152,17 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="cMobile">Mobile:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="tel" name="cMobile"
-											value="${coachU.mobile}">
+										<input class="form-control" type="tel" name="cMobile" pattern='^[89]\d{7}$' title="Must start with 8/9 and 8 digits"
+											value="${coachU.mobile}" required>
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="cAddress">Address</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="text" name="cAddress"
-											value="${coachU.address}">
+										<input class="form-control" type="text" name="cAddress" pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code"
+											value="${coachU.address}" required>
 									</div>
 								</div>
 
@@ -168,8 +170,8 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 									<label class="control-label col-sm-2" for="cHR">Coach
 										Hourly Rate:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="text" name="cHR"
-											value="${coachU.coach_hourly_rate}">
+										<input class="form-control" type="text" pattern="^[0-9]*$" title="only numbers" name="cHR"
+											value="${coachU.coach_hourly_rate}" required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -177,7 +179,7 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 										Profile:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="cProfile"
-											value="${coachU.coach_profile}">
+											value="${coachU.coach_profile}" required>
 									</div>
 								</div>
 
@@ -229,6 +231,28 @@ AND user.coach_id=<%=request.getParameter("coachID")%>
 
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script>
+	
+	var validations ={
+		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		};
+		$(document).ready(function(){
+		    // Check all the input fields of type email. This function will handle all the email addresses validations
+		    $("input[type=email]").change( function(){
+		        // Set the regular expression to validate the email 
+		        validation = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validation.test(this.value)){
+		            // If the validation fails then we show the custom error message
+		            this.setCustomValidity(validations['email'][1]);
+		            return false;
+		        } else {
+		            // This is really important. If the validation is successful you need to reset the custom error message
+		            this.setCustomValidity('');
+		        }
+		    });
+		})
+	</script>
 
 </body>
 </html>

@@ -123,7 +123,8 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="cPassword">Password:</label>
 								<div class="col-sm-9">
-									<input class="form-control" type="password" name="cPassword"
+									<input class="form-control" type="password" name="cPassword" pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"
 										placeholder="Password" required>
 								</div>
 							</div>
@@ -153,7 +154,7 @@
 									Hourly Rate:</label>
 								<div class="col-sm-9">
 									<input class="form-control" type="text" name="cHourlyRate"
-										placeholder="Coach Hourly Rate" required>
+										placeholder="Coach Hourly Rate" pattern="^[0-9]*$" title="only numbers" required>
 								</div>
 							</div>
 

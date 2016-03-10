@@ -118,7 +118,7 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 									<label class="col-sm-2 control-label" for="sName">Surname</label>
 									<div class="col-sm-10">
 										<input class="form-control" type="text" name="sName"
-											value="${adminU.surname}" required>
+											value="${adminU.surname}" pattern="[a-zA-Z]{2,}" title="Minimum 2 letters"  required>
 									</div>
 								</div>
 
@@ -127,7 +127,7 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 										Name:</label>
 									<div class="col-sm-10">
 										<input class="form-control" type="text" name="gName"
-											value="${adminU.given_name}" required>
+											value="${adminU.given_name}" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters"  required>
 									</div>
 								</div>
 
@@ -148,13 +148,14 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 										Password:</label>
 									<div class="col-sm-10">
 										<input class="form-control" type="password" name="aPassword"
-											placeholder="Password" value="${adminU.password}" required>
+											placeholder="Password" value="${adminU.password}"  pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="aMobile">Mobile:</label>
 									<div class="col-sm-10">
-										<input class="form-control" type="tel" pattern='^[89]\d{7}$'
+										<input class="form-control" type="tel" pattern='^[89]\d{7}$' title="Must start with 8/9 and 8 digits"
 											class="form-control" name="aMobile" value="${adminU.mobile}"
 											required>
 									</div>
@@ -164,7 +165,8 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 									<label class="col-sm-2 control-label" for="aAddress">Address</label>
 									<div class="col-sm-10">
 										<input class="form-control" type="text" name="aAddress"
-											value="${adminU.address}" required>
+											value="${adminU.address}" pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code" required>
 									</div>
 								</div>
 
@@ -225,6 +227,28 @@ SELECT `user_id`, `coach_id`, `client_id`, `parent_id`, `email`, `password`, `su
 
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script>
+	
+	var validations ={
+		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		};
+		$(document).ready(function(){
+		    // Check all the input fields of type email. This function will handle all the email addresses validations
+		    $("input[type=email]").change( function(){
+		        // Set the regular expression to validate the email 
+		        validation = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validation.test(this.value)){
+		            // If the validation fails then we show the custom error message
+		            this.setCustomValidity(validations['email'][1]);
+		            return false;
+		        } else {
+		            // This is really important. If the validation is successful you need to reset the custom error message
+		            this.setCustomValidity('');
+		        }
+		    });
+		})
+	</script>
 
 </body>
 </html>

@@ -132,7 +132,7 @@ FROM  user where user_id=<%=request.getParameter("userID")%>
 										Surname:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="uName"
-											value="${userm.surname}">
+											value="${userm.surname}" pattern="[a-zA-Z]{2,}" title="Minimum 2 letters"  required>
 									</div>
 								</div>
 								<div class="form-group">
@@ -140,7 +140,7 @@ FROM  user where user_id=<%=request.getParameter("userID")%>
 										Given name:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="ugName"
-											value="${userm.given_name}">
+											value="${userm.given_name}" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required>
 									</div>
 								</div>
 
@@ -150,15 +150,16 @@ FROM  user where user_id=<%=request.getParameter("userID")%>
 									<label class="control-label col-sm-2" for="uEmail">
 										Email:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="text" name="uEmail"
-											value="${userm.email}">
+										<input class="form-control" type="email" name="uEmail"
+											value="${userm.email}" required>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="uPassword">Password:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="password" name="uPassword"
-											value="${userm.password}">
+										pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"	value="${userm.password}" required>
 									</div>
 								</div>
 
@@ -168,7 +169,7 @@ FROM  user where user_id=<%=request.getParameter("userID")%>
 									<label class="control-label col-sm-2" for="uMobile">Mobile:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="tel" name="uMobile"
-											value="${userm.mobile}">
+											value="${userm.mobile}" pattern='^[89]\d{7}$' title="Minimum 8 digits, Starting with 8 or 9"  required>
 									</div>
 								</div>
 
@@ -176,7 +177,8 @@ FROM  user where user_id=<%=request.getParameter("userID")%>
 									<label class="control-label col-sm-2" for="uAddress">Address</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="text" name="uAddress"
-											value="${userm.address}">
+											pattern='(\d{1,3}.)?.+\s(\d{6})$'
+										title="Please enter BLK/STREET/unit/postal code"	value="${userm.address}" required>
 									</div>
 								</div>
 
@@ -221,6 +223,29 @@ FROM  user where user_id=<%=request.getParameter("userID")%>
 		$("#dp1").datepicker({
 			dateFormat : 'yy/mm/dd'
 		});
+	</script>
+	
+		<script>
+	
+	var validations ={
+		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		};
+		$(document).ready(function(){
+		    // Check all the input fields of type email. This function will handle all the email addresses validations
+		    $("input[type=email]").change( function(){
+		        // Set the regular expression to validate the email 
+		        validation = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validation.test(this.value)){
+		            // If the validation fails then we show the custom error message
+		            this.setCustomValidity(validations['email'][1]);
+		            return false;
+		        } else {
+		            // This is really important. If the validation is successful you need to reset the custom error message
+		            this.setCustomValidity('');
+		        }
+		    });
+		})
 	</script>
 
 </body>

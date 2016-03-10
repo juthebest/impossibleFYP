@@ -89,7 +89,7 @@
 								<div class="col-sm-10">
 									<input type="text" name="status_name" value=""
 										placeholder="Status Name" id="input-name1"
-										class="form-control" required />
+										class="form-control" pattern="(\w+\W+){0,45}\w+\W*" required />
 								</div>
 							</div>
 							<div class="form-group">

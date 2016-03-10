@@ -118,18 +118,15 @@
 					</div>
 				</div>
 			</div>
+
+
 			<div class="modal-footer">
-				<a class="btn btn-danger" data-dismiss="modal"
-					href="viewProgramsNcourses.jsp">Close</a> <a type="submit"
-					class="btn btn-info" href="shoppingcart.html">Add To Cart</a>
+				<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
+					class="btn btn-danger" data-dismiss="modal"
+					href="viewProgramsNcourses.jsp">Back</a>
 
-				<div class="modal-footer">
-					<a class="btn btn-info" data-dismiss="modal" href="register.jsp">Register</a><a
-						class="btn btn-danger" data-dismiss="modal"
-						href="viewProgramsNcourses.jsp">Back</a>
-
-				</div>
 			</div>
+
 		</c:forEach>
 	</div>
 	<!-- end of body container -->
