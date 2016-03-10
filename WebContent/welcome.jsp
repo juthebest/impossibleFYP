@@ -9,7 +9,7 @@
 <p> Please Login Here <a href='login.jsp'>Go to Login</a><p>
 Welcome ${sessionScope.username }
 <br>
-<a href="AccountController?action=logout">Logout</a>
+
 </head>
 <body>
 
