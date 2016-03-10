@@ -64,12 +64,12 @@
 
 
 <!-- for validation of the form email address -->
-<script>
+<!-- <script>
 	function ValidateEmail(mail) {
 		var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(mail);
 	}
-</script>
+</script> -->
 <!-- end of validation for form -->
 
 <body>
@@ -98,12 +98,11 @@
 									<div class="col-sm-4">
 
 										<input type="email" class="form-control" id="course_price"
-											placeholder="email address" name="email">
+											placeholder="email address" name="email"
+											title="Enter a valid email address" required>
 									</div>
 								</div>
 							</div>
-
-
 
 
 							<div class="row">
@@ -112,7 +111,11 @@
 									<div class="col-sm-4">
 
 										<input type="password" class="form-control" id="course_price"
-											placeholder="password" name="password">
+											name="password" pattern=".{3,}"
+											title="Password must
+											contain at least six characters, including
+											uppercase, lowercase letters and numbers"
+											required>
 									</div>
 								</div>
 							</div>
@@ -123,7 +126,7 @@
 										Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control" id="course_price"
-											placeholder="password">
+											placeholder="password" required>
 									</div>
 								</div>
 							</div>
@@ -141,7 +144,7 @@
 									<label class="col-xs-2" for="category">Email Address:</label>
 									<div class="col-sm-4">
 										<input type="email" class="form-control" id="course_price"
-											placeholder="email address" name="email1">
+											placeholder="email address" name="email1" required>
 									</div>
 								</div>
 							</div>
@@ -151,11 +154,10 @@
 									<label class="col-xs-2" for="category">Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control" id="course_price"
-											placeholder="password" name="password1">
+											placeholder="password" name="password1" required>
 									</div>
 								</div>
 							</div>
-							<input value="programname" name="programname">;
 
 							<div class="row">
 								<div class="form-group form-group-md">
@@ -163,7 +165,7 @@
 										Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control" id="course_price"
-											placeholder="password">
+											placeholder="password" required>
 									</div>
 								</div>
 							</div>
@@ -215,8 +217,6 @@
 										.write('<input type="hidden" value="'+window.params.contact_number1 +'" name="contact_number1">');
 								document
 										.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
-								document
-										.write('<input type="hidden" value="'+window.params.programname +'" name="programname">');
 								document
 										.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">');
 							</script>
