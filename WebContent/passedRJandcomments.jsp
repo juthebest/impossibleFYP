@@ -49,7 +49,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
+<%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -63,7 +63,7 @@
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
+</form> --%>
 
 <sql:query var="clientjournal" dataSource="${dataSource}">
 SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `coach_comment`, `coach_comment_datetime` FROM `client_journal`

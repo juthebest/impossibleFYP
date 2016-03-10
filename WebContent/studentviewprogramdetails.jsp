@@ -44,11 +44,6 @@
 
 
 
-
-
-
-
-
 <!--  get client id so that you know which user register -->
 <sql:query var="userprofile" dataSource="${dataSource}">
 SELECT * 

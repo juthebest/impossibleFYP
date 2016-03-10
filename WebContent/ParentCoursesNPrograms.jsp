@@ -45,7 +45,7 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
+<%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -60,7 +60,7 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
 </form>
-
+ --%>
 <!-- //var - find client id -->
 <sql:query var="studentname" dataSource="${dataSource}">
 SELECT * FROM user, client

@@ -114,13 +114,13 @@
 											name="password" pattern=".{6,}"
 											title="Password must
 											contain at least six characters, including
-											uppercase, lowercase letters and numbers"
+											uppercase, lowercase letters and numbers" placeholder="password"
 											required>
 									</div>
 								</div>
 							</div>
 
-							<div class="row">
+<!-- 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Re-enter
 										Password:</label>
@@ -133,8 +133,8 @@
 											required>
 									</div>
 								</div>
-							</div>
-
+							</div> -->
+<!-- 
 							<script language='javascript' type='text/javascript'>
 							function check(input){
 								if (input.value != document.getElementById('password').value){
@@ -146,7 +146,7 @@
  */								input.setCustomValidity('');
 							}
 							}
-							</script>
+							</script> -->
 							<br>
 
 							<hr />
@@ -182,7 +182,7 @@
 								</div>
 							</div>
 
-							<div class="row">
+<!-- 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Confirm
 										Password:</label>
@@ -205,7 +205,7 @@
  */								input.setCustomValidity('');
 							}
 							}
-							</script>
+							</script> -->
 
 							<script type="text/javascript">
 								window.params = function() {
