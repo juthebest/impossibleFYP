@@ -120,7 +120,7 @@
 								</div>
 							</div>
 
-							<!-- 							<div class="row">
+							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Re-enter
 										Password:</label>
@@ -129,10 +129,24 @@
 											placeholder="password" pattern=".{6,}"
 											title="Password must
 											contain at least six characters, including
-											uppercase, lowercase letters and numbers" required>
+											uppercase, lowercase letters and numbers"
+											required>
 									</div>
 								</div>
-							</div> -->
+							</div>
+
+							<script language='javascript' type='text/javascript'>
+							function check(input){
+								if (input.value != document.getElementById('password').value){
+									input.setCustomValidity('Password must be matching');	
+								}
+							
+							else{
+/* 								input is valid reset the error message
+ */								input.setCustomValidity('');
+							}
+							}
+							</script>
 							<br>
 
 							<hr />
@@ -162,21 +176,37 @@
 											title="Password must contain at least six characters, including
 											uppercase, lowercase letters and numbers"
 											required>
+										<!-- 											;< if (this.checkValidation() form.password_confirm.pattern = this.value;"
+ -->
 									</div>
 								</div>
 							</div>
 
-<!-- 							<div class="row">
+							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Re-enter
+									<label class="col-xs-2" for="category">Confirm
 										Password:</label>
 									<div class="col-sm-4">
-										<input type="password" class="form-control" id="course_price"
-											placeholder="password" required>
+										<input name="password_confirm" type="password"
+											class="form-control" id="password_confirm"
+											placeholder="password" oninput="checkas(this)" required>
 									</div>
 								</div>
-							</div> -->
+							</div>
+
+							<script language='javascript' type='text/javascript'>
+							function checkas(input){
+								if (input.value != document.getElementById('password1').value){
+									input.setCustomValidity('Password must be matching');	
+								}
 							
+							else{
+/* 								input is valid reset the error message
+ */								input.setCustomValidity('');
+							}
+							}
+							</script>
+
 							<script type="text/javascript">
 								window.params = function() {
 									var params = {};
@@ -226,7 +256,8 @@
 								document
 										.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
 								document
-										.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">');
+										.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">')
+							;
 							</script>
 						</fieldset>
 					</div>
