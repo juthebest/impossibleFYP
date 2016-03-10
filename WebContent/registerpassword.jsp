@@ -111,7 +111,7 @@
 									<div class="col-sm-4">
 
 										<input type="password" class="form-control" id="course_price"
-											name="password" pattern=".{3,}"
+											name="password" pattern=".{6,}"
 											title="Password must
 											contain at least six characters, including
 											uppercase, lowercase letters and numbers"
@@ -120,16 +120,19 @@
 								</div>
 							</div>
 
-							<div class="row">
+							<!-- 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Re-enter
 										Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control" id="course_price"
-											placeholder="password" required>
+											placeholder="password" pattern=".{6,}"
+											title="Password must
+											contain at least six characters, including
+											uppercase, lowercase letters and numbers" required>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<br>
 
 							<hr />
@@ -144,7 +147,8 @@
 									<label class="col-xs-2" for="category">Email Address:</label>
 									<div class="col-sm-4">
 										<input type="email" class="form-control" id="course_price"
-											placeholder="email address" name="email1" required>
+											placeholder="email address" name="email1"
+											title="Enter a valid email address" required>
 									</div>
 								</div>
 							</div>
@@ -154,12 +158,15 @@
 									<label class="col-xs-2" for="category">Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control" id="course_price"
-											placeholder="password" name="password1" required>
+											placeholder="password" name="password1" pattern=".{6,}"
+											title="Password must contain at least six characters, including
+											uppercase, lowercase letters and numbers"
+											required>
 									</div>
 								</div>
 							</div>
 
-							<div class="row">
+<!-- 							<div class="row">
 								<div class="form-group form-group-md">
 									<label class="col-xs-2" for="category">Re-enter
 										Password:</label>
@@ -168,7 +175,8 @@
 											placeholder="password" required>
 									</div>
 								</div>
-							</div>
+							</div> -->
+							
 							<script type="text/javascript">
 								window.params = function() {
 									var params = {};
