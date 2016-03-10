@@ -45,7 +45,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
+<%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -60,7 +60,7 @@
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
 </form>
-
+ --%>
 <sql:query var="clientid" dataSource="${dataSource}">
 SELECT * FROM `user` WHERE user_id = <%=userID%> ;
 </sql:query>

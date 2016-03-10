@@ -62,7 +62,7 @@ AND program.program_id=<%=request.getParameter("program_id")%>;
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
+<%-- <%-- <h3>
 	Hi
 	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
 	role=<%=userrole%></h3>
@@ -71,13 +71,13 @@ AND program.program_id=<%=request.getParameter("program_id")%>;
 <br> UserIDSession=<%=uid%>
 <br> UserIDCookie=<%=userID%>
 <br>role=<%=role%>
-
+ --%>
 
 <!-- need to encode all the URLs where we want session information to be passed -->
 <a href="CheckoutPage.jsp">Checkout Page</a>
 <form action="LogoutServlet" method="get">
 	<input type="submit" value="Logout">
-</form>
+</form> --%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
