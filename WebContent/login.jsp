@@ -104,9 +104,9 @@
 								<div class="form-group">
 									<label class="col-sm-0 control-label"></label>
 									<div class="col-sm-7">
-										<p>
-											<a href="passwordForgot.html">Forgot your password?</a>
-										</p>
+										<!-- <p>
+											<a href="passwordForgot.html">Forgot your password?</a> -->
+									<!-- 	</p> -->
 									</div>
 									<div class="col-sm-4">
 										<input type="checkbox" name="inputRemember" id="remember_me">
