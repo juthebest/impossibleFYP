@@ -168,23 +168,7 @@ SELECT `userStatus_id`, `userstatus_name`, `userstatus_desc` FROM `userstatus`;
 							</table>
 						</div>
 					</form>
-					<div class="row">
-						<div class="col-sm-6 text-left">
-
-							<ul class="pagination">
-								<li class="disabled"><a href="#">&laquo;</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
-							</ul>
-
-						</div>
-						<div class="col-sm-6 text-right">Showing 1 to 20 of 38 (2
-							Pages)</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
