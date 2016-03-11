@@ -9,8 +9,9 @@ CKEDITOR.editorConfig = function( config ) {
 	config.height = 300;
 	config.toolbarCanCollapse = true;
 
-	config.enterMode = CKEDITOR.ENTER_BR;
-	config.removeFormatTags;
+	/*config.enterMode = CKEDITOR.ENTER_BR;
+	config.removeFormatTags;*/
+	config.disallowedContent = 'p';
 
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
