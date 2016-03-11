@@ -10,9 +10,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.toolbarCanCollapse = true;
 
 	config.enterMode = CKEDITOR.ENTER_BR;
-
-
-	config.removeFormatAttributes;
 	config.removeFormatTags;
 
 
