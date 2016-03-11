@@ -8,7 +8,13 @@ CKEDITOR.editorConfig = function( config ) {
 	config.uiColor = '#F7B42C';
 	config.height = 300;
 	config.toolbarCanCollapse = true;
+
 	config.enterMode = CKEDITOR.ENTER_BR;
+
+
+	config.removeFormatAttributes;
+	config.removeFormatTags;
+
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
