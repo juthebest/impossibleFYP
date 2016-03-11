@@ -9,7 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.height = 300;
 	config.toolbarCanCollapse = true;
 	config.enterMode = CKEDITOR.ENTER_BR;
-};
+
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
