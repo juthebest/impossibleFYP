@@ -11,7 +11,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	/*config.enterMode = CKEDITOR.ENTER_BR;
 	config.removeFormatTags;*/
-	config.disallowedContent = 'p';
+	config.disallowedContent = 'p strong br';
 
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
