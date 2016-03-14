@@ -129,7 +129,7 @@ WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
 							<div class="panel-body">
 								<div class="row">
 									<label>Reflection Journal:</label>
-									<textarea name="editor1" id="editor1" rows="10" cols="80">
+									<textarea name="editor1" id="editor1" rows="10" cols="80" disabled>
 					<c:out value="${client.journal_reflection}" />     	
 						</textarea>
 									<script>
