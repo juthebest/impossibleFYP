@@ -146,7 +146,7 @@ AND user.user_id = <%=uid%>;
 													<input type="text" name="datesubmitted"
 														placeholder="Submitted date" id="input-submitdate"
 														value="${coachid.create_update_datetime}"
-														class="form-control" required></input>
+														class="form-control" required disabled></input>
 												</div>
 											</div>
 
