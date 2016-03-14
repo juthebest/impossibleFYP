@@ -45,20 +45,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
 
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form>
 
 <sql:query var="parentdetails" dataSource="${dataSource}">
 SELECT * FROM user, client
@@ -113,46 +100,41 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 								class="form-horizontal">
 
 
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentname">Given
-										Name</label>
-									<div class="col-sm-10">
-										<input type="text" name="parentname" class="form-control"
-											value="${parentprofile.given_name}" required />
-									</div>
-								</div>
-								
-								
 								<input type="hidden" name="parentid"
 									value="${parentprofile.parent_id}" />
-									
-									
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentsurname" class="form-control"
-											value="${parentprofile.surname}" required />
+											value="${parentprofile.surname}" pattern=".{3,}"
+											title="Minimum 3 characters required" required />
 									</div>
 								</div>
 
+
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
-									</label>
+									<label class="col-sm-2 control-label" for="parentname">Given
+										Name</label>
 									<div class="col-sm-10">
-										<input type="text" name="parentemail" class="form-control"
-											value="${parentprofile.email}" required />
+										<input type="text" name="parentname" class="form-control"
+											value="${parentprofile.given_name}" pattern=".{3,}"
+											title="Minimum 3 characters required" required />
 									</div>
 								</div>
 
+
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentmobile">Mobile:
-									</label>
+									<label class="col-sm-2 control-label" for="pmobile">Contact
+										Number: </label>
 									<div class="col-sm-10">
-										<input type="int" name="parentmobile" class="form-control"
-											value="${parentprofile.mobile}" required />
+										<input type="text" name="parentmobile" class="form-control"
+											value="${parentprofile.mobile}" pattern="\d{8}" required
+											title="Please enter a valid phone number with 8 digits"
+											required />
 									</div>
 								</div>
+
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentaddress">Address:
@@ -162,15 +144,29 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 											value="${parentprofile.address}" required />
 									</div>
 								</div>
-								
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
+									</label>
+									<div class="col-sm-10">
+										<input type="email" name="parentemail" class="form-control"
+											value="${parentprofile.email}"
+											title="Enter a valid email address" required />
+									</div>
+								</div>
+
+
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="password">Password:</label>
 									<div class="col-sm-10">
 										<input class="form-control" type="password" name="password"
-											value="${parentprofile.password}">
+											value="${parentprofile.password}" pattern=".{6,}"
+											title="Password must contain at least six characters, including
+											uppercase, lowercase letters and numbers"
+											required>
 									</div>
 								</div>
-								
+
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-primary">Submit</button>

@@ -108,9 +108,10 @@ FROM  user where user_id= <%=uid%>;
 									value="${studentdetails.user_id}" /> <input type="hidden"
 									name="role" value="${studentdetails.role}" /> <input
 									type="hidden" name="rdate"
-									value="${studentdetails.create_update_datetime}" />
- <input
-									type="hidden" name="userStatus" value="${studentdetails.userStatus_id}" />
+									value="${studentdetails.create_update_datetime}" /> <input
+									type="hidden" name="userStatus"
+									value="${studentdetails.userStatus_id}" />
+
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="coach">Salutation:</label>
 									<div class="col-sm-9">
@@ -127,42 +128,33 @@ FROM  user where user_id= <%=uid%>;
 									</div>
 								</div>
 
-
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentgivenname">Given
-										Name</label>
-									<div class="col-sm-10">
-										<input type="text" name="gname"
-											class="form-control" value="${studentdetails.given_name}"
-											required />
-									</div>
-								</div>
-
-
-
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
+									<label class="col-sm-2 control-label" for="studentsname">Surname</label>
 									<div class="col-sm-10">
 										<input type="text" name="studentsname" class="form-control"
-											value="${studentdetails.surname}" required />
+											value="${studentdetails.surname}" pattern=".{3,}"
+											title="Minimum 3 characters required" required />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
-									</label>
+									<label class="col-sm-2 control-label" for="gname">Given
+										Name</label>
 									<div class="col-sm-10">
-										<input type="text" name="semail" class="form-control"
-											value="${studentdetails.email}" required />
+										<input type="text" name="gname" class="form-control"
+											value="${studentdetails.given_name}" pattern=".{3,}" required
+											title="Minimum 3 characters required" required />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentmobile">Mobile:
-									</label>
+									<label class="col-sm-2 control-label" for="smobile">Contact
+										Number: </label>
 									<div class="col-sm-10">
 										<input type="text" name="smobile" class="form-control"
-											value="${studentdetails.mobile}" required />
+											value="${studentdetails.mobile}" pattern="\d{8}" required
+											title="Please enter a valid phone number with 8 digits"
+											required />
 									</div>
 								</div>
 
@@ -176,10 +168,22 @@ FROM  user where user_id= <%=uid%>;
 								</div>
 
 								<div class="form-group">
+									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
+									</label>
+									<div class="col-sm-10">
+										<input type="email" name="semail" class="form-control"
+											value="${studentdetails.email}"
+											title="Enter a valid email address" required />
+									</div>
+								</div>
+
+								<div class="form-group">
 									<label class="control-label col-sm-2" for="uPassword">Password:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="password" name="uPassword"
-											value="${studentdetails.password}">
+											value="${studentdetails.password}" pattern=".{6,}"
+											title="Password must contain at least six characters, including
+											uppercase, lowercase letters and numbers" required>
 									</div>
 								</div>
 
@@ -187,7 +191,6 @@ FROM  user where user_id= <%=uid%>;
 									<button type="submit" class="btn btn-primary">Submit</button>
 									<a href="userProfile.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
-
 								</div>
 
 
