@@ -55,19 +55,20 @@ SELECT about_description FROM control where control_id =2;
 <body>
 	<!-- Start of Body  -->
 	<div class="container">
-		<!-- Border -->
+
 		<div class="jumbotron text-center">
 			<div id='content'>
 				<c:forEach var="aboutdescription"
 					items="${aboutdescriptiontop.rows}">
 					<tr>
-						<td><c:out value="${aboutdescription.about_description}" />
+						<td>
+							<c:out value="${aboutdescription.about_description}" escapeXml="false"/>
 						<td>
 					</tr>
 				</c:forEach>
 			</div>
 		</div>
-		<!-- Border XeniaKoh -->
+
 	</div>
 	<!-- End of Body  -->
 
