@@ -73,6 +73,7 @@ SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emot
 					</p>
 
 					<h4>Recent Journals</h4>
+
 					<c:forEach var="recentjournals"
 						items="${studentrecentjournals.rows}">
 
@@ -87,15 +88,6 @@ SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emot
 							rows="7"></textarea>
 					</c:forEach>
 
-					<!-- <ul class="pagination pagination-sm" style="float: right;">
-						<li class="disabled"><a href="#">&laquo;</a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">&raquo;</a></li>
-					</ul> -->
 				</div>
 			</div>
 		</div>

@@ -10,7 +10,6 @@
 	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
 	password="" />
 
-
 <%
 	//allow access only if session exists
 	String user = null;
@@ -44,37 +43,14 @@
 	}
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%><%-- 
-<h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
+%>
 
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
+
 
 <!-- get coach id-->
 <sql:query var="coachidis" dataSource="${dataSource}">
 SELECT * FROM user WHERE user_id = <%=uid%>;
 </sql:query>
-
-<%-- 
-select * from coach_note, client, user
-WHERE coach_note.coach_id = client.coach_id
-AND client.client_id = user.client_id
-AND coach_note.coach_id = 3
-
-
-SELECT coach_note.coach_id, coach_note.coach_note_id, coach_note.note_details, coach_note.create_update_datetime, coach_note.client_id, user.coach_id FROM coach_note,user
-WHERE coach_note.coach_id = user.coach_id
-AND coach_note.coach_id=<c:out value="${coach.coach_id}" /> --%>
 
 
 <c:forEach var="coach" items="${coachidis.rows}">
@@ -111,7 +87,6 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 <!-- tablesorter theme file-->
 <link rel="stylesheet" href="css/theme.default.css">
 
-
 <body>
 
 	<div class="container">
@@ -127,20 +102,18 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 								class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-plus"></span> Write a new note
 							</button></a>
-<!-- 						<button type="button" class="btn btn-default btn-sm"
-							onclick="confirm('Delete/Uninstall cannot be undone! Are you sure you want to do this?') ? $('#form-product').submit() : false;">
-							<span class="glyphicon glyphicon-trash"></span> Delete
-						</button> -->
 					</p>
+
 					<form action="#" method="post" enctype="multipart/form-data"
 						id="form-course">
 						<div class="table-responsive">
+
 							<table id="myTable"
 								class="table table-bordered table-hover tablesorter">
+
 								<thead>
 									<tr>
-										<th style="text-align: left" data-sorter="false"><input
-											type="checkbox" name="checkbox" value="checkbox"></th>
+										<th class="sorter-false"></th>
 										<th class="text-left">Date and Time Last Updated</th>
 										<th class="text-left">Comment of Note</th>
 										<th class="text-left">Student Name</th>
@@ -159,8 +132,8 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 													value="${notes.create_update_datetime}" /></td>
 											<td class="text-left"><c:out
 													value="${notes.note_details}" /></td>
-											<td class="text-left"><c:out value="" />
-												<c:out value="${notes.given_name}" /></td>
+											<td class="text-left"><c:out value="" /> <c:out
+													value="${notes.given_name}" /></td>
 											<td class="text-center">
 												<button type="button" class="btn btn-default btn-sm"
 													onclick="location.href='editCoachNote.jsp?journalID=${notes.coach_note_id}'">
@@ -171,6 +144,7 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 
 									</c:forEach>
 							</table>
+
 						</div>
 					</form>
 
@@ -198,14 +172,20 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<!-- load jQuery and tablesorter scripts -->
-	<script type="text/javascript" src="js/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
 
+
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 
 	<script>
 		$(function() {
-			$("#myTable").tablesorter();
+			$('table').tablesorter({
+
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+
+			});
 		});
 	</script>
 

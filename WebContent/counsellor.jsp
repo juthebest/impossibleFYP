@@ -46,21 +46,6 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
-
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
-
 
 <sql:query var="coachid" dataSource="${dataSource}">
 SELECT coach_id FROM user
@@ -192,13 +177,20 @@ ORDER BY `client`.client_id ASC
 
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<!-- load jQuery and tablesorter scripts -->
-	<script type="text/javascript" src="js/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+
+
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 
 	<script>
 		$(function() {
-			$("#myTable").tablesorter();
+			$('table').tablesorter({
+
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+
+			});
 		});
 	</script>
 

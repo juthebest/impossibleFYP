@@ -198,6 +198,7 @@
 
 	<script src="dist/js/jquery.tablesorter.min.js"></script>
 	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
+	
 	<script>
 		$(function() {
 
@@ -210,6 +211,7 @@
 			});
 		});
 	</script>
+	
 	<script type="text/javascript">
 		function checkbox_test() {
 
