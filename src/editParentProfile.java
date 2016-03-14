@@ -34,8 +34,7 @@ public class editParentProfile extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
+
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
@@ -47,7 +46,7 @@ public class editParentProfile extends HttpServlet {
 
 			// Open a connection
 			Connection conn = database.Get_Connection();
-			
+
 			String givenname = null;
 			String sname = null;
 			String email = null;
@@ -56,7 +55,6 @@ public class editParentProfile extends HttpServlet {
 			String id = null;
 			String pwd = null;
 
-			
 			givenname = request.getParameter("parentname");
 			sname = request.getParameter("parentsurname");
 			email = request.getParameter("parentemail");
@@ -65,16 +63,15 @@ public class editParentProfile extends HttpServlet {
 			id = request.getParameter("parentid");
 			pwd = request.getParameter("password");
 
-
 			// Execute SQL query
 			Statement stmt = null;
 
 			stmt = conn.createStatement();
 			// create the java mysql update preparedstatement
 
-			int i = stmt.executeUpdate("UPDATE `user` SET`given_name`='"
-					+ givenname + "',`surname`='" + sname + "',`email`='" + email + "',`mobile`='"
-					+ mobile + "',`address`='" + address + "',`password`='" + pwd + "' WHERE parent_id='" + id + "'");
+			int i = stmt.executeUpdate("UPDATE `user` SET`given_name`='" + givenname + "',`surname`='" + sname
+					+ "',`email`='" + email + "',`mobile`='" + mobile + "',`address`='" + address + "',`password`='"
+					+ pwd + "' WHERE parent_id='" + id + "'");
 
 			if (i == 1) {
 				response.sendRedirect("parenthomepage.jsp");
@@ -93,7 +90,7 @@ public class editParentProfile extends HttpServlet {
 		} finally {
 			out.close();
 		}
-		
+
 	}
 
 }
