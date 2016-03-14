@@ -177,7 +177,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 							<button type="submit" class="btn btn-primary" name="action"
 								value="Submitcourse">Add</button>
 							<a class="btn btn-danger" data-dismiss="modal"
-								href="StudentPrograms&Courses.jsp">Back</a>
+								href="ParentPrograms&Courses.jsp">Back</a>
 						</div>
 
 					</div>

@@ -163,7 +163,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 									<div class="panel-body">
 										<c:forEach var="program" items="${programItems.rows}">
 											<p>
-												<a href="viewWorkshops.jsp?workshop_id=${program.item_id}"><c:out
+												<a href="parentviewworkshops.jsp?workshop_id=${program.item_id}"><c:out
 														value="${program.item_name}" /></a>
 											</p>
 										</c:forEach>
@@ -177,7 +177,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 							<button type="submit" class="btn btn-primary" name="action"
 								value="Submitprogram">Add</button>
 							<a class="btn btn-danger" data-dismiss="modal"
-								href="StudentPrograms&Courses.jsp">Back</a>
+								href="ParentPrograms&Courses.jsp">Back</a>
 						</div>
 					</div>
 				</div>

@@ -150,7 +150,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 						<img src="image/cat-food-hearts-icon.png"
 							style="width: 280px; height: 228px;" alt="New Courses" /> <br />
 						<p>
-							<c:out value="${studentjournals.journal_reflection}" />
+							<c:out value="${studentjournals.journal_reflection}" escapeXml = "false" />
 						</p>
 						<p>
 							Emotion Indicator:
