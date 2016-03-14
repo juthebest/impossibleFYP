@@ -38,9 +38,6 @@ public class editParentProfile extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
-			// Register JDBC driver
-			// JDBC driver name and database URL
-			// Database credentials
 
 			Database database = new Database();
 
@@ -67,8 +64,8 @@ public class editParentProfile extends HttpServlet {
 			Statement stmt = null;
 
 			stmt = conn.createStatement();
-			// create the java mysql update preparedstatement
 
+			// create the java mysql update prepared statement
 			int i = stmt.executeUpdate("UPDATE `user` SET`given_name`='" + givenname + "',`surname`='" + sname
 					+ "',`email`='" + email + "',`mobile`='" + mobile + "',`address`='" + address + "',`password`='"
 					+ pwd + "' WHERE parent_id='" + id + "'");
