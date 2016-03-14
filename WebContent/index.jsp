@@ -147,7 +147,9 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 						<c:out value="${coachingimages.item_name}" />
 					</h3>
 					<p>
-						<c:out value="${coachingimages.item_desc}" />
+		
+						<c:out value="${coachingimages.item_desc}" escapeXml="false"/>
+						
 					</p>
 					<p></p>
 					<a
@@ -175,7 +177,8 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 						<c:out value="${latestprogram.program_name}" />
 					</h3>
 					<p>
-						<c:out value="${latestprogram.program_desc}" />
+						
+							<c:out value="${latestprogram.program_desc}" escapeXml="false"/>
 					</p>
 					<p></p>
 					<a
@@ -202,7 +205,8 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 						<c:out value="${latestworkshops.item_name}" />
 					</h3>
 					<p>
-						<c:out value="${latestworkshops.item_desc}" />
+				
+							<c:out value="${latestworkshops.item_desc}" escapeXml="false"/>
 					</p>
 					<p></p>
 					<a href="viewWorkshops.jsp?workshop_id=${latestworkshops.item_id}"

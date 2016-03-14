@@ -103,7 +103,8 @@
 					<div class="alingment">
 
 						<h4>Program Description:</h4>
-						<c:out value="${program.program_desc}" />
+		
+						<c:out value="${program.program_desc}" escapeXml="false"/>
 						<br> <br>
 
 						<p>

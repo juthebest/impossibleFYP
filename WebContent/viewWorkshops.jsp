@@ -104,7 +104,8 @@
 
 						<p>
 							<b>Workshop Description:</b>
-							<c:out value="${workshopCategory.item_desc}" />
+							
+							<c:out value="${workshopCategory.item_desc}" escapeXml="false"/>
 						</p>
 
 						<p>

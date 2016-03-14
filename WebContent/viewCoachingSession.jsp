@@ -105,7 +105,8 @@
 
 						<p>
 							<b>Coaching Session Description:</b>
-							<c:out value="${coaching.item_desc}" />
+
+								<c:out value="${coaching.item_desc}" escapeXml="false"/>
 						</p>
 
 						<p>
