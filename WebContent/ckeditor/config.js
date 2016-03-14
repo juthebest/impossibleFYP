@@ -4,8 +4,8 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	config.language = 'es';
-	config.uiColor = '#F7B42C';
+	config.language = 'en';
+/*	config.uiColor = '#F7B42C';*/
 	config.height = 300;
 	config.toolbarCanCollapse = true;
 
@@ -31,7 +31,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
-	config.removeButtons = 'Underline,Subscript,Superscript';
+	config.removeButtons = 'Subscript,Superscript';
 
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';
