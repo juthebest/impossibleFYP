@@ -108,7 +108,7 @@ public class AddCourseForUser extends HttpServlet {
 					response.sendRedirect("myCourseNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("StudentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
@@ -182,7 +182,7 @@ public class AddCourseForUser extends HttpServlet {
 					response.sendRedirect("myCourseNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("StudentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
@@ -252,7 +252,7 @@ public class AddCourseForUser extends HttpServlet {
 					response.sendRedirect("myCourseNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("StudentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {

@@ -188,6 +188,12 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 							<div class="alingment">
 								<br>
 								<p>
+									<img
+										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryp.program_id}
+										class="
+										img-thumbnail" alt="Cinque Terre" width="304" height="236">
+								</p>
+								<p>
 									<b>Title: </b>
 									<c:out value="${categoryp.program_name}" />
 								</p>
@@ -216,6 +222,13 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
+								<p>
+									<img
+										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryw.program_id}
+										class="
+										img-thumbnail" alt="Cinque Terre" width="304" height="236">
+								</p>
+
 								<br> <input type="hidden" name="itemrunhasclientid"
 									value="${categoryw.itemrun_has_client_id}" />
 
@@ -248,6 +261,12 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 							<div class="alingment">
 								<br>
 								<p>
+									<img
+										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryc.program_id}
+										class="
+										img-thumbnail" alt="Cinque Terre" width="304" height="236">
+								</p>
+								<p>
 									<b>Title: </b>
 									<c:out value="${categoryc.item_name}" />
 								</p>
@@ -265,6 +284,10 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 						</div>
 					</c:forEach>
 				</div>
+				
+				<br/>
+				<br/>
+				<br/><br/><br/>
 			</form>
 
 		</div>

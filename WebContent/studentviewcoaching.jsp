@@ -144,11 +144,11 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 						<p>
 							<b>Coaching Session Description:</b>
-							<c:out value="${coaching.item_desc}" />
+							<c:out value="${coaching.item_desc}"  escapeXml = "false"/>
 						</p>
 
 						<p>
-							<b>Cost:</b>
+							<b>Cost: $</b>
 							<c:out value="${coaching.unit_cost}" />
 						</p>
 						<!-- 

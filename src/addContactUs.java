@@ -72,12 +72,6 @@ public class addContactUs extends HttpServlet {
 
 			direction=request.getParameter("direction");
 
-
-		
-
-	
-	
-
 			// Execute SQL query
 			Statement stmt = null;
 
