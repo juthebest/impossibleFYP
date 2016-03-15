@@ -145,8 +145,8 @@ ORDER BY `user`.`create_update_datetime` ASC
 
  --%>
 
-							<img src="image/cat-food-hearts-icon.png"
-								class="img-responsive" style="width: 280px; height: 228px;" alt="New Courses" /> <br />
+							<a href ="http://iconka.com"><img src="image/cat-food-hearts-icon.png"
+								class="img-responsive" style="width: 280px; height: 228px;" alt="New Courses" /></a> <br />
 
 							<p>
 								<c:out value="${studentjournals.journal_reflection}"

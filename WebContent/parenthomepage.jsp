@@ -72,18 +72,18 @@
 						alt="Generic placeholder image" width="160" height="160">
 					<h2>Recent Journals</h2>
 					<p>View journals that your child have recently written and
-						counsellor's commentss</p>
+						counsellor's comments</p>
 
 				</div>
 				<div class="col-lg-3">
-					<img class="img-circle" src="image/Courses-icon.png"
+					<img class="img-circle" src="image/Books-2-icon.png"
 						alt="Generic placeholder image" width="160" height="160">
 					<h2>My Courses</h2>
 					<p>View all Courses and Programs that I have registered.</p>
 
 				</div>
 				<div class="col-lg-3">
-					<img class="img-circle" src="image/basket-full-icon.png"
+					<img class="img-circle" src="image/shopping-icon.png"
 						alt="Generic placeholder image" width="160" height="160">
 					<h2>New Course</h2>
 					<p>View courses that are available right now!</p>

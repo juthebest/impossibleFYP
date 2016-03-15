@@ -52,20 +52,24 @@
 <link href="css/home.css" rel="stylesheet">
 
 <body>
-	<div style="padding-top: 100px; text-align: center; padding-left: 120px">
+	<div
+		style="padding-top: 100px; text-align: center; padding-left: 120px">
 
 		<div class="container marketing">
 			<div class="row">
 				<div class="col-lg-2">
-					<img class="img-circle" src="image/G12-Folder-Notebook-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="120" height="120">
+					<a href="http://raindropmemory.deviantart.com/"><img
+						class="img-circle" src="image/G12-Folder-Notebook-icon.png"
+						alt="Generic placeholder image" class="img-responsive" width="120"
+						height="120"></a>
 					<h2>Write A Journal</h2>
 					<p>Write a new Journal! Express your thoughts and creativity!</p>
 				</div>
 
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/Diary-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140"
+						height="140">
 					<h2>Recent Journals</h2>
 					<p>View journals that I have recently written and counsellor's
 						comments</p>
@@ -73,19 +77,22 @@
 
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/Books-2-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140"
+						height="140">
 					<h2>My Courses</h2>
 					<p>View all Courses and Programs that I have registered.</p>
 				</div>
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/shopping-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140"
+						height="140">
 					<h2>New Course</h2>
 					<p>View courses that are available right now!</p>
 				</div>
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/profile-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140"
+						height="140">
 					<h2>My Information</h2>
 					<p>View my Information and edit my profile</p>
 				</div>
@@ -127,16 +134,16 @@
 				</div>
 			</div>
 		</div>
-</div>
-		<!-- Start of <Fixed footer> -->
-		<footer id="footerMenu"></footer>
-		<!-- End of <Fixed footer> -->
-		<script src="js/footer.js"></script>
+	</div>
+	<!-- Start of <Fixed footer> -->
+	<footer id="footerMenu"></footer>
+	<!-- End of <Fixed footer> -->
+	<script src="js/footer.js"></script>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
