@@ -44,9 +44,6 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 
-
-
-
 <sql:query var="parentdetails" dataSource="${dataSource}">
 SELECT * FROM user, client
 WHERE user.parent_id = client.parent_id
@@ -60,16 +57,6 @@ WHERE client.client_id = user.client_id
 AND client.client_id=<c:out value="${userprofile2.client_id}" />
 	</sql:query>
 </c:forEach>
-
-
-<%-- 
-
-
-<!--  get client id so that you know which user register -->
-<sql:query var="userprofile" dataSource="${dataSource}">
-SELECT * 
-FROM  user where user_id= <%=uid%>;
-</sql:query> --%>
 
 <sql:query var="coaching" dataSource="${dataSource}">
 	select * from item,category_has_item,category,item_type,status
@@ -171,25 +158,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 							<b>Cost:</b>
 							<c:out value="${coaching.unit_cost}" />
 						</p>
-						<!-- 
-						<div class="form-group">
-
-							<label class="control-label col-sm-1" for="quantity">Quantity:
-							</label>
-
-							<div class="col-sm-2">
-								<div class="input-group spinner" data-trigger="spinner">
-									<input type="text" class="form-control" value="1"
-										data-rule="quantity" name="quantity">
-									<div class="input-group-addon">
-										<a href="javascript:;" class="spin-up" data-spin="up"><i
-											class="icon-sort-up"></i></a> <a href="javascript:;"
-											class="spin-down" data-spin="down"><i
-											class="icon-sort-down"></i></a>
-									</div>
-								</div>
-							</div>
-						</div> -->
 
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary" name="action"
@@ -207,7 +175,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	</div>
 	<!-- end of body container -->
 
-	<!-- footer -->
+	<!-- start of footer -->
 	<footer id="footerMenu"></footer>
 	<!-- end of footer -->
 

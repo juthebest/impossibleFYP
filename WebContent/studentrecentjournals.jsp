@@ -122,7 +122,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 						<div class="thumbnail home-thumb">
 							<c:out value="${studentjournals.create_update_datetime}" />
 
-<%-- 							<%
+							<%-- 							<%
 								Connection connection = DriverManager.getConnection("jdbc:odbc:data", "YourName", "password");
 
 									Statement statement = connection.createStatement();
@@ -144,6 +144,10 @@ ORDER BY `user`.`create_update_datetime` ASC
 							%>
 
  --%>
+
+							<img src="image/cat-food-hearts-icon.png"
+								style="width: 280px; height: 228px;" alt="New Courses" /> <br />
+
 							<p>
 								<c:out value="${studentjournals.journal_reflection}"
 									escapeXml="false" />
