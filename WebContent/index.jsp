@@ -110,7 +110,7 @@ SELECT `item_id`, `status_id`, `item_name`, `item_type_id`, `item_desc`, `unit_c
 		<div class="carousel-inner">
 			<div class="item active">
 				<c:forEach var="b" items="${banner.rows}">
-				<img src="http://localhost:8080/impossibleWeb/JdbcReadFile?id=${b.banner_image_id}"/>
+				<img src="http://localhost:8080/impossibleWeb/JdbcReadFile?id=${b.banner_image_id}" width="1600" height="900"/>
 				</c:forEach>
 			</div>
 		</div>

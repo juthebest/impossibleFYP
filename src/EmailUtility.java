@@ -1,3 +1,4 @@
+
 import java.util.Date;
 import java.util.Properties;
  
@@ -21,7 +22,10 @@ public class EmailUtility {
             final String userName, final String password, String toAddress,
             String subject, String message) throws AddressException,
             MessagingException {
- 
+
+    
+    	
+
         // sets SMTP server properties
         Properties properties = new Properties();
         properties.put("mail.smtp.host", host);
@@ -52,4 +56,5 @@ public class EmailUtility {
         Transport.send(msg);
  
     }
+
 }
