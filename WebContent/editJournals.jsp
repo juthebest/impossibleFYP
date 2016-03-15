@@ -94,34 +94,44 @@
 
 								<div class="form-group required">
 									<label class="col-sm-2 control-label" for="input-name1">Student
-										Journal</label>
-									<div class="col-sm-10">
+										Journal: </label>
+									<%-- <div class="col-sm-10">
 										<input type="text" name="status_name"
 											value="${journaldetails.journal_reflection}"
 											placeholder="Status Name" id="input-name1"
 											class="form-control" disabled />
+									</div> --%>
+
+									<div class="col-sm-10">
+										<c:out value="${journaldetails.journal_reflection}"
+											escapeXml="false" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="emotionrating">Emotion
 										Rating: </label>
-									<div class="col-sm-10">
+									<%-- <div class="col-sm-10">
 										<input type="text" name="emotionrating" id="input-emotion"
 											value="${journaldetails.emotion_rating}" class="form-control"
 											disabled></input>
 
+									</div> --%>
+									<div class="col-sm-10">
+										<c:out value="${journaldetails.emotion_rating}" />
 									</div>
 								</div>
+
+								<%-- 								<p>
+									<label>Emotion Rating:</label>
+									<c:out value="${client.emotion_rating}" />
+								</p> --%>
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="indicator">Privacy
 										Indicator: </label>
 									<div class="col-sm-10">
-										<input type="text" name="indicator" id="input-indicator"
-											value="${journaldetails.privacy_indicator}"
-											class="form-control" disabled></input>
-
+										<c:out value="${journaldetails.privacy_indicator}" />
 									</div>
 								</div>
 
@@ -129,11 +139,7 @@
 									<label class="col-sm-2 control-label" for="datesubmitted">Submitted
 										Date: </label>
 									<div class="col-sm-10">
-										<input type="text" name="datesubmitted"
-											placeholder="Submitted date" id="input-submitdate"
-											value="${journaldetails.create_update_datetime}"
-											class="form-control" disabled></input>
-
+										<c:out value="${journaldetails.create_update_datetime}" />
 									</div>
 								</div>
 

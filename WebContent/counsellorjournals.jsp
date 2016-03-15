@@ -188,7 +188,6 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 	<script>
 		$(function() {
 			$('table').tablesorter({
-
 				usNumberFormat : false,
 				sortReset : true,
 				sortRestart : true
