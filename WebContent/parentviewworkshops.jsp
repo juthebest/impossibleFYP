@@ -156,7 +156,6 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 				<div class="page-header">
 					<h2>
 						<c:out value="${workshopCat.item_name}" />
-						Workshop
 					</h2>
 				</div>
 
@@ -165,7 +164,7 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 						<p>
 							<b>Workshop Description:</b>
-							<c:out value="${workshopCat.item_desc}" />
+							<c:out value="${workshopCat.item_desc}"  escapeXml = "false" />
 						</p>
 
 						<p>

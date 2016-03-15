@@ -181,12 +181,10 @@ public class AddCourseForUser extends HttpServlet {
 
 				if (rs == 1) {
 					out.println("success");
-			
 					request.getRequestDispatcher("/myCourseNPrograms.jsp").forward(request, response);
 					
 				} else {
 					out.println("failed");
-
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 				}
 

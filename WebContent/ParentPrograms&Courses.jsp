@@ -144,6 +144,17 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 		<div class="testing">
+		<div class="pull-right">
+				<%
+					if (request.getAttribute("Error") != null) {
+				%>
+				<p style="color: red">
+
+					<%=(String) request.getAttribute("Error")%></p>
+				<%
+					}
+				%>
+			</div>
 			<form action="AddCourseForParent" method="post" class="form-horizontal">
 				<div class="row">
 					<h2>Programs</h2>

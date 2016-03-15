@@ -131,7 +131,6 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 				<div class="page-header">
 					<h1>
 						<c:out value="${program.program_name}" />
-						Program
 					</h1>
 				</div>
 
@@ -139,7 +138,7 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 					<div class="alingment">
 
 						<h4>Program Description:</h4>
-						<c:out value="${program.program_desc}" />
+						<c:out value="${program.program_desc}"  escapeXml = "false" />
 						<br> <br>
 
 						<p>
