@@ -145,18 +145,18 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 							value="${parentprofile.surname} ${parentprofile.given_name}" />
 					</p>
 					<p>
-						<b>E-Mail: </b>
-						<c:out value="${parentprofile.email}" />
-					</p>
-
-					<p>
-						<b>Mobile: </b>
+						<b>Contact Number: </b>
 						<c:out value="${parentprofile.mobile}" />
 					</p>
 					<p>
 						<b>Address: </b>
 						<c:out value="${parentprofile.address}" />
 					</p>
+					<p>
+						<b>E-Mail: </b>
+						<c:out value="${parentprofile.email}" />
+					</p>
+
 				</c:forEach>
 
 
@@ -169,26 +169,22 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 						<c:out value="${profilechild.surname} ${profilechild.given_name}" />
 					</p>
 					<p>
-						<b>Child's Date of Birth: </b>
-						<c:out value="${profilechild.client_dob}" />
-					</p>
-					<p>
-						<b>Child's E-Mail: </b>
-						<c:out value="${profilechild.email}" />
-					</p>
-
-					<p>
-						<b>Child's Mobile: </b>
+						<b>Child's Contact Number: </b>
 						<c:out value="${profilechild.mobile}" />
+					</p>
+					<p>
+						<b>Date of Creation: </b>
+						<c:out value="${profilechild.create_update_datetime}" />
 					</p>
 					<p>
 						<b>Child's Address: </b>
 						<c:out value="${profilechild.address}" />
 					</p>
 					<p>
-						<b>Child's School: </b>
-						<c:out value="${profilechild.client_school}" />
+						<b>Child's E-Mail: </b>
+						<c:out value="${profilechild.email}" />
 					</p>
+
 				</c:forEach>
 			</div>
 		</div>
