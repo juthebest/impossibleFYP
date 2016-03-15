@@ -81,9 +81,8 @@ public class editStudentProfile extends HttpServlet {
 			saluation = request.getParameter("salutation");
 			pw = request.getParameter("uPassword");
 			out.println(uStatus);
-
-			String currentTime = request.getParameter("rdate");
-
+			
+			
 			// Execute SQL query
 			Statement stmt = null;
 
@@ -92,7 +91,7 @@ public class editStudentProfile extends HttpServlet {
 
 			int i = stmt.executeUpdate("UPDATE `user` SET`email`='" + semail + "',`password`='" + pw + "',`surname`='"
 					+ sname + "',`given_name`='" + gname + "',`mobile`='" + smobile + "',`role`='" + role
-					+ "',`create_update_datetime`='" + currentTime + "',`salutation`='" + saluation + "',`address`='"
+					+ "',`salutation`='" + saluation + "',`address`='"
 					+ sadd + "',`userStatus_id`='" + uStatus + "' WHERE user_id='" + id + "'");
 
 			if (i == 1) {

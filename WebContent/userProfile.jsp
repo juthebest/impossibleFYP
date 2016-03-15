@@ -136,8 +136,8 @@ AND user.user_id = <%=uid%>;
 						<c:out value="${profile.surname} ${profile.given_name}" />
 					</p>
 					<p>
-						<b>Date of Birth: </b>
-						<c:out value="${profile.client_dob}" />
+						<b>Date of Creation: </b>
+						<c:out value="${profile.create_update_datetime}" />
 					</p>
 					<p>
 						<b>E-Mail: </b>
@@ -151,11 +151,6 @@ AND user.user_id = <%=uid%>;
 					<p>
 						<b>Address: </b>
 						<c:out value="${profile.address}" />
-					</p>
-					<p>
-						<b>School: </b>
-						<c:out value="${profile.client_school}" />
-						RP
 					</p>
 				</c:forEach>
 			</div>

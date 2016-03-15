@@ -129,27 +129,31 @@ FROM  user where user_id= <%=uid%>;
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="studentsname">Surname</label>
+									<label class="col-sm-2 control-label" for="studentsname">Surname:</label>
 									<div class="col-sm-10">
 										<input type="text" name="studentsname" class="form-control"
-											value="${studentdetails.surname}" pattern=".{3,}"
-											title="Minimum 3 characters required" required />
+											value="${studentdetails.surname}" pattern="[A-Za-z]{2,}"
+											title="Minimum 2 characters required.
+											Only Alphabets are being accepted."
+											required />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="gname">Given
-										Name</label>
+										Name:</label>
 									<div class="col-sm-10">
 										<input type="text" name="gname" class="form-control"
-											value="${studentdetails.given_name}" pattern=".{3,}" required
-											title="Minimum 3 characters required" required />
+											value="${studentdetails.given_name}" pattern="[A-Za-z]{3,}"
+											title="Minimum 3 characters required.
+											Only Alphabets are being accepted."
+											required />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="smobile">Contact
-										Number: </label>
+										Number:</label>
 									<div class="col-sm-10">
 										<input type="text" name="smobile" class="form-control"
 											value="${studentdetails.mobile}" pattern="\d{8}" required
@@ -159,8 +163,7 @@ FROM  user where user_id= <%=uid%>;
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentaddress">Address:
-									</label>
+									<label class="col-sm-2 control-label" for="parentaddress">Address:</label>
 									<div class="col-sm-10">
 										<input type="text" name="saddress" class="form-control"
 											value="${studentdetails.address}" required />
@@ -168,11 +171,11 @@ FROM  user where user_id= <%=uid%>;
 								</div>
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentemail">E-Mail:
-									</label>
+									<label class="col-sm-2 control-label" for="parentemail">E-Mail:</label>
 									<div class="col-sm-10">
 										<input type="email" name="semail" class="form-control"
 											value="${studentdetails.email}"
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
 											title="Enter a valid email address" required />
 									</div>
 								</div>
@@ -180,19 +183,21 @@ FROM  user where user_id= <%=uid%>;
 								<div class="form-group">
 									<label class="control-label col-sm-2" for="uPassword">Password:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="password" name="uPassword"
-											value="${studentdetails.password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+										<input class="form-control" type="password" name="uPassword" id = "uPassword"
+											value="${studentdetails.password}"
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
 											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
-											OR Password do not match with Confirm password" required>
+											OR Password do not match with Confirm password"
+											required>
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-									<label class="control-label col-sm-2" for="uPassword">Confirm Password:</label>
+									<label class="control-label col-sm-2" for="cPassword">Confirm
+										Password:</label>
 									<div class="col-sm-9">
-										<input class="form-control" type="password" name="uPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
-											OR Password do not match with Confirm password" required>
+										<input class="form-control" type="password" name="cPassword" id = "cPassword"
+											required>
 									</div>
 								</div>
 
@@ -201,8 +206,6 @@ FROM  user where user_id= <%=uid%>;
 									<a href="userProfile.jsp"><button type="button"
 											class="btn btn-danger">Cancel</button></a>
 								</div>
-
-
 
 							</form>
 						</c:forEach>
@@ -214,6 +217,36 @@ FROM  user where user_id= <%=uid%>;
 		</div>
 	</div>
 
+
+	<script>
+		(function Validate() {
+			var passwordparent1 = document.getElementById('uPassword');
+			var passwordparent2 = document.getElementById('cPassword');
+
+			var checkPasswordValidity = function() {
+				if (passwordparent1.value != passwordparent2.value) {
+					passwordparent1.setCustomValidity('Passwords must match.');
+				} else {
+					passwordparent1.setCustomValidity('');
+				}
+			};
+
+			passwordparent1.addEventListener('change', checkPasswordValidity, false);
+			passwordparent2.addEventListener('change', checkPasswordValidity, false);
+
+			var form = document.getElementById('passwordForm');
+			form.addEventListener('submit', function(event) {
+				checkPasswordValidity();
+				if (!this.checkValidity()) {
+					event.preventDefault();
+					//Implement you own means of displaying error messages to the user here.
+					password1.focus();
+				}
+			}, false);
+		}());
+	</script>
+	
+	
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
