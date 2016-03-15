@@ -136,13 +136,12 @@ AND user.user_id = <%=uid%>;
 						<c:out value="${profile.surname} ${profile.given_name}" />
 					</p>
 					<p>
-						<b>Date of Creation: </b>
-						<c:out value="${profile.create_update_datetime}" />
-					</p>
-
-					<p>
 						<b>Contact Number: </b>
 						<c:out value="${profile.mobile}" />
+					</p>
+					<p>
+						<b>Date of Creation: </b>
+						<c:out value="${profile.create_update_datetime}" />
 					</p>
 					<p>
 						<b>Address: </b>
@@ -152,6 +151,7 @@ AND user.user_id = <%=uid%>;
 						<b>E-Mail: </b>
 						<c:out value="${profile.email}" />
 					</p>
+					
 				</c:forEach>
 			</div>
 
@@ -163,21 +163,22 @@ AND user.user_id = <%=uid%>;
 						<c:out value="${parentname.surname} ${parentname.given_name}" />
 					</p>
 					<p>
-						<b>Parent's E-Mail: </b>
-						<c:out value="${parentname.email}" />
-					</p>
-					<p>
-						<b>Parent's Mobile: </b>
+						<b>Parent's Contact Number: </b>
 						<c:out value="${parentname.mobile}" />
 					</p>
 					<p>
 						<b>Parent's Address: </b>
 						<c:out value="${parentname.address}" />
 					</p>
+					<p>
+						<b>Parent's E-Mail: </b>
+						<c:out value="${parentname.email}" />
+					</p>
+
 				</c:forEach>
 			</div>
 		</div>
-		
+
 		<hr />
 
 		<div class="row">
@@ -190,11 +191,11 @@ AND user.user_id = <%=uid%>;
 
 				<div class="panel-group">
 					<div class="panel panel-default">
-						
+
 						<div class="panel-heading">
 							<h5>Item Names</h5>
 						</div>
-						
+
 						<div class="panel-body">
 
 							<c:forEach var="programsforstudents"
@@ -212,7 +213,7 @@ AND user.user_id = <%=uid%>;
 							</c:forEach>
 
 						</div>
-						
+
 					</div>
 				</div>
 

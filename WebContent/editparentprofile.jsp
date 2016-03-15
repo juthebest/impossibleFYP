@@ -99,30 +99,31 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 							<form action="editParentProfile" method="post"
 								class="form-horizontal">
 
-
 								<input type="hidden" name="parentid"
 									value="${parentprofile.parent_id}" />
 
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="parentsurname">Surname</label>
+									<label class="col-sm-2 control-label" for="parentsurname">Surname:</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentsurname" class="form-control"
-											value="${parentprofile.surname}" pattern=".{3,}"
-											title="Minimum 3 characters required" required />
+											value="${parentprofile.surname}" pattern="[A-Za-z]{2,}"
+											title="Minimum 2 characters required.
+											Only Alphabets are being accepted."
+											required />
 									</div>
 								</div>
-
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentname">Given
-										Name</label>
+										Name:</label>
 									<div class="col-sm-10">
 										<input type="text" name="parentname" class="form-control"
-											value="${parentprofile.given_name}" pattern=".{3,}"
-											title="Minimum 3 characters required" required />
+											value="${parentprofile.given_name}" pattern="[A-Za-z]{3,}"
+											title="Minimum 3 characters required.
+											Only Alphabets are being accepted."
+											required />
 									</div>
 								</div>
-
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="pmobile">Contact
@@ -134,7 +135,6 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 											required />
 									</div>
 								</div>
-
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="parentaddress">Address:
@@ -151,22 +151,31 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 									<div class="col-sm-10">
 										<input type="email" name="parentemail" class="form-control"
 											value="${parentprofile.email}"
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
 											title="Enter a valid email address" required />
 									</div>
 								</div>
 
-
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="password">Password:</label>
+									<label class="col-sm-2 control-label" for="uPassword">Password:</label>
 									<div class="col-sm-10">
 										<input class="form-control" type="password" name="password"
-											value="${parentprofile.password}" pattern=".{6,}"
-											title="Password must contain at least six characters, including
-											uppercase, lowercase letters and numbers"
+											id="uPassword" value="${parentprofile.password}"
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
+											OR Password do not match with Confirm password"
 											required>
 									</div>
 								</div>
 
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="cPassword">Confirm
+										Password:</label>
+									<div class="col-sm-9">
+										<input class="form-control" type="password" name="cPassword"
+											id="cPassword" required>
+									</div>
+								</div>
 
 								<div class="form-actions">
 									<button type="submit" class="btn btn-primary">Submit</button>
@@ -182,6 +191,37 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 			</div>
 		</div>
 	</div>
+
+	<script>
+		(function Validate() {
+			var passwordparent1 = document.getElementById('uPassword');
+			var passwordparent2 = document.getElementById('cPassword');
+
+			var checkPasswordValidity = function() {
+				if (passwordparent1.value != passwordparent2.value) {
+					passwordparent1.setCustomValidity('Passwords must match.');
+				} else {
+					passwordparent1.setCustomValidity('');
+				}
+			};
+
+			passwordparent1.addEventListener('change', checkPasswordValidity,
+					false);
+			passwordparent2.addEventListener('change', checkPasswordValidity,
+					false);
+
+			var form = document.getElementById('passwordForm');
+			form.addEventListener('submit', function(event) {
+				checkPasswordValidity();
+				if (!this.checkValidity()) {
+					event.preventDefault();
+					//Implement you own means of displaying error messages to the user here.
+					password1.focus();
+				}
+			}, false);
+		}());
+	</script>
+
 
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
