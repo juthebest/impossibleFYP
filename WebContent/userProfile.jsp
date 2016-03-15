@@ -139,18 +139,18 @@ AND user.user_id = <%=uid%>;
 						<b>Date of Creation: </b>
 						<c:out value="${profile.create_update_datetime}" />
 					</p>
-					<p>
-						<b>E-Mail: </b>
-						<c:out value="${profile.email}" />
-					</p>
 
 					<p>
-						<b>Mobile: </b>
+						<b>Contact Number: </b>
 						<c:out value="${profile.mobile}" />
 					</p>
 					<p>
 						<b>Address: </b>
 						<c:out value="${profile.address}" />
+					</p>
+					<p>
+						<b>E-Mail: </b>
+						<c:out value="${profile.email}" />
 					</p>
 				</c:forEach>
 			</div>

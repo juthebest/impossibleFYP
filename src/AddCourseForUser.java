@@ -87,7 +87,7 @@ public class AddCourseForUser extends HttpServlet {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + programid);
+					request.setAttribute("Error", "Error occured: Duplicate info! Program Name: " + programid);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
@@ -254,10 +254,10 @@ public class AddCourseForUser extends HttpServlet {
 
 				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("myCourseNPrograms.jsp");
+					request.getRequestDispatcher("/myCourseNPrograms.jsp").forward(request, response);
 				} else {
 					out.println("failed");
-					response.sendRedirect("StudentPrograms&Courses.jsp");
+					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 				}
 
 			} catch (SQLException se) {

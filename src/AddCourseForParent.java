@@ -100,10 +100,10 @@ public class AddCourseForParent extends HttpServlet {
 
 				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("ParentCoursesNPrograms.jsp");
+					request.getRequestDispatcher("ParentCoursesNPrograms.jsp").forward(request, response);
 				} else {
 					out.println("failed");
-					response.sendRedirect("ParentPrograms&Courses.jsp");
+					request.getRequestDispatcher("ParentPrograms&Courses.jsp").forward(request, response);
 				}
 
 			} catch (SQLException se) {

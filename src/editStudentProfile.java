@@ -61,7 +61,6 @@ public class editStudentProfile extends HttpServlet {
 
 			String id = null;
 			String gname = null;
-
 			String sname = null;
 			String semail = null;
 			String smobile = null;
@@ -70,6 +69,7 @@ public class editStudentProfile extends HttpServlet {
 			String role = null;
 			String saluation = null;
 			String pw = null;
+
 			gname = request.getParameter("gname");
 			sname = request.getParameter("studentsname");
 			semail = request.getParameter("semail");
@@ -80,9 +80,7 @@ public class editStudentProfile extends HttpServlet {
 			role = request.getParameter("role");
 			saluation = request.getParameter("salutation");
 			pw = request.getParameter("uPassword");
-			out.println(uStatus);
-			
-			
+
 			// Execute SQL query
 			Statement stmt = null;
 
@@ -91,8 +89,8 @@ public class editStudentProfile extends HttpServlet {
 
 			int i = stmt.executeUpdate("UPDATE `user` SET`email`='" + semail + "',`password`='" + pw + "',`surname`='"
 					+ sname + "',`given_name`='" + gname + "',`mobile`='" + smobile + "',`role`='" + role
-					+ "',`salutation`='" + saluation + "',`address`='"
-					+ sadd + "',`userStatus_id`='" + uStatus + "' WHERE user_id='" + id + "'");
+					+ "',`salutation`='" + saluation + "',`address`='" + sadd + "',`userStatus_id`='" + uStatus
+					+ "' WHERE user_id='" + id + "'");
 
 			if (i == 1) {
 				response.sendRedirect("user.jsp");
@@ -113,5 +111,4 @@ public class editStudentProfile extends HttpServlet {
 		}
 	}
 
-	
 }
