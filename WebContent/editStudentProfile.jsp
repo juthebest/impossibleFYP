@@ -181,9 +181,18 @@ FROM  user where user_id= <%=uid%>;
 									<label class="control-label col-sm-2" for="uPassword">Password:</label>
 									<div class="col-sm-9">
 										<input class="form-control" type="password" name="uPassword"
-											value="${studentdetails.password}" pattern=".{6,}"
-											title="Password must contain at least six characters, including
-											uppercase, lowercase letters and numbers" required>
+											value="${studentdetails.password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
+											OR Password do not match with Confirm password" required>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-2" for="uPassword">Confirm Password:</label>
+									<div class="col-sm-9">
+										<input class="form-control" type="password" name="uPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
+											OR Password do not match with Confirm password" required>
 									</div>
 								</div>
 

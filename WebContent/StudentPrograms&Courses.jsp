@@ -216,7 +216,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									href="studentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
 									View Details &raquo; </a>
 
-
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitprogram">Add</button>
 

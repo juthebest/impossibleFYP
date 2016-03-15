@@ -62,16 +62,6 @@
 }
 </style>
 
-
-<!-- for validation of the form email address -->
-<!-- <script>
-	function ValidateEmail(mail) {
-		var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(mail);
-	}
-</script> -->
-<!-- end of validation for form -->
-
 <body>
 
 	<form class="form-horizontal" method="post" name="myForm"
@@ -98,7 +88,7 @@
 									<div class="col-sm-4">
 
 										<input type="email" class="form-control" id="course_price"
-											placeholder="email address" name="email"
+											placeholder="email address" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
 											title="Enter a valid email address" required>
 									</div>
 								</div>
@@ -107,46 +97,31 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Password:</label>
+									<label class="col-xs-2" for="passwordparent">Password:</label>
 									<div class="col-sm-4">
-
-										<input type="password" class="form-control" id="course_price"
-											name="password" pattern=".{6,}"
-											title="Password must
-											contain at least six characters, including
-											uppercase, lowercase letters and numbers" placeholder="password"
-											required>
+										<input type="password" class="form-control"
+											id="passwordparent" name="passwordparent" placeholder="password"
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
+											OR Password do not match with Confirm password"
+											required />
 									</div>
 								</div>
 							</div>
 
-<!-- 							<div class="row">
+							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Re-enter
+									<label class="col-xs-2" for="passwordparent1">Confirm
 										Password:</label>
 									<div class="col-sm-4">
-										<input type="password" class="form-control" id="course_price"
-											placeholder="password" pattern=".{6,}"
-											title="Password must
-											contain at least six characters, including
-											uppercase, lowercase letters and numbers"
-											required>
+										<input type="password" class="form-control"
+											id="passwordparent1" placeholder="password" name="passwordparent"
+											required />
 									</div>
 								</div>
-							</div> -->
-<!-- 
-							<script language='javascript' type='text/javascript'>
-							function check(input){
-								if (input.value != document.getElementById('password').value){
-									input.setCustomValidity('Password must be matching');	
-								}
-							
-							else{
-/* 								input is valid reset the error message
- */								input.setCustomValidity('');
-							}
-							}
-							</script> -->
+							</div>
+
+
 							<br>
 
 							<hr />
@@ -161,7 +136,7 @@
 									<label class="col-xs-2" for="category">Email Address:</label>
 									<div class="col-sm-4">
 										<input type="email" class="form-control" id="course_price"
-											placeholder="email address" name="email1"
+											placeholder="email address" name="email1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
 											title="Enter a valid email address" required>
 									</div>
 								</div>
@@ -169,43 +144,39 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Password:</label>
+									<label class="col-xs-2" for="passwordchild">Password:</label>
 									<div class="col-sm-4">
-										<input type="password" class="form-control" id="course_price"
-											placeholder="password" name="password1" pattern=".{6,}"
+										<input type="password" class="form-control" id="passwordchild"
+											placeholder="password" name="passwordchild" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+											title="Password must contain at least six characters, including uppercase, lowercase letters and numbers
+											OR Password do not match with Confirm password"
+											required>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group form-group-md">
+									<label class="col-xs-2" for="passwordchild1">Confirm Password:</label>
+									<div class="col-sm-4">
+										<input type="password" class="form-control"
+											id="passwordchild1" placeholder=confirmpassword name="passwordchild"
+											pattern=".{6,}"
 											title="Password must contain at least six characters, including
 											uppercase, lowercase letters and numbers"
 											required>
-										<!-- 											;< if (this.checkValidation() form.password_confirm.pattern = this.value;"
- -->
+
 									</div>
 								</div>
 							</div>
 
-<!-- 							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Confirm
-										Password:</label>
-									<div class="col-sm-4">
-										<input name="password_confirm" type="password"
-											class="form-control" id="password_confirm"
-											placeholder="password" oninput="checkas(this)" required>
-									</div>
+							<div class="form-group">
+								<div class="col-md-12" style='text-align: right'>
+									<input type="submit" class="btn btn-primary" value="Submit" onclick="return Validate()">
+									<a class="btn btn-danger" href="register.jsp">Back</a>
 								</div>
 							</div>
-
-							<script language='javascript' type='text/javascript'>
-							function checkas(input){
-								if (input.value != document.getElementById('password1').value){
-									input.setCustomValidity('Password must be matching');	
-								}
-							
-							else{
-/* 								input is valid reset the error message
- */								input.setCustomValidity('');
-							}
-							}
-							</script> -->
 
 							<script type="text/javascript">
 								window.params = function() {
@@ -256,23 +227,74 @@
 								document
 										.write('<input type="hidden" value="'+window.params.address1 +'" name="address1">');
 								document
-										.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">')
-							;
+										.write('<input type="hidden" value="'+window.params.postal_code1 +'" name="postal_code1">');
 							</script>
+
 						</fieldset>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="form-group">
-			<div class="col-md-12" style='text-align: right'>
-				<input type="submit" class="btn btn-primary" value="Submit">
-				<a class="btn btn-danger" href="register.jsp">Back</a>
-			</div>
-		</div>
+
 	</form>
 
+	<script>
+		(function Validate() {
+			var passwordparent1 = document.getElementById('passwordparent');
+			var passwordparent2 = document.getElementById('passwordparent1');
 
+			var checkPasswordValidity = function() {
+				if (passwordparent1.value != passwordparent2.value) {
+					passwordparent1.setCustomValidity('Passwords must match.');
+				} else {
+					passwordparent1.setCustomValidity('');
+				}
+			};
+
+			passwordparent1.addEventListener('change', checkPasswordValidity, false);
+			passwordparent2.addEventListener('change', checkPasswordValidity, false);
+
+			var form = document.getElementById('passwordForm');
+			form.addEventListener('submit', function(event) {
+				checkPasswordValidity();
+				if (!this.checkValidity()) {
+					event.preventDefault();
+					//Implement you own means of displaying error messages to the user here.
+					password1.focus();
+				}
+			}, false);
+		}());
+	</script>
+
+<script>
+		(function Validate() {
+			var passwordchild = document.getElementById('password1');
+			var passwordchild2 = document.getElementById('passwordchild1');
+
+			var checkPasswordValidity = function() {
+				if (passwordchild.value != passwordchild2.value) {
+					passwordparent1.setCustomValidity('Passwords must match.');
+				} else {
+					passwordparent1.setCustomValidity('');
+				}
+			};
+
+			passwordchild.addEventListener('change', checkPasswordValidity, false);
+			passwordchild2.addEventListener('change', checkPasswordValidity, false);
+
+			var form = document.getElementById('passwordForm');
+			form.addEventListener('submit', function(event) {
+				checkPasswordValidity();
+				if (!this.checkValidity()) {
+					event.preventDefault();
+					//Implement you own means of displaying error messages to the user here.
+					password1.focus();
+				}
+			}, false);
+		}());
+	</script>
+	
+	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 
