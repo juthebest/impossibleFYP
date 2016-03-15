@@ -1,3 +1,5 @@
+
+
 import java.util.Date;
 import java.util.Properties;
  
@@ -11,13 +13,9 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
  
-/**
- * A utility class for sending e-mail messages
- * @author www.codejava.net
- *
- */
-public class EmailUtility {
-    public static void sendEmail(String host, String port,
+public class PlainTextEmailSender {
+ 
+    public void sendPlainTextEmail(String host, String port,
             final String userName, final String password, String toAddress,
             String subject, String message) throws AddressException,
             MessagingException {
@@ -31,7 +29,8 @@ public class EmailUtility {
  
         // creates a new session with an authenticator
         Authenticator auth = new Authenticator() {
-            public PasswordAuthentication getPasswordAuthentication() {
+            @Override
+			public PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(userName, password);
             }
         };
@@ -46,10 +45,39 @@ public class EmailUtility {
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject);
         msg.setSentDate(new Date());
+        // set plain text message
         msg.setText(message);
  
         // sends the e-mail
         Transport.send(msg);
  
+    }
+ 
+    /**
+     * Test the send e-mail method
+     *
+     */
+    public static void main(String[] args) {
+        // SMTP server information
+        String host = "smtp.gmail.com";
+        String port = "8080";
+        String mailFrom = "judetyr@gmail.com";
+        String password = "queenjudith123";
+ 
+        // outgoing message information
+        String mailTo = "13016053@myrp.edu.sg";
+        String subject = "Hello my friend";
+        String message = "Hi guy, Hope you are doing well. Duke.";
+ 
+        PlainTextEmailSender mailer = new PlainTextEmailSender();
+ 
+        try {
+            mailer.sendPlainTextEmail(host, port, mailFrom, password, mailTo,
+                    subject, message);
+            System.out.println("Email sent.");
+        } catch (Exception ex) {
+            System.out.println("Failed to sent email.");
+            ex.printStackTrace();
+        }
     }
 }

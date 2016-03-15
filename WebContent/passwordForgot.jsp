@@ -12,8 +12,8 @@
         <table border="0" width="35%" align="center">
             <caption><h2>Send New E-mail</h2></caption>
             <tr>
-                <td width="50%">Recipient address </td>
-                <td><input type="text" name="recipient" size="50"/></td>
+                <td width="50%">Enter Email </td>
+                <td><input type="email" name="recipient" size="50"/></td>
             </tr>
             <tr>
                 <td>Subject </td>

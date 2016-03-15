@@ -60,7 +60,7 @@ padding-left:60px
 				<img class="img-circle" src="image/Courses-icon.png"
 					alt="Generic placeholder image" width="160" height="160">
 			<a href="workshopAdmin.jsp">
-			<h2>Manage WorkShops</h2>
+			<h3>Manage WorkShops</h3>
 			</a>
 				<p>View/Add/Edit/Delete WorkShops</p>
 
@@ -68,21 +68,21 @@ padding-left:60px
 			<div class="col-md-2">
 				<img class="img-circle" src="image/Courses-icon.png"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="coachingAdmin.jsp"><h2>Manage Coaching Session</h2></a>
+				<a href="coachingAdmin.jsp"><h3>Manage Coaching Session</h3></a>
 				<p>View/Add/Edit/Delete Session</p>
 
 			</div>
 			<div class="col-md-2">
 				<img class="img-circle" src="image/program.jpg"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="programAdmin.jsp"><h2>Manage Program</h2></a>
+				<a href="programAdmin.jsp"><h3>Manage Program</h3></a>
 				<p>View/Add/Edit/Delete Program</p>
 
 			</div>
 			<div class="col-md-2">
 				<img class="img-circle" src="image/schedule.png"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="manageWorkShopSchedule.jsp"><h2>Manage Workshops Schedule</h2></a>
+				<a href="manageWorkShopSchedule.jsp"><h3>Manage Workshops Schedule</h3></a>
 				<p>View/Add/Edit/Delete Course Schedule</p>
 
 			</div>
@@ -90,7 +90,7 @@ padding-left:60px
 			<div class="col-md-2">
 				<img class="img-circle" src="image/user.jpg"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="manageUser.jsp"><h2>Manage User</h2></a>
+				<a href="manageUser.jsp"><h3>Manage User</h3></a>
 				<p>View/Add/Edit/Delete Admin, Client and Coach User</p>
 
 			</div>
@@ -103,35 +103,35 @@ padding-left:60px
 			<div class="col-md-2">
 				<img class="img-circle" src="image/setting.png"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="manageItemStatus.jsp"><h2>Manage Status</h2></a>
+				<a href="manageItemStatus.jsp"><h3>Manage Status</h3></a>
 				<p>View/Add/Edit/Delete Status</p>
 
 			</div>
 			<div class="col-md-2">
 				<img class="img-circle" src="image/category.png"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="manageCategory.jsp"><h2>Manage Category</h2></a>
+				<a href="manageCategory.jsp"><h3>Manage Category</h3></a>
 				<p>View/Add/Edit/Delete Category</p>
 
 			</div>
 			<div class="col-md-2">
 				<img class="img-circle" src="image/homepage.png"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="manageIndex.jsp">	<h2>Manage Index Home Page</h2></a>
+				<a href="manageIndex.jsp">	<h3>Manage Index Home Page</h3></a>
 				<p>Insert Banner Picture</p>
 
 			</div>
 			<div class="col-md-2">
 				<img class="img-circle" src="image/setting.png"
 					alt="Generic placeholder image" width="160" height="160">
-					<a href="manageAbout.jsp"><h2>Manage About</h2></a>
+					<a href="manageAbout.jsp"><h3>Manage About</h3></a>
 				<p>Insert About </p>
 
 			</div>
 			<div class="col-md-2">
 				<img class="img-circle" src="image/contactus.jpg"
 					alt="Generic placeholder image" width="160" height="160">
-				<a href="manageContactUs.jsp">	<h2>Manage Contact Us</h2></a>
+				<a href="manageContactUs.jsp">	<h3>Manage Contact Us</h3></a>
 				<p>Insert Contact Us Information</p>
 
 			</div>

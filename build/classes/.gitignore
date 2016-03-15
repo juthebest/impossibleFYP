@@ -1,2 +1,2 @@
-/EmailSendingServlet.class
-/EmailUtility.class
+/PlainTextEmailSender.class
+/PlainTextEmailSender$1.class

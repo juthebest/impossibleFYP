@@ -1,32 +1,26 @@
-
-
 import java.io.IOException;
-
+ 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
 /**
- * Servlet implementation class EmailSendingServlet
+ * A servlet that takes message details from user and send it as a new e-mail
+ * through an SMTP server.
+ * 
+ * @author www.codejava.net
+ * 
  */
 @WebServlet("/EmailSendingServlet")
 public class EmailSendingServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
     /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmailSendingServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	
-
-    private String host;
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String host;
     private String port;
     private String user;
     private String pass;
