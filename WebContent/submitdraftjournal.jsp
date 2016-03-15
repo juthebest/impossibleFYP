@@ -155,7 +155,6 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 										</div>
 									</div>
 
-
 									<br />
 
 									<div class="row">
