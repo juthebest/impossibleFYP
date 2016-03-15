@@ -63,14 +63,15 @@ AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 
 <c:forEach var="counsellor" items="${coachid.rows}">
 	<sql:query var="counsellorjournals" dataSource="${dataSource}">
-SELECT * FROM client_journal, client, user
+SELECT client_journal.client_journal_id, client_journal.create_update_datetime, client_journal.coach_comment,
+user.given_name, client_journal.emotion_rating, client_journal.privacy_indicator
+FROM client_journal, client, user
 WHERE client_journal.client_id = client.client_id
 AND client.client_id = user.client_id
 AND client_journal.journalstatus_id = '1'
 AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
 </c:forEach>
-
 
 <c:forEach var="clientname" items="${counsellor.rows}">
 	<sql:query var="clientnameis" dataSource="${dataSource}">

@@ -89,17 +89,17 @@
 							<form method="post" class="form-horizontal" name="myForm"
 								action="addJournalComment">
 
-								<input type="hidden"
-									value="${journaldetails.client_journal_id}" name="id"></input>
+								<input type="hidden" value="${journaldetails.client_journal_id}"
+									name="id"></input>
 
 								<div class="form-group required">
 									<label class="col-sm-2 control-label" for="input-name1">Student
 										Journal</label>
 									<div class="col-sm-10">
-										<textfield> <input type="text" name="status_name"
+										<input type="text" name="status_name"
 											value="${journaldetails.journal_reflection}"
 											placeholder="Status Name" id="input-name1"
-											class="form-control" required /></textfield>
+											class="form-control" disabled />
 									</div>
 								</div>
 
@@ -109,7 +109,7 @@
 									<div class="col-sm-10">
 										<input type="text" name="emotionrating" id="input-emotion"
 											value="${journaldetails.emotion_rating}" class="form-control"
-											required></input>
+											disabled></input>
 
 									</div>
 								</div>
@@ -120,7 +120,7 @@
 									<div class="col-sm-10">
 										<input type="text" name="indicator" id="input-indicator"
 											value="${journaldetails.privacy_indicator}"
-											class="form-control" required></input>
+											class="form-control" disabled></input>
 
 									</div>
 								</div>
@@ -132,7 +132,7 @@
 										<input type="text" name="datesubmitted"
 											placeholder="Submitted date" id="input-submitdate"
 											value="${journaldetails.create_update_datetime}"
-											class="form-control" required></input>
+											class="form-control" disabled></input>
 
 									</div>
 								</div>
