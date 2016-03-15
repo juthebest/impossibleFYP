@@ -155,7 +155,7 @@ WHERE coach_id = <c:out value="${counsellor.coach_id}" />;
 									</h5>
 									<i>Commented on: </i>
 									<c:out value="${client.coach_comment_datetime}" />
-									<i> , By</i>
+									<i>, By</i>
 									<c:forEach var="counsellornameis"
 										items="${counsellorname.rows}">
 										<c:out value="${counsellornameis.given_name}" />

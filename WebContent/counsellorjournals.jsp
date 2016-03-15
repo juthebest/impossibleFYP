@@ -43,20 +43,6 @@
 		sessionID = session.getId();
 	}
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
-
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
 
 
 <sql:query var="coachid" dataSource="${dataSource}">
@@ -195,14 +181,20 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<!-- load jQuery and tablesorter scripts -->
-	<script type="text/javascript" src="js/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+	<script src="dist/js/jquery.tablesorter.min.js"></script>
+	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 
 	<script>
 		$(function() {
-			$("#myTable").tablesorter();
+			$('table').tablesorter({
+
+				usNumberFormat : false,
+				sortReset : true,
+				sortRestart : true
+
+			});
 		});
 	</script>
+	
 </body>
 </html>

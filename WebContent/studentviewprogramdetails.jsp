@@ -122,7 +122,6 @@ FROM  user where user_id= <%=uid%>;
 				<div class="page-header">
 					<h1>
 						<c:out value="${program.program_name}" />
-						Program
 					</h1>
 				</div>
 
@@ -130,7 +129,7 @@ FROM  user where user_id= <%=uid%>;
 					<div class="alingment">
 
 						<h4>Program Description:</h4>
-						<c:out value="${program.program_desc}" />
+						<c:out value="${program.program_desc}"  escapeXml = "false"/>
 						<br> <br>
 
 						<p>

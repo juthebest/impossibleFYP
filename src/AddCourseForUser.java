@@ -82,6 +82,7 @@ public class AddCourseForUser extends HttpServlet {
 						+ programid + "' AND `client_id` ='" + clientid + "'");
 
 				int ct = 0;
+				
 				while (resultset.next()) {
 					ct++;
 				}
@@ -107,7 +108,7 @@ public class AddCourseForUser extends HttpServlet {
 					response.sendRedirect("myCourseNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("StudentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
@@ -181,7 +182,7 @@ public class AddCourseForUser extends HttpServlet {
 					response.sendRedirect("myCourseNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("StudentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
@@ -237,8 +238,6 @@ public class AddCourseForUser extends HttpServlet {
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
-
-					// Execute SQL query
 					String sql;
 
 					sql = "INSERT INTO `itemrun_has_client`(`enrollment_status_id`, `client_id`, `itemrun_id`, `program_has_client_id`, `date_registered`, `quantity`, `unit_cost`) VALUES ('2','"
@@ -246,17 +245,14 @@ public class AddCourseForUser extends HttpServlet {
 							+ "','1','20') ";
 
 					rs = stmt.executeUpdate(sql);
-					// validate login to remember the row
 				}
-
-				// validate login to remember the row
 
 				if (rs == 1) {
 					out.println("success");
 					response.sendRedirect("myCourseNPrograms.jsp");
 				} else {
 					out.println("failed");
-					response.sendRedirect("AddCourseForUser.jsp");
+					response.sendRedirect("StudentPrograms&Courses.jsp");
 				}
 
 			} catch (SQLException se) {
