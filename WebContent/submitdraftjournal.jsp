@@ -115,7 +115,7 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 	<br />
 
 	<div class="item active">
-		<form name="form1" method="post" action="userreflectiondraft">
+		<form name="form1" method="post" action="userreflectiondrafttosubmit">
 			<div class="container">
 				<div class="container-fluid">
 					<div class="panel panel-default">
@@ -125,7 +125,8 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 							<div class="panel-body">
 								<c:forEach var="client" items="${clientjournal.rows}">
 
-									<input type="hidden" value="9" name="clientjournalid" />
+									<input type="hidden" value="${rjquestion.client_journal_id}"
+										name="clientjournalid" />
 
 									<c:forEach var="rjquestion" items="${reflectionjournal.rows}">
 										<p>
@@ -134,9 +135,10 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 									</c:forEach>
 
 									<textarea name="editor1" id="journal_editor" rows="10"
-										cols="80" required>					<c:out
-											value="${client.journal_reflection}" />
-						</textarea>
+										cols="80" required>					
+										<c:out value="${client.journal_reflection}" />
+									</textarea>
+									
 									<script>
 										CKEDITOR.replace('editor1');
 									</script>
@@ -166,7 +168,6 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 												<option value="Allow">Allow All</option>
 												<option value="Onlycounsellor">Only Counsellor</option>
 											</select>
-
 										</div>
 									</div>
 
