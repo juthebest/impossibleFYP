@@ -58,14 +58,14 @@
 			<div class="row">
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/notebook-boy-icon.png"
-						alt="Generic placeholder image" width="120" height="120">
+						alt="Generic placeholder image" class="img-responsive" width="120" height="120">
 					<h2>Write A Journal</h2>
 					<p>Write a new Journal! Express your thoughts and creativity!</p>
 				</div>
 
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/Diary-icon.png"
-						alt="Generic placeholder image" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
 					<h2>Recent Journals</h2>
 					<p>View journals that I have recently written and counsellor's
 						comments</p>
@@ -73,19 +73,19 @@
 
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/Courses-icon.png"
-						alt="Generic placeholder image" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
 					<h2>My Courses</h2>
 					<p>View all Courses and Programs that I have registered.</p>
 				</div>
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/basket-full-icon.png"
-						alt="Generic placeholder image" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
 					<h2>New Course</h2>
 					<p>View courses that are available right now!</p>
 				</div>
 				<div class="col-lg-2">
 					<img class="img-circle" src="image/profile-icon.png"
-						alt="Generic placeholder image" width="140" height="140">
+						alt="Generic placeholder image" class="img-responsive" width="140" height="140">
 					<h2>My Information</h2>
 					<p>View my Information and edit my profile</p>
 				</div>

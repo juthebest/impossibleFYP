@@ -48,14 +48,15 @@
 
 <!-- //var - ownself name -->
 <sql:query var="studentrecentjournals" dataSource="${dataSource}">
-SELECT * FROM `client_journal`, `client`,`user`
+SELECT client_journal.client_journal_id, client_journal.create_update_datetime,
+client_journal.journal_reflection, client_journal.emotion_rating
+ FROM `client_journal`, `client`,`user`
 WHERE `client_journal`.`client_id` = `client`.`client_id`
 AND `client`.`client_id` = `user`.`client_id`
 AND `user_id` = <%=uid%>
 AND  `client_journal`.`journalstatus_id` = '2'
 ORDER BY `user`.`create_update_datetime` ASC
 </sql:query>
-
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -121,7 +122,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 						<c:out value="${studentjournals.create_update_datetime}" />
 
 						<img src="image/cat-food-hearts-icon.png"
-							style="width: 280px; height: 228px;" alt="New Courses" /> <br />
+							class="img-responsive" style="width: 280px; height: 228px;" alt="New Courses" /> <br />
 						<p>
 							<c:out value="${studentjournals.journal_reflection}" escapeXml = "false" />
 						</p>
@@ -138,6 +139,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 			</c:forEach>
 		</div>
 
+	</div>
 	</div>
 
 	<!-- Start of <Fixed footer> -->
