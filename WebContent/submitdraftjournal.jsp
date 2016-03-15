@@ -111,7 +111,6 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 			</ol>
 		</div>
 	</div>
-
 	<br />
 
 	<div class="item active">
