@@ -87,7 +87,7 @@ public class AddCourseForUser extends HttpServlet {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: Duplicate info! Program Name: " + programid);
+					request.setAttribute("Error", "Error occured: You have already registered for this course. Program Name: " + programid);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
@@ -162,7 +162,7 @@ public class AddCourseForUser extends HttpServlet {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + itemrunid);
+					request.setAttribute("Error", "Error occured: You have already registered for this course. Category Name: " + itemrunid);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
@@ -239,7 +239,7 @@ public class AddCourseForUser extends HttpServlet {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: Duplicate info! Category Name: " + itemrunidws);
+					request.setAttribute("Error", "Error occured: You have already registered for this course. Category Name: " + itemrunidws);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {

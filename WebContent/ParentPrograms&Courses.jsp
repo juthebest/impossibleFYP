@@ -69,8 +69,9 @@ AND client.client_id=<c:out value="${userprofile2.client_id}" />
 
 <!-- workshop -->
 <sql:query var="workshopCategory" dataSource="${dataSource}">
-                select * from item,category_has_item,category 
-                where item.item_id = category_has_item.item_id 
+                 select * from item,category_has_item,category, itemrun
+                where itemrun.item_id = item.item_id
+                AND item.item_id = category_has_item.item_id 
                 AND category_has_item.category_id=category.category_id 
                 AND item.status_id = 2
                 AND item.item_type_id=?
@@ -97,8 +98,9 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 <!-- coaching -->
 <sql:query var="coachingCategory" dataSource="${dataSource}">
-                select * from item,category_has_item,category 
-                where item.item_id=category_has_item.item_id 
+                select * from item,category_has_item,category, itemrun
+                where itemrun.item_id = item.item_id
+                AND item.item_id=category_has_item.item_id 
                 AND category_has_item.category_id=category.category_id 
                 AND item.status_id=2
                 AND item.item_type_id=?

@@ -58,14 +58,14 @@ FROM  user where user_id= <%=uid%>;
 
 <!-- workshop -->
 <sql:query var="workshopCategory" dataSource="${dataSource}">
-                select * from item,category_has_item,category 
-                where item.item_id = category_has_item.item_id 
+                select * from item,category_has_item,category, itemrun
+                where itemrun.item_id = item.item_id
+                AND item.item_id = category_has_item.item_id 
                 AND category_has_item.category_id=category.category_id 
                 AND item.status_id = 2
                 AND item.item_type_id=?
                                 <sql:param value="2" />
 </sql:query>
-
 
 <c:forEach var="itemrunid2" items="${workshopCategory.rows}">
 	<sql:query var="itemrunid" dataSource="${dataSource}">
@@ -86,8 +86,9 @@ WHERE client_id=<c:out value="${programhasclient.client_id}" />
 
 <!-- coaching -->
 <sql:query var="coachingCategory" dataSource="${dataSource}">
-                select * from item,category_has_item,category 
-                where item.item_id=category_has_item.item_id 
+                select * from item,category_has_item,category, itemrun
+                where itemrun.item_id = item.item_id
+                AND item.item_id=category_has_item.item_id 
                 AND category_has_item.category_id=category.category_id 
                 AND item.status_id=2
                 AND item.item_type_id=?
@@ -132,15 +133,15 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 		<div class="testing">
 			<div class="pull-right">
-			<%
-							if (request.getAttribute("Error") != null) {
-						%>
-						<p style="color: red">
+				<%
+					if (request.getAttribute("Error") != null) {
+				%>
+				<p style="color: red">
 
-							<%=(String) request.getAttribute("Error")%></p>
-						<%
-							}
-						%>
+					<%=(String) request.getAttribute("Error")%></p>
+				<%
+					}
+				%>
 			</div>
 			<form action="AddCourseForUser" method="post" class="form-horizontal">
 				<div class="row">
@@ -200,8 +201,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								<br>
 								<p>
 									<img
-										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryp.program_id}
-										class="
+										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryp.program_id} class="
 										img-thumbnail" alt="Cinque Terre" width="304" height="236">
 								</p>
 								<p>
@@ -234,8 +234,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 							<div class="alingment">
 								<p>
 									<img
-										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryw.program_id}
-										class="
+										src="http://localhost:8080/impossibleWeb/readImageItem?id=${categoryw.item_id} class="
 										img-thumbnail" alt="Cinque Terre" width="304" height="236">
 								</p>
 
@@ -270,12 +269,13 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
 								<br>
+
 								<p>
 									<img
-										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryc.program_id}
-										class="
+										src="http://localhost:8080/impossibleWeb/readImageItem?id=${categoryc.item_id} class="
 										img-thumbnail" alt="Cinque Terre" width="304" height="236">
 								</p>
+
 								<p>
 									<b>Title: </b>
 									<c:out value="${categoryc.item_name}" />
