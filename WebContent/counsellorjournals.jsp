@@ -50,16 +50,6 @@ SELECT * FROM user
 WHERE user_id = <%=uid%>;
 </sql:query>
 
-<%-- <c:forEach var="counsellor" items="${coachid.rows}">
-	<sql:query var="counsellorjournals" dataSource="${dataSource}">
-SELECT * FROM client_journal, client, coach
-WHERE client_journal.client_id = client.client_id
-AND client_journal.coach_id = coach.coach_id
-AND client_journal.journalstatus_id = '1'
-AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
-</sql:query>
-</c:forEach> --%>
-
 
 <c:forEach var="counsellor" items="${coachid.rows}">
 	<sql:query var="counsellorjournals" dataSource="${dataSource}">
@@ -73,6 +63,7 @@ AND client_journal.coach_id = <c:out value="${counsellor.coach_id}" />;
 </sql:query>
 </c:forEach>
 
+
 <c:forEach var="clientname" items="${counsellor.rows}">
 	<sql:query var="clientnameis" dataSource="${dataSource}">
 SELECT * FROM user
@@ -80,18 +71,22 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 </sql:query>
 </c:forEach>
 
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Counselor Journals</title>
+<title>I'MPOSSIBLE - Counsellor Journals</title>
+
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+<!-- start of style sheet -->
 <link href="css/home.css" rel="stylesheet">
+<!-- end of style sheet -->
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -173,13 +168,20 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 		</div>
 	</div>
 
-	<nav id="footerMenu"></nav>
 
+	<!-- start of footer -->
+	<nav id="footerMenu"></nav>
 	<script src="js/footer.js"></script>
+	<!-- end of footer -->
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
+
 	<script src="js/bootstrap.min.js"></script>
+
+	<!-- start of table sorter -->
 	<script src="dist/js/jquery.tablesorter.min.js"></script>
 	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 
@@ -194,7 +196,7 @@ WHERE client_id = <c:out value="${clientname.client_id}" />;
 			});
 		});
 	</script>
-	
-	
+	<!-- end of table sorter -->
+
 </body>
 </html>
