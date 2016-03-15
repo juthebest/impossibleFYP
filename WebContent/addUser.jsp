@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<jsp:include page="main/adminNavigations.jsp"></jsp:include>
+<jsp:include page="main/adminNavigations.jsp"></jsp:include>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,39 +34,39 @@
 </head>
 <body>
 
-<%
-	//allow access only if session exists
-	String user = null;
+	<%
+		//allow access only if session exists
+		String user = null;
 
-	if (session.getAttribute("name") == null || session.getAttribute("role") == null
-			|| session.getAttribute("role") != "admin") {
-		response.sendRedirect("login.jsp");
-	} else
-		user = (String) session.getAttribute("name");
-	String userName = null;
-	String sessionID = null;
-	String userrole = null;
-	Cookie[] cookies = request.getCookies();
-	if (cookies != null) {
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("name"))
-				userName = cookie.getValue();
-			if (cookie.getName().equals("JSESSIONID"))
-				sessionID = cookie.getValue();
-			if (cookie.getName().equals("role"))
-				userrole = cookie.getValue();
+		if (session.getAttribute("name") == null || session.getAttribute("role") == null
+				|| session.getAttribute("role") != "admin") {
+			response.sendRedirect("login.jsp");
+		} else
+			user = (String) session.getAttribute("name");
+		String userName = null;
+		String sessionID = null;
+		String userrole = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("name"))
+					userName = cookie.getValue();
+				if (cookie.getName().equals("JSESSIONID"))
+					sessionID = cookie.getValue();
+				if (cookie.getName().equals("role"))
+					userrole = cookie.getValue();
+			}
+		} else {
+			sessionID = session.getId();
 		}
-	} else {
-		sessionID = session.getId();
-	}
 
-	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
-%>
+		/* no session validation logic in the above JSP. It contains link to another JSP page,  */
+	%>
 
 	<div class="container">
 
-
 		<div id="content">
+
 			<div class="page-header">
 				<div class="container-fluid">
 
@@ -78,24 +78,21 @@
 					</ul>
 				</div>
 			</div>
+
 			<div class="container-fluid">
+
 				<div class="panel panel-default">
+
 					<div class="panel-heading">
 						<h3 class="panel-title">
 							<i class="fa fa-pencil"></i> Add New Client User
 						</h3>
 					</div>
+
 					<div class="panel-body">
-		
 
-
-
-
-
-
-
-							<div class="tab-content">
-								<form action="addUser" method="post" class="form-horizontal">
+						<div class="tab-content">
+							<form action="addUser" method="post" class="form-horizontal">
 								<div class="tab-pane active" id="tab-general">
 									<div class="row">
 										<div class="col-sm-2">
@@ -127,14 +124,13 @@
 														</div>
 													</div>
 
-
-
 													<div class="form-group required">
 														<label class="col-sm-2 control-label" for="input-surname">
 															Surname</label>
 														<div class="col-sm-10">
 															<input type="text" name="csurname" placeholder="Surname"
-																id="input-surname" pattern="[a-zA-Z]{2,}" title="Minimum 2 letters" class="form-control" required />
+																id="input-surname" pattern="[a-zA-Z]{2,}"
+																title="Minimum 2 letters" class="form-control" required />
 														</div>
 													</div>
 													<div class="form-group required">
@@ -143,7 +139,8 @@
 														<div class="col-sm-10">
 															<input type="text" name="cgivenname"
 																placeholder="Given Name" id="input-givenname"
-																class="form-control" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required />
+																class="form-control" pattern="[a-zA-Z]{5,}"
+																title="Minimum 4 letters" required />
 														</div>
 													</div>
 
@@ -161,13 +158,14 @@
 														</div>
 													</div>
 
-									
-													
+
+
 													<div class="form-group required">
 														<label class="col-sm-2 control-label" for="input-school">School</label>
 														<div class="col-sm-10">
 															<input type="text" name="cschool" placeholder="School"
-																id="sch" class="form-control" pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" required />
+																id="sch" class="form-control" pattern="[a-zA-Z]{5,}"
+																title="Minimum 4 letters" required />
 														</div>
 													</div>
 													<div class="form-group required">
@@ -181,7 +179,8 @@
 														<label class="col-sm-2 control-label" for="input-mobile">Mobile</label>
 														<div class="col-sm-10">
 															<input type="text" name="cmobile" placeholder="mobile"
-																id="input-mobile" class="form-control" pattern='^[89]\d{7}$' required />
+																id="input-mobile" class="form-control"
+																pattern='^[89]\d{7}$' required />
 														</div>
 													</div>
 
@@ -190,8 +189,10 @@
 														<div class="col-sm-10">
 															<input type="password" name="cpassword" value=""
 																placeholder="Password" id="input-password"
-																class="form-control"  pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
-										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"  autocomplete="off" required />
+																class="form-control"
+																pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+																title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"
+																autocomplete="off" required />
 														</div>
 													</div>
 
@@ -204,7 +205,8 @@
 															<input type="text" name="caddress" value=""
 																placeholder="Address " id="input-address"
 																class="form-control" attern='(\d{1,3}.)?.+\s(\d{6})$'
-										title="Please enter BLK/STREET/unit/postal code"  required />
+																title="Please enter BLK/STREET/unit/postal code"
+																required />
 														</div>
 													</div>
 
@@ -238,7 +240,8 @@
 															Surname</label>
 														<div class="col-sm-10">
 															<input type="text" name="psurname" placeholder="Surname"
-																id="input-surname"pattern="[a-zA-Z]{2,}" title="Minimum 2 letters" class="form-control" required />
+																id="input-surname" pattern="[a-zA-Z]{2,}"
+																title="Minimum 2 letters" class="form-control" required />
 														</div>
 													</div>
 													<div class="form-group required">
@@ -247,7 +250,8 @@
 														<div class="col-sm-10">
 															<input type="text" name="pgivenname"
 																placeholder="Given Name" id="input-givenname"
-																pattern="[a-zA-Z]{5,}" title="Minimum 4 letters" class="form-control" required />
+																pattern="[a-zA-Z]{5,}" title="Minimum 5 letters"
+																class="form-control" required />
 														</div>
 													</div>
 
@@ -263,7 +267,9 @@
 														<label class="col-sm-2 control-label" for="input-mobile">Mobile</label>
 														<div class="col-sm-10">
 															<input type="text" name="pmobile" placeholder="mobile"
-																id="input-mobile" pattern='^[89]\d{7}$' title="Minimum 8 digits, Starting with 8 or 9" class="form-control" required />
+																id="input-mobile" pattern='^[89]\d{7}$'
+																title="Minimum 8 digits, Starting with 8 or 9"
+																class="form-control" required />
 														</div>
 													</div>
 
@@ -272,8 +278,10 @@
 														<div class="col-sm-10">
 															<input type="password" name="ppassword" value=""
 																placeholder="Password" id="input-password"
-																class="form-control" pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
-										title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:" autocomplete="off" required />
+																class="form-control"
+																pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$'
+																title="Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:"
+																autocomplete="off" required />
 														</div>
 													</div>
 
@@ -284,15 +292,15 @@
 															<input type="text" name="paddress" value=""
 																placeholder="Address " id="input-address"
 																pattern='(\d{1,3}.)?.+\s(\d{6})$'
-										title="Please enter BLK/STREET/unit/postal code" class="form-control" required />
+																title="Please enter BLK/STREET/unit/postal code"
+																class="form-control" required />
 														</div>
 													</div>
 													<div class="form-group required">
 														<label class="col-sm-2 control-label"
 															for="input-salutation"> Relationship to Child</label>
 														<div class="col-sm-10">
-															<select class="form-control" name="rtc"
-																id="input-rtc">
+															<select class="form-control" name="rtc" id="input-rtc">
 																<option value="father">Father</option>
 																<option value="mother">Mother</option>
 																<option value="others">Others</option>
@@ -321,20 +329,20 @@
 										</div>
 									</div>
 								</div>
-				<div class="form-group">
-								<div class="form-actions">
-									<button type="submit" class="btn btn-primary">Save
-										changes</button>
-									<a href="manageUser.jsp"><button type="button"
-											class="btn btn-danger">Cancel</button></a>
+								<div class="form-group">
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">Save
+											changes</button>
+										<a href="manageUser.jsp"><button type="button"
+												class="btn btn-danger">Cancel</button></a>
+
+									</div>
 
 								</div>
+							</form>
 
-							</div>
-						</form>
+						</div>
 
-							</div>
-	
 
 					</div>
 
@@ -349,7 +357,7 @@
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	
+
 	<script src="js/footer.js"></script>
 
 
@@ -358,31 +366,31 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script>
 		$("#dp1").datepicker({
-			dateFormat: 'yy/mm/dd'
+			dateFormat : 'yy/mm/dd'
 		});
-
 	</script>
-	
+
 	<script>
-	
-	var validations ={
-		    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+		var validations = {
+			email : [
+					/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+					'Please enter a valid email address' ]
 		};
-		$(document).ready(function(){
-		    // Check all the input fields of type email. This function will handle all the email addresses validations
-		    $("input[type=email]").change( function(){
-		        // Set the regular expression to validate the email 
-		        validation = new RegExp(validations['email'][0]);
-		        // validate the email value against the regular expression
-		        if (!validation.test(this.value)){
-		            // If the validation fails then we show the custom error message
-		            this.setCustomValidity(validations['email'][1]);
-		            return false;
-		        } else {
-		            // This is really important. If the validation is successful you need to reset the custom error message
-		            this.setCustomValidity('');
-		        }
-		    });
+		$(document).ready(function() {
+			// Check all the input fields of type email. This function will handle all the email addresses validations
+			$("input[type=email]").change(function() {
+				// Set the regular expression to validate the email 
+				validation = new RegExp(validations['email'][0]);
+				// validate the email value against the regular expression
+				if (!validation.test(this.value)) {
+					// If the validation fails then we show the custom error message
+					this.setCustomValidity(validations['email'][1]);
+					return false;
+				} else {
+					// This is really important. If the validation is successful you need to reset the custom error message
+					this.setCustomValidity('');
+				}
+			});
 		})
 	</script>
 
