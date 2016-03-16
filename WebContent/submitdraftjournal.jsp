@@ -114,7 +114,7 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 	<br />
 
 	<div class="item active">
-		<form name="form1" method="post" action="userreflectiondrafttosubmit">
+		<form name="form1" method="post" action="userreflectiondraft">
 			<div class="container">
 				<div class="container-fluid">
 					<div class="panel panel-default">
@@ -124,7 +124,7 @@ WHERE client_journal_id=<%=request.getParameter("journalid")%>;
 							<div class="panel-body">
 								<c:forEach var="client" items="${clientjournal.rows}">
 
-									<input type="hidden" value="${rjquestion.client_journal_id}"
+									<input type="hidden" value="${client.client_journal_id}"
 										name="clientjournalid" />
 
 									<c:forEach var="rjquestion" items="${reflectionjournal.rows}">
