@@ -129,6 +129,18 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 </head>
 
 <body>
+	<div class="container">
+		<div class="container-fluid">
+			<ol class="breadcrumb">
+				<li><a href="user.jsp">Home</a></li>
+				<li class="active">Student Programs & Courses</li>
+			</ol>
+		</div>
+	</div>
+
+	<br />
+
+
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 		<div class="testing">

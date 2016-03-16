@@ -223,15 +223,14 @@ AND user.user_id = <%=uid%>;
 		<p style="text-align: right">
 			<a class="btn btn-default" href="editStudentProfile.jsp"
 				role="button"><i class="glyphicon glyphicon-edit"></i>Edit</a> <a
-				class="btn btn-default" href="user.jsp" role="button">Back</a>
-
+				class="btn btn-danger" href="user.jsp" role="button">Back</a>
 		</p>
 	</div>
 
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
-
+	
 	<script src="js/footer.js"></script>
 
 	<script

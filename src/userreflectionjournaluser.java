@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,30 +18,31 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/userreflectionjournaluser")
 public class userreflectionjournaluser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public userreflectionjournaluser() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public userreflectionjournaluser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+
 		String action = request.getParameter("action");
 
 		if ("Save".equals(action)) {
-		    // Invoke FirstServlet's job here.
-			final String DB_URL="jdbc:mysql://localhost:3306/mydb";
+			// Invoke FirstServlet's job here.
+			final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
 
-			//  Database credentials
+			// Database credentials
 			final String USER = "root";
 			final String PASS = "";
 
@@ -51,56 +51,57 @@ public class userreflectionjournaluser extends HttpServlet {
 
 			PrintWriter out = response.getWriter();
 
-			try{
+			try {
 				// Register JDBC driver
 				Class.forName("com.mysql.jdbc.Driver");
 
 				// Open a connection
 				Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
-				//get from js
+				// get from js
 				String editor = request.getParameter("editor1");
-				String privacy= request.getParameter("privacyin");
+				String privacy = request.getParameter("privacyin");
 				String emotionrating = request.getParameter("emotionrating");
 				String userID = request.getParameter("xenia");
 				String coachID = request.getParameter("thisisthecoachid");
 
-				//Date format (USER table - parent)
+				// Date format (USER table - parent)
 				java.util.Date dt = new java.util.Date();
-				java.text.SimpleDateFormat sdf =  new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String currentTime = sdf.format(dt);
-				
-				out.println("Your Text = "+editor+"<br>");
+
+				out.println("Your Text = " + editor + "<br>");
 
 				// Execute SQL query
-				final  Statement stmt = conn.createStatement();
+				final Statement stmt = conn.createStatement();
 				String sql;
-				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`,`journalstatus_id`) VALUES ('"+userID+"','"+coachID+"','"+editor+"','"+emotionrating+"','"+currentTime+"','"+privacy+"', '2')";
+				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`,`journalstatus_id`) VALUES ('"
+						+ userID + "','" + coachID + "','" + editor + "','" + emotionrating + "','" + currentTime
+						+ "','" + privacy + "', '2')";
 				int rs = stmt.executeUpdate(sql);
-				//validate login to remember the row
+				// validate login to remember the row
 
-				if(rs == 1){
+				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("user.jsp");
-				}
-				else {
+					response.sendRedirect("studentdraftjournals.jsp");
+				} else {
 					out.println("failed");
 					response.sendRedirect("ReflectionJournal.jsp");
 				}
 
-			}catch(SQLException se){
-				//Handle errors for JDBC
+			} catch (SQLException se) {
+				// Handle errors for JDBC
 				se.printStackTrace();
-			}catch(Exception e){
-				//Handle errors for Class.forName
+			} catch (Exception e) {
+				// Handle errors for Class.forName
 				e.printStackTrace();
-			}		
-			
-		} else if ("Submit".equals(action)) {
-		    // Invoke SecondServlet's job here.
-			final String DB_URL="jdbc:mysql://localhost:3306/mydb";
+			}
 
-			//  Database credentials
+		} else if ("Submit".equals(action)) {
+			// Invoke SecondServlet's job here.
+			final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
+
+			// Database credentials
 			final String USER = "root";
 			final String PASS = "";
 
@@ -109,56 +110,50 @@ public class userreflectionjournaluser extends HttpServlet {
 
 			PrintWriter out = response.getWriter();
 
-			try{
+			try {
 				// Register JDBC driver
 				Class.forName("com.mysql.jdbc.Driver");
 
-				// Open a connection
 				Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
-				//get from js
 				String editor = request.getParameter("editor1");
-				String privacy= request.getParameter("privacyin");
+				String privacy = request.getParameter("privacyin");
 				String emotionrating = request.getParameter("emotionrating");
 				String userID = request.getParameter("xenia");
 				String coachID = request.getParameter("thisisthecoachid");
 
-				//Date format (USER table - parent)
+				// Date format (USER table - parent)
 				java.util.Date dt = new java.util.Date();
-				java.text.SimpleDateFormat sdf =  new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String currentTime = sdf.format(dt);
-				
-				out.println("Your Text = "+editor+"<br>");
+
+				out.println("Your Text = " + editor + "<br>");
 
 				// Execute SQL query
-				final  Statement stmt = conn.createStatement();
+				final Statement stmt = conn.createStatement();
 				String sql;
-				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `journalstatus_id`) VALUES ('"+userID+"','"+coachID+"','"+editor+"','"+emotionrating+"','"+currentTime+"','"+privacy+"', '1')";
+				sql = "INSERT INTO `client_journal`(`client_id`, `coach_id`, `journal_reflection`, `emotion_rating`, `create_update_datetime`, `privacy_indicator`, `journalstatus_id`) VALUES ('"
+						+ userID + "','" + coachID + "','" + editor + "','" + emotionrating + "','" + currentTime
+						+ "','" + privacy + "', '1')";
 				int rs = stmt.executeUpdate(sql);
-				//validate login to remember the row
 
-				if(rs == 1){
+				if (rs == 1) {
 					out.println("success");
-					response.sendRedirect("user.jsp");
-				}
-				else {
+					response.sendRedirect("studentrecentjournals.jsp");
+				} else {
 					out.println("failed");
 					response.sendRedirect("ReflectionJournal.jsp");
 				}
 
-			}catch(SQLException se){
-				//Handle errors for JDBC
+			} catch (SQLException se) {
+				// Handle errors for JDBC
 				se.printStackTrace();
-			}catch(Exception e){
-				//Handle errors for Class.forName
+			} catch (Exception e) {
+				// Handle errors for Class.forName
 				e.printStackTrace();
 			}
 		}
-		
-		
 
-		
-	//	doGet(request, response);
 	}
 
 }

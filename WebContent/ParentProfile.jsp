@@ -45,20 +45,6 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
-
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
 
 <sql:query var="parentdetails" dataSource="${dataSource}">
 SELECT * FROM user, client
@@ -117,6 +103,7 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 <link href="css/home.css" rel="stylesheet">
 
 <body>
+
 	<div class="container">
 		<div class="container-fluid">
 			<ol class="breadcrumb">
@@ -126,15 +113,17 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 		</div>
 	</div>
 
-
 	<br />
+	
 	<div class="container">
 
 		<div class="row">
 			<h4>
 				<b>User Information</b>
 			</h4>
+			
 			<hr />
+			
 			<div class="col-sm-4">
 
 				<c:forEach var="parentprofile" items="${parentdetails.rows}">
@@ -159,8 +148,8 @@ AND client.client_id = <c:out value="${courses.client_id}" />;
 
 				</c:forEach>
 
-
 			</div>
+			
 			<div class="col-sm-4">
 				<c:forEach var="profilechild" items="${chilid2.rows}">
 

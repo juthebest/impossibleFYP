@@ -48,80 +48,73 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
-
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
 
 <body>
 	<div style="padding-top: 100px; text-align: center">
 		<div class="container marketing">
 			<div class="row">
+
 				<div class="col-lg-3">
 					<img class="img-circle" src="image/Diary-icon.png"
 						alt="Generic placeholder image" width="160" height="160">
 					<h2>Recent Journals</h2>
-					<p>View journals that your child have recently written and
-						counsellor's comments</p>
-
+					<p>View journals that your child have written and counsellor's
+						comments</p>
 				</div>
+
+				<div class="col-lg-3">
+					<img class="img-circle" src="image/shopping-icon.png"
+						alt="Generic placeholder image" width="160" height="160">
+					<h2>New Courses</h2>
+					<p>View courses that are available right now.</p>
+				</div>
+
 				<div class="col-lg-3">
 					<img class="img-circle" src="image/Books-2-icon.png"
 						alt="Generic placeholder image" width="160" height="160">
 					<h2>My Courses</h2>
-					<p>View all Courses and Programs that I have registered.</p>
+					<p>View all courses and programs that I have registered.</p>
+				</div>
 
-				</div>
-				<div class="col-lg-3">
-					<img class="img-circle" src="image/shopping-icon.png"
-						alt="Generic placeholder image" width="160" height="160">
-					<h2>New Course</h2>
-					<p>View courses that are available right now!</p>
-				</div>
 				<div class="col-lg-3">
 					<img class="img-circle" src="image/profile-icon.png"
 						alt="Generic placeholder image" width="160" height="160">
-					<h2>My Information</h2>
-					<p>View my Information and edit my profile</p>
+					<h2>My Profile</h2>
+					<p>View my information and edit my profile</p>
 
 				</div>
 			</div>
 
 			<div class="row">
+
 				<div class="col-lg-3">
 					<p>
 						<a class="btn btn-default" href="ParentViewJournals.jsp"
 							role="button">View Journals &raquo;</a>
 					</p>
 				</div>
-				<div class="col-lg-3">
-					<p>
-						<a class="btn btn-default" href="ParentCoursesNPrograms.jsp"
-							role="button">View details &raquo;</a>
-					</p>
-				</div>
+
 				<div class="col-lg-3">
 					<p>
 						<a class="btn btn-default" href="ParentPrograms&Courses.jsp"
 							role="button">View New Programs &raquo;</a>
 					</p>
 				</div>
+
+				<div class="col-lg-3">
+					<p>
+						<a class="btn btn-default" href="ParentCoursesNPrograms.jsp"
+							role="button">View My Courses &raquo;</a>
+					</p>
+				</div>
+
 				<div class="col-lg-3">
 					<p>
 						<a class="btn btn-default" href="ParentProfile.jsp" role="button">View
-							My Information &raquo;</a>
+							My Profile &raquo;</a>
 					</p>
 				</div>
+
 			</div>
 		</div>
 	</div>

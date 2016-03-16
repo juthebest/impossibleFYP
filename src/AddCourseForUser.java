@@ -82,25 +82,22 @@ public class AddCourseForUser extends HttpServlet {
 						+ programid + "' AND `client_id` ='" + clientid + "'");
 
 				int ct = 0;
-				
+
 				while (resultset.next()) {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: You have already registered for this course. Program Name: " + programid);
+					request.setAttribute("Error",
+							"Error occured: You have already registered for this course. Program Name: " + programid);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
-
-					// Execute SQL query
 					String sql;
 
 					sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
 							+ programid + "','" + clientid + "','" + currentTime + "','2') ";
 
 					rs = stmt.executeUpdate(sql);
-					// validate login to remember the row
-
 				}
 
 				if (rs == 1) {
@@ -109,7 +106,7 @@ public class AddCourseForUser extends HttpServlet {
 					request.getRequestDispatcher("/myCourseNPrograms.jsp").forward(request, response);
 				} else {
 					out.println("failed");
-					
+
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 				}
 
@@ -162,7 +159,8 @@ public class AddCourseForUser extends HttpServlet {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: You have already registered for this course. Category Name: " + itemrunid);
+					request.setAttribute("Error",
+							"Error occured: You have already registered for this course. Category Name: " + itemrunid);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {
@@ -182,7 +180,7 @@ public class AddCourseForUser extends HttpServlet {
 				if (rs == 1) {
 					out.println("success");
 					request.getRequestDispatcher("/myCourseNPrograms.jsp").forward(request, response);
-					
+
 				} else {
 					out.println("failed");
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
@@ -237,7 +235,9 @@ public class AddCourseForUser extends HttpServlet {
 					ct++;
 				}
 				if (ct > 0) {
-					request.setAttribute("Error", "Error occured: You have already registered for this course. Category Name: " + itemrunidws);
+					request.setAttribute("Error",
+							"Error occured: You have already registered for this course. Category Name: "
+									+ itemrunidws);
 					request.getRequestDispatcher("/StudentPrograms&Courses.jsp").forward(request, response);
 
 				} else {

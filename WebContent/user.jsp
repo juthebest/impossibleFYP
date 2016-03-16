@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Start of navigation -->
 <jsp:include page="main/userNavigation.jsp"></jsp:include>
+<!-- End of navigation -->
+<!-- Start of user validation -->
 <%
-	//allow access only if session exists
 	String user = null;
 
 	String role = (String) session.getAttribute("role");
@@ -32,13 +34,8 @@
 	} else {
 		sessionID = session.getId();
 	}
-
-	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-
-
-
-
+<!-- End of user validation -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,96 +46,104 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!-- Start of CSS -->
 <link href="css/home.css" rel="stylesheet">
+<!-- End of CSS -->
 
 <body>
-	<div
-		style="padding-top: 100px; text-align: center; padding-left: 120px">
+	<div style="padding-top: 100px; padding-left: 170px">
 
-		<div class="container marketing">
-			<div class="row">
-				<div class="col-lg-2">
-					<a href="http://raindropmemory.deviantart.com/"><img
-						class="img-circle" src="image/G12-Folder-Notebook-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="120"
-						height="120"></a>
-					<h2>Write A Journal</h2>
-					<p>Write a new Journal! Express your thoughts and creativity!</p>
-				</div>
+		<div class="row">
 
-				<div class="col-lg-2">
-					<img class="img-circle" src="image/Diary-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140"
-						height="140">
-					<h2>Recent Journals</h2>
-					<p>View journals that I have recently written and counsellor's
-						comments</p>
-				</div>
-
-				<div class="col-lg-2">
-					<img class="img-circle" src="image/Books-2-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140"
-						height="140">
-					<h2>My Courses</h2>
-					<p>View all Courses and Programs that I have registered.</p>
-				</div>
-				<div class="col-lg-2">
-					<img class="img-circle" src="image/shopping-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140"
-						height="140">
-					<h2>New Course</h2>
-					<p>View courses that are available right now!</p>
-				</div>
-				<div class="col-lg-2">
-					<img class="img-circle" src="image/profile-icon.png"
-						alt="Generic placeholder image" class="img-responsive" width="140"
-						height="140">
-					<h2>My Information</h2>
-					<p>View my Information and edit my profile</p>
-				</div>
+			<div class="col-lg-2">
+				<a href="http://raindropmemory.deviantart.com/"><img
+					class="img-circle" src="image/G12-Folder-Notebook-icon.png"
+					alt="Generic placeholder image" class="img-responsive" width="120"
+					height="120"></a>
+				<h2>Write A Journal</h2>
+				<p>Express your emotions and thoughts by writing a journal.</p>
 			</div>
 
-			<div class="row">
-				<div class="col-lg-2">
-					<p>
-						<a class="btn btn-default" href="ReflectionJournal.jsp"
-							role="button">Write A New Journal &raquo;</a>
-					</p>
-				</div>
-
-				<div class="col-lg-2">
-					<p>
-						<a class="btn btn-default" href="studentrecentjournals.jsp"
-							role="button">View Courses &raquo;</a>
-					</p>
-				</div>
-
-				<div class="col-lg-2">
-					<p>
-						<a class="btn btn-default" href="myCourseNPrograms.jsp"
-							role="button">View Details &raquo;</a>
-					</p>
-
-				</div>
-				<div class="col-lg-2">
-					<p>
-						<a class="btn btn-default" href="StudentPrograms&Courses.jsp"
-							role="button">View New Programs &raquo;</a>
-					</p>
-				</div>
-				<div class="col-lg-2">
-					<p>
-						<a class="btn btn-default" href="userProfile.jsp" role="button">View
-							My Information &raquo;</a>
-					</p>
-				</div>
+			<div class="col-lg-2">
+				<img class="img-circle" src="image/Diary-icon.png"
+					alt="Generic placeholder image" class="img-responsive" width="140"
+					height="140">
+				<h2>Recent Journals</h2>
+				<p>Journals that are submitted and draft.</p>
 			</div>
+
+			<div class="col-lg-2">
+				<img class="img-circle" src="image/shopping-icon.png"
+					alt="Generic placeholder image" class="img-responsive" width="140"
+					height="140">
+				<h2>New Courses</h2>
+				<p>View courses that are available right now.</p>
+			</div>
+
+			<div class="col-lg-2">
+				<img class="img-circle" src="image/Books-2-icon.png"
+					alt="Generic placeholder image" class="img-responsive" width="140"
+					height="140">
+				<h2>My Courses</h2>
+				<p>View all courses and programs that I have registered.</p>
+			</div>
+
+			<div class="col-lg-2">
+				<img class="img-circle" src="image/profile-icon.png"
+					alt="Generic placeholder image" class="img-responsive" width="140"
+					height="140">
+				<h2>My Profile</h2>
+				<p>View my information and edit my profile.</p>
+			</div>
+
 		</div>
+
+		<div class="row">
+
+			<div class="col-lg-2">
+				<p>
+					<a class="btn btn-default" href="ReflectionJournal.jsp"
+						role="button">Write A New Journal &raquo;</a>
+				</p>
+			</div>
+
+			<div class="col-lg-2">
+				<p>
+					<a class="btn btn-default" href="studentrecentjournals.jsp"
+						role="button">View Journals &raquo;</a>
+				</p>
+			</div>
+
+			<div class="col-lg-2">
+				<p>
+					<a class="btn btn-default" href="StudentPrograms&Courses.jsp"
+						role="button">View New Programs &raquo;</a>
+				</p>
+			</div>
+
+			<div class="col-lg-2">
+				<p>
+					<a class="btn btn-default" href="myCourseNPrograms.jsp"
+						role="button">View My Courses &raquo;</a>
+				</p>
+			</div>
+
+			<div class="col-lg-2">
+				<p>
+					<a class="btn btn-default" href="userProfile.jsp" role="button">View
+						My Profile &raquo;</a>
+				</p>
+			</div>
+
+		</div>
+
 	</div>
-	<!-- Start of <Fixed footer> -->
+
+	<!-- Start of fixed footer -->
 	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
 	<script src="js/footer.js"></script>
+	<!-- End of fixed footer> -->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
