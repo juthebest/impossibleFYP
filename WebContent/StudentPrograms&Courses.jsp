@@ -109,8 +109,6 @@ SELECT * FROM program_has_client
 WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 	</sql:query>
 </c:forEach>
-
-
 <!-- coaching -->
 
 <head>
@@ -205,8 +203,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
-						<input type="hidden" name="programidis"
-							value="${categoryp.program_id}" />
+						<input name="programidis" value="${categoryp.program_id}" />
 
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
@@ -228,8 +225,10 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									href="studentviewprogramdetails.jsp?program_id=${categoryp.program_id}">
 									View Details &raquo; </a>
 
+
 								<button type="submit" class="btn btn-primary" name="action"
 									value="Submitprogram">Add</button>
+
 
 							</div>
 						</div>

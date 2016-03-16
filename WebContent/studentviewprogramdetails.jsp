@@ -115,7 +115,7 @@ FROM  user where user_id= <%=uid%>;
 
 			<c:forEach var="program" items="${program.rows}">
 
-				<input type="hidden" name="programidis"
+				<input name="programidis"
 					value="${program.program_id}" />
 
 
