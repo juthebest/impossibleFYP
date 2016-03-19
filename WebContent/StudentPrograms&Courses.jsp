@@ -207,7 +207,9 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
-								<br>
+								<br> <input type="hidden" name="costis"
+									value="${categoryp.program_price}" />
+
 								<p>
 									<img
 										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryp.program_id} class="

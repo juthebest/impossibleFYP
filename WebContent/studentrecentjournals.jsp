@@ -121,32 +121,32 @@ ORDER BY `user`.`create_update_datetime` ASC
 					<div class="col-sm-4">
 						<div class="thumbnail home-thumb">
 							<c:out value="${studentjournals.create_update_datetime}" />
+							<c:set var="isiPad" value="${studentjournals.emotion_rating}" />
 
-							<%-- 							<%
-								Connection connection = DriverManager.getConnection("jdbc:odbc:data", "YourName", "password");
+							<c:choose>
+								<c:when test="${isiPad == 'Elated'}">
+									<img src="image/cat-food-hearts-icon.png"
+										class="img-responsive" style="width: 280px; height: 228px;"
+										alt="New Courses" />
+									<br />
+								</c:when>
 
-									Statement statement = connection.createStatement();
+								<c:when test="${isiPad == 'Happy'}">
+									<img src="image/Happy-Birthday-Tux-icon.png"
+										class="img-responsive" style="width: 280px; height: 228px;"
+										alt="New Courses" />
+									<br />
+								</c:when>
 
-									String id = request.getParameter("id");
-
-									ResultSet resultset = statement.executeQuery("select * from Publishers where pub_id = '" + id + "'");
-
-									if (!resultset.next()) {
-										out.println("Sorry, could not find that publisher. ");
-									} else {
-							%>
-
-							<img src="image/cat-food-hearts-icon.png"
-								style="width: 280px; height: 228px;" alt="New Courses" /> <br />
-
-							<%
-								}
-							%>
-
- --%>
-
-							<a href ="http://iconka.com"><img src="image/cat-food-hearts-icon.png"
-								class="img-responsive" style="width: 280px; height: 228px;" alt="New Courses" /></a> <br />
+								<c:otherwise>
+									<img src="image/Sad-Tux-icon.png" class="img-responsive"
+										style="width: 280px; height: 228px;" alt="New Courses" />
+								</c:otherwise>
+							</c:choose>
+<!-- 							
+							<a href="http://iconka.com"><img
+								src="image/cat-food-hearts-icon.png" class="img-responsive"
+								style="width: 280px; height: 228px;" alt="New Courses" /></a> <br /> -->
 
 							<p>
 								<c:out value="${studentjournals.journal_reflection}"

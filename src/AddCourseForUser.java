@@ -66,9 +66,12 @@ public class AddCourseForUser extends HttpServlet {
 
 				String programid = null;
 				String clientid = null;
+				String cost = null;
+
 
 				programid = request.getParameter("programidis");
 				clientid = request.getParameter("clientidis");
+				cost = request.getParameter("costis");
 
 				// Date format (USER table - parent)
 				java.util.Date dt = new java.util.Date();
@@ -94,8 +97,8 @@ public class AddCourseForUser extends HttpServlet {
 				} else {
 					String sql;
 
-					sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `enrollment_status_id`) VALUES ('"
-							+ programid + "','" + clientid + "','" + currentTime + "','2') ";
+					sql = "INSERT INTO `program_has_client`(`program_id`, `client_id`, `date_registered`, `cost_registered`,`enrollment_status_id`) VALUES ('"
+							+ programid + "','" + clientid + "','" + currentTime + "','" + cost + "','2') ";
 
 					rs = stmt.executeUpdate(sql);
 				}

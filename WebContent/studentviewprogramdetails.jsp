@@ -115,8 +115,7 @@ FROM  user where user_id= <%=uid%>;
 
 			<c:forEach var="program" items="${program.rows}">
 
-				<input name="programidis"
-					value="${program.program_id}" />
+				<input name="programidis" value="${program.program_id}" />
 
 
 				<div class="page-header">
@@ -129,7 +128,7 @@ FROM  user where user_id= <%=uid%>;
 					<div class="alingment">
 
 						<h4>Program Description:</h4>
-						<c:out value="${program.program_desc}"  escapeXml = "false"/>
+						<c:out value="${program.program_desc}" escapeXml="false" />
 						<br> <br>
 
 						<p>
@@ -137,8 +136,8 @@ FROM  user where user_id= <%=uid%>;
 							<c:out value="${program.program_price}" />
 							(including GST)
 						</p>
-
-						<br> <br>
+						<input type="hidden" name="costis"
+							value="${program.program_price}" /> <br> <br>
 						<h4>Program Structure</h4>
 
 						<hr>
@@ -152,8 +151,10 @@ FROM  user where user_id= <%=uid%>;
 									</div>
 									<div class="panel-body">
 										<c:forEach var="program" items="${programItems.rows}">
+
 											<p>
-												<a href="StudentViewWorkshops.jsp?workshop_id=${program.item_id}"><c:out
+												<a
+													href="StudentViewWorkshops.jsp?workshop_id=${program.item_id}"><c:out
 														value="${program.item_name}" /></a>
 											</p>
 										</c:forEach>
