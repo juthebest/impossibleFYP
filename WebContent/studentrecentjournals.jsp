@@ -125,9 +125,9 @@ ORDER BY `user`.`create_update_datetime` ASC
 
 							<c:choose>
 								<c:when test="${isiPad == 'Elated'}">
-									<img src="image/cat-food-hearts-icon.png"
-										class="img-responsive" style="width: 280px; height: 228px;"
-										alt="New Courses" />
+									<a href="http://iconka.com"><img
+										src="image/cat-food-hearts-icon.png" class="img-responsive"
+										style="width: 280px; height: 228px;" alt="New Courses" /></a>
 									<br />
 								</c:when>
 
@@ -143,10 +143,6 @@ ORDER BY `user`.`create_update_datetime` ASC
 										style="width: 280px; height: 228px;" alt="New Courses" />
 								</c:otherwise>
 							</c:choose>
-<!-- 							
-							<a href="http://iconka.com"><img
-								src="image/cat-food-hearts-icon.png" class="img-responsive"
-								style="width: 280px; height: 228px;" alt="New Courses" /></a> <br /> -->
 
 							<p>
 								<c:out value="${studentjournals.journal_reflection}"
@@ -166,19 +162,21 @@ ORDER BY `user`.`create_update_datetime` ASC
 			</div>
 
 		</div>
-
+</div>
 		<!-- Start of <Fixed footer> -->
 		<footer id="footerMenu"></footer>
 		<!-- End of <Fixed footer> -->
 
 		<script src="js/footer.js"></script>
+		
 		<script src="js/navlink-user.js"></script>
 
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->

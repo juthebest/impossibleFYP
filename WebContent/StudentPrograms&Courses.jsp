@@ -203,7 +203,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 					<c:forEach var="categoryp" items="${programCategory.rows}">
 
-						<input name="programidis" value="${categoryp.program_id}" />
 
 						<div class="col-xs-6 col-lg-4">
 							<div class="alingment">
@@ -218,6 +217,8 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								<p>
 									<b>Title: </b>
 									<c:out value="${categoryp.program_name}" />
+									<input name="programidis" value="${categoryp.program_id}" />
+
 								</p>
 								<p>
 									<b>Categories: </b>

@@ -45,22 +45,7 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
 
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form>
- --%>
 <sql:query var="clientid" dataSource="${dataSource}">
 SELECT * FROM `user` WHERE user_id = <%=userID%> ;
 </sql:query>
@@ -80,8 +65,6 @@ SELECT * FROM `control` WHERE control_id = 1;
 
 <meta charset="utf-8">
 <script src="ckeditor/ckeditor.js"></script>
-
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -108,6 +91,51 @@ SELECT * FROM `control` WHERE control_id = 1;
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<!-- <style>
+.star-rating {
+	line-height: 32px;
+	font-size: 1.25em;
+	cursor: pointer;
+}
+</style> -->
+
+<style>
+.star-rating {
+	font-size: 0;
+}
+
+.star-rating__wrap {
+	display: inline-block;
+	font-size: 1rem;
+}
+
+.star-rating__wrap:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.star-rating__ico {
+	float: right;
+	padding-left: 2px;
+	cursor: pointer;
+	color: #FFB300;
+}
+
+.star-rating__ico:last-child {
+	padding-left: 0;
+}
+
+.star-rating__input {
+	display: none;
+}
+
+.star-rating__ico:hover:before, .star-rating__ico:hover ~
+	.star-rating__ico:before, .star-rating__input:checked ~
+	.star-rating__ico:before {
+	content: "\f005";
+}
+</style>
 <body>
 
 	<div class="container">
@@ -121,7 +149,6 @@ SELECT * FROM `control` WHERE control_id = 1;
 
 	<br />
 
-	<nav id="navMenu"></nav>
 	<form name="form1" method="post" action="userreflectionjournaluser">
 		<div class="container">
 			<div class="container-fluid">
@@ -136,12 +163,14 @@ SELECT * FROM `control` WHERE control_id = 1;
 								value="<c:out value="${client.client_id}" />" name="xenia" />
 
 						</c:forEach>
+
 						<c:forEach var="coachid" items="${coach_id.rows}">
 							<input type="hidden"
 								value="<c:out value="${coachid.coach_id}" />"
 								name="thisisthecoachid" />
 
 						</c:forEach>
+
 						<c:forEach var="rjquestion" items="${reflectionjournal.rows}">
 							<p>
 								<c:out value="${rjquestion.rj_questions}" />
@@ -151,11 +180,13 @@ SELECT * FROM `control` WHERE control_id = 1;
 						<textarea name="editor1" id="journal_editor" rows="10" cols="80"
 							required>
 						</textarea>
+
 						<script>
 							CKEDITOR.replace('editor1');
 						</script>
 
 						<br />
+
 						<div class="row">
 							<label> Today's Emotion Rating: </label> <br />
 							<div class="col-sm-2" style="margin-left: -20px">
@@ -167,7 +198,47 @@ SELECT * FROM `control` WHERE control_id = 1;
 							</div>
 						</div>
 
+						<!-- 						
+						<div class="star-rating">
+							 <div class="btn btn-default btn-sm" value = "1"><span class="fa fa-star-o" data-rating="1"></span></div>
+							<span class="fa fa-star-o" data-rating="2"></span> <span
+								class="fa fa-star-o" data-rating="3"></span> <span
+								class="fa fa-star-o" data-rating="4"></span> <span
+								class="fa fa-star-o" data-rating="5"></span> <input
+								type="hidden" name="whatever" class="rating-value" value="3">
+						</div> -->
+
+						<div class="row">
+							<label> Today's Emotion Rating: </label> <br />
+							<div class="star-rating">
+								<div class="star-rating__wrap">
+									<input class="star-rating__input" id="star-rating-5"
+										type="radio" name="rating" value="5"> <label
+										class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-5" title="5 out of 5 stars"></label> <input
+										class="star-rating__input" id="star-rating-4" type="radio"
+										name="rating" value="4"> <label
+										class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-4" title="4 out of 5 stars"></label> <input
+										class="star-rating__input" id="star-rating-3" type="radio"
+										name="rating" value="3"> <label
+										class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-3" title="3 out of 5 stars"></label> <input
+										class="star-rating__input" id="star-rating-2" type="radio"
+										name="rating" value="2"> <label
+										class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-2" title="2 out of 5 stars"></label> <input
+										class="star-rating__input" id="star-rating-1" type="radio"
+										name="rating" value="1"> <label
+										class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-1" title="1 out of 5 stars"></label>
+								</div>
+							</div>
+						</div>
+
+
 						<br />
+
 						<div class="row">
 							<label>Privacy Indicator:</label> <br />
 							<div class="col-sm-4" style="margin-left: -20px">
@@ -181,11 +252,10 @@ SELECT * FROM `control` WHERE control_id = 1;
 						<div class="row">
 							<div class="form-group">
 								<div class="form-actions" style="text-align: right">
-									<input type="submit" class="btn btn-primary" name="action" value="Save">
-										<input type="submit" class="btn btn-primary" name="action" value="Submit">
-
-<!-- 									<button type="submit" class="btn btn-primary" id="UpdateButton">Submit</button>
- -->									<a class="btn btn-danger" href="user.jsp">Cancel</a>
+									<input type="submit" class="btn btn-primary" name="action"
+										value="Save"> <input type="submit"
+										class="btn btn-primary" name="action" value="Submit">
+									<a class="btn btn-danger" href="user.jsp">Cancel</a>
 								</div>
 							</div>
 						</div>
@@ -196,10 +266,36 @@ SELECT * FROM `control` WHERE control_id = 1;
 		</div>
 	</form>
 
-	<!-- Start of <Fixed footer> -->
+	<!-- 	<script>
+		var $star_rating = $('.star-rating .fa');
+
+		var SetRatingStar = function() {
+			return $star_rating
+					.each(function() {
+						if (parseInt($star_rating
+								.siblings('input.rating-value').val()) >= parseInt($(
+								this).data('rating'))) {
+							return $(this).removeClass('fa-star-o').addClass(
+									'fa-star');
+						} else {
+							return $(this).removeClass('fa-star').addClass(
+									'fa-star-o');
+						}
+					});
+		};
+
+		$star_rating.on('click', function() {
+			$star_rating.siblings('input.rating-value').val(
+					$(this).data('rating'));
+			return SetRatingStar();
+		});
+
+		SetRatingStar();
+	</script> -->
+	<!-- Start of Fixed footer -->
 	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
 	<script src="js/footer.js"></script>
+	<!-- End of Fixed footer -->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script

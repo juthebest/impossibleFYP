@@ -126,7 +126,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 	<div class="container">
 		<div class="page-header">
 			<h2>My Journals</h2>
-<!-- 			<div class="title">
+			<!-- 			<div class="title">
 				<a href=""> &raquo; 2015 </a>
 			</div> -->
 			<!-- 			<div class="mymonths">
@@ -137,20 +137,39 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 					href=""> December </a>.
 			</div> -->
 		</div>
-<!-- 
-		<h3>
-			<b>November 2015</b>
-		</h3> -->
+
 		<div class="row">
 			<c:forEach var="studentjournals" items="${parentid.rows}">
 
 				<div class="col-sm-3">
 					<div class="thumbnail home-thumb">
 						<c:out value="${studentjournals.create_update_datetime}" />
-						<img src="image/cat-food-hearts-icon.png"
-							style="width: 280px; height: 228px;" alt="New Courses" /> <br />
+						
+						<c:set var="isiPad" value="${studentjournals.emotion_rating}" />
+
+						<c:choose>
+							<c:when test="${isiPad == 'Elated'}">
+								<img src="image/cat-food-hearts-icon.png" class="img-responsive"
+									style="width: 280px; height: 228px;" alt="New Courses" />
+								<br />
+							</c:when>
+
+							<c:when test="${isiPad == 'Happy'}">
+								<img src="image/Happy-Birthday-Tux-icon.png"
+									class="img-responsive" style="width: 280px; height: 228px;"
+									alt="New Courses" />
+								<br />
+							</c:when>
+
+							<c:otherwise>
+								<img src="image/Sad-Tux-icon.png" class="img-responsive"
+									style="width: 280px; height: 228px;" alt="New Courses" />
+							</c:otherwise>
+						</c:choose>
+						
 						<p>
-							<c:out value="${studentjournals.journal_reflection}" escapeXml = "false" />
+							<c:out value="${studentjournals.journal_reflection}"
+								escapeXml="false" />
 						</p>
 						<p>
 							Emotion Indicator:
@@ -171,7 +190,6 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 
 	<script src="js/footer.js"></script>
 
-	<!-- end of the popout signin -->
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
