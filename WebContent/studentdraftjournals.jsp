@@ -97,7 +97,7 @@ ORDER BY `user`.`create_update_datetime` ASC
 			<br />
 			<h2>My Journals</h2>
 
-<!-- 			<div class="title">
+			<!-- 			<div class="title">
 				<a href=""> 2015 </a>
 			</div>
 			<div class="mymonths">
@@ -112,35 +112,61 @@ ORDER BY `user`.`create_update_datetime` ASC
 		<h3>
 			<b>November 2015</b>
 		</h3> -->
-		<div class="row">
+			<div class="row">
 
-			<c:forEach var="studentjournals"
-				items="${studentrecentjournals.rows}">
+				<c:forEach var="studentjournals"
+					items="${studentrecentjournals.rows}">
 
-				<div class="col-sm-4">
-					<div class="thumbnail home-thumb">
-						<c:out value="${studentjournals.create_update_datetime}" />
+					<div class="col-sm-4">
+						<div class="thumbnail home-thumb">
+							<c:out value="${studentjournals.create_update_datetime}" />
 
-						<img src="image/cat-food-hearts-icon.png"
-							class="img-responsive" style="width: 280px; height: 228px;" alt="New Courses" /> <br />
-						<p>
-							<c:out value="${studentjournals.journal_reflection}" escapeXml = "false" />
-						</p>
-						<p>
+							<c:set var="isiPad" value="${studentjournals.emotion_rating}" />
+							<c:choose>
+								<c:when test="${isiPad == 'Elated'}">
+									<img src="image/cat-food-hearts-icon.png"
+										class="img-responsive" style="width: 280px; height: 228px;"
+										alt="New Courses" />
+									<br />
+								</c:when>
+								
+								<c:when test="${isiPad == 'Happy'}">
+									<img src="image/Happy-Birthday-Tux-icon.png"
+										class="img-responsive" style="width: 280px; height: 228px;"
+										alt="New Courses" />
+									<br />
+								</c:when>
+								
 
-							Emotion Indicator:
-							<c:out value="${studentjournals.emotion_rating}" />
-						</p>
-						<a
-							href="submitdraftjournal.jsp?journalid=${studentjournals.client_journal_id}"
-							class="btn btn-danger">View More</a>
+								<c:otherwise>
+									<img src="image/Sad-Tux-icon.png"
+										class="img-responsive" style="width: 280px; height: 228px;"
+										alt="New Courses" />
+								</c:otherwise>
+							</c:choose>
+
+							<p>
+								<c:out value="${studentjournals.journal_reflection}"
+									escapeXml="false" />
+							</p>
+							<p>
+
+								Emotion Indicator:
+								<c:out value="${studentjournals.emotion_rating}" />
+							</p>
+							<a
+								href="submitdraftjournal.jsp?journalid=${studentjournals.client_journal_id}"
+								class="btn btn-danger">View More</a>
+						</div>
 					</div>
-				</div>
-			</c:forEach>
-		</div>
+				</c:forEach>
+			</div>
 
+		</div>
 	</div>
-	</div>
+
+
+
 
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
