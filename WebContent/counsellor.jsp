@@ -146,7 +146,6 @@ ORDER BY `client`.client_id ASC
 											<td class="text-left"><a
 												href="studentaddress.jsp?userid=${child.user_id}">View
 													Address</a></td>
-
 										</tr>
 									</c:forEach>
 

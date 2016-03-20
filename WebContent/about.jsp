@@ -15,7 +15,6 @@
 SELECT about_description FROM control where control_id =2;
 </sql:query>
 
-
 <%
 	//allow access only if session exists
 	String user = null;
@@ -61,8 +60,8 @@ SELECT about_description FROM control where control_id =2;
 				<c:forEach var="aboutdescription"
 					items="${aboutdescriptiontop.rows}">
 					<tr>
-						<td>
-							<c:out value="${aboutdescription.about_description}" escapeXml="false"/>
+						<td><c:out value="${aboutdescription.about_description}"
+								escapeXml="false" />
 						<td>
 					</tr>
 				</c:forEach>
@@ -74,11 +73,8 @@ SELECT about_description FROM control where control_id =2;
 
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
-
-	<!-- Start of <Navigation links for header and footer> -->
 	<script src="js/footer.js"></script>
-	<!-- End of <Navigation links for header and footer> -->
+	<!-- End of <Fixed footer> -->
 
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src='js/jquery.min.js'></script>

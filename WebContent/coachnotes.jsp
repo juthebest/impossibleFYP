@@ -46,30 +46,6 @@
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
-
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
-
-<%-- <c:forEach var="coachstudents" items="${coachidis.rows}">
-	<!-- parent details -->
-	<sql:query var="parentid" dataSource="${dataSource}">
-	SELECT user.given_name FROM client, user
-WHERE client.client_id = user.client_id
-AND client.coach_id = <c:out value="${coachstudents.coach_id}" />
-	</sql:query>
-</c:forEach> --%>
-
 
 <!-- get coach id-->
 <sql:query var="coachidis" dataSource="${dataSource}">
@@ -169,7 +145,7 @@ AND user.user_id = <%=uid%>;
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</form>
@@ -180,11 +156,11 @@ AND user.user_id = <%=uid%>;
 	</div>
 
 
-	<!-- <Fixed footer> -->
+	<!-- Start of Fixed footer -->
 	<nav id="footerMenu"></nav>
-	<!-- End <Fixed footer> -->
-
 	<script src="js/footer.js"></script>
+	<!-- End of Fixed footer -->
+
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script

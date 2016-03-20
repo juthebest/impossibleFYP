@@ -93,11 +93,10 @@ SELECT `client_journal_id`, `client_id`, `coach_id`, `journal_reflection`, `emot
 		</div>
 	</div>
 
-	<!-- <Fixed footer> -->
+	<!-- Start of Fixed footer -->
 	<nav id="footerMenu"></nav>
-	<!-- End <Fixed footer> -->
-
 	<script src="js/footer.js"></script>
+	<!-- End of Fixed footer -->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script

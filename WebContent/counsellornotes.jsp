@@ -45,8 +45,6 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 
-
-
 <!-- get coach id-->
 <sql:query var="coachidis" dataSource="${dataSource}">
 SELECT * FROM user WHERE user_id = <%=uid%>;
@@ -153,11 +151,10 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 		</div>
 	</div>
 
-	<!-- <Fixed footer> -->
+	<!-- Start of Fixed footer -->
 	<footer id="footerMenu"></footer>
-	<!-- End <Fixed footer> -->
-
 	<script src="js/footer.js"></script>
+	<!-- End of Fixed footer -->
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

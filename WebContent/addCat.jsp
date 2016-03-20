@@ -53,7 +53,6 @@
 
 	<div class="container">
 
-
 		<div id="content">
 			<div class="page-header">
 				<div class="container-fluid">
@@ -74,11 +73,6 @@
 						</h3>
 					</div>
 					<div class="panel-body">
-
-
-
-
-
 
 						<form name="form" class="form-horizontal" method="post" action="addCatServlet" >
 						
@@ -133,23 +127,18 @@
 
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
+	<script src="js/footer.js"></script>
 	<!-- End of <Fixed footer> -->
 
 	<script src="js/navlinks-admin.js"></script>
-	<script src="js/footer.js"></script>
 
 	<script src="js/bootstrap.min.js"></script>
 
-
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-
-
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-
 
 </body>
 </html>

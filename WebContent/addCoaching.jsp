@@ -5,8 +5,8 @@
 <jsp:include page="main/adminNavigations.jsp"></jsp:include>
 
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/mydb" scope="session"
-	user="root" password="" />
+	url="jdbc:mysql://localhost:3306/mydb" scope="session" user="root"
+	password="" />
 <sql:query var="categories" dataSource="${dataSource}">
 SELECT * FROM category 
 </sql:query>
@@ -75,9 +75,7 @@ SELECT * FROM item_type
 </head>
 
 
-
 <body>
-
 
 
 	<!-- <Start> -->
@@ -105,7 +103,9 @@ SELECT * FROM item_type
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form action="InsertCoaching"  method="post" class="form-horizontal"  data-toggle="validator" role="form" enctype="multipart/form-data"  >
+						<form action="InsertCoaching" method="post"
+							class="form-horizontal" data-toggle="validator" role="form"
+							enctype="multipart/form-data">
 
 
 
@@ -118,8 +118,8 @@ SELECT * FROM item_type
 										class="form-control" required />
 								</div>
 							</div>
-							
-<!-- IMAGE  -->
+
+							<!-- IMAGE  -->
 							<div class="form-group required">
 								<label class="col-sm-2 control-label" for="input-name1">Image
 									Banner 1:</label>
@@ -144,7 +144,7 @@ SELECT * FROM item_type
 									</div>
 								</div>
 							</div>
-								
+
 
 							<div class="form-group required"></div>
 							<div class="form-group">
@@ -174,8 +174,9 @@ SELECT * FROM item_type
 							<div class="form-group required">
 								<label class="col-sm-2 control-label" for="course_cost">Cost:</label>
 								<div class="col-sm-10">
-									<input type="text" name="course_cost" value="" placeholder="Cost($)"
-										id="course_cost" class="form-control" required />
+									<input type="text" name="course_cost" value=""
+										placeholder="Cost($)" id="course_cost" class="form-control"
+										required />
 								</div>
 							</div>
 
@@ -228,12 +229,10 @@ SELECT * FROM item_type
 	<!-- <End> -->
 
 
-	<!-- Start of <Fixed footer> -->
+	<!-- start of footer -->
 	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
-
 	<script src="js/footer.js"></script>
-
+	<!-- end of footer -->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
