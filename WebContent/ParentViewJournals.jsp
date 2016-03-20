@@ -46,20 +46,6 @@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
-<%-- <h3>
-	Hi
-	<%=userName%>, Login successful. Your Session ID=<%=sessionID%>
-	role=<%=userrole%></h3>
-<br> User=<%=user%>
-
-<br> UserIDSession=<%=uid%>
-<br> UserIDCookie=<%=userID%>
-<br>role=<%=role%>
-<!-- need to encode all the URLs where we want session information to be passed -->
-<a href="CheckoutPage.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="get">
-	<input type="submit" value="Logout">
-</form> --%>
 
 
 <!-- //var - ownself name -->
@@ -82,19 +68,11 @@ AND user.user_id = <%=uid%>;
 	</sql:query>
 </c:forEach>
 
-
-
-<!-- //var - ownself name -->
-<%-- <sql:query var="studentrecentjournals" dataSource="${dataSource}">
-SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.client_id ORDER BY client_journal.`create_update_datetime` ASC
-
-</sql:query> --%>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Home</title>
+<title>I'MPOSSIBLE - View Journals</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -111,6 +89,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 <body id="index">
 
 	<div class="container">
@@ -144,13 +123,14 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 				<div class="col-sm-3">
 					<div class="thumbnail home-thumb">
 						<c:out value="${studentjournals.create_update_datetime}" />
-						
+
 						<c:set var="isiPad" value="${studentjournals.emotion_rating}" />
 
 						<c:choose>
 							<c:when test="${isiPad == 'Elated'}">
-								<img src="image/cat-food-hearts-icon.png" class="img-responsive"
-									style="width: 280px; height: 228px;" alt="New Courses" />
+								<a href="http://iconka.com"><img
+									src="image/cat-food-hearts-icon.png" class="img-responsive"
+									style="width: 280px; height: 228px;" alt="New Courses" /></a>
 								<br />
 							</c:when>
 
@@ -166,7 +146,7 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 									style="width: 280px; height: 228px;" alt="New Courses" />
 							</c:otherwise>
 						</c:choose>
-						
+
 						<p>
 							<c:out value="${studentjournals.journal_reflection}"
 								escapeXml="false" />
@@ -184,12 +164,10 @@ SELECT * FROM `client_journal`,client WHERE client_journal.client_id = client.cl
 		</div>
 	</div>
 
-	<!-- Start of <Fixed footer> -->
+	<!-- Start of Fixed footer -->
 	<footer id="footerMenu"></footer>
-	<!-- End of <Fixed footer> -->
-
 	<script src="js/footer.js"></script>
-
+	<!-- End of Fixed footer -->
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

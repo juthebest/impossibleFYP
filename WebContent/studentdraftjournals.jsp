@@ -124,9 +124,9 @@ ORDER BY `user`.`create_update_datetime` ASC
 							<c:set var="isiPad" value="${studentjournals.emotion_rating}" />
 							<c:choose>
 								<c:when test="${isiPad == 'Elated'}">
-									<img src="image/cat-food-hearts-icon.png"
+									<a href="http://iconka.com"><img src="image/cat-food-hearts-icon.png"
 										class="img-responsive" style="width: 280px; height: 228px;"
-										alt="New Courses" />
+										alt="New Courses" /></a>
 									<br />
 								</c:when>
 								
