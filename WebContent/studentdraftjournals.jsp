@@ -166,8 +166,6 @@ ORDER BY `user`.`create_update_datetime` ASC
 	</div>
 
 
-
-
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->

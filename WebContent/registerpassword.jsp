@@ -67,8 +67,8 @@
 	<form class="form-horizontal" method="post" name="myForm"
 		action="registerservlet" onsubmit="return ValidateEmail(mail)">
 		<div class="container">
-			<div class="container-fluid">
-				<div class="registrationpanel">
+<!-- 			<div class="container-fluid">
+				<div class="registrationpanel"> -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Registration Page</h3>
@@ -84,7 +84,7 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Email Address:</label>
+									<label class="col-sm-2" for="category">Email Address:</label>
 									<div class="col-sm-4">
 
 										<input type="email" class="form-control" id="course_price"
@@ -97,7 +97,7 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="passwordparent">Password:</label>
+									<label class="col-sm-2" for="passwordparent">Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control"
 											id="passwordparent" name="passwordparent" placeholder="password"
@@ -111,7 +111,7 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="passwordparent1">Confirm
+									<label class="col-sm-2" for="passwordparent1">Confirm
 										Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control"
@@ -133,7 +133,7 @@
 							<br />
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Email Address:</label>
+									<label class="col-sm-2" for="category">Email Address:</label>
 									<div class="col-sm-4">
 										<input type="email" class="form-control" id="course_price"
 											placeholder="email address" name="email1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -144,7 +144,7 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="passwordchild">Password:</label>
+									<label class="col-sm-2" for="passwordchild">Password:</label>
 									<div class="col-sm-4">
 										<input type="password" class="form-control" id="passwordchild"
 											placeholder="password" name="passwordchild" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -158,8 +158,8 @@
 
 							<div class="row">
 								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="passwordchild1">Confirm Password:</label>
-									<div class="col-sm-4">
+									<label class="col-sm-2" for="passwordchild1">Confirm Password:</label>
+									<div class="col-xs-2">
 										<input type="password" class="form-control"
 											id="passwordchild1" placeholder=confirmpassword name="passwordchild"
 											pattern=".{6,}"
@@ -172,7 +172,7 @@
 							</div>
 
 							<div class="form-group">
-								<div class="col-md-12" style='text-align: right'>
+								<div class="col-sm-2" style='text-align: right'>
 									<input type="submit" class="btn btn-primary" value="Submit" onclick="return Validate()">
 									<a class="btn btn-danger" href="register.jsp">Back</a>
 								</div>
@@ -233,8 +233,8 @@
 						</fieldset>
 					</div>
 				</div>
-			</div>
-		</div>
+<!-- 			</div>
+		</div> -->
 
 	</form>
 

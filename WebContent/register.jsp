@@ -57,20 +57,22 @@
 				AND program.program_id=<%=request.getParameter("program_id")%>
 </sql:query> --%>
 
-<body>
 
+<body>
 	<form action="registerpassword.jsp" method="get" name="myForm"
 		id="login_form" class="form-horizontal" data-toggle="validator"
 		role="form" onsubmit="return formValidation()">
 		<div class="container">
-			<div class="container-fluid">
-				<div class="registrationpanel">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Registration Page</h3>
-						</div>
+			<!-- 			<div class="container-fluid">
+ -->
+			<!-- 	<div class="registrationpanel"> -->
+			<div class="panel panel-default">
 
-						<%-- 
+				<div class="panel-heading">
+					<h3 class="panel-title">Registration Page</h3>
+				</div>
+
+				<%-- 
 						<c:forEach var="program" items="${programname.rows}">
 							<p>
 								<b>Program Registered:</b> <input type="text"
@@ -79,240 +81,241 @@
 							</p>
 						</c:forEach>
  --%>
-						<!-- class="form-control" -->
-						<fieldset style="padding-left: 10px">
-							<h3>Personal Details Of Parent</h3>
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Salutation:</label>
-									<div class="col-xs-3">
-										<select class="form-control" id="salutation_input"
-											name="salutation">
-											<option value="Mr">Mr</option>
-											<option value="Mrs">Mrs</option>
-											<option value="Ms">Ms</option>
-											<option value="Mdm">Mdm</option>
-										</select>
-									</div>
-								</div>
+				<!-- class="form-control" -->
+				<fieldset style="padding-left: 10px">
+
+					<h3>Personal Details Of Parent</h3>
+
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Salutation:</label>
+							<div class="col-xs-3">
+								<select class="form-control" id="salutation_input"
+									name="salutation">
+									<option value="Mr">Mr</option>
+									<option value="Mrs">Mrs</option>
+									<option value="Ms">Ms</option>
+									<option value="Mdm">Mdm</option>
+								</select>
 							</div>
+						</div>
+					</div>
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Full Name:</label>
-									<div class="col-xs-2">
-										<input type="text" class="form-control" placeholder="Surname"
-											id="sname_input" name="sname" value="" pattern=".{3,}"
-											required title="Minimum 3 characters required">
-									</div>
-									<div class="col-xs-3">
-										<input type="text" class="form-control" id="gname_input"
-											name="gname" placeholder="Given Name" value="" pattern=".{3,}"
-											required title="Minimum 3 characters required" required>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Full Name:</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="Surname"
+									id="sname_input" name="sname" value="" pattern=".{3,}" required
+									title="Minimum 3 characters required">
 							</div>
-
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Gender:</label>
-									<div class="col-xs-2">
-										<select class="form-control" id="gender_input" name="gender">
-											<option>Male</option>
-											<option>Female</option>
-
-										</select>
-									</div>
-								</div>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" id="gname_input"
+									name="gname" placeholder="Given Name" value="" pattern=".{3,}"
+									required title="Minimum 3 characters required" required>
 							</div>
+						</div>
+					</div>
 
-							<hr />
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Gender:</label>
+							<div class="col-xs-3">
+								<select class="form-control" id="gender_input" name="gender">
+									<option>Male</option>
+									<option>Female</option>
 
-							<h3>Contact Information Of Parent</h3>
-							<div class="row">
-								<i>Please provide the contact details we should use in the
-									event for the latest updates of IM' Counselling.</i>
+								</select>
 							</div>
+						</div>
+					</div>
 
-							<br />
+					<hr />
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Contact Number:</label>
-									<!-- 									<div class="col-xs-2">
+					<h3>Contact Information Of Parent</h3>
+					<div class="row">
+						<i>Please provide the contact details we should use in the
+							event for the latest updates of IM' Counselling.</i>
+					</div>
+
+					<br />
+
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Contact Number:</label>
+							<!-- 									<div class="col-xs-2">
 										<input type="text" class="form-control" id="country_code"
 											name="country" placeholder="+65" required>
 									</div> -->
-									<div class="col-xs-2">
-										<input type="text" class="form-control" id="number_input"
-											name="contact_number" placeholder="Contact Number" pattern="\d{8}"
-											required title="Please enter a valid phone number with 8 digits" required>
-									</div>
-								</div>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" id="number_input"
+									name="contact_number" placeholder="Contact Number"
+									pattern="\d{8}" required
+									title="Please enter a valid phone number with 8 digits"
+									required>
 							</div>
+						</div>
+					</div>
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-sm-2" for="category">Address:</label>
-									<div class="col-sm-4">
-										<input type="text" class="form-control" id="address_input"
-											name="address" placeholder="Address" required>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Address:</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" id="address_input"
+									name="address" placeholder="Address" required>
 							</div>
+						</div>
+					</div>
 
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-sm-2" for="category">Postal Code:</label>
-									<div class="col-sm-2">
-										<input type="text" class="form-control" id="pc_input"
-											name="postal_code" placeholder="Postal Code" pattern="\d{6}"
-											required title="Please enter a valid postal code" required>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Postal Code:</label>
+							<div class="col-xs-2">
+								<input type="text" class="form-control" id="pc_input"
+									name="postal_code" placeholder="Postal Code" pattern="\d{6}"
+									required title="Please enter a valid postal code" required>
 							</div>
+						</div>
+					</div>
 
-							<hr />
+					<hr />
 
-							<h3>Personal Details Of Child</h3>
+					<h3>Personal Details Of Child</h3>
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Salutation:</label>
-									<div class="col-xs-3">
-										<select class="form-control" id="salutation_input"
-											name="salutation1">
-											<option value="Mr">Mr</option>
-											<option value="Mrs">Mrs</option>
-											<option value="Ms">Ms</option>
-											<option value="Mdm">Mdm</option>
-										</select>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-xs-2" for="category">Salutation:</label>
+							<div class="col-xs-3">
+								<select class="form-control" id="salutation_input"
+									name="salutation1">
+									<option value="Mr">Mr</option>
+									<option value="Mrs">Mrs</option>
+									<option value="Ms">Ms</option>
+									<option value="Mdm">Mdm</option>
+								</select>
 							</div>
+						</div>
+					</div>
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Full Name:</label>
-									<div class="col-xs-2">
-										<input type="text" class="form-control" placeholder="Surname"
-											id="sname_input" name="sname1" pattern=".{3,}"
-											required title="Minimum 3 characters required" required>
-									</div>
-									<div class="col-xs-3">
-										<input type="text" class="form-control" id="gname_input"
-											name="gname1" placeholder="Given Name" pattern=".{2,}"
-											required title="Minimum 2 characters required" required>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-xs-2" for="category">Full Name:</label>
+							<div class="col-xs-2">
+								<input type="text" class="form-control" placeholder="Surname"
+									id="sname_input" name="sname1" pattern=".{3,}" required
+									title="Minimum 3 characters required" required>
 							</div>
-
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Gender:</label>
-									<div class="col-xs-2">
-										<select class="form-control" id="gender_input" name="gender1">
-											<option value="Male">Male</option>
-											<option value="Female">Female</option>
-										</select>
-									</div>
-								</div>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" id="gname_input"
+									name="gname1" placeholder="Given Name" pattern=".{2,}" required
+									title="Minimum 2 characters required" required>
 							</div>
+						</div>
+					</div>
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Date of Birth:</label>
-									<div class="col-sm-4">
-										<input type="date" class="form-control" id="dateofbirth"
-											name="dob" required>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-xs-2" for="category">Gender:</label>
+							<div class="col-xs-2">
+								<select class="form-control" id="gender_input" name="gender1">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
 							</div>
+						</div>
+					</div>
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Relationship to
-										child:</label>
-									<div class="col-sm-4">
-										<select class="form-control" id="rtochild" name="relationship">
-											<option value="Mother">Mother</option>
-											<option value="Father">Father</option>
-											<option value="Guardian">Guardian</option>
-											<option value="Others">Others</option>
-										</select>
-									</div>
-								</div>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-xs-2" for="category">Date of Birth:</label>
+							<div class="col-sm-4">
+								<input type="date" class="form-control" id="dateofbirth"
+									name="dob" required>
 							</div>
+						</div>
+					</div>
 
-							<hr />
-
-							<h3>Contact Information Of Child</h3>
-							<div class="row">
-								<i>Please provide the contact details we should use in the
-									event for the latest updates of IM' POSSIBLE.</i>
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Relationship to
+								child:</label>
+							<div class="col-sm-4">
+								<select class="form-control" id="rtochild" name="relationship">
+									<option value="Mother">Mother</option>
+									<option value="Father">Father</option>
+									<option value="Guardian">Guardian</option>
+									<option value="Others">Others</option>
+								</select>
 							</div>
+						</div>
+					</div>
 
-							<br />
+					<hr />
 
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-xs-2" for="category">Contact:</label>
-									<!-- 
+					<h3>Contact Information Of Child</h3>
+					<div class="row">
+						<i>Please provide the contact details we should use in the
+							event for the latest updates of IM' POSSIBLE.</i>
+					</div>
+
+					<br />
+
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-xs-2" for="category">Contact:</label>
+							<!-- 
 									<div class="col-xs-2">
 										<input type="text" class="form-control" id="country_code"
 											name="country1" placeholder="+65" required>
 									</div> -->
-									<div class="col-xs-2">
-										<input type="text" class="form-control" id="number_input"
-											name="contact_number1" placeholder="Contact Number" pattern="\d{8}"
-											required title="Please enter a valid phone number with 8 digits" required>
-									</div>
-								</div>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="number_input"
+									name="contact_number1" placeholder="Contact Number"
+									pattern="\d{8}" required
+									title="Please enter a valid phone number with 8 digits"
+									required>
 							</div>
-
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-sm-2" for="category">Address:</label>
-									<div class="col-sm-4">
-										<input type="text" class="form-control" id="address_input"
-											name="address1" placeholder="Address" required>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="form-group form-group-md">
-									<label class="col-sm-2" for="category">Postal Code:</label>
-									<div class="col-sm-2">
-										<input type="text" class="form-control" id="pc_input"
-											name="postal_code1" placeholder="Postal Code" pattern="\d{6}"
-											required title="Please enter a valid postal code" required>
-									</div>
-								</div>
-							</div>
-						</fieldset>
-
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary"
-								onclick=formValidation()>Next</button>
-							<a href="viewProgramsNcourses.jsp"><button type="button"
-									class="btn btn-danger">Cancel</button></a>
 						</div>
-
 					</div>
+
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Address:</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="address_input"
+									name="address1" placeholder="Address" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group form-group-md">
+							<label class="col-sm-2" for="category">Postal Code:</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="pc_input"
+									name="postal_code1" placeholder="Postal Code" pattern="\d{6}"
+									required title="Please enter a valid postal code" required>
+							</div>
+						</div>
+					</div>
+
+				</fieldset>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary"
+						onclick=formValidation()>Next</button>
+					<a href="viewProgramsNcourses.jsp"><button type="button"
+							class="btn btn-danger">Cancel</button></a>
 				</div>
+
 			</div>
 		</div>
+		<!-- container -->
+		
+		<!-- </div>  -->
+		<!-- container fluid -->
 	</form>
-
-<!-- 
-var letters = /^[A-Za-z]+$/;
-var letters = /^[0-9a-zA-Z]+$/;
-var numbers = /^[0-9]+$/;
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
-if(uemail.value.match(mailformat))   -->
-
 
 	<!-- Start of <Fixed footer> -->
 	<footer id="footerMenu"></footer>
