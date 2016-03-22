@@ -187,17 +187,6 @@ SELECT * FROM `control` WHERE control_id = 1;
 
 						<br />
 
-						<div class="row">
-							<label> Today's Emotion Rating: </label> <br />
-							<div class="col-sm-2" style="margin-left: -20px">
-								<select class="form-control" id="status" name="emotionrating">
-									<option value="Elated">Elated</option>
-									<option value="Happy">Happy</option>
-									<option value="Sad">Sad</option>
-								</select>
-							</div>
-						</div>
-
 						<!-- 						
 						<div class="star-rating">
 							 <div class="btn btn-default btn-sm" value = "1"><span class="fa fa-star-o" data-rating="1"></span></div>
@@ -207,31 +196,48 @@ SELECT * FROM `control` WHERE control_id = 1;
 								class="fa fa-star-o" data-rating="5"></span> <input
 								type="hidden" name="whatever" class="rating-value" value="3">
 						</div> -->
+						
+						
+						<!-- <div class="row">
+							<label> Today's Emotion Rating: </label> <br />
+							<div class="col-sm-2" style="margin-left: -20px">
+								<select class="form-control" id="status" name="emotionrating">
+									<option value="Elated">Elated</option>
+									<option value="Happy">Happy</option>
+									<option value="Sad">Sad</option>
+								</select>
+							</div>
+						</div> -->
 
 						<div class="row">
 							<label> Today's Emotion Rating: </label> <br />
 							<div class="star-rating">
-								<div class="star-rating__wrap">
-									<input class="star-rating__input" id="star-rating-5"
-										type="radio" name="rating" value="5"> <label
-										class="star-rating__ico fa fa-star-o fa-lg"
-										for="star-rating-5" title="5 out of 5 stars"></label> <input
-										class="star-rating__input" id="star-rating-4" type="radio"
-										name="rating" value="4"> <label
-										class="star-rating__ico fa fa-star-o fa-lg"
-										for="star-rating-4" title="4 out of 5 stars"></label> <input
-										class="star-rating__input" id="star-rating-3" type="radio"
-										name="rating" value="3"> <label
-										class="star-rating__ico fa fa-star-o fa-lg"
-										for="star-rating-3" title="3 out of 5 stars"></label> <input
-										class="star-rating__input" id="star-rating-2" type="radio"
-										name="rating" value="2"> <label
-										class="star-rating__ico fa fa-star-o fa-lg"
-										for="star-rating-2" title="2 out of 5 stars"></label> <input
-										class="star-rating__input" id="star-rating-1" type="radio"
-										name="rating" value="1"> <label
-										class="star-rating__ico fa fa-star-o fa-lg"
-										for="star-rating-1" title="1 out of 5 stars"></label>
+								<div class="star-rating__wrap" >
+										
+										<!-- <input class="star-rating__input" id="star-rating-5"
+										type="radio" name="rating" value="5">
+										<label class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-5" title="5 out of 5 stars"></label>
+										
+										<input class="star-rating__input" id="star-rating-4" type="radio"
+										name="rating" value="4">
+										<label class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-4" title="4 out of 5 stars"></label> -->
+										
+										<input class="star-rating__input" id="star-rating-3" type="radio"
+										name="emotionrating" value="Elated">
+										<label class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-3" title="3 out of 3 stars"></label>
+										
+										<input class="star-rating__input" id="star-rating-2" type="radio"
+										name="emotionrating" value="Happy">
+										<label class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-2" title="2 out of 3 stars"></label>
+										
+										<input class="star-rating__input" id="star-rating-1" type="radio"
+										name="emotionrating" value="Sad">
+										<label class="star-rating__ico fa fa-star-o fa-lg"
+										for="star-rating-1" title="1 out of 3 stars"></label>
 								</div>
 							</div>
 						</div>

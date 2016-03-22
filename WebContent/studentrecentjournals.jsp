@@ -162,27 +162,24 @@ ORDER BY `user`.`create_update_datetime` ASC
 			</div>
 
 		</div>
-</div>
-		<!-- Start of <Fixed footer> -->
-		<footer id="footerMenu"></footer>
-		<!-- End of <Fixed footer> -->
+	</div>
+	<!-- Start of <Fixed footer> -->
+	<footer id="footerMenu"></footer>
+	<!-- End of <Fixed footer> -->
 
-		<script src="js/footer.js"></script>
-		
-		<script src="js/navlink-user.js"></script>
+	<script src="js/footer.js"></script>
+	<script src="js/navlink-user.js"></script>
 
-		<script src="js/bootstrap.min.js"></script>
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery-1.10.2.js"></script>
-		<script src="js/bootstrap.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

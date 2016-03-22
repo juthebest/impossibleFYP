@@ -89,7 +89,7 @@
 					<div class="row">
 						<div class="form-group form-group-md">
 							<label class="col-sm-2" for="category">Salutation:</label>
-							<div class="col-xs-3">
+							<div class="col-sm-2">
 								<select class="form-control" id="salutation_input"
 									name="salutation">
 									<option value="Mr">Mr</option>
@@ -120,7 +120,7 @@
 					<div class="row">
 						<div class="form-group form-group-md">
 							<label class="col-sm-2" for="category">Gender:</label>
-							<div class="col-xs-3">
+							<div class="col-sm-2">
 								<select class="form-control" id="gender_input" name="gender">
 									<option>Male</option>
 									<option>Female</option>
@@ -147,7 +147,7 @@
 										<input type="text" class="form-control" id="country_code"
 											name="country" placeholder="+65" required>
 									</div> -->
-							<div class="col-xs-3">
+							<div class="col-sm-2">
 								<input type="text" class="form-control" id="number_input"
 									name="contact_number" placeholder="Contact Number"
 									pattern="\d{8}" required
@@ -160,7 +160,7 @@
 					<div class="row">
 						<div class="form-group form-group-md">
 							<label class="col-sm-2" for="category">Address:</label>
-							<div class="col-xs-3">
+							<div class="col-sm-2">
 								<input type="text" class="form-control" id="address_input"
 									name="address" placeholder="Address" required>
 							</div>
@@ -171,7 +171,7 @@
 					<div class="row">
 						<div class="form-group form-group-md">
 							<label class="col-sm-2" for="category">Postal Code:</label>
-							<div class="col-xs-2">
+							<div class="col-sm-2">
 								<input type="text" class="form-control" id="pc_input"
 									name="postal_code" placeholder="Postal Code" pattern="\d{6}"
 									required title="Please enter a valid postal code" required>
@@ -185,7 +185,7 @@
 
 					<div class="row">
 						<div class="form-group form-group-md">
-							<label class="col-xs-2" for="category">Salutation:</label>
+							<label class="col-sm-2" for="category">Salutation:</label>
 							<div class="col-xs-3">
 								<select class="form-control" id="salutation_input"
 									name="salutation1">
@@ -200,7 +200,7 @@
 
 					<div class="row">
 						<div class="form-group form-group-md">
-							<label class="col-xs-2" for="category">Full Name:</label>
+							<label class="col-sm-2" for="category">Full Name:</label>
 							<div class="col-xs-2">
 								<input type="text" class="form-control" placeholder="Surname"
 									id="sname_input" name="sname1" pattern=".{3,}" required
@@ -216,7 +216,7 @@
 
 					<div class="row">
 						<div class="form-group form-group-md">
-							<label class="col-xs-2" for="category">Gender:</label>
+							<label class="col-sm-2" for="category">Gender:</label>
 							<div class="col-xs-2">
 								<select class="form-control" id="gender_input" name="gender1">
 									<option value="Male">Male</option>
@@ -228,7 +228,7 @@
 
 					<div class="row">
 						<div class="form-group form-group-md">
-							<label class="col-xs-2" for="category">Date of Birth:</label>
+							<label class="col-sm-2" for="category">Date of Birth:</label>
 							<div class="col-sm-4">
 								<input type="date" class="form-control" id="dateofbirth"
 									name="dob" required>
@@ -312,7 +312,7 @@
 			</div>
 		</div>
 		<!-- container -->
-		
+
 		<!-- </div>  -->
 		<!-- container fluid -->
 	</form>
@@ -321,9 +321,13 @@
 	<footer id="footerMenu"></footer>
 	<!-- End of <Fixed footer> -->
 
-	<script src="js/validationregister.js"></script>
 	<script src="js/footer.js"></script>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -331,5 +335,8 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 
+
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

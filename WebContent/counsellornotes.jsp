@@ -45,14 +45,13 @@
 	/* no session validation logic in the above JSP. It contains link to another JSP page,  */
 %>
 
-<!-- get coach id-->
+<!-- start of get coach id-->
 <sql:query var="coachidis" dataSource="${dataSource}">
 SELECT * FROM user WHERE user_id = <%=uid%>;
 </sql:query>
-
+<!-- end of get coach id-->
 
 <c:forEach var="coach" items="${coachidis.rows}">
-	<!-- parent details -->
 	<sql:query var="counsellornotes" dataSource="${dataSource}">
 select coach_note.coach_id, coach_note.coach_note_id, coach_note.note_details, coach_note.create_update_datetime, coach_note.client_id,
 user.coach_id, user.given_name from coach_note, client, user
@@ -67,7 +66,8 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>I'MPOSSIBLE - Counsellor Notes</title>
+<title>I'MPOSSIBLE - Counselor Notes</title>
+
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -87,90 +87,76 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 
 <body>
 
-	<div class="container">
-		<div class="container-fluid">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">All Notes</h3>
-				</div>
-				<div class="panel-body">
+	<!-- 	<div class="container"> -->
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">All Notes</h3>
+			</div>
+			<div class="panel-body">
 
-					<p class="icons">
-						<a href="coachnotes.jsp"><button type="button"
-								class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-plus"></span> Write a new note
-							</button></a>
-					</p>
+				<p class="icons">
+					<a href="coachnotes.jsp"><button type="button"
+							class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-plus"></span> Write a new note
+						</button></a>
+				</p>
 
-					<form action="#" method="post" enctype="multipart/form-data"
-						id="form-course">
-						<div class="table-responsive">
+				<form action="#" method="post" enctype="multipart/form-data"
+					id="form-course">
+					<div class="table-responsive">
 
-							<table id="myTable"
-								class="table table-bordered table-hover tablesorter">
+						<table id="myTable"
+							class="table table-bordered table-hover tablesorter">
 
-								<thead>
+							<thead>
+								<tr>
+									<th class="sorter-false"></th>
+									<th class="text-left">Date and Time Last Updated</th>
+									<th class="text-left">Comment of Note</th>
+									<th class="text-left">Student Name</th>
+									<th class="text-left">Edit</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach var="notes" items="${counsellornotes.rows}">
+
 									<tr>
-										<th class="sorter-false"></th>
-										<th class="text-left">Date and Time Last Updated</th>
-										<th class="text-left">Comment of Note</th>
-										<th class="text-left">Student Name</th>
-										<th class="text-left">Edit</th>
+										<td class="text-left"><input type="checkbox"
+											name="checkbox" value="${notes.coach_note_id}"></td>
+
+										<td class="text-left"><c:out
+												value="${notes.create_update_datetime}" /></td>
+										<td class="text-left"><c:out
+												value="${notes.note_details}" /></td>
+										<td class="text-left"><c:out value="" /> <c:out
+												value="${notes.given_name}" /></td>
+										<td class="text-center">
+											<button type="button" class="btn btn-default btn-sm"
+												onclick="location.href='editCoachNote.jsp?journalID=${notes.coach_note_id}'">
+												<span class="glyphicon glyphicon-edit"></span> Edit
+											</button>
+										</td>
 									</tr>
-								</thead>
 
-								<tbody>
-									<c:forEach var="notes" items="${counsellornotes.rows}">
+								</c:forEach>
+						</table>
 
-										<tr>
-											<td class="text-left"><input type="checkbox"
-												name="checkbox" value="${notes.coach_note_id}"></td>
+					</div>
+				</form>
 
-											<td class="text-left"><c:out
-													value="${notes.create_update_datetime}" /></td>
-											<td class="text-left"><c:out
-													value="${notes.note_details}" /></td>
-											<td class="text-left"><c:out value="" /> <c:out
-													value="${notes.given_name}" /></td>
-											<td class="text-center">
-												<button type="button" class="btn btn-default btn-sm"
-													onclick="location.href='editCoachNote.jsp?journalID=${notes.coach_note_id}'">
-													<span class="glyphicon glyphicon-edit"></span> Edit
-												</button>
-											</td>
-										</tr>
-
-									</c:forEach>
-							</table>
-
-						</div>
-					</form>
-
-				</div>
 			</div>
 		</div>
 	</div>
-
+	<!-- 	</div>
+ -->
 	<!-- Start of Fixed footer -->
 	<footer id="footerMenu"></footer>
 	<script src="js/footer.js"></script>
 	<!-- End of Fixed footer -->
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
-
-
+	<!-- Start of table sorter -->
 	<script src="dist/js/jquery.tablesorter.min.js"></script>
 	<script src="dist/js/jquery.tablesorter.widgets.min.js"></script>
 
@@ -185,6 +171,20 @@ AND coach_note.coach_id=<c:out value="${coach.coach_id}" />
 			});
 		});
 	</script>
+	<!-- End of table sorter -->
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.js"></script>
 
 </body>
 </html>

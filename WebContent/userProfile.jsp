@@ -154,7 +154,7 @@ AND user.user_id = <%=uid%>;
 					
 				</c:forEach>
 			</div>
-
+<br/>
 			<div class="col-sm-4">
 				<c:forEach var="parentname" items="${parentid.rows}">
 

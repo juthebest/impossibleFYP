@@ -100,8 +100,8 @@ ORDER BY `client`.client_id ASC
 
 <body>
 
-	<div class="container">
-
+<!-- 	<div class="container">
+ -->
 		<div class="container-fluid">
 			<div class="panel panel-default">
 
@@ -155,8 +155,8 @@ ORDER BY `client`.client_id ASC
 					</form>
 				</div>
 			</div>
-		</div>
-	</div>
+		</div> <!--  container-fluid -->
+<!-- 	<!-- </div> --> <!--  container -->
 
 	<!-- <Fixed footer> -->
 	<footer id="footerMenu"></footer>

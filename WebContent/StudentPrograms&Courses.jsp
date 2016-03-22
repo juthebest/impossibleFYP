@@ -138,7 +138,6 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 
 	<br />
 
-
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 		<div class="testing">
@@ -212,13 +211,13 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								<p>
 									<img
 										src="http://localhost:8080/impossibleWeb/readImageProgram?id=${categoryp.program_id} class="
-										img-thumbnail" alt="Cinque Terre" width="304" height="236">
+										img-thumbnail" class="img-responsive" alt="Cinque Terre" width="304" height="236">
 								</p>
 								<p>
 									<b>Title: </b>
 									<c:out value="${categoryp.program_name}" />
-									<input name="programidis" value="${categoryp.program_id}" />
-
+<%-- 									<input name="programidis" value="${categoryp.program_id}" />
+ --%>
 								</p>
 								<p>
 									<b>Categories: </b>
@@ -229,8 +228,8 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									View Details &raquo; </a>
 
 
-								<button type="submit" class="btn btn-primary" name="action"
-									value="Submitprogram">Add</button>
+							<!-- 	<button type="submit" class="btn btn-primary" name="action"
+									value="Submitprogram">Add</button> -->
 
 
 							</div>
@@ -249,7 +248,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								<p>
 									<img
 										src="http://localhost:8080/impossibleWeb/readImageItem?id=${categoryw.item_id} class="
-										img-thumbnail" alt="Cinque Terre" width="304" height="236">
+										img-thumbnail" alt="Cinque Terre" class="img-responsive" width="304" height="236">
 								</p>
 
 								<br> <input type="hidden" name="itemrunhasclientid"
@@ -266,9 +265,9 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								<a class="btn btn-success"
 									href="StudentViewWorkshops.jsp?workshop_id=${categoryw.item_id}">
 									View Details &raquo; </a>
-
+<!-- 
 								<button type="submit" class="btn btn-primary" name="action"
-									value="Submitcourse">Add</button>
+									value="Submitcourse">Add</button> -->
 
 							</div>
 						</div>
@@ -287,7 +286,7 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 								<p>
 									<img
 										src="http://localhost:8080/impossibleWeb/readImageItem?id=${categoryc.item_id} class="
-										img-thumbnail" alt="Cinque Terre" width="304" height="236">
+										img-thumbnail" alt="Cinque Terre" class="img-responsive" width="304" height="236">
 								</p>
 
 								<p>
@@ -302,8 +301,8 @@ WHERE client_id=<c:out value="${programcoachhasclient2.client_id}" />
 									href="studentviewcoaching.jsp?coaching_id=${categoryc.item_id}">
 									View Details &raquo; </a>
 
-								<button type="submit" class="btn btn-primary" name="action"
-									value="Submitworkshop">Add</button>
+					<!-- 			<button type="submit" class="btn btn-primary" name="action"
+									value="Submitworkshop">Add</button> -->
 							</div>
 						</div>
 					</c:forEach>

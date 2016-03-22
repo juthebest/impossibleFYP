@@ -115,8 +115,8 @@ FROM  user where user_id= <%=uid%>;
 
 			<c:forEach var="program" items="${program.rows}">
 
-				<input name="programidis" value="${program.program_id}" />
-
+<%-- 				<input name="programidis" value="${program.program_id}" />
+ --%>
 
 				<div class="page-header">
 					<h1>
